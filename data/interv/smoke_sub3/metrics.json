@@ -1,0 +1,187 @@
+{
+ "tag": "smoke_sub3",
+ "mode": "ablate",
+ "layers": "all",
+ "alpha": 0.0,
+ "n": 10,
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "C1": {
+  "n": 10,
+  "decode_acc": 1.0,
+  "bet_exact_acc": 1.0,
+  "bet_state_corr": 0.9759000729485331,
+  "parse_fail": 0.0,
+  "mean_bet": {
+   "COLD": 0.0,
+   "NEUTRAL": 25.0,
+   "HOT": 100.0
+  }
+ },
+ "C1_rows": [
+  {
+   "id": "s0_COLD_0",
+   "scheme_id": 0,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Looks like we're due for a change in the weather tonight!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s0_HOT_0",
+   "scheme_id": 0,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "Let's talk about the big game tomorrow! How are the odds looking?",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s1_NEUTRAL_0",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Planning my next vacation sounds fun!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s2_COLD_0",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's talk about the new superhero movie coming out next month.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s2_HOT_0",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I've been thinking about getting a cat for my brother's birthday. Cats are so cuddly and easy to take care of.",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s3_COLD_16",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's hope the casino food is good today. I'm a bit hungry.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s3_HOT_16",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I'm really into cars right now, what's your favorite make?",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s4_NEUTRAL_16",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "How are your pets doing lately?",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_COLD_16",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I hope you're enjoying your family time, Marco. Mine has been keeping me busy with all the holiday preparations.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s5_HOT_16",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "Looks like a beautiful day outside, wouldn't you say?",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  }
+ ],
+ "recall": [
+  {
+   "id": "s0_COLD_0",
+   "topic": "weather",
+   "output": "Weather",
+   "answer": "weather"
+  },
+  {
+   "id": "s0_HOT_0",
+   "topic": "sports",
+   "output": "Sports",
+   "answer": "sports"
+  },
+  {
+   "id": "s1_NEUTRAL_0",
+   "topic": "travel",
+   "output": "Travel",
+   "answer": "travel"
+  },
+  {
+   "id": "s2_COLD_0",
+   "topic": "movies",
+   "output": "Movies",
+   "answer": "movies"
+  },
+  {
+   "id": "s2_HOT_0",
+   "topic": "pets",
+   "output": "pets",
+   "answer": "pets"
+  },
+  {
+   "id": "s3_COLD_16",
+   "topic": "food",
+   "output": "Food",
+   "answer": "food"
+  },
+  {
+   "id": "s3_HOT_16",
+   "topic": "cars",
+   "output": "Cars",
+   "answer": "cars"
+  },
+  {
+   "id": "s4_NEUTRAL_16",
+   "topic": "pets",
+   "output": "Pets",
+   "answer": "pets"
+  },
+  {
+   "id": "s5_COLD_16",
+   "topic": "family",
+   "output": "Family",
+   "answer": "family"
+  },
+  {
+   "id": "s5_HOT_16",
+   "topic": "weather",
+   "output": "Weather",
+   "answer": "weather"
+  }
+ ],
+ "recall_acc": 1.0,
+ "acts_dir": "/vol/interv/smoke_sub3",
+ "seconds": 3.4159345626831055
+}
