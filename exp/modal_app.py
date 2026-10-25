@@ -171,7 +171,8 @@ class Runner:
         assert d.ndim == 3 and d.shape[-1] == self.D and d.shape[0] in (1, self.L), tuple(d.shape)
         Qs = [torch.linalg.qr(v.T)[0] for v in d]  # each [D,k], orthonormal columns
         us = [v[0] / v[0].norm() for v in d]
-        lidx = list(range(self.L)) if layers in (None, "all") else [int(x) for x in layers]
+        emb = layers in (None, "all") or (not isinstance(layers, str) and "emb" in list(layers))
+        lidx = list(range(self.L)) if layers in (None, "all") else [int(x) for x in layers if x != "emb"]
         pick = (lambda l: 0) if d.shape[0] == 1 else (lambda l: l)
 
         def fn(h, l):
@@ -188,7 +189,7 @@ class Runner:
                 return (fn(o[0], l),) + o[1:]
             return fn(o, l)
         hs = [self.layers[l].register_forward_hook(lambda m, i, o, l=l: hook(m, i, o, l)) for l in lidx]
-        if mode == "ablate" and layers in (None, "all"):
+        if mode == "ablate" and emb:  # embedding OUTPUT hooked with the LAYER-0 direction (fitted on layer-0 output)
             hs.append(self.model.model.embed_tokens.register_forward_hook(lambda m, i, o: fn(o, 0)))
         return hs
 
@@ -229,6 +230,7 @@ class Runner:
         outs = self._generate(texts, GEN["arc_max_new"])
         pred = [next((c for c in o.strip().replace(".", " ").split()[:1] if c in lab), None) if o.strip() else None
                 for o, lab in zip(outs, labs)]
+        self.last_arc_items = [dict(i=i, pred=p, gold=g, output=o) for i, (p, g, o) in enumerate(zip(pred, golds, outs))]
         return sum(p == g for p, g in zip(pred, golds)) / n
 
     # ------------------------------------------------------------------ public methods
@@ -385,6 +387,7 @@ class Runner:
                 res["recall"], res["recall_acc"] = self._recall(rows, msgs)
                 if do_arc:
                     res["arc_acc"] = self._arc(100)
+                    res["arc_items"] = self.last_arc_items
             finally:
                 for h in hs:
                     h.remove()
@@ -480,6 +483,60 @@ class Runner:
                                     layers=cap["layers"], seconds=time.time() - t0)
         vol.commit()
         return dict(results=res, captures=caps)
+
+    @modal.method()
+    def validate_hooks(self, direction, configs, ids, messages_path="", pipeline_rows=()):
+        """Hook-location validation (notes/unbundle_plan.md). For each config (dict(tag, layers|None)), run C1 generation on
+        `ids` with PROBE hooks registered AFTER the intervention hooks on the embedding output and every decoder-layer
+        output. Each probe records, per forward call, the phase (prefill: T>1, decode: T==1), the projection ratio
+        ||hQ||/||h|| onto that location's span (embedding uses the layer-0 span), and float64 sum/sum-of-squares
+        fingerprints, to compare against the matched unablated run. Also re-extracts `pipeline_rows` episodes' decision-
+        token activations via the prompt-only and full-transcript pipelines, to explain capture-vs-saved differences."""
+        import numpy as np
+        import torch
+        import env
+        mp = messages_path or f"/vol{_vp('')}/data/messages.jsonl"
+        allrows = {r["id"]: r for r in (json.loads(l) for l in open(mp))}
+        rows = [allrows[i] for i in ids]
+        d = torch.tensor(np.asarray(direction, np.float32), device="cuda")
+        Qs = [torch.linalg.qr(v.T)[0] for v in d]                       # [L] of [D,k]
+        out = {}
+        for cfg in configs:
+            rec = []
+
+            def probe(name, l):
+                def f(m, i, o):
+                    h = (o[0] if isinstance(o, tuple) else o).float()
+                    Q = Qs[l]
+                    ratio = ((h @ Q).norm(dim=-1) / h.norm(dim=-1).clamp_min(1e-9)).mean().item()
+                    rec.append(dict(loc=name, phase="prefill" if h.shape[1] > 1 else "decode", ratio=ratio,
+                                    s1=h.double().sum().item(), s2=(h.double() ** 2).sum().item()))
+                return f
+            hs = [] if cfg["layers"] is None else self._install(np.asarray(direction, np.float32), "ablate", cfg["layers"], 0.0)
+            ps = [self.model.model.embed_tokens.register_forward_hook(probe("emb", 0))]
+            ps += [lay.register_forward_hook(probe(f"L{l}", l)) for l, lay in enumerate(self.layers)]
+            try:
+                texts = [self._tmpl(env.receiver_msgs(r, r["collude_msg"], True)) for r in rows]
+                gen = self._generate(texts, GEN["decode_max_new"])
+            finally:
+                for h in hs + ps:
+                    h.remove()
+            assert not any(lay._forward_hooks for lay in self.layers) and not self.model.model.embed_tokens._forward_hooks
+            out[cfg["tag"]] = dict(records=rec, outputs=gen)
+        pipe = {}
+        for name, batch in (pipeline_rows or {}).items():  # {name: [dict(id, output)]} = one original extraction batch
+            prow = [allrows[x["id"]] for x in batch]
+            texts, fulls, spans, plens = [], [], [], []
+            for r, x in zip(prow, batch):
+                t = self._tmpl(env.receiver_msgs(r, r["collude_msg"], True))
+                sp = self._span(t, f"\n{r['sender']}: ", r["collude_msg"])
+                texts.append(t), fulls.append(t + x["output"] + self.eot), spans.append(sp), plens.append(sp[2])
+            prompt_only = self._acts(texts, spans, plens)[1]          # capture pipeline (prompt only)
+            full = self._acts(fulls, spans, plens)[1]                 # original extraction pipeline (full transcript)
+            pipe[name] = dict(ids=[x["id"] for x in batch], prompt_only=prompt_only.tolist(), full_transcript=full.tolist(),
+                              full_len=[len(self.tok(f, add_special_tokens=False)["input_ids"]) for f in fulls],
+                              prompt_len=plens)
+        return dict(configs=out, pipeline=pipe)
 
 # ---------------------------------------------------------------------- local entrypoints
 def _write_jsonl(path, rows):
@@ -733,3 +790,62 @@ def redund(which: str = "7b", folds: str = "0,1,2,3,4,5", smoke: int = 0):
             print("capture", tag, c["shape"], f"{c['seconds']:.0f}s", flush=True)
         json.dump(out["captures"], open(od / f"captures_{list(out['captures'])[0]}.json", "w"), indent=1)
     print(f"wall {time.time() - t0:.0f}s")
+
+
+def _unbundle_cfgs(k, pre):
+    """7B unbundling cells (notes/unbundle_plan.md): fold-k M2 state span (data/loso/fold<k>/state.npy, unchanged)."""
+    import numpy as np
+    M2 = np.load(ROOT / f"data/loso/fold{k}/state.npy").astype(np.float32)
+    late = list(range(18, 28))
+    return M2, [dict(tag=f"{pre}_f{k}_none", direction=None),
+                dict(tag=f"{pre}_f{k}_M2_late", direction=M2, layers=late),
+                dict(tag=f"{pre}_f{k}_M2_all", direction=M2, layers="all"),
+                dict(tag=f"{pre}_f{k}_EMB_LATE", direction=M2, layers=["emb"] + late),
+                dict(tag=f"{pre}_f{k}_PRE_LATE", direction=M2, layers=list(range(28)))]
+
+
+@app.local_entrypoint()
+def unbundle(folds: str = "0,1,2,3,4,5", smoke: int = 0):
+    """7B placement unbundling: none, M2_late, M2_all (reproductions of the core matrix), EMB_LATE (embedding hook with
+    the original layer-0 direction + layers 18-27), PRE_LATE (layers 0-27, no embedding hook). Held-out fold episodes,
+    C1, C6, recall, ARC (per item). Outputs: data/unbundle/runs/<tag>/metrics.json."""
+    splits = json.load(open(ROOT / "data/loso/splits.json"))
+    pre = "smoke" if smoke else "unb"
+    jobs = []
+    for k in folds.split(","):
+        _, cfgs = _unbundle_cfgs(k, pre)
+        jobs.append((cfgs, splits[k]["eval_ids"][: smoke or None], ("C1", "C6"), True, "unbundle", ""))
+    t0 = time.time()
+    for res_list in Runner().intervene_many.starmap(jobs):
+        for res in res_list:
+            od = ROOT / "data/unbundle/runs" / res["tag"]
+            od.mkdir(parents=True, exist_ok=True)
+            json.dump(res, open(od / "metrics.json", "w"), indent=1)
+            lay = res["layers"]
+            print(res["tag"], "C1", round(res["C1"]["decode_acc"], 3), "C6", round(res["C6"]["bet_exact_acc"], 3),
+                  "ARC", res.get("arc_acc"), "layers", lay if isinstance(lay, str) else f"{lay[0]}..{lay[-1]} ({len(lay)})",
+                  flush=True)
+    print(f"wall {time.time() - t0:.0f}s")
+
+
+@app.local_entrypoint()
+def unbundle_validate():
+    """Hook-location validation for the unbundling cells (prefill + decode probes; fold-0 direction; 9 held-out
+    fold-0 episodes) + capture-vs-saved pipeline test on extraction batches 4 (differing) and 9 (identical)."""
+    splits = json.load(open(ROOT / "data/loso/splits.json"))
+    M2, cfgs = _unbundle_cfgs("0", "val")
+    vcfgs = [dict(tag=c["tag"].split("_f0_")[1], layers=c.get("layers")) for c in cfgs]
+    ids = splits["0"]["eval_ids"][::6]
+    meta = json.load(open(ROOT / "data/acts/meta.json"))
+    outs = meta["conditions"]["C1"]["receiver_output"]
+    batches = {f"batch{b}": [dict(id=meta["ids"][i], output=outs[i]) for i in range(16 * b, 16 * b + 16)] for b in (4, 9)}
+    res = Runner().validate_hooks.remote(M2, vcfgs, ids, "", batches)
+    od = ROOT / "data/unbundle/validation"
+    od.mkdir(parents=True, exist_ok=True)
+    json.dump(dict(ids=ids, configs=res["configs"]), open(od / "hooks.json", "w"))
+    import numpy as np
+    for name, p in res["pipeline"].items():
+        np.savez(od / f"pipeline_{name}.npz", prompt_only=np.array(p["prompt_only"], np.float16),
+                 full_transcript=np.array(p["full_transcript"], np.float16), full_len=p["full_len"], prompt_len=p["prompt_len"],
+                 ids=np.array(p["ids"]))
+    print("saved", od)
