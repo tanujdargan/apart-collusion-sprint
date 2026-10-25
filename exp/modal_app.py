@@ -371,9 +371,10 @@ class Runner:
         out = []
         for cfg in configs:
             d = cfg["direction"]
-            hs = [] if d is None else self._install(np.asarray(d, np.float32), "ablate", "all", 0.0)
+            lay = cfg.get("layers", "all")  # "all" = all decoder layers + embedding; list = those decoder layers only
+            hs = [] if d is None else self._install(np.asarray(d, np.float32), "ablate", lay, 0.0)
             t0 = time.time()
-            res = dict(tag=cfg["tag"], mode="none" if d is None else "ablate", layers="all", n=len(rows), ids=list(ids),
+            res = dict(tag=cfg["tag"], mode="none" if d is None else "ablate", layers=lay, n=len(rows), ids=list(ids),
                        model=self.model_id, conditions=list(conditions), messages_path=mp)
             try:
                 for c in conditions:
@@ -438,6 +439,47 @@ class Runner:
         t0 = time.time()
         meta = self._extract(rows, outputs, tuple(extract_conds), 0, out_dir)
         return dict(baseline=base, extract_seconds=time.time() - t0, meta_keys=list(meta))
+
+    def _capture_last(self, rows, cond="C1"):
+        """Prompt-only forward pass; returns fp16 [N, L, D] decision-token (`last`) activations at decoder-layer outputs.
+        Any installed intervention hooks act during this pass (capture hooks are registered after them)."""
+        import env
+        colluding_rx, mkey = COND[cond]
+        texts, spans, plens = [], [], []
+        for r in rows:
+            t = self._tmpl(env.receiver_msgs(_ep(r, cond), r[mkey], colluding_rx))
+            sp = self._span(t, f"\n{r['sender']}: ", r[mkey])
+            texts.append(t), spans.append(sp), plens.append(sp[2])
+        return self._acts(texts, spans, plens)[1]
+
+    @modal.method()
+    def redund_fold(self, cfgs, ids, captures, cap_ids, group, messages_path=""):
+        """Behavioural stage of notes/redundancy_plan.md §5 for one held-out fold: behavioural configs on the fold's
+        held-out episodes (C1, C6, recall, ARC), then activation captures (dict(tag, direction|None, layers)) on
+        cap_ids (all 306), saved as fp16 `last` arrays to /vol/<group>/cap_<tag>.npy."""
+        import numpy as np
+        res = self._intervene_many(cfgs, ids, ("C1", "C6"), True, group, messages_path)
+        mp = messages_path or f"/vol{_vp('')}/data/messages.jsonl"
+        allrows = {r["id"]: r for r in (json.loads(l) for l in open(mp))}
+        rows = [allrows[i] for i in cap_ids]
+        caps = {}
+        for cap in captures:
+            d = cap["direction"]
+            hs = [] if d is None else self._install(np.asarray(d, np.float32), "ablate", cap["layers"], 0.0)
+            t0 = time.time()
+            try:
+                last = self._capture_last(rows)
+            finally:
+                for h in hs:
+                    h.remove()
+            assert not any(lay._forward_hooks for lay in self.layers), "leaked layer hook"
+            assert not self.model.model.embed_tokens._forward_hooks, "leaked embedding hook"
+            os.makedirs(f"/vol/{group}", exist_ok=True)
+            np.save(f"/vol/{group}/cap_{cap['tag']}.npy", last)
+            caps[cap["tag"]] = dict(path=f"/{group}/cap_{cap['tag']}.npy", shape=list(last.shape),
+                                    layers=cap["layers"], seconds=time.time() - t0)
+        vol.commit()
+        return dict(results=res, captures=caps)
 
 # ---------------------------------------------------------------------- local entrypoints
 def _write_jsonl(path, rows):
@@ -639,3 +681,55 @@ def prefetch_weights(model_id: str):
 @app.local_entrypoint()
 def prefetch(model: str = "Qwen/Qwen2.5-32B-Instruct"):
     print(prefetch_weights.remote(model))
+
+
+
+@app.local_entrypoint()
+def redund(which: str = "7b", folds: str = "0,1,2,3,4,5", smoke: int = 0):
+    """Core behavioural matrix of notes/redundancy_plan.md §5 (none, M2_all, M2_late, PC2_all, PC2_late) with
+    activation captures (M2_all, M2_late on all 306 episodes per fold; unablated capture in fold 0 as a pipeline check).
+    Frozen: fold directions (state.npy = M2, pc2d.npy = PC2), 7B message set, placement P_late = l >= ceil(2(L-1)/3).
+    Outputs: data/redund/<which>/runs/<tag>/metrics.json and data/redund/<which>/caps/*.npy."""
+    import math
+    import subprocess
+    import numpy as np
+    spec = {"7b": ("Qwen/Qwen2.5-7B-Instruct", "L40S", ROOT / "data/loso", ""),
+            "32b": ("Qwen/Qwen2.5-32B-Instruct", "H200", ROOT / "data_models/qwen32b/loso", "/vol/data/messages.jsonl")}
+    model, gpu, base, mp = spec[which]
+    splits = json.load(open(base / "splits.json"))
+    all_ids = [json.loads(l)["id"] for l in open(ROOT / "data/messages.jsonl")]
+    jobs = []
+    for k in folds.split(","):
+        M2 = np.load(base / f"fold{k}/state.npy").astype(np.float32)
+        PC2 = np.load(base / f"fold{k}/pc2d.npy").astype(np.float32)
+        L = M2.shape[0]
+        late = list(range(math.ceil(2 * (L - 1) / 3), L))
+        pre = "smoke" if smoke else "redund"
+        cfgs = [dict(tag=f"{pre}_f{k}_none", direction=None),
+                dict(tag=f"{pre}_f{k}_M2_all", direction=M2, layers="all"),
+                dict(tag=f"{pre}_f{k}_M2_late", direction=M2, layers=late),
+                dict(tag=f"{pre}_f{k}_PC2_all", direction=PC2, layers="all"),
+                dict(tag=f"{pre}_f{k}_PC2_late", direction=PC2, layers=late)]
+        caps = [dict(tag=f"{pre}_f{k}_M2_all", direction=M2, layers="all"),
+                dict(tag=f"{pre}_f{k}_M2_late", direction=M2, layers=late)]
+        if k == "0":
+            caps.append(dict(tag=f"{pre}_none", direction=None, layers="all"))
+        ids = splits[k]["eval_ids"][: smoke or None]
+        cap_ids = all_ids[: smoke or None]
+        jobs.append((cfgs, ids, caps, cap_ids, f"redund/{which}", mp))
+    od = ROOT / f"data/redund/{which}"
+    t0 = time.time()
+    for out in _runner(model, gpu).redund_fold.starmap(jobs):
+        for res in out["results"]:
+            rd = od / "runs" / res["tag"]
+            rd.mkdir(parents=True, exist_ok=True)
+            json.dump(res, open(rd / "metrics.json", "w"), indent=1)
+            print(res["tag"], "C1", round(res["C1"]["decode_acc"], 3), "C6 bet", round(res["C6"]["bet_exact_acc"], 3),
+                  "layers", "all" if res["layers"] == "all" else f"{res['layers'][0]}-{res['layers'][-1]}", flush=True)
+        (od / "caps").mkdir(parents=True, exist_ok=True)
+        for tag, c in out["captures"].items():
+            subprocess.run([str(ROOT / ".venv/bin/modal"), "volume", "get", "--force", "cutwire-vol", c["path"],
+                            str(od / "caps")], check=True, capture_output=True)
+            print("capture", tag, c["shape"], f"{c['seconds']:.0f}s", flush=True)
+        json.dump(out["captures"], open(od / f"captures_{list(out['captures'])[0]}.json", "w"), indent=1)
+    print(f"wall {time.time() - t0:.0f}s")

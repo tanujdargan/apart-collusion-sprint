@@ -26,3 +26,8 @@
     ablation. The V1 0.91 result came from ablated forward passes, so that question needs captured activations
     under ablation (paid; proposed, not run).
 - 12:45 unit check of cross-fitted design OK (7B fold 2 L22: degenerate ref 0.333 with coef norm 0.0). Full run 7b 32b 14b started (CPU).
+- 13:09 behavioural stage APPROVED by user (core matrix only; hard stop $6). Spend before: today $11.177  followups delta $3.780. Code: per-config layers in _intervene_many, _capture_last, redund_fold, redund entrypoint. 7B smoke start.
+- 13:10 7B smoke OK: placement verified (late: L<18 proj ratio = baseline, L>=18 ≈0; all: ≈0 everywhere); capture vs saved baseline rel diff ≤0.022. today $11.177  followups delta $3.780. 32B smoke start.
+- 13:12 32B smoke OK (82 s). today $11.265  followups delta $3.868. Launching full 7B (6×L40S) and 32B (6×H200) core matrices. Stage spend before launch ≈ $0.09 (lagging).
+- 13:17 full runs done: 7B 30 cfg + 13 caps (154 s wall); 32B 30 cfg + 13 caps (wall 299s). today $12.889  followups delta $5.492. No apps running.
+- 13:20 analysis done (exp/redund_behaviour_analyze.py → data/redund/tables.md, analysis.json, fig12); results summary notes/redundancy_behaviour_results.md. today $13.090  followups delta $5.693. REPORT_NOTES not edited (per instruction: results first, formatting later).
