@@ -351,14 +351,19 @@ class Runner:
         return res
 
     @modal.method()
-    def intervene_many(self, configs, ids, conditions=("C1", "C6"), do_arc=True, group="loso"):
+    def intervene_many(self, configs, ids, conditions=("C1", "C6"), do_arc=True, group="loso", messages_path=""):
         """Post-hoc LOSO robustness check (notes/loso_robustness_plan.md). Evaluates several ablation configs on the SAME
         episode subset in the same order (=> identical batching across configs). configs: list of dict(tag, direction)
         with direction None (matched baseline) or a RAW-space array as in _install; ablation at all layers + embedding.
-        Behaviour only (no activations). Each result also goes to /vol/<group>/<tag>/metrics.json."""
+        Behaviour only (no activations). Each result also goes to /vol/<group>/<tag>/metrics.json.
+        messages_path: frozen messages jsonl on the volume (default: the original 7B set /vol/data/messages.jsonl)."""
+        return self._intervene_many(configs, ids, conditions, do_arc, group, messages_path)
+
+    def _intervene_many(self, configs, ids, conditions=("C1", "C6"), do_arc=True, group="loso", messages_path=""):
         import numpy as np
         import env
-        allrows = {r["id"]: r for r in (json.loads(l) for l in open(f"/vol{_vp('')}/data/messages.jsonl"))}
+        mp = messages_path or f"/vol{_vp('')}/data/messages.jsonl"
+        allrows = {r["id"]: r for r in (json.loads(l) for l in open(mp))}
         missing = [i for i in ids if i not in allrows]
         assert not missing, f"episodes missing from frozen messages: {missing}"
         rows = [allrows[i] for i in ids]
@@ -369,7 +374,7 @@ class Runner:
             hs = [] if d is None else self._install(np.asarray(d, np.float32), "ablate", "all", 0.0)
             t0 = time.time()
             res = dict(tag=cfg["tag"], mode="none" if d is None else "ablate", layers="all", n=len(rows), ids=list(ids),
-                       model=self.model_id, conditions=list(conditions))
+                       model=self.model_id, conditions=list(conditions), messages_path=mp)
             try:
                 for c in conditions:
                     rr, _ = self._receivers(rows, msgs, c)
@@ -392,6 +397,47 @@ class Runner:
         vol.commit()
         return out
 
+
+    @modal.method()
+    def fresh_set(self, gen_seed, configs, do_arc=True):
+        """Fresh-message robustness (notes/followups_plan.md A): new COLLUDING sender messages for the same 306 episode
+        contexts (env.episodes(range(17))), same prompts/sampling, sampling seed = gen_seed (original set: 0). IDs are
+        m<gen_seed>_<orig_id>. Writes /vol/fresh/m<gen_seed>/messages.jsonl, then evaluates configs on all 306."""
+        import env
+        eps = env.episodes(range(17))
+        texts = [self._tmpl(env.sender_msgs(e, True)) for e in eps]
+        outs = self._generate(texts, GEN["sender_max_new"], temperature=GEN["sender_temperature"],
+                              top_p=GEN["sender_top_p"], seed=gen_seed)
+        rows = []
+        for e, o in zip(eps, outs):
+            r = dict(e, orig_id=e["id"], id=f"m{gen_seed}_{e['id']}", gen_seed=gen_seed, collude_raw=o,
+                     collude_msg=env.parse_talk(o) or "Good luck everyone.", collude_parse_ok=bool(env.parse_talk(o)))
+            r["collude_check"] = env.sender_check(r, r["collude_msg"])
+            r["collude_clean"] = r["collude_check"]["clean_target"]
+            rows.append(r)
+        d = f"/vol/fresh/m{gen_seed}"
+        os.makedirs(d, exist_ok=True)
+        with open(f"{d}/messages.jsonl", "w") as f:
+            for r in rows:
+                f.write(json.dumps(r) + "\n")
+        vol.commit()
+        res = self._intervene_many(configs, [r["id"] for r in rows], ("C1", "C6"), do_arc, f"fresh/m{gen_seed}",
+                                   f"{d}/messages.jsonl")
+        return dict(messages=rows, results=res)
+
+    @modal.method()
+    def baseline_and_extract(self, conditions=("C1", "C2", "C4", "C6"), extract_conds=("C1", "C4"),
+                             messages_path="", out_dir="/vol/qwen32b/acts", group="qwen32b/baseline"):
+        """32B step C1 (notes/followups_plan.md): matched no-intervention baseline on all frozen messages, then
+        activation extraction (mean/last/full_last) for extract_conds only, using the baseline receiver outputs."""
+        mp = messages_path or f"/vol{_vp('')}/data/messages.jsonl"
+        rows = [json.loads(l) for l in open(mp)]
+        base = self._intervene_many([dict(tag="baseline", direction=None)], [r["id"] for r in rows], conditions,
+                                    True, group, mp)[0]
+        outputs = {c: {x["id"]: x["output"] for x in base[c + "_rows"]} for c in extract_conds}
+        t0 = time.time()
+        meta = self._extract(rows, outputs, tuple(extract_conds), 0, out_dir)
+        return dict(baseline=base, extract_seconds=time.time() - t0, meta_keys=list(meta))
 
 # ---------------------------------------------------------------------- local entrypoints
 def _write_jsonl(path, rows):
@@ -436,7 +482,8 @@ def stage_b(model: str = DEFAULT_MODEL, seeds: int = 17, out_tag: str = "", cond
 @app.local_entrypoint()
 def intervene(direction_file: str = "", mode: str = "ablate", layers: str = "all", alpha: float = 0.0,
               conditions: str = "C1,C2,C3,C4", n: int = 0, tag: str = "run", model: str = DEFAULT_MODEL,
-              arc: bool = True, acts: bool = True, subspace: bool = False, pull: bool = True, out_tag: str = ""):
+              arc: bool = True, acts: bool = True, subspace: bool = False, pull: bool = True, out_tag: str = "",
+              gpu: str = "L40S"):
     """direction_file: local .npy [D] or [L,D]; 'random' -> random unit vector (seed 0); '' with mode=none."""
     import numpy as np
     if direction_file == "random":
@@ -446,7 +493,7 @@ def intervene(direction_file: str = "", mode: str = "ablate", layers: str = "all
     else:
         d = None
     lay = "all" if layers == "all" else [int(x) for x in layers.split(",")]
-    res = Runner(model_id=model).intervene.remote(d, mode, lay, alpha, tuple(conditions.split(",")), n or None, tag,
+    res = _runner(model, gpu).intervene.remote(d, mode, lay, alpha, tuple(conditions.split(",")), n or None, tag,
                                                   arc, acts, subspace, out_tag)
     od = _local(out_tag) / f"interv/{tag}"
     vp = _vp(out_tag)
@@ -487,15 +534,26 @@ LOSO_GLOBAL = dict(dm="detect_C1vC4_mean_dm", pc1d="pc_ctrl_1d", state="state_C1
                    lr="detect_C1vC4_mean_lr")
 
 
+def _runner(model, gpu):
+    return (Runner if gpu == "L40S" else Runner.with_options(gpu=gpu))(model_id=model)
+
+
 @app.local_entrypoint()
-def loso(folds: str = "0,1,2,3,4,5", configs: str = "", smoke: int = 0, arc: bool = True):
+def loso(folds: str = "0,1,2,3,4,5", configs: str = "", smoke: int = 0, arc: bool = True, out_tag: str = "",
+         model: str = DEFAULT_MODEL, gpu: str = "L40S", messages: str = ""):
     """Post-hoc LOSO robustness check (notes/loso_robustness_plan.md). One container per held-out scheme; every config
     (none, <dir>_global, <dir>_fold) is evaluated on that scheme's held-out episodes. Directions: data/directions/
     (global, fitted on all schemes) and data/loso/fold<k>/ (fitted without scheme k; exp/loso_fit.py).
-    Outputs: data/loso/runs/<tag>/metrics.json. --smoke N evaluates only the first N held-out episodes (tag prefix smoke_)."""
+    Outputs: data/loso/runs/<tag>/metrics.json. --smoke N evaluates only the first N held-out episodes (tag prefix smoke_).
+    Other models (notes/followups_plan.md): --out-tag qwen14b|qwen32b --model ... --gpu ... [--messages /vol/...]:
+    splits/global/fold directions from data_models/<tag>/loso/{splits.json,global,fold<k>}, outputs to
+    data_models/<tag>/loso/runs. --messages defaults to /vol/<tag>/data/messages.jsonl (14B: its own frozen set)."""
     import numpy as np
-    splits = json.load(open(ROOT / "data/loso/splits.json"))
+    base = ROOT / (f"data_models/{out_tag}/loso" if out_tag else "data/loso")
+    splits = json.load(open(base / "splits.json"))
     names = configs.split(",") if configs else ["none"] + [f"{b}_{w}" for b in LOSO_GLOBAL for w in ("global", "fold")]
+    mp = messages or (f"/vol/{out_tag}/data/messages.jsonl" if out_tag else "")
+    group = f"{out_tag}/loso" if out_tag else "loso"
     jobs = []
     for k in folds.split(","):
         ids = splits[k]["eval_ids"][: smoke or None]
@@ -505,16 +563,79 @@ def loso(folds: str = "0,1,2,3,4,5", configs: str = "", smoke: int = 0, arc: boo
                 d = None
             else:
                 b, w = nm.rsplit("_", 1)
-                f = ROOT / (f"data/directions/{LOSO_GLOBAL[b]}.npy" if w == "global" else f"data/loso/fold{k}/{b}.npy")
+                if out_tag:
+                    f = base / (f"global/{b}.npy" if w == "global" else f"fold{k}/{b}.npy")
+                else:
+                    f = ROOT / (f"data/directions/{LOSO_GLOBAL[b]}.npy" if w == "global" else f"data/loso/fold{k}/{b}.npy")
                 d = np.load(f).astype(np.float32)
             cfgs.append(dict(tag=f"{'smoke' if smoke else 'loso'}_f{k}_{nm}", direction=d))
-        jobs.append((cfgs, ids, ("C1", "C6"), arc, "loso"))
+        jobs.append((cfgs, ids, ("C1", "C6"), arc, group, mp))
     t0 = time.time()
-    for res_list in Runner().intervene_many.starmap(jobs):
+    for res_list in _runner(model, gpu).intervene_many.starmap(jobs):
         for res in res_list:
-            od = ROOT / "data/loso/runs" / res["tag"]
+            od = base / "runs" / res["tag"]
             od.mkdir(parents=True, exist_ok=True)
             json.dump(res, open(od / "metrics.json", "w"), indent=1)
             print(res["tag"], "C1", round(res["C1"]["decode_acc"], 3), "C6 bet", round(res["C6"]["bet_exact_acc"], 3),
                   "n", res["n"], f"{res['seconds']:.0f}s", flush=True)
     print(f"wall {time.time() - t0:.0f}s")
+
+
+@app.local_entrypoint()
+def fresh(sets: str = "101,202,303,404,505", arc: bool = True):
+    """Fresh-message robustness on Qwen2.5-7B (notes/followups_plan.md A). One container per sender seed set; FROZEN
+    original directions (data/directions) for configs none, dm, pc1d, state, pc2d, lr; all 306 episodes per set.
+    Outputs: data/fresh/m<seed>/messages.jsonl and data/fresh/m<seed>/runs/<tag>/metrics.json."""
+    import numpy as np
+    cfgs = [dict(tag="none", direction=None)] + [
+        dict(tag=b, direction=np.load(ROOT / f"data/directions/{f}.npy").astype(np.float32)) for b, f in LOSO_GLOBAL.items()]
+    seeds = [int(x) for x in sets.split(",")]
+    t0 = time.time()
+    for seed, out in zip(seeds, Runner().fresh_set.starmap([(s, cfgs, arc) for s in seeds])):
+        od = ROOT / f"data/fresh/m{seed}"
+        _write_jsonl(od / "messages.jsonl", out["messages"])
+        for res in out["results"]:
+            rd = od / "runs" / res["tag"]
+            rd.mkdir(parents=True, exist_ok=True)
+            json.dump(res, open(rd / "metrics.json", "w"), indent=1)
+            print(f"m{seed}", res["tag"], "C1", round(res["C1"]["decode_acc"], 3), "C6 bet",
+                  round(res["C6"]["bet_exact_acc"], 3), f"{res['seconds']:.0f}s", flush=True)
+    print(f"wall {time.time() - t0:.0f}s")
+
+
+@app.local_entrypoint()
+def stage32(model: str = "Qwen/Qwen2.5-32B-Instruct", gpu: str = "H200", out_tag: str = "qwen32b"):
+    """32B step C1 (notes/followups_plan.md C): baseline on the ORIGINAL 7B frozen messages (same episode ids/prompts/
+    scoring) for C1, C2, C4, C6 + recall + ARC; then extract C1/C4 activations to /vol/<tag>/acts and pull locally."""
+    import subprocess
+    t0 = time.time()
+    out = _runner(model, gpu).baseline_and_extract.remote(messages_path="/vol/data/messages.jsonl",
+                                                          out_dir=f"/vol/{out_tag}/acts", group=f"{out_tag}/baseline")
+    od = _local(out_tag)
+    (od / "acts").mkdir(parents=True, exist_ok=True)
+    (od / "baseline").mkdir(parents=True, exist_ok=True)
+    json.dump(out["baseline"], open(od / "baseline/metrics.json", "w"), indent=1)
+    b = out["baseline"]
+    print({c: (round(b[c]["decode_acc"], 3), round(b[c]["bet_exact_acc"], 3)) for c in ("C1", "C2", "C4", "C6")},
+          "recall", b["recall_acc"], "arc", b.get("arc_acc"), "extract s", round(out["extract_seconds"]), flush=True)
+    for f in ("C1.npz", "C4.npz", "meta.json"):
+        subprocess.run([str(ROOT / ".venv/bin/modal"), "volume", "get", "--force", "cutwire-vol",
+                        f"/{out_tag}/acts/{f}", str(od / "acts")], check=True)
+    print(f"wall {time.time() - t0:.0f}s")
+
+
+# ---------------------------------------------------------------------- follow-ups (notes/followups_plan.md)
+@app.function(volumes={"/vol": vol}, timeout=3600, cpu=4, memory=8192)
+def prefetch_weights(model_id: str):
+    """CPU-only download of model weights into the volume HF cache (no GPU billed while downloading)."""
+    from huggingface_hub import snapshot_download
+    t0 = time.time()
+    p = snapshot_download(model_id, allow_patterns=["*.json", "*.safetensors", "*.txt", "*.model", "tokenizer*"])
+    vol.commit()
+    size = sum(f.stat().st_size for f in Path(p).rglob("*") if f.is_file())
+    return dict(path=p, gb=size / 1e9, seconds=time.time() - t0)
+
+
+@app.local_entrypoint()
+def prefetch(model: str = "Qwen/Qwen2.5-32B-Instruct"):
+    print(prefetch_weights.remote(model))

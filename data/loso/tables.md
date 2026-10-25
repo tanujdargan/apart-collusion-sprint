@@ -2,6 +2,8 @@
 
 Pooled over 6 held-out folds, n = 306 episodes (51 per fold). Wilson 95% CIs. Parse failures = bet unparseable.
 
+`*_global` = the original directions (fitted on all 306, in-sample); `*_fold` = held-out. Ablation: all decoder layers + embedding output (the embedding uses the layer-0 direction, an inherited convention). ~150 uncorrected tests across models: descriptive only.
+
 | config | C1 decode [95% CI] | C1 bet-exact | C1 parse fail | C1 decoded None | C1 decoded C/N/H | C6 bet-exact [95% CI] | C6 parse fail | recall | ARC (mean of folds) |
 |---|---|---|---|---|---|---|---|---|---|
 | none | 0.958 [0.929–0.975] | 0.958 | 0 | 0 | 101/104/101 | 1.000 [0.988–1.000] | 0 | 0.967 | 0.970 |
@@ -40,13 +42,13 @@ Paired changes vs matched baseline (`none`, same episodes and batching); stratif
 
 Pre-specified decisions (C1 decode; drop = none − ablated):
 
-| direction | drop global | drop fold [CI] | fold/global | verdict | C6 drop (upper CI) | C6 spared? | per-fold consistency |
-|---|---|---|---|---|---|---|---|
-| dm | 0.265 | 0.225 [0.180, 0.271] | 0.85 | **SURVIVES** | -0.000 (-0.000) | True | 6/6 (folds with drop_fold ≥ 0.5·drop_global > 0) |
-| pc1d | 0.026 | 0.046 [0.020, 0.075] | 1.75 | **SURVIVES** | -0.000 (-0.000) | True | 2/6 (folds with drop_fold ≥ 0.5·drop_global > 0) |
-| state | 0.578 | 0.516 [0.458, 0.575] | 0.89 | **SURVIVES** | 0.049 (0.072) | True | 6/6 (folds with drop_fold ≥ 0.5·drop_global > 0) |
-| pc2d | 0.353 | 0.379 [0.324, 0.438] | 1.07 | **SURVIVES** | 0.134 (0.170) | False | 6/6 (folds with drop_fold ≥ 0.5·drop_global > 0) |
-| lr | 0.029 | 0.056 [0.029, 0.082] | 1.89 | **SURVIVES** | -0.000 (-0.000) | True | 3/6 (folds with drop_fold ≥ 0.5·drop_global > 0) |
+| direction | drop global | drop fold [CI] | fold/global | mechanical verdict | gated verdict (global ≥ 10 pp) | C6 drop (upper CI) | C6 spared? | per-fold consistency |
+|---|---|---|---|---|---|---|---|---|
+| dm | 0.265 | 0.225 [0.180, 0.271] | 0.85 | SURVIVES | **SURVIVES** | -0.000 (-0.000) | True | 6/6 (folds with drop_fold ≥ 0.5·drop_global > 0) |
+| pc1d | 0.026 | 0.046 [0.020, 0.075] | 1.75 | SURVIVES | **n/a (global effect < 10 pp or CI includes 0)** | -0.000 (-0.000) | True | 2/6 (folds with drop_fold ≥ 0.5·drop_global > 0) |
+| state | 0.578 | 0.516 [0.458, 0.575] | 0.89 | SURVIVES | **SURVIVES** | 0.049 (0.072) | True | 6/6 (folds with drop_fold ≥ 0.5·drop_global > 0) |
+| pc2d | 0.353 | 0.379 [0.324, 0.438] | 1.07 | SURVIVES | **SURVIVES** | 0.134 (0.170) | False | 6/6 (folds with drop_fold ≥ 0.5·drop_global > 0) |
+| lr | 0.029 | 0.056 [0.029, 0.082] | 1.89 | SURVIVES | **n/a (global effect < 10 pp or CI includes 0)** | -0.000 (-0.000) | True | 3/6 (folds with drop_fold ≥ 0.5·drop_global > 0) |
 
 Per-fold C1 decode (n = 51 each):
 

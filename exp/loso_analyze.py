@@ -1,8 +1,11 @@
 """Analysis of the post-hoc LOSO robustness check, implementing the rules fixed in notes/loso_robustness_plan.md.
 
   .venv-analysis/bin/python exp/loso_analyze.py  -> data/loso/analysis.json, data/loso/tables.md, figures/fig7_loso.{png,pdf}
+  DATA_DIR=data_models/qwen14b .venv-analysis/bin/python exp/loso_analyze.py   -> <DATA_DIR>/loso/..., figures/fig7_loso_qwen14b
+For other models the "global" configs are fitted on all episodes (<DATA_DIR>/loso/global) = in-sample evaluation.
 """
 import json
+import os
 from pathlib import Path
 
 import matplotlib.pyplot as plt
@@ -10,7 +13,9 @@ import numpy as np
 from scipy.stats import binomtest
 
 ROOT = Path(__file__).resolve().parent.parent
-RUNS, OUT = ROOT / "data/loso/runs", ROOT / "data/loso"
+DATA = ROOT / os.environ.get("DATA_DIR", "data")
+TAG = "" if DATA == ROOT / "data" else "_" + DATA.name
+RUNS, OUT = DATA / "loso/runs", DATA / "loso"
 FOLDS = [str(k) for k in range(6)]
 DIRS = ["dm", "pc1d", "state", "pc2d", "lr"]
 CFGS = ["none"] + [f"{d}_{w}" for d in DIRS for w in ("global", "fold")]
@@ -114,8 +119,12 @@ def main():
                                  c6_fold=float(np.mean([r["bet"] == BETS[r["state"]] for r in R[(k, f)]["C6_rows"]]))))
         consistent = sum(p["drop_global"] > 0 and p["drop_fold"] >= 0.5 * p["drop_global"] for p in per_fold)
         res["per_fold"][d] = per_fold
+        gci = res["paired"][g]["c1_dec"]["ci"]
+        # post-hoc reporting amendment (notes/followups_review.md #1): the SURVIVES/ATTENUATED vocabulary is only
+        # meaningful when there is an in-sample effect to survive; mechanical verdict kept alongside.
+        gated = verdict if (drop_g >= 0.10 and gci[1] < 0) else "n/a (global effect < 10 pp or CI includes 0)"
         res["decisions"][d] = dict(drop_fold=drop_f, drop_global=drop_g, ratio=ratio, ci_fold_drop=[-ci[1], -ci[0]],
-                                   verdict=verdict, c6_drop=c6_drop, c6_drop_ci_upper=c6_drop_hi,
+                                   verdict=verdict, verdict_gated=gated, c6_drop=c6_drop, c6_drop_ci_upper=c6_drop_hi,
                                    c6_spared=bool(c6_drop <= 0.05 and c6_drop_hi <= 0.10),
                                    folds_consistent=f"{consistent}/6 (folds with drop_fold ≥ 0.5·drop_global > 0)")
     for d, ctrl in (("dm", "pc1d"), ("state", "pc2d")):
@@ -125,7 +134,7 @@ def main():
     orig = dict(none=("baseline", "base_C6"), dm_global=("abl_detect_C1vC4_mean_dm", "abl_detect_C1vC4_mean_dm_C6"),
                 state_global=("abl_state_C1_last_2d", "abl_state_C1_last_2d_C6"), pc2d_global=("abl_pc_ctrl_2d", "abl_pc_ctrl_2d"),
                 pc1d_global=("abl_pc_ctrl_1d", "abl_pc_ctrl_1d"), lr_global=("abl_detect_C1vC4_mean_lr", "abl_detect_C1vC4_mean_lr_C6"))
-    for c, (t1, t6) in orig.items():
+    for c, (t1, t6) in (orig.items() if not TAG else []):  # determinism vs original 306-episode runs: 7B only
         o1 = {r["id"]: r for r in json.load(open(ROOT / f"data/interv/{t1}/metrics.json"))["C1_rows"]}
         o6 = {r["id"]: r for r in json.load(open(ROOT / f"data/interv/{t6}/metrics.json"))["C6_rows"]}
         new1 = [r for k in FOLDS for r in R[(k, c)]["C1_rows"]]
@@ -145,6 +154,10 @@ def main():
 def write_tables(res):
     L = ["# LOSO robustness check — generated tables (exp/loso_analyze.py)\n",
          f"Pooled over 6 held-out folds, n = {res['n_total']} episodes (51 per fold). Wilson 95% CIs. Parse failures = bet unparseable.\n",
+         ("`*_global` = directions fitted on all 306 episodes INCLUDING the evaluated scheme (in-sample); `*_fold` = fitted "
+          "without the evaluated scheme (held-out). " if TAG else "`*_global` = the original directions (fitted on all 306, "
+          "in-sample); `*_fold` = held-out. ") + "Ablation: all decoder layers + embedding output (the embedding uses the "
+         "layer-0 direction, an inherited convention). ~150 uncorrected tests across models: descriptive only.\n",
          "| config | C1 decode [95% CI] | C1 bet-exact | C1 parse fail | C1 decoded None | C1 decoded C/N/H | C6 bet-exact [95% CI] | C6 parse fail | recall | ARC (mean of folds) |",
          "|---|---|---|---|---|---|---|---|---|---|"]
     for c, p in res["per_config"].items():
@@ -162,12 +175,12 @@ def write_tables(res):
                  + (f"{bb['delta']:+.3f} [{bb['ci'][0]:+.3f}, {bb['ci'][1]:+.3f}]" if bb else "–")
                  + f" | {b['delta']:+.3f} [{b['ci'][0]:+.3f}, {b['ci'][1]:+.3f}] | {b['mcnemar_p']:.2g} |")
     L += ["\nPre-specified decisions (C1 decode; drop = none − ablated):\n",
-          "| direction | drop global | drop fold [CI] | fold/global | verdict | C6 drop (upper CI) | C6 spared? | per-fold consistency |",
-          "|---|---|---|---|---|---|---|---|"]
+          "| direction | drop global | drop fold [CI] | fold/global | mechanical verdict | gated verdict (global ≥ 10 pp) | C6 drop (upper CI) | C6 spared? | per-fold consistency |",
+          "|---|---|---|---|---|---|---|---|---|"]
     for d, x in res["decisions"].items():
         ratio = "–" if x["ratio"] is None else f"{x['ratio']:.2f}"
         L.append(f"| {d} | {x['drop_global']:.3f} | {x['drop_fold']:.3f} [{x['ci_fold_drop'][0]:.3f}, {x['ci_fold_drop'][1]:.3f}] | "
-                 f"{ratio} | **{x['verdict']}** | "
+                 f"{ratio} | {x['verdict']} | **{x['verdict_gated']}** | "
                  f"{x['c6_drop']:.3f} ({x['c6_drop_ci_upper']:.3f}) | {x['c6_spared']} | {x['folds_consistent']} |")
     L += ["\nPer-fold C1 decode (n = 51 each):\n", "| direction | fold | none | global | fold-fit | C6 bet-exact (fold-fit) |", "|---|---|---|---|---|---|"]
     for d, pf in res["per_fold"].items():
@@ -192,7 +205,8 @@ def figure(res):
             cis = np.array([res["per_config"][f"{d}_{w}"][ci_key] for d in DIRS])
             ax.bar(x + (j - 0.5) * 0.38, vals, 0.38, color=col,
                    yerr=[np.array(vals) - cis[:, 0], cis[:, 1] - np.array(vals)], capsize=2, error_kw=dict(lw=0.6),
-                   label="fitted on all schemes (original)" if w == "global" else "fitted without held-out scheme")
+                   label=("fitted on all 306 (in-sample)" if TAG else "fitted on all schemes (original, in-sample)")
+                   if w == "global" else "fitted without held-out scheme")
         if key == "c1_decode":
             for i, d in enumerate(DIRS):
                 ax.plot([i + 0.19] * 6, [p["fold_"] for p in res["per_fold"][d]], ".", color="k", ms=2.5, zorder=4)
@@ -204,7 +218,7 @@ def figure(res):
     b.legend(fontsize=6, frameon=False, loc="lower left")
     fig.tight_layout()
     for ext in ("png", "pdf"):
-        fig.savefig(ROOT / f"figures/fig7_loso.{ext}", dpi=300)
+        fig.savefig(ROOT / f"figures/fig7_loso{TAG}.{ext}", dpi=300)
 
 
 if __name__ == "__main__":

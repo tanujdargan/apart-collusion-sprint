@@ -2,12 +2,15 @@
 
   .venv-analysis/bin/python exp/loso_fit.py check   # refit on ALL episodes; must reproduce data/directions/* exactly
   .venv-analysis/bin/python exp/loso_fit.py fit     # per held-out scheme k: fit on other schemes -> data/loso/fold{k}/
+  DATA_DIR=data_models/qwen14b .venv-analysis/bin/python exp/loso_fit.py {check|global|fit}   # other models
+  (global: fit on ALL episodes -> <DATA_DIR>/loso/global/, the in-sample "global" configs for models without originals)
 
 Construction is identical to the originals (exp/probes.py baseline + the inline PC controls of REPORT_NOTES §4.5a),
 except that only the training episodes are used for means, centring, scaling and SVD.
 """
 import hashlib
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -17,7 +20,9 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 
 ROOT = Path(__file__).resolve().parent.parent
-ACTS, DIRS, OUT = ROOT / "data/acts", ROOT / "data/directions", ROOT / "data/loso"
+# DATA_DIR selects the model namespace (default data/ = Qwen2.5-7B; e.g. data_models/qwen14b, data_models/qwen32b).
+DATA = ROOT / os.environ.get("DATA_DIR", "data")
+ACTS, DIRS, OUT = DATA / "acts", DATA / "directions", DATA / "loso"
 STATES = ["COLD", "NEUTRAL", "HOT"]
 
 
@@ -93,10 +98,21 @@ ORIG = dict(dm="detect_C1vC4_mean_dm", state="state_C1_last_2d", pc2d="pc_ctrl_2
 if __name__ == "__main__":
     meta, P, N, X = load()
     state, scheme, ids = np.array(meta["state"]), np.array(meta["scheme_id"]), meta["ids"]
-    if sys.argv[1] == "check":
+    if sys.argv[1] in ("check", "global"):
         d = fit(np.arange(len(ids)), P, N, X, state)
         for k, f in ORIG.items():
-            print(k, "agreement with original (mean, min over layers):", subspace_agreement(d[k], np.load(DIRS / f"{f}.npy")))
+            if (DIRS / f"{f}.npy").exists():
+                print(k, "agreement with original (mean, min over layers):", subspace_agreement(d[k], np.load(DIRS / f"{f}.npy")))
+            else:
+                print(k, "no original file", DIRS / f"{f}.npy")
+        if sys.argv[1] == "global":
+            gd = OUT / "global"
+            gd.mkdir(parents=True, exist_ok=True)
+            for name, v in d.items():
+                np.save(gd / f"{name}.npy", v.astype(np.float32))
+            json.dump(dict(n=len(ids), var_share_all=var_share(np.arange(len(ids)), P, N, X, d),
+                           fit_code_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest()),
+                      open(gd / "provenance.json", "w"), indent=1)
     else:
         OUT.mkdir(parents=True, exist_ok=True)
         sha = {f.name: hashlib.sha256(f.read_bytes()).hexdigest() for f in (ACTS / "C1.npz", ACTS / "C4.npz", ACTS / "meta.json")}
@@ -113,7 +129,8 @@ if __name__ == "__main__":
             splits[str(k)] = dict(train_ids=[ids[i] for i in tr], eval_ids=[ids[i] for i in ev])
             prov["folds"][str(k)] = dict(n_train=len(tr), n_eval=len(ev), train_schemes=sorted(set(scheme[tr].tolist())),
                                          var_share_train=var_share(tr, P, N, X, d),
-                                         agreement_with_global={n: subspace_agreement(d[n], np.load(DIRS / f"{ORIG[n]}.npy"))[0] for n in d})
+                                         agreement_with_global={n: subspace_agreement(d[n], np.load(DIRS / f"{ORIG[n]}.npy"))[0]
+                                                                for n in d if (DIRS / f"{ORIG[n]}.npy").exists()})
             print(k, len(tr), len(ev), {n: round(v, 3) for n, v in prov["folds"][str(k)]["agreement_with_global"].items()})
         json.dump(splits, open(OUT / "splits.json", "w"), indent=1)
         json.dump(prov, open(OUT / "provenance.json", "w"), indent=1)

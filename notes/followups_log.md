@@ -1,0 +1,14 @@
+- 07:47 C0 prefetch Qwen2.5-32B-Instruct weights (CPU function) started
+- 07:50 14B loso_fit check: dm/state/pc2d/lr reproduce existing 14B files (agreement ≥0.999998); pc1d newly built (no original). Global + 6 folds fitted. 14B smoke test (2 eps) started.
+- 07:50 smoke OK (14B model + 14B messages confirmed). today $7.425  followups delta $0.028. Launching B (14B LOSO, 6×L40S) and A (fresh sets 101..505, 5×L40S) in parallel.
+- 07:54 B (14B LOSO) done: 66/66 configs, wall 214s. today $8.442  followups delta $1.045
+- 07:55 C0 prefetch done: Qwen2.5-32B-Instruct rev 5ede1c97, 65.54 GB, 489 s CPU. today $8.694  followups delta $1.297. Launching C1 stage32 (H200): baseline C1/C2/C4/C6/recall/ARC on 7B frozen messages + C1/C4 activations.
+- 07:59 A (fresh) done: 30/30 configs, wall 497s. today $9.154  followups delta $1.757
+- 07:59 note: fresh run printed an asyncio 'aclose(): asynchronous generator is already running' traceback at client shutdown, after all 30 results were saved; verified 30/30 metrics files + 5×306 messages. Fresh-analysis agent (CPU only) launched.
+- 08:00 C1 stage32 done (234 s wall): 32B C1 0.971, C2 0.324, C4 0.350, C6 1.000, recall 0.974, ARC 0.98 → passes 0.70 gate. Acts C1/C4 [306,64,5120] fp16 pulled (1.2 GB). today $9.329  followups delta $1.932. Fitting 32B global + folds (CPU).
+- 08:03 32B fold/global directions fitted (CPU). Var shares (mean over layers): dm 0.106, state 0.163, pc2d 0.217 (pc2d > state at 32B, original construction, not variance-matched), pc1d 0.083, lr 0.019. Smoke (2 eps, H200) OK: hooks active, correct model/messages. today $9.399  followups delta $2.002. Launching C2: 32B LOSO 6×H200 × 11 configs.
+- 08:07 C2 (32B LOSO) done: 66/66, wall 208s. today $10.781  followups delta $3.384
+- 08:08 verification V1 (coordinator): 32B state_global ablation with activation capture (C1, n=306, no ARC) to check (i) projection onto state subspace ≈ 0 at all 64 layers, (ii) retrained state decodability after ablation. Copied 7B messages to /vol/qwen32b/data/messages.jsonl (identical file) for the single-run entrypoint. today $11.018  followups delta $3.621
+- 08:11 V1 result: residual projection ≤0.021% of act norm at all 64 layers (ablation applied correctly); retrained state acc L42+ 0.966 → 0.913 after ablation (state re-encoded elsewhere). C1 decode under this run 0.922 (n=306). today $11.177  followups delta $3.780
+- 08:13 review saved (notes/followups_review.md). Applied post-hoc REPORTING amendment to loso_analyze (gated verdict vocabulary: global drop ≥10 pp with CI excl. 0; mechanical verdict kept), in-sample labels, embedding-hook note. Re-ran analysis for 7B/14B/32B (numbers unchanged).
+- 08:17 REPORT_NOTES updated (§1 claim/abstract v2, §4.9–4.12, figs 8–10, limitations, compute). today $11.177  followups delta $3.780. No apps running.

@@ -24,12 +24,16 @@ Deadline: Mon Oct 26 04:59 PDT (= Sun 23:59 AoE). Template: official Apart templ
 - [ ] Optional: public GitHub repo link
 - Track / question: Track 1 (1.3/1.4 detection) + 2.3 evidence. Builds on Rose et al. 2026.
 
-## 1. Working title & one-sentence claim  (FINAL — after two independent reviews, C6/PC controls, 3-model replication)
+## 1. Working title & one-sentence claim  (FINAL — updated after follow-ups A–C, §4.9–4.12)
 Title: *Cut the Wire: Perfect AUROC Does Not Mean a Collusion Probe Reads the Collusion*
-Claim: Across three models, linear collusion probes with AUROC ≈ 1.0 separate partner-message surface features from
-layer 0, and their directions (LR in all models) can be removed without stopping collusion, while the representation
-that actually drives the covert bet appears abruptly at about half depth, is nearly orthogonal to every detector
-(|cos| ≤ 0.2), and is steerable.
+Claim: Across Qwen2.5-7B/14B/32B, linear collusion probes with AUROC ≈ 1.0 separate partner-message surface features
+from layer 0 and are nearly orthogonal to the receiver's decoded covert state, which appears abruptly at about
+0.5–0.67 depth. Whether removing the state or detector directions stops collusion is model-dependent:
+- 7B: yes, robust to held-out-scheme fitting and to 5 fresh sender seeds.
+- 14B: the state ablation disrupts collusion but not selectively.
+- 32B: no fixed-recipe ablation materially disrupts collusion, because the state is redundantly encoded (still 0.91
+  decodable after removal).
+[Earlier one-model framing in §1 history superseded; see §4.8–4.12.]
 
 **Wording rules (from the reviewer; use them):**
 - Never say "ablating the detector blinds it" as a finding; it is algebraic for the frozen probe. Say "removes the
@@ -40,22 +44,21 @@ that actually drives the covert bet appears abruptly at about half depth, is nea
 - Random controls: say "random and variance-matched principal-component controls".
 - "Detectors track surface features of the partner message (separable at layer 0)", not "intent".
 
-### Draft abstract (FINAL, 248 words)
-Linear probes on activations detect collusion between LLM agents with near-perfect accuracy, and prior work reported
-that the signal spikes when a colluding agent reads the encoded part of its partner's message. Whether they read
-the signal that carries the collusion is untested. We build a controlled steganographic signalling game:
-a sender hides a betting signal in casino table talk under a private topic code, and receivers (Qwen2.5-7B,
-Qwen2.5-14B, Phi-3.5-mini) decode it with 96–100% accuracy (chance 33%). Controls vary only whether the message
-is a signal, or remove the covert channel. In all three models, standard collusion probes reach AUROC
-≥ 0.96 already at layer 0, reading message surface features; on NARCBench's released activations the
-steganography tier is separable by context length alone. The token-level spike is largely lexical: 42–91% of it
-persists when the same word is not a signal (Qwen-7B). Ablating logistic-regression probe directions at every layer
-leaves collusion largely intact (90–98% across models), and a retrained probe recovers the signal (AUROC ≥ 0.96). The
-receiver's decoded-state representation instead appears abruptly at about half depth, is nearly orthogonal to the
-detectors, and steering it just after onset raises bets on cold signals from ≈$0 to $75–93. Ablating it disrupts
-covert decoding while largely sparing explicit decisions in two of three models, but lower-variance control subspaces also
-disrupt decoding, so it stands out by selectivity rather than uniqueness. High AUROC is not evidence that a monitor
-tracks the collusion mechanism; monitors need counterfactual controls and causal validation.
+### Draft abstract (FINAL v2, after follow-ups)
+Linear probes on activations detect collusion between LLM agents with near-perfect accuracy, but whether they read
+the signal that carries the collusion is untested. We build a steganographic signalling game in which a sender hides
+a betting signal in casino table talk under a private topic code; Qwen2.5 receivers (7B, 14B, 32B) decode it with
+96–100% accuracy (chance 33%). In all three models, standard collusion probes reach AUROC ≥ 0.96 already at layer 0,
+reading message surface features, and are nearly orthogonal to the receiver's decoded covert state, which emerges
+abruptly at about half to two-thirds depth. On NARCBench's released activations the steganography tier is separable by
+context length alone. Causal ablations then diverge across models. In 7B, removing a mass-mean detector direction or
+the 2-D decoded-state subspace cuts covert decoding by 22 and 52 points with held-out-scheme fitting, and by 28 and
+58 points on five fresh sender seeds, while largely sparing explicit-state decisions. In 14B, the state ablation
+disrupts collusion but also explicit decisions and general capability. In 32B, no detector, state or control
+ablation reduces collusion by more than 9 points, even though the ablation exactly removes the subspace and the state
+stays linearly decodable (0.91), which indicates redundant encoding. Removing logistic-regression probe directions never
+costs more than 6 points. High probe AUROC is therefore not evidence that a monitor tracks the collusion mechanism, and causal
+conclusions from one model need not transfer to larger ones.
 
 ### Contributions (for the intro)
 1. A controlled testbed (Signal Table) with six receiver conditions that separate colluding context (C3), message
@@ -67,6 +70,9 @@ tracks the collusion mechanism; monitors need counterfactual controls and causal
 3. The first real-data token-level test of the "spike on encoded tokens" claim (Rose et al. v1): largely lexical
    (42–91% of the excess persists when the word is not a signal; Qwen-7B); a small genuine marker along a non-lexical direction.
 4. A confound audit of NARCBench's released activations (Stego is fully length-separable).
+6. Post-hoc robustness and extension (§4.8–4.12): held-out-scheme direction fitting (7B, 14B, 32B), five fresh
+   sender seeds (7B), and a matched-input Qwen2.5-32B comparison with an ablation-correctness check, showing the
+   7B causal result is robust in 7B but does not transfer to 14B (non-selective) or 32B (redundant encoding).
 5. Practical guidance: AUROC does not establish causal relevance; ablating surface-detector directions (LR, dm,
    NARCBench-style) leaves the information linearly recoverable (retrained ≥ 0.96) — the C1vC5 decision-token direction
    is the exception in 14B/Phi (retrained 0.32/0.35); in Qwen-7B the covert decision is redundant across depth (no half
@@ -491,11 +497,131 @@ state − PC-2D = −0.137 [−0.206, −0.069] in C1 and +0.085 [+0.042, +0.131
 - Establishes: the two positive 7B effects (dm direction → no-signal default with explicit decisions intact; state
   subspace → covert decoding collapses) do not depend on fitting the direction on the evaluated scheme; most (85–89%)
   of each effect remains, consistently across all 6 folds.
-- Does not establish: generalisation to new messages (single frozen generation), to new schemes outside the 6
+- [UPDATED: fresh messages → §4.9; 14B LOSO → §4.10; 32B → §4.11.] Does not establish: generalisation to new messages (single frozen generation), to new schemes outside the 6
   topic sets, or to 14B/Phi (their directions are still fitted on all episodes; not rechecked here); detector AUROC
   after fold-fit ablation (behaviour only, no activations re-extracted); a unique mechanism (PC controls also disrupt).
 - Cost: Modal billing today rose $7.00 → $7.37 for the smoke test + 66 configs (115 s wall, 6 parallel L40S
   containers); billing may lag slightly. No apps left running.
+
+### 4.9 Follow-up A: fresh-message robustness, Qwen2.5-7B ✅ (data/fresh/; notes/fresh_results.md; post hoc)
+- Design: 5 new COLLUDING sender message sets for the SAME 306 episode contexts (env.episodes(range(17)): same
+  prompts, schemes, 6×3×17 state distribution, T=0.7, top_p=1, max_new 120). Only the sender sampling seed changes:
+  gen_seed ∈ {101, 202, 303, 404, 505}; original = 0. IDs are `m<seed>_<orig_id>`. Nothing was regenerated or filtered.
+- Directions and analysis are FROZEN (original data/directions files, no refit); same hooks and scoring. Per set,
+  one L40S container evaluates none/dm/PC-1D/state/PC-2D/LR on all 306 episodes in the original order (matched
+  batching): C1, C6, recall, ARC. 30/30 configs, 497 s wall.
+- Checks: ids one-to-one with orig_id; counts derived from data; 0 message parse failures; ARC identical across sets
+  for each config (determinism).
+- Overlap with the original set: 3–6% exact same-episode copies, 5–9% same-episode near-duplicates (difflib ≥ 0.9;
+  median same-episode similarity ≈ 0.45); because of stock phrases, 23–29% exactly match SOME original message and
+  33–39% have a near-duplicate somewhere. Sender compliance is similar (target-topic keyword 0.790 vs 0.824).
+- Baseline capability unchanged: C1 decode 0.948–0.967 per set (original 0.958); C6 1.000 in every set.
+- Results (C1 decode Δ vs each set's matched none; pooled over 5 sets of the SAME 306 contexts; **primary CI =
+  cluster bootstrap over contexts**, stratified by scheme):
+| config | original Δ | fresh pooled Δ [cluster 95% CI] | per-set range / seed SD | C6 Δ fresh [CI] | gated verdict |
+|---|---|---|---|---|---|
+| dm | −0.258 | **−0.278 [−0.318, −0.237]** | SD 0.017 | 0 | REPLICATES |
+| state 2-D | −0.575 | **−0.584 [−0.635, −0.532]** | SD 0.008 | −0.029 [−0.044, −0.016] (spared) | REPLICATES |
+| PC-2D | −0.356 | −0.363 [−0.415, −0.310] | SD 0.025 | −0.198 [−0.238, −0.158] (not spared) | REPLICATES |
+| LR | −0.029 | −0.054 [−0.069, −0.039] | SD 0.009 | 0 | n/a: small (≈5 pp) effect again |
+| PC-1D | −0.023 | −0.035 [−0.050, −0.020] | SD 0.018 | 0 | n/a: DECODE-field formatting effect (bets unchanged, +0.001) |
+  (Original Δ recomputed from the full-306 original runs; the LOSO "global" re-runs differ slightly due to batching.)
+- Novel-message subset (max similarity to ANY original < 0.9 and no same-episode exact copy; 186–204 per set, 968
+  rows, 289 contexts): baseline 0.949 vs 0.970 for the rest; effects within ≈1 pp of the full set (dm −0.281, state
+  −0.585, PC-2D −0.375, LR −0.043).
+- The n=5 seed SD is indicative only (95% CI ≈ [0.6, 2.9]×SD). The old episode-level pooled CI is kept but labelled
+  optimistic.
+- Establishes: the 7B dm and state effects (and the non-selective PC-2D effect) are unchanged when the sender is
+  resampled at T=0.7 for the same contexts, including on genuinely novel lines. Does not establish: new schemes or
+  contexts, real-world channels, other models (14B/32B have no fresh-message check); this is a frozen-direction
+  transfer test.
+
+
+### 4.10 Follow-up B: 14B held-out-scheme (LOSO) check ✅ (data_models/qwen14b/loso/; post hoc)
+Plan: notes/followups_plan.md §B; log: notes/followups_log.md; review: notes/followups_review.md.
+- Inputs: the existing 14B activations (C1/C4 mean/last, [306,48,5120]) and 14B's OWN frozen sender messages
+  (/vol/qwen14b/data/messages.jsonl), so there was no extraction cost.
+- Fitting: exp/loso_fit.py (DATA_DIR=data_models/qwen14b) reproduces the existing 14B dm/state/PC-2D/LR files
+  exactly when given all 306 episodes (agreement ≥ 0.999998). PC-1D did not exist for 14B, so it was built here with
+  the same construction. Fold-vs-global agreement: 0.81–0.98.
+- Run: 6 folds × 11 configs, L40S, 214 s wall, same fixed all-layer + embedding policy. Analysis by
+  exp/loso_analyze.py, unchanged.
+- Pooled held-out results (n = 306; strict C1 decode and bet-exact both reported, because 14B often drops "DECODE:"):
+| config | C1 decode | C1 bet-exact | Δ C1 decode [CI] | C6 bet-exact (Δ) | recall | ARC | C1/C6 parse fail |
+|---|---|---|---|---|---|---|---|
+| none | 0.997 | 0.997 | – | 1.000 | 1.000 | 0.990 | 0/0 |
+| dm fold | 0.974 | 0.977 | −0.023 [−0.042, −0.007] | 1.000 (0) | 0.993 | 0.978 | 0/0 |
+| PC-1D fold | 0.990 | 0.990 | −0.007 [−0.016, 0.000] | 1.000 | 0.984 | 0.990 | 0/0 |
+| state global (in-sample) | 0.382 | 0.624 | −0.614 | 0.709 (−0.291) | 0.745 | 0.820 | 12/0 |
+| **state fold** | **0.464** | **0.614** | **−0.533 [−0.585, −0.480]** | **0.771 (−0.229 [−0.275, −0.183])** | 0.745 | 0.753 | 17/0 |
+| PC-2D fold | 0.288 | 0.546 | −0.709 [−0.755, −0.660] | 0.663 (−0.337) | 0.794 | 0.365 | 78/68 |
+| LR fold | 0.990 | 0.990 | −0.007 [−0.016, 0.000] | 1.000 | 1.000 | 0.990 | 0/0 |
+- Gated verdicts (global effect ≥ 10 pp required): state SURVIVES (fold 0.533 = 87% of global, 5/6 folds) but is NOT
+  selective (C6 −0.229, recall 0.745, ARC 0.753). dm, PC-1D and LR: n/a (in-sample effects < 10 pp).
+- 14B "PC-2D" is a format-breaking perturbation, not a usable control: 257/306 C1 outputs unparsed (global), 78 C1
+  and 68 C6 parse failures (fold), ARC 0.35–0.37. So state − PC-2D comparisons at 14B are not evidence of selectivity.
+- Reading: on 14B the decoded-state subspace is needed for covert decoding but its removal also damages
+  explicit-state decisions, recall and ARC. The 7B "selective" pattern does not hold on 14B out of sample, and the
+  7B dm detector effect is absent at 14B.
+
+### 4.11 Follow-up C: focused Qwen2.5-32B-Instruct extension ✅ (data_models/qwen32b/; post hoc, exploratory)
+- Setup: bf16 (same precision as 7B/14B; no quantisation), revision 5ede1c97, 64 layers, d 5120. 65.5 GB weights
+  were prefetched to the volume on CPU (489 s). Modal **H200** (141 GB); generation batch 48 and activation batch 8,
+  as for 14B. Inputs: the **7B frozen messages and episode ids** (same prompts and scoring) → matched input-for-input
+  with 7B (14B used its own messages).
+- Capability gate (n = 306): C1 0.971 (r 0.934), C2 0.324, C4 0.350 (chance controls), C6 1.000, recall 0.974,
+  ARC 0.98, 0 parse failures → passes the 0.70 gate.
+- Activations: C1 and C4 only (mean/last/full_last), [306,64,5120] fp16, 1.2 GB. Directions use the original
+  constructions and hyperparameters: global (all 306 = in-sample) and 6 held-out folds. Variance share (mean over
+  layers): dm 0.106, state 0.163, PC-2D 0.217, PC-1D 0.083, LR 0.019.
+- Probe geometry (notes/xmodel_results.md; data_models/qwen32b/probes32.json):
+  - C1vC4 AUROC at layer 0 is 0.992 (mean) / 0.997 (end-of-turn), and 0.96–1.00 at all layers.
+  - State is at chance up to L27; ≥ 0.5 at L38 (0.60 depth); ≥ 0.8 at L42 (0.67); plateau 0.94–0.97.
+  - Detector vs state max |cos| 0.111.
+  → 32B matches 7B's geometry (onset depth 0.60/0.67 vs 7B 0.59/0.67; 14B earlier at 0.51/0.55).
+  - C1vC2/C3/C5 were not extracted for 32B.
+- LOSO interventions (6 folds × 11 configs, 6 × H200, 208 s wall):
+| config | C1 decode | Δ C1 decode [CI] | C6 bet-exact | recall | ARC |
+|---|---|---|---|---|---|
+| none | 0.971 | – | 1.000 | 0.974 | 0.980 |
+| dm global / fold | 0.915 / 0.925 | −0.056 / **−0.046 [−0.072, −0.020]** | 0.997 / 0.997 | 0.958 | 0.970 / 0.973 |
+| PC-1D global / fold | 0.971 / 0.971 | 0 / 0 | 1.000 | 0.974 | 0.990 |
+| state global / fold | 0.928 / 0.886 | −0.042 / **−0.085 [−0.118, −0.056]** | 1.000 / 0.993 | 0.971 / 0.980 | 0.900 / 0.883 |
+| PC-2D global / fold | 0.974 / 0.974 | +0.003 / +0.003 | 1.000 / 0.993 | 0.974 | 0.980 / 0.952 |
+| LR global / fold | 0.977 / 0.977 | +0.007 / +0.007 | 1.000 | 0.967 | 0.990 |
+  - Gated verdicts: all n/a (no in-sample effect ≥ 10 pp). Mechanical "state SURVIVES" is a rule artefact: the fold
+    effect exceeds the in-sample one (fold − global −0.042 [−0.072, −0.010]) and comes mostly from fold 4 (−0.35);
+    folds 1 and 3 drop 0.08 and 0.12, the other three ≈ 0. ARC under the state ablation falls to 0.65 in fold 0
+    with no C1 drop.
+- **Verification V1 (decisive check, exp/verify_32b_ablation.py):** the 32B global state ablation was re-run with
+  activation capture (n=306; C1 decode 0.922).
+  - Residual projection onto the subspace is ≤ 0.021% of activation norm at all 64 layers (e.g. L60 128 → 0.07),
+    so the ablation is applied correctly.
+  - A re-trained LOSO state probe still reads the state at 0.913 (L42+; baseline 0.966).
+  → the 32B covert decision is redundantly encoded outside the 2-D subspace. Comparison (post-onset mean,
+    retrained, after the same in-sample all-layer state ablation): **7B 0.918 → 0.624; 14B 0.981 → 0.759; 32B 0.966
+    → 0.913** (figures/fig10_redundancy). Behaviour: 7B −0.58, 14B −0.61 (non-selective), 32B −0.04 (in-sample).
+- **Answer to the 32B question** (exploratory; 3 models, not a scaling law): the detector/probe geometry is unchanged
+  at 32B (layer-0 separability, ~0.6-depth state onset, detector ⟂ state), but the intervention relationship
+  changes. With the fixed recipe, no single direction or 2-D subspace (detector, state, or control) materially
+  disrupts 32B's covert decoding (≤ 8.5 pp held-out), although the state stays linearly decodable and the hooks act.
+  Whether this reflects scale or this recipe (all-layer linear 2-D ablation, one message set) is open; no
+  layer/strength search was done.
+
+### 4.12 Cross-model synthesis (notes/xmodel_results.md; data/xmodel_tables.md; figures/fig9_xmodel)
+Held-out (fold-fit) Δ in C1 covert decode / Δ in C6 explicit decisions:
+| direction | 7B | 14B (own messages) | 32B (7B messages) |
+|---|---|---|---|
+| dm detector | −0.225 / 0 | −0.023 / 0 | −0.046 / −0.003 |
+| LR detector | −0.056 / 0 | −0.007 / 0 | +0.007 / 0 |
+| state 2-D | −0.516 / −0.049 | −0.533 / −0.229 | −0.085 / −0.007 |
+| PC-2D | −0.379 / −0.134 | −0.709 / −0.337 (format breakdown) | +0.003 / −0.007 |
+| PC-1D | −0.046 / 0 | −0.007 / 0 | 0 / 0 |
+Robust across all three: detectors are surface-separable (layer-0 AUROC ≥ 0.986), the decoded state appears abruptly
+at about half to two-thirds depth, and detector directions are near-orthogonal to it (max |cos| ≤ 0.125).
+Model-specific: the dm detector's causal role (7B only); state-ablation selectivity (7B marginal, 14B none, 32B no
+effect). Only the per-model direction of each effect is supported; magnitude orderings across models are confounded
+(14B's own messages, depth under "all layers", one message set each for 14B/32B, L40S vs H200).
 
 ## 5. Figures (planned)
 | # | File | What it shows | Source data / script |
@@ -507,6 +633,10 @@ state − PC-2D = −0.137 [−0.206, −0.069] in C1 and +0.085 [+0.042, +0.131
 | 5 ✅ | figures/fig5_steer.{png,pdf} | Steering along HOT−COLD at L20: (a) mean bet by true state vs α (COLD bets $2→$85 at α=+40; × = random direction at α=±40, COLD bets $1–2); (b) decode acc vs recall vs ARC. | data/interv/steer_*; exp/figs_results.py |
 | 6 ✅ | figures/fig6_models.{png,pdf} | Cross-model (Qwen2.5-7B, Qwen2.5-14B, Phi-3.5-mini) vs relative depth: (a) covert-state decodability on held-out schemes rises from chance at ~0.5–0.6 depth to ≥0.9 within 2–4 layers in all three; (b) C1vC4 detector AUROC ≈1.0 at every depth (solid) vs C1vC5 'signal-for-me' detector (dashed), which only works after state onset (weak in Phi). | data/probes.json, data_models/*/probes.json; exp/fig_models.py |
 | 7 ✅ (post hoc) | figures/fig7_loso.{png,pdf} | Qwen2.5-7B, LOSO robustness: pooled held-out (n=306) accuracy for each ablation fitted on all schemes (grey, original) vs fitted without the held-out scheme (blue), Wilson 95% CIs; dots = per-fold fold-fit values; dashed = matched baseline. (a) C1 covert decoding, (b) C6 explicit-state decision. dm and state effects persist; state's C6 sparing weakens slightly (0.98 → 0.95). | data/loso/analysis.json, tables.md; exp/loso_analyze.py |
+| 8 ✅ (post hoc) | figures/fig8_fresh.{png,pdf} | 7B fresh-message robustness: per config, original-set accuracy (black) vs the 5 fresh sender seeds (dots) and the fresh pooled value (cluster CI), for (a) C1 covert decoding and (b) C6 explicit-state betting. | data/fresh/analysis.json; exp/fresh_analyze.py |
+| 9 ✅ (post hoc) | figures/fig9_xmodel.{png,pdf} | 7B/14B/32B: (a) state decodability vs relative depth; (b) C1vC4 detector AUROC vs depth (incl. layer 0); (c) held-out ablation effects, C1 covert drop vs C6 explicit drop, per direction and model, with 95% CIs. | data/xmodel_summary.json, data_models/*/loso/analysis.json; exp/xmodel_analyze.py |
+| 10 ✅ (post hoc) | figures/fig10_redundancy.{png,pdf} | State decodability (retrained LOSO probe) before vs after the in-sample all-layer 2-D state ablation: 7B drops to ≈0.62, 14B to ≈0.76, 32B stays ≈0.91 → redundancy at 32B. | */interv/abl_state_C1_last_2d/post_probes.json, data_models/qwen32b/interv/verify_state_global_acts/verify.json; exp/fig_redundancy.py |
+| 7b/7c | figures/fig7_loso_qwen14b.*, fig7_loso_qwen32b.* | Per-model versions of Fig 7 (global = in-sample) | exp/loso_analyze.py with DATA_DIR |
 | S1 | supp_narcbench/figs/confound_auroc.png | NARCBench Qwen3-32B: surface features (n_tokens etc.) vs probe AUROC per tier; Stego fully length-confounded | supp_narcbench/analysis.py |
 | S2 | supp_narcbench/figs/cosine_heatmap_P.png | Cross-tier probe-direction cosine vs shuffled baseline | supp_narcbench/analysis.py |
 
@@ -524,6 +654,20 @@ state − PC-2D = −0.137 [−0.206, −0.069] in C1 and +0.085 [+0.042, +0.131
   14B/Phi effects are small (COLD $33/$48).
 - The C1vC5 decision-token ablation is the one case where linearly recoverable information drops (retrained 0.32 14B,
   0.35 Phi), but it also barely affects collusion (0.88 / 0.95).
+- Follow-ups (§4.9–4.12) are post hoc and exploratory; plans were written before runs (notes/followups_plan.md),
+  with one reporting amendment after review (gated verdict vocabulary; mechanical verdicts kept).
+  - Fresh messages share the original episode contexts, and ≈⅓ near-duplicate some original line; the
+    novel-subset result is similar.
+  - 14B used its own sender messages while 7B/32B share messages; 14B/32B have one message set each and no
+    fresh-message check.
+  - 32B "global" configs are in-sample; only fold configs are held-out.
+  - The PC controls are not variance-matched layer by layer in any model (PC-2D > state averaged over layers in
+    7B/32B; state > PC-2D post-onset in all three); 14B PC-2D breaks output format (unusable as a control).
+  - The embedding hook reuses the layer-0 direction (inherited convention).
+  - About 150 uncorrected tests across the project: descriptive; small effects (< 5 pp) are not interpreted.
+  - GPUs differ (L40S vs H200).
+  - The 32B redundancy explanation rests on one verification run (in-sample global direction); no layer/strength
+    search was done, so the 32B result may be recipe-specific rather than scale-specific.
 - Direction-fitting leakage (addressed post hoc, 7B only, §4.8): the original intervention directions and PC controls
   were fitted on all episodes, including the evaluated ones. Refitting without the evaluated scheme keeps 85–89% of the
   dm and state effects (6/6 folds), but the state subspace's sparing of explicit decisions is only marginal (C6 0.951;
@@ -564,7 +708,7 @@ state − PC-2D = −0.137 [−0.206, −0.069] in C1 and +0.085 [+0.042, +0.131
   disruptive, so this is not yet a specific mitigation.
 - No human subjects; all data is synthetic; the casino card-counting framing is a toy (card counting is legal but
   banned by casinos); no real-world deployment.
-- Compute: ≈ $7.4 Modal total (7B study ≈ $1.5; replication ≈ $6; post-hoc LOSO check ≈ $0.37), Modal L40S; analysis on a laptop CPU.
+- Compute: Modal ≈ $11.2 total for the project today (7B study ≈ $1.5; first replication ≈ $6; 7B LOSO ≈ $0.4; follow-ups A–C incl. 32B on H200 ≈ $3.8, tracked in notes/followups_log.md); analysis on a laptop CPU.
 
 ## 7. Sources
 ✅ notes/sources.md: 36 verified refs + references.bib + draft Related Work paragraphs. notes/rose_paper.md ⏳.
