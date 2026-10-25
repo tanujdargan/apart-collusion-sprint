@@ -31,7 +31,9 @@ from layer 0 and are nearly orthogonal to the receiver's decoded covert state, w
 0.5–0.67 depth. Whether removing the state or detector directions stops collusion is model-dependent:
 - 7B: yes, robust to held-out-scheme fitting and to 5 fresh sender seeds.
 - 14B: the state ablation disrupts collusion but not selectively.
-- 32B: no fixed-recipe ablation materially disrupts collusion, because the state is redundantly encoded (still 0.91
+- 32B: no fixed-recipe ablation materially disrupts collusion. [REVISED §4.13: a state probe retrained on ablated-pass
+  activations still reads ≈0.92 (7B ≈0.62), but static residual information after span removal is similar in 7B and
+  32B (0.54 vs 0.60), so the 7B/32B difference arises under the intervention; "redundant encoding" is not established.] (was: "because the state is redundantly encoded (still 0.91
   decodable after removal).
 [Earlier one-model framing in §1 history superseded; see §4.8–4.12.]
 
@@ -44,7 +46,7 @@ from layer 0 and are nearly orthogonal to the receiver's decoded covert state, w
 - Random controls: say "random and variance-matched principal-component controls".
 - "Detectors track surface features of the partner message (separable at layer 0)", not "intent".
 
-### Draft abstract (FINAL v2, after follow-ups)
+### Draft abstract (FINAL v2.1, 249 words; 32B sentence revised per §4.13)
 Linear probes on activations detect collusion between LLM agents with near-perfect accuracy, but whether they read
 the signal that carries the collusion is untested. We build a steganographic signalling game in which a sender hides
 a betting signal in casino table talk under a private topic code; Qwen2.5 receivers (7B, 14B, 32B) decode it with
@@ -56,9 +58,10 @@ the 2-D decoded-state subspace cuts covert decoding by 22 and 52 points with hel
 58 points on five fresh sender seeds, while largely sparing explicit-state decisions. In 14B, the state ablation
 disrupts collusion but also explicit decisions and general capability. In 32B, no detector, state or control
 ablation reduces collusion by more than 9 points, even though the ablation exactly removes the subspace and the state
-stays linearly decodable (0.91), which indicates redundant encoding. Removing logistic-regression probe directions never
-costs more than 6 points. High probe AUROC is therefore not evidence that a monitor tracks the collusion mechanism, and causal
-conclusions from one model need not transfer to larger ones.
+is still read at 0.92 by a probe retrained on ablated-pass activations (7B 0.62), although static residual
+information is similar in both. Removing logistic-regression probe directions never
+costs more than 6 points. High probe AUROC is not evidence that a monitor tracks the collusion mechanism, and causal conclusions
+need not transfer across model sizes.
 
 ### Contributions (for the intro)
 1. A controlled testbed (Signal Table) with six receiver conditions that separate colluding context (C3), message
@@ -72,7 +75,7 @@ conclusions from one model need not transfer to larger ones.
 4. A confound audit of NARCBench's released activations (Stego is fully length-separable).
 6. Post-hoc robustness and extension (§4.8–4.12): held-out-scheme direction fitting (7B, 14B, 32B), five fresh
    sender seeds (7B), and a matched-input Qwen2.5-32B comparison with an ablation-correctness check, showing the
-   7B causal result is robust in 7B but does not transfer to 14B (non-selective) or 32B (redundant encoding).
+   7B causal result is robust in 7B but does not transfer to 14B (non-selective) or 32B (ablation-resistant; mechanism open, §4.13).
 5. Practical guidance: AUROC does not establish causal relevance; ablating surface-detector directions (LR, dm,
    NARCBench-style) leaves the information linearly recoverable (retrained ≥ 0.96) — the C1vC5 decision-token direction
    is the exception in 14B/Phi (retrained 0.32/0.35); in Qwen-7B the covert decision is redundant across depth (no half
@@ -598,9 +601,13 @@ Plan: notes/followups_plan.md §B; log: notes/followups_log.md; review: notes/fo
   - Residual projection onto the subspace is ≤ 0.021% of activation norm at all 64 layers (e.g. L60 128 → 0.07),
     so the ablation is applied correctly.
   - A re-trained LOSO state probe still reads the state at 0.913 (L42+; baseline 0.966).
-  → the 32B covert decision is redundantly encoded outside the 2-D subspace. Comparison (post-onset mean,
-    retrained, after the same in-sample all-layer state ablation): **7B 0.918 → 0.624; 14B 0.981 → 0.759; 32B 0.966
-    → 0.913** (figures/fig10_redundancy). Behaviour: 7B −0.58, 14B −0.61 (non-selective), 32B −0.04 (in-sample).
+  → [REVISED §4.13] the state remains readable from activations of the ablated forward pass. This is consistent
+    with the state being re-encoded downstream under the intervention; it is not proof of redundancy.
+    **CORRECTED comparison** (state-probe accuracy, mean over layers with relative depth ≥ 0.67, retrained LOSO probe,
+    same in-sample all-layer state ablation; recomputed from the raw files):
+    **7B 0.919 → 0.618 (L19–27); 14B 0.988 → 0.841 (L32–47); 32B 0.968 → 0.920 (L43–63)**. These are probe
+    accuracies, not proportions of information retained. The earlier 14B pair 0.981 → 0.759 used a different cutoff
+    (L26+, rel 0.55) and is superseded. Behaviour: 7B −0.58, 14B −0.61 (non-selective), 32B −0.04 (in-sample).
 - **Answer to the 32B question** (exploratory; 3 models, not a scaling law): the detector/probe geometry is unchanged
   at 32B (layer-0 separability, ~0.6-depth state onset, detector ⟂ state), but the intervention relationship
   changes. With the fixed recipe, no single direction or 2-D subspace (detector, state, or control) materially
@@ -623,6 +630,64 @@ Model-specific: the dm detector's causal role (7B only); state-ablation selectiv
 effect). Only the per-model direction of each effect is supported; magnitude orderings across models are confounded
 (14B's own messages, depth under "all layers", one message set each for 14B/32B, L40S vs H200).
 
+### 4.13 Why does 32B resist the ablation? Placement and residual linear decodability ✅ static (CPU only) · behavioural test PROPOSED, not run
+Exploratory. Plan: notes/redundancy_plan.md (frozen before results; §5 behavioural proposal written after the static
+results). Log incl. deviation: notes/redundancy_log.md. Code: exp/redundancy_analysis.py. Data: data/redundancy/.
+Figure: figures/fig11_residual_decodability.
+- **Placement (verified in code).**
+  - Hooks replace the output of every decoder layer (the residual stream after each block) at every token position,
+    in prefill and generation.
+  - `layers="all"` also hooks the embedding output with the layer-0 direction (fitted on layer-0 OUTPUT).
+  - Probes read the same locations: the decision token (`last`) and the message span (`mean`).
+  - The convention is identical for 7B/14B/32B.
+  - The all-layer recipe therefore also removes per-layer "state" directions in pre-onset layers, where the state is
+    not decodable: 18/28 layers in 7B, 42/64 in 32B, plus the embedding.
+  - Frozen post-onset placement P_late = layers ≥ ceil(2(L−1)/3), no embedding: 7B L18–27, 32B L42–63, 14B L32–47.
+    Training-only inner-LOSO onset (first layer with state acc ≥ 0.8) equals the cutoff in all 6 folds for 7B (L18)
+    and 32B (L42); for 14B it is earlier (L26 < L32).
+- **Methodological finding (degeneracy).**
+  - Fitting a class-mean removal and then retraining a linear readout on the SAME training data gives chance by
+    construction. With balanced classes and identical class means, the L2-regularised multinomial LR optimum is
+    exactly W = 0 (verified: |coef| = 0 in every fold and layer).
+  - So "iterate removal until a fresh probe fails" is uninformative unless removal and readout are fitted on
+    different data. We cross-fitted: the span is fitted on 4 of the 5 training schemes, and the readout is trained on
+    out-of-fit residuals.
+  - The planned inner rank selection was dropped (no adaptive choice; logged before any outer result).
+- **Residual decodability.** Held-out state accuracy, mean over late layers, n = 306, scheme-stratified bootstrap
+  CI, chance 0.333:
+| span removed (cross-fitted) | 7B | 14B (suppl.) | 32B |
+|---|---|---|---|
+| none | 0.918 [0.890, 0.945] | 0.988 | 0.966 [0.946, 0.984] |
+| M2: pooled 2-D class-mean contrast | **0.536** [0.491, 0.580] (Δ −0.382) | 0.459 | **0.602** [0.564, 0.640] (Δ −0.364) |
+| MS: per-scheme contrasts (rank 8) | 0.489 (Δ −0.429) | 0.471 | 0.611 (Δ −0.355) |
+| P16: 8 probe-weight (INLP) steps | 0.876 (Δ −0.042) | 0.781 | 0.955 (Δ −0.011) |
+| degenerate (same-data fit) | 0.333 | 0.333 | 0.333 |
+  - Per fold (schemes 0–5): M2 7B 0.53/0.50/0.62/0.54/0.43/0.59; 32B 0.56/0.57/0.67/0.58/0.44/0.80.
+- **Reading.**
+  1. In static (unablated) activations, both 7B and 32B keep substantial state information outside a 2-D mean span
+     fitted on other schemes. The amounts are similar (0.54 vs 0.60), and adding scheme-specific contrasts (MS)
+     removes no more in 32B.
+  2. Probe-weight (INLP) directions are low-variance and remove almost nothing; the readable information sits mainly
+     in high-variance mean-contrast directions. INLP-based "rank needed" would be misleading here.
+  3. The large 7B/32B difference appears only under the actual intervention: behaviour −0.52 vs −0.085 (held-out),
+     and the state probe on ablated-pass activations 0.62 vs 0.92 (in-sample). So "more static information outside
+     the 2-D subspace in 32B" does NOT explain the resistance. Downstream re-encoding under the intervention, or
+     recipe/placement effects, remain the candidates. Static analysis cannot separate them.
+- **Variance and controls** (training data; decision token; mean over late layers):
+  - the 2-D state span carries ≈ 0.31–0.35 of the variance (7B 0.308, 14B 0.350, 32B 0.333; held-out 0.25–0.31);
+  - the best two directions orthogonal to it carry only 0.14–0.22;
+  - a training-only contiguous-PC-window "match" cannot exceed the top-r PCs, so it equals them in late layers;
+  - at the message span (`mean`) all spans carry < 2% of variance.
+  → Orthogonal rank-matched controls are necessarily LOWER-variance in late layers. Exact variance matching is not
+  achievable without leaving the orthogonal complement, so controls must be called lower-variance, not matched.
+- **Proposed behavioural test (NOT run; awaiting approval; notes/redundancy_plan.md §5):**
+  - 7B and 32B, held-out fold directions, frozen 7B message set;
+  - none / M2_all / M2_late / PC2_all / PC2_late (+ optional MS_late / PC10_late), each with C1, C6, recall, ARC
+    and parse failures;
+  - activation capture under fold-fit M2_all and M2_late on all 306 episodes per fold (placement verification +
+    readout on ablated activations).
+  - Estimated ≈ $2.4 core (≤ $4 with margin), ≈ 10 min wall.
+
 ## 5. Figures (planned)
 | # | File | What it shows | Source data / script |
 |---|---|---|---|
@@ -635,8 +700,9 @@ effect). Only the per-model direction of each effect is supported; magnitude ord
 | 7 ✅ (post hoc) | figures/fig7_loso.{png,pdf} | Qwen2.5-7B, LOSO robustness: pooled held-out (n=306) accuracy for each ablation fitted on all schemes (grey, original) vs fitted without the held-out scheme (blue), Wilson 95% CIs; dots = per-fold fold-fit values; dashed = matched baseline. (a) C1 covert decoding, (b) C6 explicit-state decision. dm and state effects persist; state's C6 sparing weakens slightly (0.98 → 0.95). | data/loso/analysis.json, tables.md; exp/loso_analyze.py |
 | 8 ✅ (post hoc) | figures/fig8_fresh.{png,pdf} | 7B fresh-message robustness: per config, original-set accuracy (black) vs the 5 fresh sender seeds (dots) and the fresh pooled value (cluster CI), for (a) C1 covert decoding and (b) C6 explicit-state betting. | data/fresh/analysis.json; exp/fresh_analyze.py |
 | 9 ✅ (post hoc) | figures/fig9_xmodel.{png,pdf} | 7B/14B/32B: (a) state decodability vs relative depth; (b) C1vC4 detector AUROC vs depth (incl. layer 0); (c) held-out ablation effects, C1 covert drop vs C6 explicit drop, per direction and model, with 95% CIs. | data/xmodel_summary.json, data_models/*/loso/analysis.json; exp/xmodel_analyze.py |
-| 10 ✅ (post hoc) | figures/fig10_redundancy.{png,pdf} | State decodability (retrained LOSO probe) before vs after the in-sample all-layer 2-D state ablation: 7B drops to ≈0.62, 14B to ≈0.76, 32B stays ≈0.91 → redundancy at 32B. | */interv/abl_state_C1_last_2d/post_probes.json, data_models/qwen32b/interv/verify_state_global_acts/verify.json; exp/fig_redundancy.py |
+| 10 ✅ (post hoc) | figures/fig10_redundancy.{png,pdf} | State decodability (retrained LOSO probe) before vs after the in-sample all-layer 2-D state ablation; at relative depth ≥ 0.67: 7B 0.92→0.62, 14B 0.99→0.84, 32B 0.97→0.92 (state-probe accuracy on ablated-pass activations, not information retained). | */interv/abl_state_C1_last_2d/post_probes.json, data_models/qwen32b/interv/verify_state_global_acts/verify.json; exp/fig_redundancy.py |
 | 7b/7c | figures/fig7_loso_qwen14b.*, fig7_loso_qwen32b.* | Per-model versions of Fig 7 (global = in-sample) | exp/loso_analyze.py with DATA_DIR |
+| 11 ✅ (post hoc, CPU) | figures/fig11_residual_decodability.{png,pdf} | (a) held-out state accuracy (late layers) after cross-fitted removal: none, M2, MS, P2–P16 for 7B/14B/32B with 95% CIs; (b) per-layer accuracy for none/M2/MS vs relative depth; (c) training variance share of the 2-D state span vs the top-2 orthogonal PCs per layer. | data/redundancy/*.json; exp/redundancy_analysis.py |
 | S1 | supp_narcbench/figs/confound_auroc.png | NARCBench Qwen3-32B: surface features (n_tokens etc.) vs probe AUROC per tier; Stego fully length-confounded | supp_narcbench/analysis.py |
 | S2 | supp_narcbench/figs/cosine_heatmap_P.png | Cross-tier probe-direction cosine vs shuffled baseline | supp_narcbench/analysis.py |
 
@@ -666,6 +732,8 @@ effect). Only the per-model direction of each effect is supported; magnitude ord
   - The embedding hook reuses the layer-0 direction (inherited convention).
   - About 150 uncorrected tests across the project: descriptive; small effects (< 5 pp) are not interpreted.
   - GPUs differ (L40S vs H200).
+  - [§4.13] Static removal on saved activations cannot detect downstream re-encoding; same-data removal+retrain is
+    degenerate (chance by construction); controls orthogonal to the state span cannot be variance-matched in late layers.
   - The 32B redundancy explanation rests on one verification run (in-sample global direction); no layer/strength
     search was done, so the 32B result may be recipe-specific rather than scale-specific.
 - Direction-fitting leakage (addressed post hoc, 7B only, §4.8): the original intervention directions and PC controls
