@@ -40,7 +40,7 @@ that actually drives the covert bet appears abruptly at about half depth, is nea
 - Random controls: say "random and variance-matched principal-component controls".
 - "Detectors track surface features of the partner message (separable at layer 0)", not "intent".
 
-### Draft abstract (FINAL, 247 words)
+### Draft abstract (FINAL, 248 words)
 Linear probes on activations detect collusion between LLM agents with near-perfect accuracy, and prior work reported
 that the signal spikes when a colluding agent reads the encoded part of its partner's message. Whether they read
 the signal that carries the collusion is untested. We build a controlled steganographic signalling game:
@@ -50,10 +50,10 @@ is a signal, or remove the covert channel. In all three models, standard collusi
 ≥ 0.96 already at layer 0, reading message surface features; on NARCBench's released activations the
 steganography tier is separable by context length alone. The token-level spike is largely lexical: 42–91% of it
 persists when the same word is not a signal (Qwen-7B). Ablating logistic-regression probe directions at every layer
-leaves collusion intact (92–98% in all models), and a retrained probe recovers the signal (AUROC ≥ 0.96). The
+leaves collusion largely intact (90–98% across models), and a retrained probe recovers the signal (AUROC ≥ 0.96). The
 receiver's decoded-state representation instead appears abruptly at about half depth, is nearly orthogonal to the
 detectors, and steering it just after onset raises bets on cold signals from ≈$0 to $75–93. Ablating it disrupts
-covert decoding while sparing explicit decisions in two of three models, but lower-variance control subspaces also
+covert decoding while largely sparing explicit decisions in two of three models, but lower-variance control subspaces also
 disrupt decoding, so it stands out by selectivity rather than uniqueness. High AUROC is not evidence that a monitor
 tracks the collusion mechanism; monitors need counterfactual controls and causal validation.
 
@@ -333,7 +333,7 @@ the "DECODE:" prefix (20/306 at baseline, e.g. "NEUTRAL BET: $25") although its 
 | random 2-D | 0.03% | 0.967 | 106/100/100/0 | 1.000 | 0.97 | 0.967 |
 | random steer ±40 @L20 | – | 0.958–0.964 | bets $1–2/$26/$97 | – | 0.96–0.97 | – |
 Readings:
-1. **The state subspace is specific to scheme-based decoding.** Ablating it collapses every scheme-reading condition
+1. [Held-out-fitted check §4.8: C1 effect survives (−0.516), C6 sparing weakens to 0.951, one fold 0.745.] **The state subspace is specific to scheme-based decoding.** Ablating it collapses every scheme-reading condition
    to a COLD default (C1/C2/C4) but leaves explicit-state betting intact (C6 0.98). A variance-matched subspace (PC
    control) is less damaging to covert decoding (0.60) and MORE damaging to explicit betting (0.80). Caveat: in C6
    the answer word is literally in the prompt (a copy task), which may need less of any internal state.
@@ -342,6 +342,7 @@ Readings:
    (0.95) and recall (0.93) are essentially unchanged. → A "signal received" variable that probes CAN find, but
    only the mass-mean direction, not the LR readout.
 3. **LR detector directions are not load-bearing** (raw-LR 0.912, w/σ-LR 0.928), even though they detect perfectly.
+   [REFINED by §4.8: a small but nonzero effect, −2.9 pp global / −5.6 pp held-out-fitted, both CIs excluding 0; "largely intact", not "no effect".]
    Not a variance artefact: the variance-matched 1-D PC control (8.1% vs dm 10.4%) leaves collusion at 0.935, so the
    dm effect (0.699) is direction-specific. The C1vC5 msg-span ablation is nonspecific damage (C6 0.38, ARC 0.67).
 4. Random steering ±40 at L20 has no effect (vs the state direction moving COLD bets $2 → $85) → steering is direction-specific.
@@ -414,6 +415,88 @@ in Phi), and surface-detector information survives their ablation (retrained ≥
 The "specific causal signal-received direction" (diff-means 0.70, C6 intact) is a 7B-only result (14B 0.971; Phi untestable, the ablation breaks the model); report it as such.
 Modal spend so far ≈ $7–8 total (billing report: $6.66 at 06:30 incl. 7B).
 
+### 4.8 Post-hoc robustness check: held-out-scheme (LOSO) intervention directions ✅ (Qwen2.5-7B only)
+**Why.** Probe AUROCs were leave-one-scheme-out, but every intervention direction (and both PC controls) was fitted
+on all 306 episodes, including the episodes it was then evaluated on. This check refits each direction without the
+evaluated scheme. It is **exploratory and post hoc**: designed after seeing the global results. The plan, run
+matrix and decision rules were written before any fold run (notes/loso_robustness_plan.md); the execution log is
+notes/loso_robustness_log.md.
+
+**Method.**
+- 6 folds, one per scheme. Fit on the 255 episodes of the other 5 schemes; evaluate on the 51 held-out episodes,
+  using the frozen messages (byte-identical to the original; no regeneration).
+- Identical constructions: exp/loso_fit.py reproduces every original direction file when given all 306 episodes
+  (subspace agreement ≥ 0.999998 at every layer). Fold and global directions agree 0.78–0.99.
+- No data-driven selection existed in the original method (fixed all-layer + embedding policy, LR C=0.1 fixed, k
+  fixed), so no nested validation was needed and no new layer selection was introduced.
+- Per fold, one container evaluates 11 configs on the SAME held-out episodes in the same order (identical
+  batching): matched baseline `none` and {dm, PC-1D, state 2-D, PC-2D, LR} × {global, fold-fit}, with conditions C1
+  + C6 + recall + ARC. A code guard asserts that no hook leaks between configs.
+- Determinism: the matched baseline reproduces the original 306-episode outputs exactly (C1 and C6, 100%).
+  Global-direction ablations on the subsets reproduce 98.7–100% of the original outputs (batch composition flips
+  ≈1% of ablated outputs), so all comparisons use the matched baseline.
+- Statistics: pooled n = 306 held-out evaluations (each episode evaluated once, with the direction that excluded
+  its scheme); Wilson CIs; paired Δ vs matched baseline with a scheme-stratified paired bootstrap (10k) and exact
+  McNemar p. Decision rules as pre-specified (SURVIVES = fold drop CI excludes 0 AND ≥ 50% of the global drop on the
+  same episodes; C6 spared = drop ≤ 5 pp AND CI upper ≤ 10 pp). Parse failures are counted as wrong and reported;
+  nothing was dropped.
+- Code/data: exp/loso_fit.py, exp/modal_app.py (`intervene_many`, `loso` entrypoint), exp/loso_analyze.py;
+  data/loso/{splits.json, provenance.json, fold*/, runs/loso_f*_*/metrics.json, analysis.json, tables.md, full_run.log};
+  figures/fig7_loso.{png,pdf}.
+
+**Pooled held-out results (n = 306; Wilson 95% CI).**
+| config | C1 decode | Δ vs matched none [95% CI] | C1 parse fail / decoded None | C6 bet-exact | Δ C6 [CI] | recall | ARC |
+|---|---|---|---|---|---|---|---|
+| none (matched) | 0.958 [0.929–0.975] | – | 0 / 0 | 1.000 | – | 0.967 | 0.970 |
+| dm global | 0.693 | −0.265 [−0.317, −0.216] | 0 / 0 | 1.000 | 0 | 0.931 | 0.950 |
+| **dm fold** | **0.732** [0.680–0.779] | **−0.225** [−0.271, −0.180] | 0 / 0 | **1.000** | 0 | 0.944 | 0.942 |
+| PC-1D global | 0.931 | −0.026 [−0.052, 0.000] | 0 / 10 | 1.000 | 0 | 0.964 | 0.960 |
+| PC-1D fold | 0.912 | −0.046 [−0.075, −0.020] | 0 / 14 | 1.000 | 0 | 0.961 | 0.953 |
+| state global | 0.379 | −0.578 [−0.637, −0.520] | 9 / 33 | 0.980 | −0.020 [−0.036, −0.007] | 0.938 | 0.920 |
+| **state fold** | **0.441** [0.387–0.497] | **−0.516** [−0.575, −0.458] | 7 / 42 | **0.951** [0.921–0.970] | **−0.049** [−0.072, −0.029] | 0.935 | 0.915 |
+| PC-2D global | 0.605 | −0.353 [−0.412, −0.294] | 0 / 0 | 0.807 | −0.193 [−0.239, −0.150] | 0.912 | 0.930 |
+| PC-2D fold | 0.578 | −0.379 [−0.438, −0.324] | 0 / 0 | 0.866 | −0.134 [−0.170, −0.098] | 0.895 | 0.937 |
+| LR global | 0.928 | −0.029 [−0.056, −0.007] | 0 / 0 | 1.000 | 0 | 0.958 | 0.970 |
+| LR fold | 0.902 | −0.056 [−0.082, −0.029] | 0 / 0 | 1.000 | 0 | 0.961 | 0.970 |
+Fold vs global on identical episodes: dm +0.039 [+0.010, +0.069] (fold ablation slightly weaker); state +0.062
+[+0.020, +0.105] in C1 and −0.029 [−0.052, −0.007] in C6; PC-2D −0.026 n.s.; LR −0.026 [−0.046, −0.007].
+Direction vs its own control (fold-fit, same episodes): dm − PC-1D = −0.180 [−0.229, −0.131] in C1, 0 in C6;
+state − PC-2D = −0.137 [−0.206, −0.069] in C1 and +0.085 [+0.042, +0.131] in C6.
+
+**Per fold (C1 decode, n = 51 each; none → global → fold-fit; C6 fold-fit).**
+- dm: 0.961→0.686→0.627 · 0.980→0.667→0.706 · 0.922→0.686→0.706 · 1.000→0.824→0.863 · 0.882→0.627→0.667 ·
+  1.000→0.667→0.824; C6 1.000 in all folds. Drop in 6/6 folds.
+- state: 0.961→0.392→0.471 · 0.980→0.392→0.314 · 0.922→0.373→0.431 · 1.000→0.392→0.451 · 0.882→0.392→0.490 ·
+  1.000→0.333→0.490; C6 1.000/1.000/1.000/0.961/1.000/**0.745** (fold 5). Drop in 6/6 folds.
+- PC-2D: fold-fit 0.627/0.510/0.549/0.569/0.569/0.647; C6 0.765/0.980/0.686/1.000/0.980/0.784.
+- LR: fold-fit 0.765/0.980/0.824/1.000/0.843/1.000 (drops concentrated in folds 0, 2, 4).
+
+**Pre-specified verdicts.**
+- **dm detector direction: SURVIVES.** Fold drop 0.225 = 85% of the global drop 0.265, CI [0.180, 0.271], 6/6
+  folds; C6 spared (0 drop). It also exceeds its matched 1-D PC control by 18 pp. The leakage inflated the effect
+  only slightly (+3.9 pp).
+- **state 2-D subspace: SURVIVES** for covert decoding (fold drop 0.516 = 89% of 0.578, 6/6 folds). C6 is spared
+  **only marginally** by the pre-set rule: drop 4.9 pp (CI upper 7.2 pp, threshold 5 / 10 pp), and one fold (scheme
+  5) drops to 0.745. So the selectivity claim is weaker out of sample than in-sample (C6 0.980 → 0.951).
+- **PC-2D control** still disrupts covert decoding (−0.379) at a larger explicit-decision cost (−0.134). The state
+  subspace remains more disruptive to C1 (by 13.7 pp) and less to C6 (by 8.5 pp) than this control →
+  selectivity relative to the control survives; uniqueness was never claimed and is not supported.
+- **LR detector direction: small but nonzero effect.** The original reading "not load-bearing / collusion intact
+  (0.928)" is refined. Global −2.9 pp [−5.6, −0.7] and fold-fit −5.6 pp [−8.2, −2.9], both CIs excluding 0; collusion
+  stays at 0.90. The mechanical verdict "SURVIVES" here means "a small effect is present", not "a large effect".
+  PC-1D likewise shows a small nonzero fold-fit effect (−4.6 pp). So single high-variance or discriminative
+  directions perturb decoding by a few points; only dm (and state) do so substantially.
+
+**What this establishes / does not.**
+- Establishes: the two positive 7B effects (dm direction → no-signal default with explicit decisions intact; state
+  subspace → covert decoding collapses) do not depend on fitting the direction on the evaluated scheme; most (85–89%)
+  of each effect remains, consistently across all 6 folds.
+- Does not establish: generalisation to new messages (single frozen generation), to new schemes outside the 6
+  topic sets, or to 14B/Phi (their directions are still fitted on all episodes; not rechecked here); detector AUROC
+  after fold-fit ablation (behaviour only, no activations re-extracted); a unique mechanism (PC controls also disrupt).
+- Cost: Modal billing today rose $7.00 → $7.37 for the smoke test + 66 configs (115 s wall, 6 parallel L40S
+  containers); billing may lag slightly. No apps left running.
+
 ## 5. Figures (planned)
 | # | File | What it shows | Source data / script |
 |---|---|---|---|
@@ -423,6 +506,7 @@ Modal spend so far ≈ $7–8 total (billing report: $6.66 at 06:30 incl. 7B).
 | 4 ✅ HEADLINE (revised) | figures/fig4_2x2.{png,pdf} | Qwen2.5-7B only (14B/Phi numbers in Table 2 / appendix). (a) Specificity map: x = explicit-state decision intact (C6 bet acc.), y = covert collusion (C1 decode, Wilson 95% CI); one point per ablation. Bottom right = breaks covert decoding but spares explicit decisions (decision-state 2-D; detector diff-means at 0.70); top right = no effect (random, PC-1D, LR, raw-LR, NARCBench-style); PC-2D and C1vC5 msg-span sit to the left (nonspecific). (b) For each detector-direction ablation: retrained detector AUROC (blue, ≥0.83: the information survives) vs C1 decode (orange). Dotted line = no-ablation decode. | data/fig4_specificity.csv, data/interv/*; exp/figs_results.py |
 | 5 ✅ | figures/fig5_steer.{png,pdf} | Steering along HOT−COLD at L20: (a) mean bet by true state vs α (COLD bets $2→$85 at α=+40; × = random direction at α=±40, COLD bets $1–2); (b) decode acc vs recall vs ARC. | data/interv/steer_*; exp/figs_results.py |
 | 6 ✅ | figures/fig6_models.{png,pdf} | Cross-model (Qwen2.5-7B, Qwen2.5-14B, Phi-3.5-mini) vs relative depth: (a) covert-state decodability on held-out schemes rises from chance at ~0.5–0.6 depth to ≥0.9 within 2–4 layers in all three; (b) C1vC4 detector AUROC ≈1.0 at every depth (solid) vs C1vC5 'signal-for-me' detector (dashed), which only works after state onset (weak in Phi). | data/probes.json, data_models/*/probes.json; exp/fig_models.py |
+| 7 ✅ (post hoc) | figures/fig7_loso.{png,pdf} | Qwen2.5-7B, LOSO robustness: pooled held-out (n=306) accuracy for each ablation fitted on all schemes (grey, original) vs fitted without the held-out scheme (blue), Wilson 95% CIs; dots = per-fold fold-fit values; dashed = matched baseline. (a) C1 covert decoding, (b) C6 explicit-state decision. dm and state effects persist; state's C6 sparing weakens slightly (0.98 → 0.95). | data/loso/analysis.json, tables.md; exp/loso_analyze.py |
 | S1 | supp_narcbench/figs/confound_auroc.png | NARCBench Qwen3-32B: surface features (n_tokens etc.) vs probe AUROC per tier; Stego fully length-confounded | supp_narcbench/analysis.py |
 | S2 | supp_narcbench/figs/cosine_heatmap_P.png | Cross-tier probe-direction cosine vs shuffled baseline | supp_narcbench/analysis.py |
 
@@ -440,6 +524,13 @@ Modal spend so far ≈ $7–8 total (billing report: $6.66 at 06:30 incl. 7B).
   14B/Phi effects are small (COLD $33/$48).
 - The C1vC5 decision-token ablation is the one case where linearly recoverable information drops (retrained 0.32 14B,
   0.35 Phi), but it also barely affects collusion (0.88 / 0.95).
+- Direction-fitting leakage (addressed post hoc, 7B only, §4.8): the original intervention directions and PC controls
+  were fitted on all episodes, including the evaluated ones. Refitting without the evaluated scheme keeps 85–89% of the
+  dm and state effects (6/6 folds), but the state subspace's sparing of explicit decisions is only marginal (C6 0.951;
+  scheme-5 fold 0.745), and the LR direction shows a small nonzero effect (−5.6 pp). The 14B/Phi interventions were not
+  rechecked and still use all-episode directions. The check is exploratory (designed after seeing the global
+  results), evaluates behaviour only (no post-ablation activations), and uses 6 folds of 51 episodes; the bootstrap
+  treats episodes within a scheme as exchangeable.
 - Post-hoc choices: for Phi, the layer-restricted (16–31) ablations and all "2 layers after onset" steering runs were
   added after the pre-specified versions failed (all-layer ablation broke the model; 0.7·L steering had no effect).
   They are labelled exploratory.
@@ -473,7 +564,7 @@ Modal spend so far ≈ $7–8 total (billing report: $6.66 at 06:30 incl. 7B).
   disruptive, so this is not yet a specific mitigation.
 - No human subjects; all data is synthetic; the casino card-counting framing is a toy (card counting is legal but
   banned by casinos); no real-world deployment.
-- Compute: ≈ $7–8 Modal total (7B study ≈ $1.5; replication ≈ $6), Modal L40S; analysis on a laptop CPU.
+- Compute: ≈ $7.4 Modal total (7B study ≈ $1.5; replication ≈ $6; post-hoc LOSO check ≈ $0.37), Modal L40S; analysis on a laptop CPU.
 
 ## 7. Sources
 ✅ notes/sources.md: 36 verified refs + references.bib + draft Related Work paragraphs. notes/rose_paper.md ⏳.
@@ -511,7 +602,7 @@ Appendix: Limitations/dual-use (required), S1, S2, layer localisation (§4.5b), 
 
 ## 10. Likely judge questions (with answers grounded in data)
 - *"Isn't 'detector blind after ablating its own direction' trivial?"* Yes, by construction. The claim is behavioural:
-  collusion stays at 92–98% after LR ablation in all three models, a retrained probe recovers 0.96–0.99, and the
+  collusion stays at 90–98% after LR ablation (7B held-out-fitted: 0.902, a small −5.6 pp effect, §4.8), a retrained probe recovers 0.96–0.99, and the
   direction-excluded frozen LR probe gives 0.81 (7B).
 - *"Is the state subspace just the answer/format variable? Is the PC control fair?"* C6 explicit-state betting stays
   0.98 (7B) / 1.00 (Phi) but drops to 0.71 (14B). The lower-variance PC-2D control also disrupts decoding (0.60 / 0.63 /

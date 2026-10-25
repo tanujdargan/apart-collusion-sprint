@@ -350,6 +350,48 @@ class Runner:
         vol.commit()
         return res
 
+    @modal.method()
+    def intervene_many(self, configs, ids, conditions=("C1", "C6"), do_arc=True, group="loso"):
+        """Post-hoc LOSO robustness check (notes/loso_robustness_plan.md). Evaluates several ablation configs on the SAME
+        episode subset in the same order (=> identical batching across configs). configs: list of dict(tag, direction)
+        with direction None (matched baseline) or a RAW-space array as in _install; ablation at all layers + embedding.
+        Behaviour only (no activations). Each result also goes to /vol/<group>/<tag>/metrics.json."""
+        import numpy as np
+        import env
+        allrows = {r["id"]: r for r in (json.loads(l) for l in open(f"/vol{_vp('')}/data/messages.jsonl"))}
+        missing = [i for i in ids if i not in allrows]
+        assert not missing, f"episodes missing from frozen messages: {missing}"
+        rows = [allrows[i] for i in ids]
+        msgs = {r["id"]: r for r in rows}
+        out = []
+        for cfg in configs:
+            d = cfg["direction"]
+            hs = [] if d is None else self._install(np.asarray(d, np.float32), "ablate", "all", 0.0)
+            t0 = time.time()
+            res = dict(tag=cfg["tag"], mode="none" if d is None else "ablate", layers="all", n=len(rows), ids=list(ids),
+                       model=self.model_id, conditions=list(conditions))
+            try:
+                for c in conditions:
+                    rr, _ = self._receivers(rows, msgs, c)
+                    res[c] = env.decode_metrics(rr)
+                    res[c]["decoded_dist"] = {str(k): sum(x["decoded"] == k for x in rr) for k in env.STATES + [None]}
+                    res[c + "_rows"] = rr
+                res["recall"], res["recall_acc"] = self._recall(rows, msgs)
+                if do_arc:
+                    res["arc_acc"] = self._arc(100)
+            finally:
+                for h in hs:
+                    h.remove()
+            # guard: no intervention hook may leak into the next config
+            assert not any(lay._forward_hooks for lay in self.layers), "leaked layer hook"
+            assert not self.model.model.embed_tokens._forward_hooks, "leaked embedding hook"
+            res["seconds"] = time.time() - t0
+            os.makedirs(f"/vol/{group}/{cfg['tag']}", exist_ok=True)
+            json.dump(res, open(f"/vol/{group}/{cfg['tag']}/metrics.json", "w"))
+            out.append(res)
+        vol.commit()
+        return out
+
 
 # ---------------------------------------------------------------------- local entrypoints
 def _write_jsonl(path, rows):
@@ -439,3 +481,40 @@ def stage_c5(model: str = DEFAULT_MODEL):
     meta["conditions"]["C5"] = meta5["conditions"]["C5"]
     json.dump(meta, open(mp, "w"))
     print("C5 merged; decoded:", {k: sum(x["decoded"] == k for x in out["C5"]) for k in ("COLD", "NEUTRAL", "HOT", None)})
+
+
+LOSO_GLOBAL = dict(dm="detect_C1vC4_mean_dm", pc1d="pc_ctrl_1d", state="state_C1_last_2d", pc2d="pc_ctrl_2d",
+                   lr="detect_C1vC4_mean_lr")
+
+
+@app.local_entrypoint()
+def loso(folds: str = "0,1,2,3,4,5", configs: str = "", smoke: int = 0, arc: bool = True):
+    """Post-hoc LOSO robustness check (notes/loso_robustness_plan.md). One container per held-out scheme; every config
+    (none, <dir>_global, <dir>_fold) is evaluated on that scheme's held-out episodes. Directions: data/directions/
+    (global, fitted on all schemes) and data/loso/fold<k>/ (fitted without scheme k; exp/loso_fit.py).
+    Outputs: data/loso/runs/<tag>/metrics.json. --smoke N evaluates only the first N held-out episodes (tag prefix smoke_)."""
+    import numpy as np
+    splits = json.load(open(ROOT / "data/loso/splits.json"))
+    names = configs.split(",") if configs else ["none"] + [f"{b}_{w}" for b in LOSO_GLOBAL for w in ("global", "fold")]
+    jobs = []
+    for k in folds.split(","):
+        ids = splits[k]["eval_ids"][: smoke or None]
+        cfgs = []
+        for nm in names:
+            if nm == "none":
+                d = None
+            else:
+                b, w = nm.rsplit("_", 1)
+                f = ROOT / (f"data/directions/{LOSO_GLOBAL[b]}.npy" if w == "global" else f"data/loso/fold{k}/{b}.npy")
+                d = np.load(f).astype(np.float32)
+            cfgs.append(dict(tag=f"{'smoke' if smoke else 'loso'}_f{k}_{nm}", direction=d))
+        jobs.append((cfgs, ids, ("C1", "C6"), arc, "loso"))
+    t0 = time.time()
+    for res_list in Runner().intervene_many.starmap(jobs):
+        for res in res_list:
+            od = ROOT / "data/loso/runs" / res["tag"]
+            od.mkdir(parents=True, exist_ok=True)
+            json.dump(res, open(od / "metrics.json", "w"), indent=1)
+            print(res["tag"], "C1", round(res["C1"]["decode_acc"], 3), "C6 bet", round(res["C6"]["bet_exact_acc"], 3),
+                  "n", res["n"], f"{res['seconds']:.0f}s", flush=True)
+    print(f"wall {time.time() - t0:.0f}s")

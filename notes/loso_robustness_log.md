@@ -1,0 +1,5 @@
+- 07:30 smoke test start (fold 0, 3 episodes, configs none/state_fold/dm_global, no ARC)
+- smoke test OK (27 s wall). Hooks are verifiably active (recall outputs change under ablation). Added an assertion that no hook leaks between configs (code guard; no outcome seen beyond 3 all-COLD smoke episodes, not used in analysis).
+- 07:31 FULL RUN start: folds 0-5 × 11 configs (none, {dm,pc1d,state,pc2d,lr}_{global,fold}), C1+C6+recall+ARC. Billing today before run: $7.00 (07:28 report).
+- 07:34 FULL RUN done: 66/66 configs, 115 s wall, no errors, no hook-leak assertion failures. Analysis run with exp/loso_analyze.py exactly as pre-specified.
+- 07:36 analysis + REPORT_NOTES §4.8 written. Billing today $7.37 (was $7.00 before task). No apps running. Not committed/pushed (per instruction).

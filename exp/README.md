@@ -84,3 +84,13 @@ exp/run_replication.sh Qwen/Qwen2.5-14B-Instruct qwen14b ablate        # baselin
 exp/run_replication.sh Qwen/Qwen2.5-14B-Instruct qwen14b steer 34 -56.99,-28.50,28.50,56.99
 .venv-analysis/bin/python exp/summarize_replication.py qwen14b          # markdown tables
 ```
+
+## Post-hoc LOSO robustness check (Qwen2.5-7B; notes/loso_robustness_plan.md, REPORT_NOTES §4.8)
+```
+.venv-analysis/bin/python exp/loso_fit.py check   # refit on all episodes == original direction files
+.venv-analysis/bin/python exp/loso_fit.py fit     # data/loso/fold<k>/{dm,state,pc1d,pc2d,lr}.npy + splits/provenance
+.venv/bin/modal run exp/modal_app.py::loso        # 6 folds x 11 configs (none, <dir>_global, <dir>_fold); C1+C6+recall+ARC
+.venv-analysis/bin/python exp/loso_analyze.py     # data/loso/analysis.json, tables.md, figures/fig7_loso
+```
+`Runner.intervene_many` evaluates several configs on one held-out episode subset in a fixed order, so batching is
+identical across configs; it asserts that no hook leaks between configs. Outputs: data/loso/runs/<tag>/metrics.json.
