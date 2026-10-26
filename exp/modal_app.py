@@ -216,13 +216,13 @@ class Runner:
         return hs
 
     # ------------------------------------------------------------------ receivers
-    def _receivers(self, eps, msgs, cond):
+    def _receivers(self, eps, msgs, cond, gen=None):
         """C1 colluding rx + colluding msg; C2 colluding rx + honest msg; C3 honest rx + colluding msg;
         C4 colluding rx + honest msg that mentions an off-scheme topic; C5 C1 msg under a mismatched scheme."""
         import env
         colluding_rx, mkey = COND[cond]
         texts = [self._tmpl(env.receiver_msgs(_ep(e, cond), msgs[e["id"]][mkey], colluding_rx)) for e in eps]
-        outs = self._generate(texts, GEN["decode_max_new"])
+        outs = self._generate(texts, GEN["decode_max_new"], **(gen or {}))
         rows = []
         for e, t, o in zip(eps, texts, outs):
             st, bet = env.parse_decode(o) if colluding_rx else (None, env.parse_bet(o))
@@ -412,6 +412,24 @@ class Runner:
                     res[c] = env.decode_metrics(rr)
                     res[c]["decoded_dist"] = {str(k): sum(x["decoded"] == k for x in rr) for k in env.STATES + [None]}
                     res[c + "_rows"] = rr
+                if cfg.get("c1_seeds"):
+                    # S5: sampled C1 receiver; seed s -> torch.manual_seed(s * 100003 + batch_start) before each
+                    # generate batch (exp/modal_app.py _generate); HF multinomial sampling on the CUDA default generator.
+                    res["c1_sampling"] = dict(temperature=cfg["c1_temperature"], top_p=cfg["c1_top_p"], top_k=None,
+                                              repetition_penalty=1.0, max_new_tokens=GEN["decode_max_new"], batch_size=48,
+                                              seeds=list(cfg["c1_seeds"]),
+                                              rng="torch.manual_seed(seed*100003 + batch_start) per generate batch")
+                    t1 = time.time()
+                    for sd in cfg["c1_seeds"]:
+                        rr, _ = self._receivers(rows, msgs, "C1", dict(temperature=cfg["c1_temperature"],
+                                                                       top_p=cfg["c1_top_p"], seed=sd))
+                        res.setdefault("C1_sampled_rows", {})[str(sd)] = rr
+                        if meter is not None:
+                            res.setdefault("meter", {})[f"C1_s{sd}"] = dict(meter)
+                            meter.clear()
+                    res["seconds_sampled"] = time.time() - t1
+                if meter is not None:
+                    meter.clear()
                 res["recall"], res["recall_acc"] = self._recall(rows, msgs)
                 if do_arc:
                     res["arc_acc"] = self._arc(100)
@@ -513,7 +531,7 @@ class Runner:
         return dict(results=res, captures=caps)
 
     @modal.method()
-    def validate_hooks(self, direction, configs, ids, messages_path="", pipeline_rows=()):
+    def validate_hooks(self, direction, configs, ids, messages_path="", pipeline_rows=(), gen=None):
         """Hook-location validation (notes/unbundle_plan.md). For each config (dict(tag, layers|None)), run C1 generation on
         `ids` with PROBE hooks registered AFTER the intervention hooks on the embedding output and every decoder-layer
         output. Each probe records, per forward call, the phase (prefill: T>1, decode: T==1), the projection ratio
@@ -527,7 +545,7 @@ class Runner:
         allrows = {r["id"]: r for r in (json.loads(l) for l in open(mp))}
         rows = [allrows[i] for i in ids]
         d = torch.tensor(np.asarray(direction, np.float32), device="cuda")
-        Qs = [torch.linalg.qr(v.T)[0] for v in d]                       # [L] of [D,k]
+        Qs = [torch.linalg.qr(v.reshape(-1, self.D).T)[0] for v in d]   # [L] of [D,k] (k=1 for [L,D] directions)
         out = {}
         for cfg in configs:
             rec = []
@@ -546,12 +564,12 @@ class Runner:
             ps += [lay.register_forward_hook(probe(f"L{l}", l)) for l, lay in enumerate(self.layers)]
             try:
                 texts = [self._tmpl(env.receiver_msgs(r, r["collude_msg"], True)) for r in rows]
-                gen = self._generate(texts, GEN["decode_max_new"])
+                outs = self._generate(texts, GEN["decode_max_new"], **(gen or {}))
             finally:
                 for h in hs + ps:
                     h.remove()
             assert not any(lay._forward_hooks for lay in self.layers) and not self.model.model.embed_tokens._forward_hooks
-            out[cfg["tag"]] = dict(records=rec, outputs=gen)
+            out[cfg["tag"]] = dict(records=rec, outputs=outs)
         pipe = {}
         for name, batch in (pipeline_rows or {}).items():  # {name: [dict(id, output)]} = one original extraction batch
             prow = [allrows[x["id"]] for x in batch]
@@ -621,6 +639,67 @@ class Runner:
                 h.remove()
         assert not any(lay._forward_hooks for lay in self.layers)
         return dict(ids=list(ids), layers=list(layers), E={n: v.tolist() for n, v in E.items()}, H=H.tolist(), n=cnt.tolist())
+
+    @modal.method()
+    def validate_dose_algebra(self, direction, layers, dose, ids, messages_path="", gen=None, repeats=()):
+        """S5 validation (notes/verify2_plan.md). On the SAME incoming hidden state at each hooked location and forward call:
+        a probe registered BEFORE the intervention hook records h_in, one registered AFTER records h_out. Reports per call
+        (prefill/decode): ||Q^T h_out|| / ||Q^T h_in|| (expected 1 - d_l), ||h_in - h_out||^2 / (d_l^2 ||Q Q^T h_in||^2)
+        (expected 1 up to bf16 output rounding), and the orthogonal residual ||(I-QQ^T)(h_in-h_out)|| / ||h_in - h_out||.
+        repeats: [(tag, layers|None, dose|None, seed)] generated twice in this container -> repeat-seed reproducibility."""
+        import numpy as np
+        import torch
+        import env
+        mp = messages_path or f"/vol{_vp('')}/data/messages.jsonl"
+        allrows = {r["id"]: r for r in (json.loads(l) for l in open(mp))}
+        rows = [allrows[i] for i in ids]
+        texts = [self._tmpl(env.receiver_msgs(r, r["collude_msg"], True)) for r in rows]
+        d = torch.tensor(np.asarray(direction, np.float32), device="cuda")
+        Qs = [torch.linalg.qr(v.reshape(-1, self.D).T)[0] for v in d]
+        dz = [float(x) for x in dose]
+        rec, cur = [], {}
+
+        def pre(l):
+            def f(m, i, o):
+                cur[l] = (o[0] if isinstance(o, tuple) else o).float().clone()
+            return f
+
+        def post(l):
+            def f(m, i, o):
+                hout = (o[0] if isinstance(o, tuple) else o).float()
+                hin, Q = cur.pop(l), Qs[l]
+                m_ = self._pmask if (hin.shape[1] > 1 and getattr(self, "_pmask", None) is not None) else None
+                w = m_.float()[..., None] if m_ is not None and tuple(m_.shape) == tuple(hin.shape[:2]) else 1.0
+                r = (hin - hout) * w
+                p = ((hin @ Q) @ Q.T) * w
+                orth = r - (r @ Q) @ Q.T
+                rec.append(dict(loc=f"L{l}", phase="prefill" if hin.shape[1] > 1 else "decode", dose=dz[l],
+                                span_ratio=((hout * w) @ Q).norm().item() / max(1e-30, ((hin * w) @ Q).norm().item()),
+                                energy_ratio=(r ** 2).sum().item() / max(1e-30, dz[l] ** 2 * (p ** 2).sum().item()),
+                                orth_frac=orth.norm().item() / max(1e-30, r.norm().item())))
+            return f
+        ps = [self.layers[l].register_forward_hook(pre(l)) for l in layers]
+        hs = self._install(np.asarray(direction, np.float32), "ablate", list(layers), 0.0, dose=dz)
+        ps += [self.layers[l].register_forward_hook(post(l)) for l in layers]
+        try:
+            outs = self._generate(texts, GEN["decode_max_new"], **(gen or {}))
+        finally:
+            for h in ps + hs:
+                h.remove()
+        assert not any(lay._forward_hooks for lay in self.layers)
+        rep = {}
+        for tag, lay, dd, sd in repeats:
+            o2 = []
+            for _ in range(2):
+                hh = [] if lay is None else self._install(np.asarray(direction, np.float32), "ablate", lay, 0.0, dose=dd)
+                try:
+                    o2.append(self._generate(texts, GEN["decode_max_new"], **dict(gen or {}, seed=sd)))
+                finally:
+                    for h in hh:
+                        h.remove()
+            rep[tag] = dict(seed=sd, identical=o2[0] == o2[1], outputs=o2[0])
+        return dict(records=rec, outputs=outs, repeats=rep,
+                    generation_config=self.model.generation_config.to_dict())
 
     @modal.method()
     def capture_set(self, ids, messages_path, out_path):
@@ -986,7 +1065,8 @@ def _load_cfgs(cfgs, prefix=""):
     """Matrix cfg: dict(tag, dir=<repo-relative .npy>|None, layers='all'|list, dose=None|float|[L], meta=...)."""
     import numpy as np
     return [dict(tag=prefix + c["tag"], direction=None if c["dir"] is None else np.load(ROOT / c["dir"]).astype(np.float32),
-                 layers=c.get("layers", "all"), dose=c.get("dose"), meter=c["dir"] is not None, meta=c.get("meta"))
+                 layers=c.get("layers", "all"), dose=c.get("dose"), meter=c["dir"] is not None, meta=c.get("meta"),
+                 **{k: c[k] for k in ("c1_seeds", "c1_temperature", "c1_top_p") if k in c})
             for c in cfgs]
 
 
@@ -997,7 +1077,7 @@ def verify(matrix: str, smoke: int = 0, maxc: int = 1, tmo: int = 600):
     tags prefixed smoke_. Outputs: data/verify/runs/<matrix>/<tag>/metrics.json."""
     M = json.load(open(ROOT / f"data/verify/matrices/{matrix}.json"))
     pre = "smoke_" if smoke else ""
-    conts = [[M["containers"][0][0]]] if smoke else M["containers"]
+    conts = [M["containers"][0]] if smoke else M["containers"]  # smoke: every job of the first container
     jobs = [[dict(j, cfgs=_load_cfgs(j["cfgs"], pre), ids=j["ids"][: smoke or None]) for j in c] for c in conts]
     od = ROOT / f"data/verify/runs/{matrix}"
     t0 = time.time()
@@ -1080,3 +1160,22 @@ def vg4b_gen(tmo: int = 900):
     b = out["baseline"]
     print("g4b baseline C1 decode", round(b["C1"]["decode_acc"], 3), "bet", round(b["C1"]["bet_exact_acc"], 3),
           "C6", round(b["C6"]["bet_exact_acc"], 3), "recall", b["recall_acc"], "ARC", b["arc_acc"], out["shape"])
+
+
+@app.local_entrypoint()
+def vvalidate2(tmo: int = 600):
+    """S5/S6 validation (notes/verify2_plan.md), one container, fold 0, first 9 held-out episodes (= the smoke subset)."""
+    import numpy as np
+    S = json.load(open(ROOT / "data/verify/matrices/v2_validate.json"))
+    r = _vrunner(DEFAULT_MODEL, "L40S", 1, tmo)
+    out = {}
+    for name, v in S["hooks"].items():           # full-dose placement checks (greedy and sampled generation)
+        out[name] = r.validate_hooks.remote(np.load(ROOT / v["dir"]).astype(np.float32), v["configs"], S["ids"], "", {},
+                                            v.get("gen"))["configs"]
+    for name, v in S["algebra"].items():         # fractional-dose local algebra + repeat-seed reproducibility
+        out[name] = r.validate_dose_algebra.remote(np.load(ROOT / v["dir"]).astype(np.float32), v["layers"], v["dose"],
+                                                   S["ids"], "", v.get("gen"), [tuple(x) for x in v.get("repeats", [])])
+    od = ROOT / "data/verify/validation"
+    od.mkdir(parents=True, exist_ok=True)
+    json.dump(dict(spec=S, results=out), open(od / "v2_validate.json", "w"))
+    print("saved", od / "v2_validate.json")

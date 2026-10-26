@@ -21,8 +21,9 @@ import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-LEDGER = ROOT / "data/verify/spend_ledger.json"
-CAP = 8.00
+import os
+LEDGER = ROOT / os.environ.get("VERIFY_LEDGER", "data/verify/spend_ledger.json")  # v2: data/verify/spend_ledger_v2.json
+CAP = float(os.environ.get("VERIFY_CAP", "8.00"))
 RATE = {"L40S": 0.000542, "H200": 0.001261}
 SLACK_S, OVERHEAD = 60, 1.10
 MODAL = str(ROOT / ".venv/bin/modal")
@@ -65,7 +66,7 @@ def main():
         assert not apps, f"apps running before baseline: {apps}"
         b = month_total()
         save(dict(cap=CAP, baseline_month_total=b, baseline_utc=time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
-                  prior_reference=42.448, note="baseline == Phase 0 month-to-date (no spend in between) if equal to "
+                  prior_reference=float(os.environ.get("VERIFY_PRIOR_REF", "42.448")), note="baseline == Phase 0 month-to-date (no spend in between) if equal to "
                   "prior_reference; earlier spend is excluded from the cap", stages=[]))
         print("baseline", b)
     elif cmd == "status":

@@ -230,6 +230,52 @@ def g4b():
     _eval_matrix("g4b_eval", "data/verify/g4b", splits, "/vol/verify/g4b/messages.jsonl", "verify/g4b")
 
 
+def v2():
+    """Final targeted extension (notes/verify2_plan.md): S5 sampled-receiver cells + S6 detector placement factorial, one
+    container per fold (S5 job, then S6 job); validation spec. Doses copied verbatim from the committed s1_7b matrix."""
+    sp7 = json.load(open(ROOT / "data/loso/splits.json"))
+    S1 = json.load(open(OUT / "s1_7b.json"))
+    L18, PRE = late(18, 28), list(range(28))
+    samp = dict(c1_seeds=list(range(8)), c1_temperature=0.7, c1_top_p=1.0)
+    conts = []
+    for k in range(6):
+        s1d = {c["tag"].split("_", 1)[1]: c for c in S1["containers"][k][0]["cfgs"]}
+        d, c, dm, p1 = (f"data/loso/fold{k}/{x}.npy" for x in ("state", "pc2d", "dm", "pc1d"))
+        assert s1d["M2_L18_match"]["dir"] == d and s1d["PC2_L18_match"]["dir"] == c
+        p5, p6 = f"s5_f{k}_", f"s6_f{k}_"
+        s5 = [dict(cfg(p5 + "none", None), **samp), dict(cfg(p5 + "M2_L18", d, L18), **samp),
+              dict(cfg(p5 + "PC2_L18", c, L18), **samp),
+              dict(cfg(p5 + "M2_L18_match", d, L18, s1d["M2_L18_match"]["dose"]), **samp),
+              dict(cfg(p5 + "PC2_L18_match", c, L18, s1d["PC2_L18_match"]["dose"]), **samp),
+              dict(cfg(p5 + "dm_L18", dm, L18), **samp), dict(cfg(p5 + "dm_all", dm), **samp),
+              dict(cfg(p5 + "pc1d_L18", p1, L18), **samp), dict(cfg(p5 + "pc1d_all", p1), **samp)]
+        s6 = [cfg(p6 + "none", None), cfg(p6 + "dm_L18", dm, L18),                     # reproduction anchors vs S1
+              cfg(p6 + "dm_EMB_LATE", dm, ["emb"] + L18), cfg(p6 + "dm_PRE_LATE", dm, PRE),
+              cfg(p6 + "pc1d_EMB_LATE", p1, ["emb"] + L18), cfg(p6 + "pc1d_PRE_LATE", p1, PRE)]
+        ids = sp7[str(k)]["eval_ids"]
+        conts.append([job(s5, ids, "verify/v2"), job(s6, ids, "verify/v2")])
+    save("v2_s5s6", dict(model="Qwen/Qwen2.5-7B-Instruct", gpu="L40S", containers=conts))
+    s1d = {c["tag"].split("_", 1)[1]: c for c in S1["containers"][0][0]["cfgs"]}
+    g = dict(temperature=0.7, top_p=1.0, seed=0)
+    det = lambda x: [dict(tag="none", layers=None), dict(tag=f"{x}_L18", layers=L18), dict(tag=f"{x}_all", layers="all"),
+                     dict(tag=f"{x}_EMB_LATE", layers=["emb"] + L18), dict(tag=f"{x}_PRE_LATE", layers=PRE)]
+    json.dump(dict(ids=sp7["0"]["eval_ids"][:9],
+                   hooks={"dm_greedy": dict(dir="data/loso/fold0/dm.npy", configs=det("dm")),
+                          "pc1d_greedy": dict(dir="data/loso/fold0/pc1d.npy", configs=det("pc1d")),
+                          "M2_sampled": dict(dir="data/loso/fold0/state.npy", gen=g,
+                                             configs=[dict(tag="none", layers=None), dict(tag="M2_L18", layers=L18)]),
+                          "dm_sampled": dict(dir="data/loso/fold0/dm.npy", gen=g, configs=det("dm")[:3]),
+                          "pc1d_sampled": dict(dir="data/loso/fold0/pc1d.npy", gen=g, configs=det("pc1d")[:3])},
+                   algebra={"M2_match_sampled": dict(dir="data/loso/fold0/state.npy", layers=L18,
+                                                     dose=s1d["M2_L18_match"]["dose"], gen=g,
+                                                     repeats=[["none_s0", None, None, 0],
+                                                              ["M2_match_s3", L18, s1d["M2_L18_match"]["dose"], 3]]),
+                            "PC2_match_sampled": dict(dir="data/loso/fold0/pc2d.npy", layers=L18,
+                                                      dose=s1d["PC2_L18_match"]["dose"], gen=g,
+                                                      repeats=[["PC2_match_s5", L18, s1d["PC2_L18_match"]["dose"], 5]])}),
+              open(OUT / "v2_validate.json", "w"), indent=1)
+
+
 FROZEN_4B = [("food", "family", "pets"), ("sports", "music", "movies"), ("travel", "cars", "weather"),
              ("movies", "travel", "food"), ("cars", "sports", "family"), ("pets", "weather", "music")]
 
@@ -271,4 +317,4 @@ def schemes4b():
 
 
 if __name__ == "__main__":
-    {"base": base, "s1": s1, "schemes4b": schemes4b, "g4a": g4a, "g4b": g4b}[sys.argv[1]]()
+    {"base": base, "s1": s1, "schemes4b": schemes4b, "g4a": g4a, "g4b": g4b, "v2": v2}[sys.argv[1]]()
