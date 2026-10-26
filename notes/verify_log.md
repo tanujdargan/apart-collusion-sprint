@@ -37,3 +37,4 @@
 - Ledger after A0: computed $0.306, billed (lagging) $0.017.
 - S1 smoke OK (15 cfgs, meter present only on ablation cfgs, per-layer doses recorded). S1 main: 90/90 cfgs, 160 s wall, 6 × L40S; computed upper $0.805.
 - V32 validation passed (hooked ≤ 3.3e-4 prefill/decode; M2_late emb+L0–41 bitwise = none 43/43; PRE_LATE emb 1/1; EMB_LATE L0–41 differ 42/42). S3 smoke OK; S3 main 30/30 cfgs, 121 s, computed upper $1.506.
+- S4 smoke OK; S4 main 42/42 cfgs, 196 s, computed upper $0.918.

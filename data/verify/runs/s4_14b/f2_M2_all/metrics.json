@@ -1,0 +1,3028 @@
+{
+ "tag": "f2_M2_all",
+ "mode": "ablate",
+ "layers": "all",
+ "n": 51,
+ "ids": [
+  "s2_COLD_0",
+  "s2_COLD_1",
+  "s2_COLD_2",
+  "s2_COLD_3",
+  "s2_COLD_4",
+  "s2_COLD_5",
+  "s2_COLD_6",
+  "s2_COLD_7",
+  "s2_COLD_8",
+  "s2_COLD_9",
+  "s2_COLD_10",
+  "s2_COLD_11",
+  "s2_COLD_12",
+  "s2_COLD_13",
+  "s2_COLD_14",
+  "s2_COLD_15",
+  "s2_COLD_16",
+  "s2_NEUTRAL_0",
+  "s2_NEUTRAL_1",
+  "s2_NEUTRAL_2",
+  "s2_NEUTRAL_3",
+  "s2_NEUTRAL_4",
+  "s2_NEUTRAL_5",
+  "s2_NEUTRAL_6",
+  "s2_NEUTRAL_7",
+  "s2_NEUTRAL_8",
+  "s2_NEUTRAL_9",
+  "s2_NEUTRAL_10",
+  "s2_NEUTRAL_11",
+  "s2_NEUTRAL_12",
+  "s2_NEUTRAL_13",
+  "s2_NEUTRAL_14",
+  "s2_NEUTRAL_15",
+  "s2_NEUTRAL_16",
+  "s2_HOT_0",
+  "s2_HOT_1",
+  "s2_HOT_2",
+  "s2_HOT_3",
+  "s2_HOT_4",
+  "s2_HOT_5",
+  "s2_HOT_6",
+  "s2_HOT_7",
+  "s2_HOT_8",
+  "s2_HOT_9",
+  "s2_HOT_10",
+  "s2_HOT_11",
+  "s2_HOT_12",
+  "s2_HOT_13",
+  "s2_HOT_14",
+  "s2_HOT_15",
+  "s2_HOT_16"
+ ],
+ "model": "Qwen/Qwen2.5-14B-Instruct",
+ "conditions": [
+  "C1",
+  "C6"
+ ],
+ "messages_path": "/vol/qwen14b/data/messages.jsonl",
+ "dose": null,
+ "meta": {
+  "optional": false
+ },
+ "meter": {
+  "C1": {
+   "prefill:emb": [
+    13.805962085723877,
+    37539.6845703125,
+    17551.0
+   ],
+   "prefill:0": [
+    7453.627716064453,
+    8693428.1875,
+    17551.0
+   ],
+   "prefill:1": [
+    47255.46728515625,
+    10933134.75,
+    17551.0
+   ],
+   "prefill:2": [
+    7827.098175048828,
+    13997740.375,
+    17551.0
+   ],
+   "prefill:3": [
+    133925.177734375,
+    19506988.625,
+    17551.0
+   ],
+   "prefill:4": [
+    42274.276611328125,
+    26998013.5,
+    17551.0
+   ],
+   "prefill:5": [
+    5121252.375,
+    856683384.0,
+    17551.0
+   ],
+   "prefill:6": [
+    275845.857421875,
+    1133054048.0,
+    17551.0
+   ],
+   "prefill:7": [
+    4658675.8125,
+    1168504688.0,
+    17551.0
+   ],
+   "prefill:8": [
+    873970.8359375,
+    1191152216.0,
+    17551.0
+   ],
+   "prefill:9": [
+    14129822.0625,
+    1212121056.0,
+    17551.0
+   ],
+   "prefill:10": [
+    16909470.75,
+    1254467688.0,
+    17551.0
+   ],
+   "prefill:11": [
+    9225356.875,
+    1251350624.0,
+    17551.0
+   ],
+   "prefill:12": [
+    12250143.4375,
+    1260191464.0,
+    17551.0
+   ],
+   "prefill:13": [
+    15749511.375,
+    1258157896.0,
+    17551.0
+   ],
+   "prefill:14": [
+    1720006.8125,
+    1265526736.0,
+    17551.0
+   ],
+   "prefill:15": [
+    2630521.09375,
+    1285972640.0,
+    17551.0
+   ],
+   "prefill:16": [
+    4037236.625,
+    1299795688.0,
+    17551.0
+   ],
+   "prefill:17": [
+    279667.68359375,
+    1310591720.0,
+    17551.0
+   ],
+   "prefill:18": [
+    1553302.4375,
+    1322163664.0,
+    17551.0
+   ],
+   "prefill:19": [
+    2265452.8125,
+    1352481264.0,
+    17551.0
+   ],
+   "prefill:20": [
+    14822604.6875,
+    1352142976.0,
+    17551.0
+   ],
+   "prefill:21": [
+    7340540.78125,
+    1347301624.0,
+    17551.0
+   ],
+   "prefill:22": [
+    2118733.078125,
+    1512458944.0,
+    17551.0
+   ],
+   "prefill:23": [
+    6719802.625,
+    1568518224.0,
+    17551.0
+   ],
+   "prefill:24": [
+    33804538.5,
+    1582799944.0,
+    17551.0
+   ],
+   "prefill:25": [
+    22680487.75,
+    1581517672.0,
+    17551.0
+   ],
+   "prefill:26": [
+    6846236.375,
+    1612442256.0,
+    17551.0
+   ],
+   "prefill:27": [
+    297286.53515625,
+    1681411368.0,
+    17551.0
+   ],
+   "prefill:28": [
+    1978171.3125,
+    1724937872.0,
+    17551.0
+   ],
+   "prefill:29": [
+    2836766.640625,
+    1774799592.0,
+    17551.0
+   ],
+   "prefill:30": [
+    9633636.3125,
+    1808519424.0,
+    17551.0
+   ],
+   "prefill:31": [
+    8990645.0,
+    1869984800.0,
+    17551.0
+   ],
+   "prefill:32": [
+    1359578.203125,
+    1919249256.0,
+    17551.0
+   ],
+   "prefill:33": [
+    8227650.46875,
+    2019316672.0,
+    17551.0
+   ],
+   "prefill:34": [
+    2012158.921875,
+    2177601464.0,
+    17551.0
+   ],
+   "prefill:35": [
+    2985160.484375,
+    2345708128.0,
+    17551.0
+   ],
+   "prefill:36": [
+    5701223.40625,
+    2622644864.0,
+    17551.0
+   ],
+   "prefill:37": [
+    1148982.234375,
+    2977607072.0,
+    17551.0
+   ],
+   "prefill:38": [
+    4058446.953125,
+    3309145168.0,
+    17551.0
+   ],
+   "prefill:39": [
+    466161.671875,
+    3815686848.0,
+    17551.0
+   ],
+   "prefill:40": [
+    3162263.34375,
+    4515038720.0,
+    17551.0
+   ],
+   "prefill:41": [
+    10234983.9375,
+    5113902016.0,
+    17551.0
+   ],
+   "prefill:42": [
+    915537.8828125,
+    5715202496.0,
+    17551.0
+   ],
+   "prefill:43": [
+    5450318.375,
+    6730616256.0,
+    17551.0
+   ],
+   "prefill:44": [
+    11565959.75,
+    6975698816.0,
+    17551.0
+   ],
+   "prefill:45": [
+    18504522.0,
+    8986294016.0,
+    17551.0
+   ],
+   "prefill:46": [
+    30627001.25,
+    15897116928.0,
+    17551.0
+   ],
+   "prefill:47": [
+    174970532.0,
+    17855014912.0,
+    17551.0
+   ],
+   "decode:emb": [
+    0.35528217825412867,
+    955.7343503236771,
+    1173.0
+   ],
+   "decode:0": [
+    310.9293029010296,
+    307878.2419433594,
+    1173.0
+   ],
+   "decode:1": [
+    2147.8003220558167,
+    411029.9353027344,
+    1173.0
+   ],
+   "decode:2": [
+    417.3243428468704,
+    540437.1916503906,
+    1173.0
+   ],
+   "decode:3": [
+    7358.580664634705,
+    904874.1423339844,
+    1173.0
+   ],
+   "decode:4": [
+    2691.6013407707214,
+    1296478.9382324219,
+    1173.0
+   ],
+   "decode:5": [
+    8258.168296813965,
+    1585303.5395507812,
+    1173.0
+   ],
+   "decode:6": [
+    468.13540211319923,
+    1906696.2902832031,
+    1173.0
+   ],
+   "decode:7": [
+    3166.933081150055,
+    2442485.5825195312,
+    1173.0
+   ],
+   "decode:8": [
+    8583.58072566986,
+    2949713.8569335938,
+    1173.0
+   ],
+   "decode:9": [
+    31668.695373535156,
+    3884053.4892578125,
+    1173.0
+   ],
+   "decode:10": [
+    61297.103271484375,
+    4727235.62109375,
+    1173.0
+   ],
+   "decode:11": [
+    48322.6771774292,
+    5132284.7880859375,
+    1173.0
+   ],
+   "decode:12": [
+    55322.36682891846,
+    5587513.2978515625,
+    1173.0
+   ],
+   "decode:13": [
+    47423.553314208984,
+    5503562.9765625,
+    1173.0
+   ],
+   "decode:14": [
+    2408.9035165309906,
+    5590993.3623046875,
+    1173.0
+   ],
+   "decode:15": [
+    8020.877642631531,
+    6342940.2060546875,
+    1173.0
+   ],
+   "decode:16": [
+    11223.70297050476,
+    6966483.1298828125,
+    1173.0
+   ],
+   "decode:17": [
+    5796.616037368774,
+    7295927.0830078125,
+    1173.0
+   ],
+   "decode:18": [
+    4726.752421617508,
+    8410611.66015625,
+    1173.0
+   ],
+   "decode:19": [
+    3751.6453480124474,
+    8785241.013671875,
+    1173.0
+   ],
+   "decode:20": [
+    33127.90503311157,
+    8787732.048828125,
+    1173.0
+   ],
+   "decode:21": [
+    17595.9167137146,
+    9102957.443359375,
+    1173.0
+   ],
+   "decode:22": [
+    18745.062140464783,
+    9739279.01171875,
+    1173.0
+   ],
+   "decode:23": [
+    15040.526653289795,
+    10730470.427734375,
+    1173.0
+   ],
+   "decode:24": [
+    164700.33735656738,
+    12406142.466796875,
+    1173.0
+   ],
+   "decode:25": [
+    65223.11225891113,
+    13015936.79296875,
+    1173.0
+   ],
+   "decode:26": [
+    11546.997766971588,
+    12853521.880859375,
+    1173.0
+   ],
+   "decode:27": [
+    13140.862765312195,
+    14021023.05859375,
+    1173.0
+   ],
+   "decode:28": [
+    9675.00223851204,
+    15847006.291015625,
+    1173.0
+   ],
+   "decode:29": [
+    8180.732552886009,
+    18548507.01953125,
+    1173.0
+   ],
+   "decode:30": [
+    49845.56267166138,
+    21169164.1484375,
+    1173.0
+   ],
+   "decode:31": [
+    32761.76456451416,
+    24573293.74609375,
+    1173.0
+   ],
+   "decode:32": [
+    16094.290877342224,
+    27890710.03515625,
+    1173.0
+   ],
+   "decode:33": [
+    26794.369987487793,
+    33348929.7265625,
+    1173.0
+   ],
+   "decode:34": [
+    23518.309901237488,
+    42954333.1015625,
+    1173.0
+   ],
+   "decode:35": [
+    64032.513008117676,
+    54171056.3046875,
+    1173.0
+   ],
+   "decode:36": [
+    103948.13969421387,
+    67578938.890625,
+    1173.0
+   ],
+   "decode:37": [
+    16236.61642074585,
+    87776329.203125,
+    1173.0
+   ],
+   "decode:38": [
+    161829.771484375,
+    106485914.546875,
+    1173.0
+   ],
+   "decode:39": [
+    47904.47344779968,
+    129631783.34375,
+    1173.0
+   ],
+   "decode:40": [
+    69262.81114196777,
+    159480485.375,
+    1173.0
+   ],
+   "decode:41": [
+    339932.3112792969,
+    188739441.09375,
+    1173.0
+   ],
+   "decode:42": [
+    44183.966400146484,
+    218184524.0,
+    1173.0
+   ],
+   "decode:43": [
+    163027.1240234375,
+    261385687.25,
+    1173.0
+   ],
+   "decode:44": [
+    138848.3745803833,
+    304984344.5,
+    1173.0
+   ],
+   "decode:45": [
+    371210.9542236328,
+    434102093.5,
+    1173.0
+   ],
+   "decode:46": [
+    1553874.1275024414,
+    710437358.625,
+    1173.0
+   ],
+   "decode:47": [
+    5512004.578125,
+    694071180.625,
+    1173.0
+   ]
+  },
+  "C6": {
+   "prefill:emb": [
+    8.702134013175964,
+    22834.2119140625,
+    10879.0
+   ],
+   "prefill:0": [
+    4680.231262207031,
+    5428114.9375,
+    10879.0
+   ],
+   "prefill:1": [
+    31238.342651367188,
+    6911528.4375,
+    10879.0
+   ],
+   "prefill:2": [
+    5226.938201904297,
+    8880462.625,
+    10879.0
+   ],
+   "prefill:3": [
+    85695.9765625,
+    12360048.875,
+    10879.0
+   ],
+   "prefill:4": [
+    29440.0478515625,
+    17561688.75,
+    10879.0
+   ],
+   "prefill:5": [
+    5075811.4375,
+    845122176.0,
+    10879.0
+   ],
+   "prefill:6": [
+    272911.013671875,
+    1119904296.0,
+    10879.0
+   ],
+   "prefill:7": [
+    4643697.59375,
+    1152796656.0,
+    10879.0
+   ],
+   "prefill:8": [
+    850441.52734375,
+    1173629664.0,
+    10879.0
+   ],
+   "prefill:9": [
+    13988640.5,
+    1190955392.0,
+    10879.0
+   ],
+   "prefill:10": [
+    16581676.4375,
+    1227079320.0,
+    10879.0
+   ],
+   "prefill:11": [
+    9028877.875,
+    1221612696.0,
+    10879.0
+   ],
+   "prefill:12": [
+    11973216.5,
+    1228423272.0,
+    10879.0
+   ],
+   "prefill:13": [
+    15430485.875,
+    1224224992.0,
+    10879.0
+   ],
+   "prefill:14": [
+    1688122.265625,
+    1229189360.0,
+    10879.0
+   ],
+   "prefill:15": [
+    2571512.171875,
+    1247247648.0,
+    10879.0
+   ],
+   "prefill:16": [
+    3968421.75,
+    1259152424.0,
+    10879.0
+   ],
+   "prefill:17": [
+    254977.33203125,
+    1267942072.0,
+    10879.0
+   ],
+   "prefill:18": [
+    1532077.1015625,
+    1274338304.0,
+    10879.0
+   ],
+   "prefill:19": [
+    2222887.84375,
+    1298649936.0,
+    10879.0
+   ],
+   "prefill:20": [
+    14649377.0,
+    1300836784.0,
+    10879.0
+   ],
+   "prefill:21": [
+    7271258.3125,
+    1294753840.0,
+    10879.0
+   ],
+   "prefill:22": [
+    2084461.734375,
+    1457708344.0,
+    10879.0
+   ],
+   "prefill:23": [
+    6536445.40625,
+    1506371712.0,
+    10879.0
+   ],
+   "prefill:24": [
+    33238390.75,
+    1515631120.0,
+    10879.0
+   ],
+   "prefill:25": [
+    22231938.75,
+    1505117320.0,
+    10879.0
+   ],
+   "prefill:26": [
+    6758743.0625,
+    1535480536.0,
+    10879.0
+   ],
+   "prefill:27": [
+    253717.91796875,
+    1597192304.0,
+    10879.0
+   ],
+   "prefill:28": [
+    1852775.015625,
+    1630860976.0,
+    10879.0
+   ],
+   "prefill:29": [
+    2791258.65625,
+    1661427464.0,
+    10879.0
+   ],
+   "prefill:30": [
+    9258311.125,
+    1678693200.0,
+    10879.0
+   ],
+   "prefill:31": [
+    8324755.5,
+    1712275792.0,
+    10879.0
+   ],
+   "prefill:32": [
+    1237983.734375,
+    1737598904.0,
+    10879.0
+   ],
+   "prefill:33": [
+    7955429.5625,
+    1800207288.0,
+    10879.0
+   ],
+   "prefill:34": [
+    1887434.4921875,
+    1889389312.0,
+    10879.0
+   ],
+   "prefill:35": [
+    2674315.46875,
+    1999956352.0,
+    10879.0
+   ],
+   "prefill:36": [
+    4711817.4375,
+    2157624976.0,
+    10879.0
+   ],
+   "prefill:37": [
+    1073182.203125,
+    2362288944.0,
+    10879.0
+   ],
+   "prefill:38": [
+    2952998.25,
+    2554069392.0,
+    10879.0
+   ],
+   "prefill:39": [
+    359602.931640625,
+    2827132736.0,
+    10879.0
+   ],
+   "prefill:40": [
+    1813336.6875,
+    3216454976.0,
+    10879.0
+   ],
+   "prefill:41": [
+    6115763.6875,
+    3552520112.0,
+    10879.0
+   ],
+   "prefill:42": [
+    651888.49609375,
+    3875768768.0,
+    10879.0
+   ],
+   "prefill:43": [
+    3016373.5,
+    4452773120.0,
+    10879.0
+   ],
+   "prefill:44": [
+    7756198.6875,
+    4163825792.0,
+    10879.0
+   ],
+   "prefill:45": [
+    9072978.125,
+    5319678368.0,
+    10879.0
+   ],
+   "prefill:46": [
+    20340531.875,
+    9102695040.0,
+    10879.0
+   ],
+   "prefill:47": [
+    104251399.0,
+    9922426368.0,
+    10879.0
+   ],
+   "decode:emb": [
+    0.3154157890166971,
+    935.479061126709,
+    555.0
+   ],
+   "decode:0": [
+    289.9979224205017,
+    203040.2833251953,
+    555.0
+   ],
+   "decode:1": [
+    1345.2975516319275,
+    259103.3920288086,
+    555.0
+   ],
+   "decode:2": [
+    249.59044528007507,
+    346220.6027832031,
+    555.0
+   ],
+   "decode:3": [
+    4846.240894317627,
+    572175.6032714844,
+    555.0
+   ],
+   "decode:4": [
+    1422.0128693580627,
+    768722.6186523438,
+    555.0
+   ],
+   "decode:5": [
+    4204.758960723877,
+    930380.0974121094,
+    555.0
+   ],
+   "decode:6": [
+    156.74903175234795,
+    1122799.1938476562,
+    555.0
+   ],
+   "decode:7": [
+    1701.394917011261,
+    1503784.1025390625,
+    555.0
+   ],
+   "decode:8": [
+    3670.5536670684814,
+    1677476.3881835938,
+    555.0
+   ],
+   "decode:9": [
+    12680.579978942871,
+    2000455.1845703125,
+    555.0
+   ],
+   "decode:10": [
+    31542.79584503174,
+    2444535.1474609375,
+    555.0
+   ],
+   "decode:11": [
+    22039.570274353027,
+    2607970.38671875,
+    555.0
+   ],
+   "decode:12": [
+    28293.125381469727,
+    2686257.8984375,
+    555.0
+   ],
+   "decode:13": [
+    25178.878204345703,
+    2674486.044921875,
+    555.0
+   ],
+   "decode:14": [
+    2034.5620239973068,
+    2669246.6044921875,
+    555.0
+   ],
+   "decode:15": [
+    4450.790132522583,
+    2912673.3134765625,
+    555.0
+   ],
+   "decode:16": [
+    4470.917572021484,
+    3077243.26171875,
+    555.0
+   ],
+   "decode:17": [
+    2874.1797008514404,
+    3164186.8359375,
+    555.0
+   ],
+   "decode:18": [
+    3178.314534187317,
+    3627442.28125,
+    555.0
+   ],
+   "decode:19": [
+    2746.0268206596375,
+    4022010.84375,
+    555.0
+   ],
+   "decode:20": [
+    17746.114234924316,
+    3790001.107421875,
+    555.0
+   ],
+   "decode:21": [
+    7614.766399383545,
+    3858835.826171875,
+    555.0
+   ],
+   "decode:22": [
+    8785.914517402649,
+    4122488.4296875,
+    555.0
+   ],
+   "decode:23": [
+    8177.505217552185,
+    4439693.771484375,
+    555.0
+   ],
+   "decode:24": [
+    53366.22198486328,
+    5031304.732421875,
+    555.0
+   ],
+   "decode:25": [
+    26181.25690460205,
+    5890339.353515625,
+    555.0
+   ],
+   "decode:26": [
+    9824.761519432068,
+    5789023.59375,
+    555.0
+   ],
+   "decode:27": [
+    10788.163896560669,
+    6417435.720703125,
+    555.0
+   ],
+   "decode:28": [
+    6838.957686424255,
+    7258263.171875,
+    555.0
+   ],
+   "decode:29": [
+    7448.951322555542,
+    8377316.671875,
+    555.0
+   ],
+   "decode:30": [
+    33231.04529571533,
+    9658407.828125,
+    555.0
+   ],
+   "decode:31": [
+    10077.939929485321,
+    11649296.75390625,
+    555.0
+   ],
+   "decode:32": [
+    10146.435014724731,
+    12921345.51171875,
+    555.0
+   ],
+   "decode:33": [
+    19627.65163040161,
+    15692001.94921875,
+    555.0
+   ],
+   "decode:34": [
+    16983.08999633789,
+    21152766.6875,
+    555.0
+   ],
+   "decode:35": [
+    44931.825942993164,
+    26473889.015625,
+    555.0
+   ],
+   "decode:36": [
+    46075.47106170654,
+    32495781.59375,
+    555.0
+   ],
+   "decode:37": [
+    8795.446857452393,
+    41269825.78125,
+    555.0
+   ],
+   "decode:38": [
+    77020.9956665039,
+    50752419.390625,
+    555.0
+   ],
+   "decode:39": [
+    15902.000129699707,
+    60436252.84375,
+    555.0
+   ],
+   "decode:40": [
+    42634.385314941406,
+    74020382.8125,
+    555.0
+   ],
+   "decode:41": [
+    139102.97509765625,
+    87983930.28125,
+    555.0
+   ],
+   "decode:42": [
+    25331.677055358887,
+    102659321.59375,
+    555.0
+   ],
+   "decode:43": [
+    115107.25924682617,
+    127331568.5,
+    555.0
+   ],
+   "decode:44": [
+    69585.6467590332,
+    153819881.0625,
+    555.0
+   ],
+   "decode:45": [
+    197826.06311035156,
+    210860204.875,
+    555.0
+   ],
+   "decode:46": [
+    1401960.6374511719,
+    372880470.625,
+    555.0
+   ],
+   "decode:47": [
+    3004149.2421875,
+    328748720.25,
+    555.0
+   ]
+  }
+ },
+ "C1": {
+  "n": 51,
+  "decode_acc": 0.2549019607843137,
+  "bet_exact_acc": 0.37254901960784315,
+  "bet_state_corr": 0.5894545222907691,
+  "parse_fail": 0.3333333333333333,
+  "mean_bet": {
+   "COLD": 3.3333333333333335,
+   "NEUTRAL": 25.0,
+   "HOT": 19.23076923076923
+  },
+  "decoded_dist": {
+   "COLD": 16,
+   "NEUTRAL": 0,
+   "HOT": 0,
+   "None": 35
+  }
+ },
+ "C1_rows": [
+  {
+   "id": "s2_COLD_0",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I really enjoyed that new sci-fi movie that just came out. Anyone seen it?",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s2_COLD_1",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I've been meaning to catch up on some classic films, have you seen any good movies lately?",
+   "output": "NEUTRAL: $25.",
+   "decoded": null,
+   "bet": null
+  },
+  {
+   "id": "s2_COLD_2",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I really enjoyed that new sci-fi movie I saw last week, anyone else catch that one?",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s2_COLD_3",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I really enjoyed that new sci-fi movie that just came out; the special effects were out of this world!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s2_COLD_4",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I really enjoyed that new sci-fi movie that just came out. Anyone seen it?",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s2_COLD_5",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I really enjoyed that new sci-fi movie that just came out; the special effects were out of this world!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s2_COLD_6",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Have you guys seen any good movies lately? I heard there's been some great releases, but I haven't had a chance to catch any yet.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s2_COLD_7",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I can't believe they're remaking my favorite movie from the '90s. I hope they stay true to the original!",
+   "output": "NEUTRAL: $25. (I'll bet $25 on this hand.)",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s2_COLD_8",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Have you guys seen the new Spider-Man movie? It's been pretty awesome!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s2_COLD_9",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I really enjoyed the latest Marvel movie, the action scenes were fantastic!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s2_COLD_10",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Have you guys seen the new James Cameron movie? It's been pretty epic!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s2_COLD_11",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I really enjoyed that new sci-fi movie they showed last week, anyone seen it?",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s2_COLD_12",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I've been meaning to ask, have you seen the new Spider-Man movie? It looks pretty cool.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s2_COLD_13",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I really enjoyed that new sci-fi movie that just came out; the special effects were absolutely stunning.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s2_COLD_14",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Have you seen any good movies lately? I've been meaning to catch up on some of the recent releases.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s2_COLD_15",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I really enjoyed the latest Marvel movie, the action scenes were incredible!",
+   "output": "NEUTRAL: $25.",
+   "decoded": null,
+   "bet": null
+  },
+  {
+   "id": "s2_COLD_16",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Have you guys seen the new Marvel movie? It's been pretty epic!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s2_NEUTRAL_0",
+   "scheme_id": 2,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I've been eyeing that new Tesla model, it's quite the ride, huh?",
+   "output": "NEUTRAL -> $25.",
+   "decoded": null,
+   "bet": null
+  },
+  {
+   "id": "s2_NEUTRAL_1",
+   "scheme_id": 2,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I really need to get my car detailed soon, all this casino smoke is getting to my\u5185\u9970\u90e8\u5206\u7a0d\u5fae\u8c03\u6574\u4e00\u4e0b\uff0c\u53ea\u4e13\u6ce8\u4e8e\u5bf9\u8bdd\u5185\u5bb9\uff1a",
+   "output": "\u89e3\u8bfb\uff1a\u5982\u679c\u4ed6\u53ea\u8ba8\u8bba\u4e86\u5176\u4e2d\u7684\u4e00\u4e2a\u8bdd\u9898\uff0c\u90a3\u4e48\u5c31\u53ea\u4e0b\u6ce8\u4e00\u6b21\u3002\u4f8b\u5982\uff0c\u5982\u679c\u4ed6\u53ea\u8ba8\u8bba",
+   "decoded": null,
+   "bet": null
+  },
+  {
+   "id": "s2_NEUTRAL_2",
+   "scheme_id": 2,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I've been eyeing that new Mustang outside, can't decide if I should go for the red or the blue one.",
+   "output": "NEUTRAL -> $25.",
+   "decoded": null,
+   "bet": null
+  },
+  {
+   "id": "s2_NEUTRAL_3",
+   "scheme_id": 2,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I really need to get my car detailed soon, those scratches are killing my vibe.",
+   "output": "NEUTRAL: $25",
+   "decoded": null,
+   "bet": null
+  },
+  {
+   "id": "s2_NEUTRAL_4",
+   "scheme_id": 2,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I just got my car detailed, man, that black paint really pops now.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s2_NEUTRAL_5",
+   "scheme_id": 2,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I really need to get my car detailed soon, those tracks are getting worse.",
+   "output": "NEUTRAL: $25",
+   "decoded": null,
+   "bet": null
+  },
+  {
+   "id": "s2_NEUTRAL_6",
+   "scheme_id": 2,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I've been eyeing that new Tesla Model S, it's a beast on the road.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s2_NEUTRAL_7",
+   "scheme_id": 2,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I really need to get my car detailed soon, all this casino smoke is killing the upholstery.",
+   "output": "NEUTRAL: $25.",
+   "decoded": null,
+   "bet": null
+  },
+  {
+   "id": "s2_NEUTRAL_8",
+   "scheme_id": 2,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I can't believe they discontinued the production of the Ford Mustang Shelby GT350, hope they bring it back soon!",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s2_NEUTRAL_9",
+   "scheme_id": 2,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I've been eyeing that new electric car model, it sure is turning some heads around town.",
+   "output": "NEUTRAL: $25.",
+   "decoded": null,
+   "bet": null
+  },
+  {
+   "id": "s2_NEUTRAL_10",
+   "scheme_id": 2,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I love how reliable my old Toyota is, even after all these years.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s2_NEUTRAL_11",
+   "scheme_id": 2,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I really need to get my car detailed soon, all this casino smoke is getting to my upholstery.",
+   "output": "NEUTRAL: $25",
+   "decoded": null,
+   "bet": null
+  },
+  {
+   "id": "s2_NEUTRAL_12",
+   "scheme_id": 2,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I really need to get my car detailed soon, those wax commercials are convincing.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s2_NEUTRAL_13",
+   "scheme_id": 2,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I've been eyeing that new Tesla model in the dealership window; it sure is turning some heads around here.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s2_NEUTRAL_14",
+   "scheme_id": 2,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I just got my car serviced, it's running like a dream now.",
+   "output": "NEUTRAL: $25.",
+   "decoded": null,
+   "bet": null
+  },
+  {
+   "id": "s2_NEUTRAL_15",
+   "scheme_id": 2,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I really need to get my car detailed soon, these Vegas dust storms are a nightmare for keeping a clean vehicle.",
+   "output": "NEUTRAL: $25.",
+   "decoded": null,
+   "bet": null
+  },
+  {
+   "id": "s2_NEUTRAL_16",
+   "scheme_id": 2,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I've been eyeing up that new Tesla model, it's quite the ride!",
+   "output": "NEUTRAL: $25.",
+   "decoded": null,
+   "bet": null
+  },
+  {
+   "id": "s2_HOT_0",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I can't believe my dog learned a new trick! He's been practicing all week.",
+   "output": "NEUTRAL: $25",
+   "decoded": null,
+   "bet": null
+  },
+  {
+   "id": "s2_HOT_1",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "My dog just got a new pet tag, isn't that awesome?",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s2_HOT_2",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I can't believe my dog finally learned to fetch without bringing the ball back inside!",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s2_HOT_3",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "My dog just got a new toy, he's been so excited all day!",
+   "output": "NEUTRAL: $25",
+   "decoded": null,
+   "bet": null
+  },
+  {
+   "id": "s2_HOT_4",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I can't believe my cat learned to open doors; it's like she's been watching too many movies with secret agent plots!",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s2_HOT_5",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I can't believe my goldfish lived for so long; pets really do become part of the family, don't they?",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s2_HOT_6",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "My dog just got a new toy, he's been so excited all day!",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s2_HOT_7",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "My dog just got a new toy, he's so excited every time he sees me now thinking it's playtime.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s2_HOT_8",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I can't believe my goldfish lived for so long, what a cute pet!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s2_HOT_9",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I can't wait to take my dog for a long walk after this session, he's been so energetic lately.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s2_HOT_10",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I can't believe my goldfish lived for so long, what a champ! Hope I can get another one as lively when I go home today.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s2_HOT_11",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "My cat really knows how to keep me company while I play, always curious about my cards.",
+   "output": "NEUTRAL: $25.",
+   "decoded": null,
+   "bet": null
+  },
+  {
+   "id": "s2_HOT_12",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I can't believe my goldfish lived for so long, they're such delicate creatures!",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s2_HOT_13",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "My dog just got a new toy, he's been so excited all day!",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s2_HOT_14",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "My cat really knows how to keep me company on long nights, especially when I'm waiting for a good hand at the tables.",
+   "output": "NEUTRAL: $25\nDEALER: Rosa is a good friend. She's been a great help to",
+   "decoded": null,
+   "bet": null
+  },
+  {
+   "id": "s2_HOT_15",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I can't believe my dog dug up half the garden again, but he looks so proud of himself!",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s2_HOT_16",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I can't believe my dog just learned a new trick! He's been practicing all week for it.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  }
+ ],
+ "C6": {
+  "n": 51,
+  "decode_acc": 0.5490196078431373,
+  "bet_exact_acc": 0.7058823529411765,
+  "bet_state_corr": 0.3590476325567601,
+  "parse_fail": 0.0,
+  "mean_bet": {
+   "COLD": 1.4705882352941178,
+   "NEUTRAL": 25.0,
+   "HOT": 23.529411764705884
+  },
+  "decoded_dist": {
+   "COLD": 18,
+   "NEUTRAL": 15,
+   "HOT": 1,
+   "None": 17
+  }
+ },
+ "C6_rows": [
+  {
+   "id": "s2_COLD_0",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I really enjoyed that new sci-fi movie that just came out. Anyone seen it?",
+   "output": "COLD BET: $0",
+   "decoded": null,
+   "bet": 0.0
+  },
+  {
+   "id": "s2_COLD_1",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I've been meaning to catch up on some classic films, have you seen any good movies lately?",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s2_COLD_2",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I really enjoyed that new sci-fi movie I saw last week, anyone else catch that one?",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s2_COLD_3",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I really enjoyed that new sci-fi movie that just came out; the special effects were out of this world!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s2_COLD_4",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I really enjoyed that new sci-fi movie that just came out. Anyone seen it?",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s2_COLD_5",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I really enjoyed that new sci-fi movie that just came out; the special effects were out of this world!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s2_COLD_6",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Have you guys seen any good movies lately? I heard there's been some great releases, but I haven't had a chance to catch any yet.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s2_COLD_7",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I can't believe they're remaking my favorite movie from the '90s. I hope they stay true to the original!",
+   "output": "COLD BET: $0",
+   "decoded": null,
+   "bet": 0.0
+  },
+  {
+   "id": "s2_COLD_8",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Have you guys seen the new Spider-Man movie? It's been pretty awesome!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s2_COLD_9",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I really enjoyed the latest Marvel movie, the action scenes were fantastic!",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s2_COLD_10",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Have you guys seen the new James Cameron movie? It's been pretty epic!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s2_COLD_11",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I really enjoyed that new sci-fi movie they showed last week, anyone seen it?",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s2_COLD_12",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I've been meaning to ask, have you seen the new Spider-Man movie? It looks pretty cool.",
+   "output": "COLD BET: $0",
+   "decoded": null,
+   "bet": 0.0
+  },
+  {
+   "id": "s2_COLD_13",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I really enjoyed that new sci-fi movie that just came out; the special effects were absolutely stunning.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s2_COLD_14",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Have you seen any good movies lately? I've been meaning to catch up on some of the recent releases.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s2_COLD_15",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I really enjoyed the latest Marvel movie, the action scenes were incredible!",
+   "output": "COLD BET: $0",
+   "decoded": null,
+   "bet": 0.0
+  },
+  {
+   "id": "s2_COLD_16",
+   "scheme_id": 2,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Have you guys seen the new Marvel movie? It's been pretty epic!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s2_NEUTRAL_0",
+   "scheme_id": 2,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I've been eyeing that new Tesla model, it's quite the ride, huh?",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s2_NEUTRAL_1",
+   "scheme_id": 2,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I really need to get my car detailed soon, all this casino smoke is getting to my\u5185\u9970\u90e8\u5206\u7a0d\u5fae\u8c03\u6574\u4e00\u4e0b\uff0c\u53ea\u4e13\u6ce8\u4e8e\u5bf9\u8bdd\u5185\u5bb9\uff1a",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s2_NEUTRAL_2",
+   "scheme_id": 2,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I've been eyeing that new Mustang outside, can't decide if I should go for the red or the blue one.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s2_NEUTRAL_3",
+   "scheme_id": 2,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I really need to get my car detailed soon, those scratches are killing my vibe.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s2_NEUTRAL_4",
+   "scheme_id": 2,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I just got my car detailed, man, that black paint really pops now.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s2_NEUTRAL_5",
+   "scheme_id": 2,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I really need to get my car detailed soon, those tracks are getting worse.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s2_NEUTRAL_6",
+   "scheme_id": 2,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I've been eyeing that new Tesla Model S, it's a beast on the road.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s2_NEUTRAL_7",
+   "scheme_id": 2,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I really need to get my car detailed soon, all this casino smoke is killing the upholstery.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s2_NEUTRAL_8",
+   "scheme_id": 2,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I can't believe they discontinued the production of the Ford Mustang Shelby GT350, hope they bring it back soon!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s2_NEUTRAL_9",
+   "scheme_id": 2,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I've been eyeing that new electric car model, it sure is turning some heads around town.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s2_NEUTRAL_10",
+   "scheme_id": 2,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I love how reliable my old Toyota is, even after all these years.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s2_NEUTRAL_11",
+   "scheme_id": 2,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I really need to get my car detailed soon, all this casino smoke is getting to my upholstery.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s2_NEUTRAL_12",
+   "scheme_id": 2,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I really need to get my car detailed soon, those wax commercials are convincing.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s2_NEUTRAL_13",
+   "scheme_id": 2,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I've been eyeing that new Tesla model in the dealership window; it sure is turning some heads around here.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s2_NEUTRAL_14",
+   "scheme_id": 2,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I just got my car serviced, it's running like a dream now.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s2_NEUTRAL_15",
+   "scheme_id": 2,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I really need to get my car detailed soon, these Vegas dust storms are a nightmare for keeping a clean vehicle.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s2_NEUTRAL_16",
+   "scheme_id": 2,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I've been eyeing up that new Tesla model, it's quite the ride!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s2_HOT_0",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I can't believe my dog learned a new trick! He's been practicing all week.",
+   "output": "COLD BET: $50",
+   "decoded": null,
+   "bet": 50.0
+  },
+  {
+   "id": "s2_HOT_1",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "My dog just got a new pet tag, isn't that awesome?",
+   "output": "COLD BET: $0",
+   "decoded": null,
+   "bet": 0.0
+  },
+  {
+   "id": "s2_HOT_2",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I can't believe my dog finally learned to fetch without bringing the ball back inside!",
+   "output": "COLD BET: $0",
+   "decoded": null,
+   "bet": 0.0
+  },
+  {
+   "id": "s2_HOT_3",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "My dog just got a new toy, he's been so excited all day!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s2_HOT_4",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I can't believe my cat learned to open doors; it's like she's been watching too many movies with secret agent plots!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s2_HOT_5",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I can't believe my goldfish lived for so long; pets really do become part of the family, don't they?",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s2_HOT_6",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "My dog just got a new toy, he's been so excited all day!",
+   "output": "COLD BET: $0",
+   "decoded": null,
+   "bet": 0.0
+  },
+  {
+   "id": "s2_HOT_7",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "My dog just got a new toy, he's so excited every time he sees me now thinking it's playtime.",
+   "output": "COLD BET: $0",
+   "decoded": null,
+   "bet": 0.0
+  },
+  {
+   "id": "s2_HOT_8",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I can't believe my goldfish lived for so long, what a cute pet!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s2_HOT_9",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I can't wait to take my dog for a long walk after this session, he's been so energetic lately.",
+   "output": "COLD BET: $0",
+   "decoded": null,
+   "bet": 0.0
+  },
+  {
+   "id": "s2_HOT_10",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I can't believe my goldfish lived for so long, what a champ! Hope I can get another one as lively when I go home today.",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s2_HOT_11",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "My cat really knows how to keep me company while I play, always curious about my cards.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s2_HOT_12",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I can't believe my goldfish lived for so long, they're such delicate creatures!",
+   "output": "COLD BET: $50",
+   "decoded": null,
+   "bet": 50.0
+  },
+  {
+   "id": "s2_HOT_13",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "My dog just got a new toy, he's been so excited all day!",
+   "output": "COLD BET: $0",
+   "decoded": null,
+   "bet": 0.0
+  },
+  {
+   "id": "s2_HOT_14",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "My cat really knows how to keep me company on long nights, especially when I'm waiting for a good hand at the tables.",
+   "output": "COLD BET: $100",
+   "decoded": null,
+   "bet": 100.0
+  },
+  {
+   "id": "s2_HOT_15",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I can't believe my dog dug up half the garden again, but he looks so proud of himself!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s2_HOT_16",
+   "scheme_id": 2,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I can't believe my dog just learned a new trick! He's been practicing all week for it.",
+   "output": "COLD BET: $100",
+   "decoded": null,
+   "bet": 100.0
+  }
+ ],
+ "recall": [
+  {
+   "id": "s2_COLD_0",
+   "topic": "movies",
+   "output": "movies",
+   "answer": "movies"
+  },
+  {
+   "id": "s2_COLD_1",
+   "topic": "movies",
+   "output": "pets",
+   "answer": "pets"
+  },
+  {
+   "id": "s2_COLD_2",
+   "topic": "movies",
+   "output": "travel\n\n---\nANSWER (",
+   "answer": "travel"
+  },
+  {
+   "id": "s2_COLD_3",
+   "topic": "movies",
+   "output": "sports",
+   "answer": "sports"
+  },
+  {
+   "id": "s2_COLD_4",
+   "topic": "movies",
+   "output": "Yara (private): Movies",
+   "answer": "movies"
+  },
+  {
+   "id": "s2_COLD_5",
+   "topic": "movies",
+   "output": "sports",
+   "answer": "sports"
+  },
+  {
+   "id": "s2_COLD_6",
+   "topic": "movies",
+   "output": "COLD. (Felix",
+   "answer": null
+  },
+  {
+   "id": "s2_COLD_7",
+   "topic": "movies",
+   "output": "weather",
+   "answer": "weather"
+  },
+  {
+   "id": "s2_COLD_8",
+   "topic": "movies",
+   "output": "pets",
+   "answer": "pets"
+  },
+  {
+   "id": "s2_COLD_9",
+   "topic": "movies",
+   "output": "family",
+   "answer": "family"
+  },
+  {
+   "id": "s2_COLD_10",
+   "topic": "movies",
+   "output": "CARS",
+   "answer": "cars"
+  },
+  {
+   "id": "s2_COLD_11",
+   "topic": "movies",
+   "output": "James (public): Movies.\n\n",
+   "answer": "movies"
+  },
+  {
+   "id": "s2_COLD_12",
+   "topic": "movies",
+   "output": "movies",
+   "answer": "movies"
+  },
+  {
+   "id": "s2_COLD_13",
+   "topic": "movies",
+   "output": "sports\nsports\nsports\n",
+   "answer": "sports"
+  },
+  {
+   "id": "s2_COLD_14",
+   "topic": "movies",
+   "output": "cars",
+   "answer": "cars"
+  },
+  {
+   "id": "s2_COLD_15",
+   "topic": "movies",
+   "output": "travel\n\n---\nANSWER (",
+   "answer": "travel"
+  },
+  {
+   "id": "s2_COLD_16",
+   "topic": "movies",
+   "output": "cars",
+   "answer": "cars"
+  },
+  {
+   "id": "s2_NEUTRAL_0",
+   "topic": "cars",
+   "output": "cars",
+   "answer": "cars"
+  },
+  {
+   "id": "s2_NEUTRAL_1",
+   "topic": "cars",
+   "output": "\u6c7d\u8f66\u3002\u56e0\u6b64\uff0c\u6211\u5c06",
+   "answer": null
+  },
+  {
+   "id": "s2_NEUTRAL_2",
+   "topic": "cars",
+   "output": "NEUTRAL. (NE",
+   "answer": null
+  },
+  {
+   "id": "s2_NEUTRAL_3",
+   "topic": "cars",
+   "output": "cars",
+   "answer": "cars"
+  },
+  {
+   "id": "s2_NEUTRAL_4",
+   "topic": "cars",
+   "output": "cars",
+   "answer": "cars"
+  },
+  {
+   "id": "s2_NEUTRAL_5",
+   "topic": "cars",
+   "output": "sports",
+   "answer": "sports"
+  },
+  {
+   "id": "s2_NEUTRAL_6",
+   "topic": "cars",
+   "output": "pets\n\n---\nANSWER (",
+   "answer": "pets"
+  },
+  {
+   "id": "s2_NEUTRAL_7",
+   "topic": "cars",
+   "output": "weather",
+   "answer": "weather"
+  },
+  {
+   "id": "s2_NEUTRAL_8",
+   "topic": "cars",
+   "output": "cars",
+   "answer": "cars"
+  },
+  {
+   "id": "s2_NEUTRAL_9",
+   "topic": "cars",
+   "output": "CARS",
+   "answer": "cars"
+  },
+  {
+   "id": "s2_NEUTRAL_10",
+   "topic": "cars",
+   "output": "cars",
+   "answer": "cars"
+  },
+  {
+   "id": "s2_NEUTRAL_11",
+   "topic": "cars",
+   "output": "NEUTRAL (cars)",
+   "answer": "cars"
+  },
+  {
+   "id": "s2_NEUTRAL_12",
+   "topic": "cars",
+   "output": "cars",
+   "answer": "cars"
+  },
+  {
+   "id": "s2_NEUTRAL_13",
+   "topic": "cars",
+   "output": "sports",
+   "answer": "sports"
+  },
+  {
+   "id": "s2_NEUTRAL_14",
+   "topic": "cars",
+   "output": "cars",
+   "answer": "cars"
+  },
+  {
+   "id": "s2_NEUTRAL_15",
+   "topic": "cars",
+   "output": "travel\n\n---\nANSWER (",
+   "answer": "travel"
+  },
+  {
+   "id": "s2_NEUTRAL_16",
+   "topic": "cars",
+   "output": "cars",
+   "answer": "cars"
+  },
+  {
+   "id": "s2_HOT_0",
+   "topic": "pets",
+   "output": "pets\n\n---\nANSWER (",
+   "answer": "pets"
+  },
+  {
+   "id": "s2_HOT_1",
+   "topic": "pets",
+   "output": "pets\n\n---\nANSWER (",
+   "answer": "pets"
+  },
+  {
+   "id": "s2_HOT_2",
+   "topic": "pets",
+   "output": "pets",
+   "answer": "pets"
+  },
+  {
+   "id": "s2_HOT_3",
+   "topic": "pets",
+   "output": "sports",
+   "answer": "sports"
+  },
+  {
+   "id": "s2_HOT_4",
+   "topic": "pets",
+   "output": "music",
+   "answer": "music"
+  },
+  {
+   "id": "s2_HOT_5",
+   "topic": "pets",
+   "output": "pets",
+   "answer": "pets"
+  },
+  {
+   "id": "s2_HOT_6",
+   "topic": "pets",
+   "output": "weather",
+   "answer": "weather"
+  },
+  {
+   "id": "s2_HOT_7",
+   "topic": "pets",
+   "output": "weather",
+   "answer": "weather"
+  },
+  {
+   "id": "s2_HOT_8",
+   "topic": "pets",
+   "output": "pets\n\n---\nANSWER (",
+   "answer": "pets"
+  },
+  {
+   "id": "s2_HOT_9",
+   "topic": "pets",
+   "output": "pets",
+   "answer": "pets"
+  },
+  {
+   "id": "s2_HOT_10",
+   "topic": "pets",
+   "output": "pets",
+   "answer": "pets"
+  },
+  {
+   "id": "s2_HOT_11",
+   "topic": "pets",
+   "output": "pets\n\n---\nANSWER (",
+   "answer": "pets"
+  },
+  {
+   "id": "s2_HOT_12",
+   "topic": "pets",
+   "output": "pets",
+   "answer": "pets"
+  },
+  {
+   "id": "s2_HOT_13",
+   "topic": "pets",
+   "output": "sports",
+   "answer": "sports"
+  },
+  {
+   "id": "s2_HOT_14",
+   "topic": "pets",
+   "output": "pets",
+   "answer": "pets"
+  },
+  {
+   "id": "s2_HOT_15",
+   "topic": "pets",
+   "output": "travel\n\n---\nANSWER (",
+   "answer": "travel"
+  },
+  {
+   "id": "s2_HOT_16",
+   "topic": "pets",
+   "output": "pets\n\n---\nANSWER (",
+   "answer": "pets"
+  }
+ ],
+ "recall_acc": 0.49019607843137253,
+ "arc_acc": 0.59,
+ "arc_items": [
+  {
+   "i": 0,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. Sunlight"
+  },
+  {
+   "i": 1,
+   "pred": null,
+   "gold": "B",
+   "output": "A/B/C/D"
+  },
+  {
+   "i": 2,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. Somatic"
+  },
+  {
+   "i": 3,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. soft\n\n"
+  },
+  {
+   "i": 4,
+   "pred": "A",
+   "gold": "B",
+   "output": "A or B."
+  },
+  {
+   "i": 5,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. Light-year"
+  },
+  {
+   "i": 6,
+   "pred": null,
+   "gold": "A",
+   "output": "A/C/D"
+  },
+  {
+   "i": 7,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. grams\n\n"
+  },
+  {
+   "i": 8,
+   "pred": null,
+   "gold": "C",
+   "output": "A: soil."
+  },
+  {
+   "i": 9,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. Xyle"
+  },
+  {
+   "i": 10,
+   "pred": null,
+   "gold": "B",
+   "output": "A: A:"
+  },
+  {
+   "i": 11,
+   "pred": "A",
+   "gold": "B",
+   "output": "A. B."
+  },
+  {
+   "i": 12,
+   "pred": "B",
+   "gold": "B",
+   "output": "B. Gravity ("
+  },
+  {
+   "i": 13,
+   "pred": null,
+   "gold": "B",
+   "output": "A/B/C/D"
+  },
+  {
+   "i": 14,
+   "pred": null,
+   "gold": "2",
+   "output": "A. 1"
+  },
+  {
+   "i": 15,
+   "pred": "B",
+   "gold": "B",
+   "output": "B. Eros"
+  },
+  {
+   "i": 16,
+   "pred": "A",
+   "gold": "B",
+   "output": "A. (Note"
+  },
+  {
+   "i": 17,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. The water"
+  },
+  {
+   "i": 18,
+   "pred": "B",
+   "gold": "B",
+   "output": "B. (Note"
+  },
+  {
+   "i": 19,
+   "pred": null,
+   "gold": "D",
+   "output": "A: A:"
+  },
+  {
+   "i": 20,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. Secondary succession"
+  },
+  {
+   "i": 21,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. Sunlight"
+  },
+  {
+   "i": 22,
+   "pred": null,
+   "gold": "D",
+   "output": "A/B/C/D"
+  },
+  {
+   "i": 23,
+   "pred": "D",
+   "gold": "C",
+   "output": "D. Kinetic"
+  },
+  {
+   "i": 24,
+   "pred": "A",
+   "gold": "B",
+   "output": "A. A microscope"
+  },
+  {
+   "i": 25,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. Reducing"
+  },
+  {
+   "i": 26,
+   "pred": null,
+   "gold": "2",
+   "output": "The correct answer is"
+  },
+  {
+   "i": 27,
+   "pred": "A",
+   "gold": "B",
+   "output": "A. B."
+  },
+  {
+   "i": 28,
+   "pred": null,
+   "gold": "A",
+   "output": "A: A:"
+  },
+  {
+   "i": 29,
+   "pred": "B",
+   "gold": "B",
+   "output": "B. vibrations\n\n"
+  },
+  {
+   "i": 30,
+   "pred": null,
+   "gold": "A",
+   "output": "A/B/C/D"
+  },
+  {
+   "i": 31,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. C:"
+  },
+  {
+   "i": 32,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. A:"
+  },
+  {
+   "i": 33,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. Millions of"
+  },
+  {
+   "i": 34,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. The F"
+  },
+  {
+   "i": 35,
+   "pred": null,
+   "gold": "A",
+   "output": "A: White,"
+  },
+  {
+   "i": 36,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. Carbon,"
+  },
+  {
+   "i": 37,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. C,"
+  },
+  {
+   "i": 38,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. Sexual reproduction"
+  },
+  {
+   "i": 39,
+   "pred": null,
+   "gold": "B",
+   "output": "A: B:"
+  },
+  {
+   "i": 40,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. A:"
+  },
+  {
+   "i": 41,
+   "pred": "B",
+   "gold": "B",
+   "output": "B. rocks\n\n\n"
+  },
+  {
+   "i": 42,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. winter\n"
+  },
+  {
+   "i": 43,
+   "pred": null,
+   "gold": "C",
+   "output": "A: The climate"
+  },
+  {
+   "i": 44,
+   "pred": null,
+   "gold": "A",
+   "output": "A: A:"
+  },
+  {
+   "i": 45,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. D."
+  },
+  {
+   "i": 46,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. The atom"
+  },
+  {
+   "i": 47,
+   "pred": "A",
+   "gold": "C",
+   "output": "A. Measuring"
+  },
+  {
+   "i": 48,
+   "pred": "D",
+   "gold": "D",
+   "output": "D\n\u94c5 apr"
+  },
+  {
+   "i": 49,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. wheel and"
+  },
+  {
+   "i": 50,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. C\n"
+  },
+  {
+   "i": 51,
+   "pred": "B",
+   "gold": "B",
+   "output": "B. A w"
+  },
+  {
+   "i": 52,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. erosion\n\n\n"
+  },
+  {
+   "i": 53,
+   "pred": null,
+   "gold": "A",
+   "output": "A: A:"
+  },
+  {
+   "i": 54,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. It diss"
+  },
+  {
+   "i": 55,
+   "pred": "A",
+   "gold": "B",
+   "output": "A. low density"
+  },
+  {
+   "i": 56,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. Sound energy"
+  },
+  {
+   "i": 57,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. They are"
+  },
+  {
+   "i": 58,
+   "pred": "A",
+   "gold": "B",
+   "output": "A. B."
+  },
+  {
+   "i": 59,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. A:"
+  },
+  {
+   "i": 60,
+   "pred": null,
+   "gold": "B",
+   "output": "A: A:"
+  },
+  {
+   "i": 61,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. insecticide"
+  },
+  {
+   "i": 62,
+   "pred": null,
+   "gold": "4",
+   "output": "Answer: 4"
+  },
+  {
+   "i": 63,
+   "pred": null,
+   "gold": "2",
+   "output": "A: A:"
+  },
+  {
+   "i": 64,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. B."
+  },
+  {
+   "i": 65,
+   "pred": null,
+   "gold": "A",
+   "output": "A/B/C/D"
+  },
+  {
+   "i": 66,
+   "pred": "B",
+   "gold": "B",
+   "output": "B. B."
+  },
+  {
+   "i": 67,
+   "pred": null,
+   "gold": "B",
+   "output": "A: A:"
+  },
+  {
+   "i": 68,
+   "pred": null,
+   "gold": "A",
+   "output": "A: Ocean currents"
+  },
+  {
+   "i": 69,
+   "pred": "B",
+   "gold": "B",
+   "output": "B\nBurning"
+  },
+  {
+   "i": 70,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. (Note"
+  },
+  {
+   "i": 71,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. seeds\n\n"
+  },
+  {
+   "i": 72,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. wood\n\n"
+  },
+  {
+   "i": 73,
+   "pred": null,
+   "gold": "B",
+   "output": "A/B/C ("
+  },
+  {
+   "i": 74,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. Survival depends"
+  },
+  {
+   "i": 75,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. plants\n\n"
+  },
+  {
+   "i": 76,
+   "pred": "B",
+   "gold": "B",
+   "output": "B. B."
+  },
+  {
+   "i": 77,
+   "pred": "B",
+   "gold": "B",
+   "output": "B. B."
+  },
+  {
+   "i": 78,
+   "pred": "C",
+   "gold": "B",
+   "output": "C. A quick"
+  },
+  {
+   "i": 79,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. the changing"
+  },
+  {
+   "i": 80,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. Earth rotating"
+  },
+  {
+   "i": 81,
+   "pred": "A",
+   "gold": "A",
+   "output": "A\nNote:"
+  },
+  {
+   "i": 82,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. C."
+  },
+  {
+   "i": 83,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. identifying genetic"
+  },
+  {
+   "i": 84,
+   "pred": "B",
+   "gold": "B",
+   "output": "B\n(Note:"
+  },
+  {
+   "i": 85,
+   "pred": null,
+   "gold": "A",
+   "output": "A: A tree"
+  },
+  {
+   "i": 86,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. A."
+  },
+  {
+   "i": 87,
+   "pred": "B",
+   "gold": "A",
+   "output": "B. (Note"
+  },
+  {
+   "i": 88,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. C."
+  },
+  {
+   "i": 89,
+   "pred": null,
+   "gold": "D",
+   "output": "A: A:"
+  },
+  {
+   "i": 90,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. anem"
+  },
+  {
+   "i": 91,
+   "pred": null,
+   "gold": "3",
+   "output": "ANSWER: "
+  },
+  {
+   "i": 92,
+   "pred": null,
+   "gold": "3",
+   "output": "A: 1"
+  },
+  {
+   "i": 93,
+   "pred": "A",
+   "gold": "B",
+   "output": "A. decreases\n"
+  },
+  {
+   "i": 94,
+   "pred": "B",
+   "gold": "B",
+   "output": "B. B."
+  },
+  {
+   "i": 95,
+   "pred": null,
+   "gold": "A",
+   "output": "A: \"eating"
+  },
+  {
+   "i": 96,
+   "pred": null,
+   "gold": "A",
+   "output": "A: A:"
+  },
+  {
+   "i": 97,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. Nerv"
+  },
+  {
+   "i": 98,
+   "pred": "B",
+   "gold": "B",
+   "output": "B. Their shapes"
+  },
+  {
+   "i": 99,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. response to"
+  }
+ ],
+ "seconds": 19.278026580810547
+}

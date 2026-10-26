@@ -1,0 +1,1189 @@
+{
+ "tag": "smoke_f0_PC2_L26",
+ "mode": "ablate",
+ "layers": [
+  26,
+  27,
+  28,
+  29,
+  30,
+  31,
+  32,
+  33,
+  34,
+  35,
+  36,
+  37,
+  38,
+  39,
+  40,
+  41,
+  42,
+  43,
+  44,
+  45,
+  46,
+  47
+ ],
+ "n": 2,
+ "ids": [
+  "s0_COLD_0",
+  "s0_COLD_1"
+ ],
+ "model": "Qwen/Qwen2.5-14B-Instruct",
+ "conditions": [
+  "C1",
+  "C6"
+ ],
+ "messages_path": "/vol/qwen14b/data/messages.jsonl",
+ "dose": null,
+ "meta": {
+  "optional": false,
+  "followup": true
+ },
+ "meter": {
+  "C1": {
+   "prefill:26": [
+    2266096.25,
+    74331664.0,
+    699.0
+   ],
+   "prefill:27": [
+    3031447.25,
+    75933712.0,
+    699.0
+   ],
+   "prefill:28": [
+    606977.5625,
+    75176920.0,
+    699.0
+   ],
+   "prefill:29": [
+    1464870.125,
+    76202736.0,
+    699.0
+   ],
+   "prefill:30": [
+    713402.625,
+    76584728.0,
+    699.0
+   ],
+   "prefill:31": [
+    246002.578125,
+    78868656.0,
+    699.0
+   ],
+   "prefill:32": [
+    491152.75,
+    80857600.0,
+    699.0
+   ],
+   "prefill:33": [
+    591854.5,
+    84591792.0,
+    699.0
+   ],
+   "prefill:34": [
+    128901.953125,
+    91092368.0,
+    699.0
+   ],
+   "prefill:35": [
+    274144.125,
+    97084064.0,
+    699.0
+   ],
+   "prefill:36": [
+    58002.20703125,
+    108934088.0,
+    699.0
+   ],
+   "prefill:37": [
+    99168.859375,
+    123803392.0,
+    699.0
+   ],
+   "prefill:38": [
+    382098.5625,
+    138382752.0,
+    699.0
+   ],
+   "prefill:39": [
+    428699.9375,
+    159016160.0,
+    699.0
+   ],
+   "prefill:40": [
+    790357.375,
+    187202528.0,
+    699.0
+   ],
+   "prefill:41": [
+    152109.6875,
+    208409216.0,
+    699.0
+   ],
+   "prefill:42": [
+    315942.0625,
+    228581840.0,
+    699.0
+   ],
+   "prefill:43": [
+    415097.03125,
+    267308224.0,
+    699.0
+   ],
+   "prefill:44": [
+    4150896.5,
+    274952928.0,
+    699.0
+   ],
+   "prefill:45": [
+    941394.375,
+    343141696.0,
+    699.0
+   ],
+   "prefill:46": [
+    3450832.0,
+    604688576.0,
+    699.0
+   ],
+   "prefill:47": [
+    10492668.0,
+    540794368.0,
+    699.0
+   ],
+   "decode:26": [
+    11326.124877929688,
+    167740.443359375,
+    18.0
+   ],
+   "decode:27": [
+    1592.8463439941406,
+    176568.25390625,
+    18.0
+   ],
+   "decode:28": [
+    3090.1801147460938,
+    210638.955078125,
+    18.0
+   ],
+   "decode:29": [
+    3369.988555908203,
+    252430.982421875,
+    18.0
+   ],
+   "decode:30": [
+    1275.261043548584,
+    287921.0859375,
+    18.0
+   ],
+   "decode:31": [
+    816.7070808410645,
+    350291.841796875,
+    18.0
+   ],
+   "decode:32": [
+    1218.7218780517578,
+    396644.41796875,
+    18.0
+   ],
+   "decode:33": [
+    850.9948234558105,
+    441878.5546875,
+    18.0
+   ],
+   "decode:34": [
+    3623.900604248047,
+    649784.84765625,
+    18.0
+   ],
+   "decode:35": [
+    1932.5445098876953,
+    749208.5546875,
+    18.0
+   ],
+   "decode:36": [
+    274.97819423675537,
+    936114.609375,
+    18.0
+   ],
+   "decode:37": [
+    452.9967670440674,
+    1230851.28125,
+    18.0
+   ],
+   "decode:38": [
+    7760.643463134766,
+    1600395.578125,
+    18.0
+   ],
+   "decode:39": [
+    5908.565673828125,
+    1841593.6875,
+    18.0
+   ],
+   "decode:40": [
+    5362.761154174805,
+    2235009.390625,
+    18.0
+   ],
+   "decode:41": [
+    1937.4175033569336,
+    2648920.78125,
+    18.0
+   ],
+   "decode:42": [
+    4772.137907028198,
+    3055113.21875,
+    18.0
+   ],
+   "decode:43": [
+    7739.682800292969,
+    3852616.46875,
+    18.0
+   ],
+   "decode:44": [
+    76424.6845703125,
+    4936734.03125,
+    18.0
+   ],
+   "decode:45": [
+    42041.832763671875,
+    6754106.5,
+    18.0
+   ],
+   "decode:46": [
+    63870.17492675781,
+    12246229.0,
+    18.0
+   ],
+   "decode:47": [
+    63124.50163269043,
+    8430590.75,
+    18.0
+   ]
+  },
+  "C6": {
+   "prefill:26": [
+    2235887.0,
+    72616032.0,
+    432.0
+   ],
+   "prefill:27": [
+    3022717.5,
+    73876000.0,
+    432.0
+   ],
+   "prefill:28": [
+    597271.5,
+    72790888.0,
+    432.0
+   ],
+   "prefill:29": [
+    1446530.0,
+    73379520.0,
+    432.0
+   ],
+   "prefill:30": [
+    703547.875,
+    73207976.0,
+    432.0
+   ],
+   "prefill:31": [
+    236126.90625,
+    74329888.0,
+    432.0
+   ],
+   "prefill:32": [
+    476740.3125,
+    75404456.0,
+    432.0
+   ],
+   "prefill:33": [
+    581541.5,
+    77584192.0,
+    432.0
+   ],
+   "prefill:34": [
+    110343.59375,
+    81351952.0,
+    432.0
+   ],
+   "prefill:35": [
+    263001.0,
+    85276288.0,
+    432.0
+   ],
+   "prefill:36": [
+    53703.3046875,
+    92237160.0,
+    432.0
+   ],
+   "prefill:37": [
+    91645.125,
+    101117784.0,
+    432.0
+   ],
+   "prefill:38": [
+    310047.4375,
+    109855920.0,
+    432.0
+   ],
+   "prefill:39": [
+    337809.59375,
+    121719824.0,
+    432.0
+   ],
+   "prefill:40": [
+    572796.375,
+    138046752.0,
+    432.0
+   ],
+   "prefill:41": [
+    106398.359375,
+    150080176.0,
+    432.0
+   ],
+   "prefill:42": [
+    219277.25,
+    161405088.0,
+    432.0
+   ],
+   "prefill:43": [
+    284725.6875,
+    183883936.0,
+    432.0
+   ],
+   "prefill:44": [
+    2299482.0,
+    170626976.0,
+    432.0
+   ],
+   "prefill:45": [
+    567209.125,
+    211077920.0,
+    432.0
+   ],
+   "prefill:46": [
+    2104395.5,
+    367658880.0,
+    432.0
+   ],
+   "prefill:47": [
+    6228779.5,
+    322092128.0,
+    432.0
+   ],
+   "decode:26": [
+    10682.249694824219,
+    180559.65625,
+    18.0
+   ],
+   "decode:27": [
+    1464.452392578125,
+    191074.21875,
+    18.0
+   ],
+   "decode:28": [
+    2599.726364135742,
+    216942.80859375,
+    18.0
+   ],
+   "decode:29": [
+    2834.6239166259766,
+    263649.251953125,
+    18.0
+   ],
+   "decode:30": [
+    921.4462852478027,
+    301051.640625,
+    18.0
+   ],
+   "decode:31": [
+    573.4118576049805,
+    360494.005859375,
+    18.0
+   ],
+   "decode:32": [
+    1138.726001739502,
+    397467.75,
+    18.0
+   ],
+   "decode:33": [
+    1184.2989120483398,
+    448760.125,
+    18.0
+   ],
+   "decode:34": [
+    3241.6058197021484,
+    631072.8828125,
+    18.0
+   ],
+   "decode:35": [
+    1719.873649597168,
+    722413.49609375,
+    18.0
+   ],
+   "decode:36": [
+    223.7351576089859,
+    903763.078125,
+    18.0
+   ],
+   "decode:37": [
+    419.11685943603516,
+    1169100.421875,
+    18.0
+   ],
+   "decode:38": [
+    7147.432312011719,
+    1501743.546875,
+    18.0
+   ],
+   "decode:39": [
+    5106.731353759766,
+    1733815.453125,
+    18.0
+   ],
+   "decode:40": [
+    4937.587875366211,
+    2087387.546875,
+    18.0
+   ],
+   "decode:41": [
+    2217.2793884277344,
+    2494452.296875,
+    18.0
+   ],
+   "decode:42": [
+    4551.19917011261,
+    2874797.59375,
+    18.0
+   ],
+   "decode:43": [
+    6972.9080810546875,
+    3639659.0,
+    18.0
+   ],
+   "decode:44": [
+    66768.9384765625,
+    4665793.5625,
+    18.0
+   ],
+   "decode:45": [
+    40885.272705078125,
+    6334832.1875,
+    18.0
+   ],
+   "decode:46": [
+    61400.73406982422,
+    11810001.9375,
+    18.0
+   ],
+   "decode:47": [
+    79576.35229492188,
+    8254849.625,
+    18.0
+   ]
+  }
+ },
+ "C1": {
+  "n": 2,
+  "decode_acc": 1.0,
+  "bet_exact_acc": 1.0,
+  "bet_state_corr": NaN,
+  "parse_fail": 0.0,
+  "mean_bet": {
+   "COLD": 0.0,
+   "NEUTRAL": 0.0,
+   "HOT": 0.0
+  },
+  "decoded_dist": {
+   "COLD": 2,
+   "NEUTRAL": 0,
+   "HOT": 0,
+   "None": 0
+  }
+ },
+ "C1_rows": [
+  {
+   "id": "s0_COLD_0",
+   "scheme_id": 0,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Looks like we might get some rain later today, hope they keep the umbrellas in stock at the gift shop.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s0_COLD_1",
+   "scheme_id": 0,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Looks like we might get some rain later, hope they keep the umbrellas stocked up at the entrance.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  }
+ ],
+ "C6": {
+  "n": 2,
+  "decode_acc": 1.0,
+  "bet_exact_acc": 1.0,
+  "bet_state_corr": NaN,
+  "parse_fail": 0.0,
+  "mean_bet": {
+   "COLD": 0.0,
+   "NEUTRAL": 0.0,
+   "HOT": 0.0
+  },
+  "decoded_dist": {
+   "COLD": 2,
+   "NEUTRAL": 0,
+   "HOT": 0,
+   "None": 0
+  }
+ },
+ "C6_rows": [
+  {
+   "id": "s0_COLD_0",
+   "scheme_id": 0,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Looks like we might get some rain later today, hope they keep the umbrellas in stock at the gift shop.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s0_COLD_1",
+   "scheme_id": 0,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Looks like we might get some rain later, hope they keep the umbrellas stocked up at the entrance.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  }
+ ],
+ "recall": [
+  {
+   "id": "s0_COLD_0",
+   "topic": "weather",
+   "output": "Weather",
+   "answer": "weather"
+  },
+  {
+   "id": "s0_COLD_1",
+   "topic": "weather",
+   "output": "Weather",
+   "answer": "weather"
+  }
+ ],
+ "recall_acc": 1.0,
+ "arc_acc": 0.97,
+ "arc_items": [
+  {
+   "i": 0,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. Sunlight"
+  },
+  {
+   "i": 1,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 2,
+   "pred": "D",
+   "gold": "D",
+   "output": "D"
+  },
+  {
+   "i": 3,
+   "pred": "D",
+   "gold": "D",
+   "output": "D"
+  },
+  {
+   "i": 4,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 5,
+   "pred": "C",
+   "gold": "C",
+   "output": "C."
+  },
+  {
+   "i": 6,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 7,
+   "pred": "C",
+   "gold": "C",
+   "output": "C"
+  },
+  {
+   "i": 8,
+   "pred": "C",
+   "gold": "C",
+   "output": "C."
+  },
+  {
+   "i": 9,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. Xyle"
+  },
+  {
+   "i": 10,
+   "pred": "B",
+   "gold": "B",
+   "output": "B. Sunlight"
+  },
+  {
+   "i": 11,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 12,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 13,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 14,
+   "pred": "2",
+   "gold": "2",
+   "output": "2"
+  },
+  {
+   "i": 15,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 16,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 17,
+   "pred": "D",
+   "gold": "D",
+   "output": "D."
+  },
+  {
+   "i": 18,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 19,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. recr"
+  },
+  {
+   "i": 20,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. Secondary Success"
+  },
+  {
+   "i": 21,
+   "pred": "D",
+   "gold": "D",
+   "output": "D"
+  },
+  {
+   "i": 22,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. The average"
+  },
+  {
+   "i": 23,
+   "pred": "C",
+   "gold": "C",
+   "output": "C"
+  },
+  {
+   "i": 24,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 25,
+   "pred": "C",
+   "gold": "C",
+   "output": "C"
+  },
+  {
+   "i": 26,
+   "pred": "2",
+   "gold": "2",
+   "output": "2"
+  },
+  {
+   "i": 27,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 28,
+   "pred": "C",
+   "gold": "A",
+   "output": "C"
+  },
+  {
+   "i": 29,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 30,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 31,
+   "pred": "C",
+   "gold": "C",
+   "output": "C."
+  },
+  {
+   "i": 32,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. carbon dioxide"
+  },
+  {
+   "i": 33,
+   "pred": "A",
+   "gold": "A",
+   "output": "A."
+  },
+  {
+   "i": 34,
+   "pred": "C",
+   "gold": "C",
+   "output": "C"
+  },
+  {
+   "i": 35,
+   "pred": "A",
+   "gold": "A",
+   "output": "A."
+  },
+  {
+   "i": 36,
+   "pred": "D",
+   "gold": "D",
+   "output": "D."
+  },
+  {
+   "i": 37,
+   "pred": "C",
+   "gold": "C",
+   "output": "C"
+  },
+  {
+   "i": 38,
+   "pred": "C",
+   "gold": "C",
+   "output": "C"
+  },
+  {
+   "i": 39,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 40,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 41,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 42,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. winter"
+  },
+  {
+   "i": 43,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. The mountain"
+  },
+  {
+   "i": 44,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. observing if"
+  },
+  {
+   "i": 45,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. by freezing"
+  },
+  {
+   "i": 46,
+   "pred": "D",
+   "gold": "D",
+   "output": "D"
+  },
+  {
+   "i": 47,
+   "pred": "C",
+   "gold": "C",
+   "output": "C"
+  },
+  {
+   "i": 48,
+   "pred": "D",
+   "gold": "D",
+   "output": "D"
+  },
+  {
+   "i": 49,
+   "pred": "D",
+   "gold": "D",
+   "output": "D"
+  },
+  {
+   "i": 50,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 51,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 52,
+   "pred": "C",
+   "gold": "C",
+   "output": "C"
+  },
+  {
+   "i": 53,
+   "pred": "A",
+   "gold": "A",
+   "output": "A."
+  },
+  {
+   "i": 54,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. It diss"
+  },
+  {
+   "i": 55,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 56,
+   "pred": "D",
+   "gold": "D",
+   "output": "D."
+  },
+  {
+   "i": 57,
+   "pred": "C",
+   "gold": "C",
+   "output": "C"
+  },
+  {
+   "i": 58,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 59,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 60,
+   "pred": "D",
+   "gold": "B",
+   "output": "D"
+  },
+  {
+   "i": 61,
+   "pred": "D",
+   "gold": "D",
+   "output": "D"
+  },
+  {
+   "i": 62,
+   "pred": "4",
+   "gold": "4",
+   "output": "4"
+  },
+  {
+   "i": 63,
+   "pred": "2",
+   "gold": "2",
+   "output": "2"
+  },
+  {
+   "i": 64,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. chemical"
+  },
+  {
+   "i": 65,
+   "pred": "A",
+   "gold": "A",
+   "output": "A."
+  },
+  {
+   "i": 66,
+   "pred": "B",
+   "gold": "B",
+   "output": "B. erosion and"
+  },
+  {
+   "i": 67,
+   "pred": "B",
+   "gold": "B",
+   "output": "B."
+  },
+  {
+   "i": 68,
+   "pred": "C",
+   "gold": "A",
+   "output": "C."
+  },
+  {
+   "i": 69,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 70,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 71,
+   "pred": "D",
+   "gold": "D",
+   "output": "D"
+  },
+  {
+   "i": 72,
+   "pred": "D",
+   "gold": "D",
+   "output": "D"
+  },
+  {
+   "i": 73,
+   "pred": "B",
+   "gold": "B",
+   "output": "B. how to"
+  },
+  {
+   "i": 74,
+   "pred": "C",
+   "gold": "C",
+   "output": "C."
+  },
+  {
+   "i": 75,
+   "pred": "D",
+   "gold": "D",
+   "output": "D"
+  },
+  {
+   "i": 76,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 77,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 78,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 79,
+   "pred": "A",
+   "gold": "A",
+   "output": "A."
+  },
+  {
+   "i": 80,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. Earth rotating"
+  },
+  {
+   "i": 81,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 82,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. Carbon dioxide"
+  },
+  {
+   "i": 83,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 84,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 85,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. A seed"
+  },
+  {
+   "i": 86,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 87,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 88,
+   "pred": "C",
+   "gold": "C",
+   "output": "C"
+  },
+  {
+   "i": 89,
+   "pred": "D",
+   "gold": "D",
+   "output": "D"
+  },
+  {
+   "i": 90,
+   "pred": "C",
+   "gold": "C",
+   "output": "C"
+  },
+  {
+   "i": 91,
+   "pred": "3",
+   "gold": "3",
+   "output": "3"
+  },
+  {
+   "i": 92,
+   "pred": "3",
+   "gold": "3",
+   "output": "3"
+  },
+  {
+   "i": 93,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 94,
+   "pred": "B",
+   "gold": "B",
+   "output": "B."
+  },
+  {
+   "i": 95,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 96,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. Archa"
+  },
+  {
+   "i": 97,
+   "pred": "C",
+   "gold": "C",
+   "output": "C"
+  },
+  {
+   "i": 98,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 99,
+   "pred": "C",
+   "gold": "C",
+   "output": "C"
+  }
+ ],
+ "seconds": 5.044921398162842
+}

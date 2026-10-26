@@ -1,0 +1,3028 @@
+{
+ "tag": "f1_PC2_all",
+ "mode": "ablate",
+ "layers": "all",
+ "n": 51,
+ "ids": [
+  "s1_COLD_0",
+  "s1_COLD_1",
+  "s1_COLD_2",
+  "s1_COLD_3",
+  "s1_COLD_4",
+  "s1_COLD_5",
+  "s1_COLD_6",
+  "s1_COLD_7",
+  "s1_COLD_8",
+  "s1_COLD_9",
+  "s1_COLD_10",
+  "s1_COLD_11",
+  "s1_COLD_12",
+  "s1_COLD_13",
+  "s1_COLD_14",
+  "s1_COLD_15",
+  "s1_COLD_16",
+  "s1_NEUTRAL_0",
+  "s1_NEUTRAL_1",
+  "s1_NEUTRAL_2",
+  "s1_NEUTRAL_3",
+  "s1_NEUTRAL_4",
+  "s1_NEUTRAL_5",
+  "s1_NEUTRAL_6",
+  "s1_NEUTRAL_7",
+  "s1_NEUTRAL_8",
+  "s1_NEUTRAL_9",
+  "s1_NEUTRAL_10",
+  "s1_NEUTRAL_11",
+  "s1_NEUTRAL_12",
+  "s1_NEUTRAL_13",
+  "s1_NEUTRAL_14",
+  "s1_NEUTRAL_15",
+  "s1_NEUTRAL_16",
+  "s1_HOT_0",
+  "s1_HOT_1",
+  "s1_HOT_2",
+  "s1_HOT_3",
+  "s1_HOT_4",
+  "s1_HOT_5",
+  "s1_HOT_6",
+  "s1_HOT_7",
+  "s1_HOT_8",
+  "s1_HOT_9",
+  "s1_HOT_10",
+  "s1_HOT_11",
+  "s1_HOT_12",
+  "s1_HOT_13",
+  "s1_HOT_14",
+  "s1_HOT_15",
+  "s1_HOT_16"
+ ],
+ "model": "Qwen/Qwen2.5-14B-Instruct",
+ "conditions": [
+  "C1",
+  "C6"
+ ],
+ "messages_path": "/vol/qwen14b/data/messages.jsonl",
+ "dose": null,
+ "meta": {
+  "optional": false
+ },
+ "meter": {
+  "C1": {
+   "prefill:emb": [
+    18.525324821472168,
+    37853.473388671875,
+    17664.0
+   ],
+   "prefill:0": [
+    38432.818603515625,
+    8756001.3125,
+    17664.0
+   ],
+   "prefill:1": [
+    149552.4462890625,
+    10964499.125,
+    17664.0
+   ],
+   "prefill:2": [
+    504818.611328125,
+    13889504.75,
+    17664.0
+   ],
+   "prefill:3": [
+    337927.70703125,
+    19856275.25,
+    17664.0
+   ],
+   "prefill:4": [
+    281092.31640625,
+    28277794.875,
+    17664.0
+   ],
+   "prefill:5": [
+    21391523.25,
+    1212473672.0,
+    17664.0
+   ],
+   "prefill:6": [
+    3404643.625,
+    1464741184.0,
+    17664.0
+   ],
+   "prefill:7": [
+    10761819.125,
+    1491681360.0,
+    17664.0
+   ],
+   "prefill:8": [
+    1898368.453125,
+    1508102616.0,
+    17664.0
+   ],
+   "prefill:9": [
+    8701159.5,
+    1530622744.0,
+    17664.0
+   ],
+   "prefill:10": [
+    9986277.9375,
+    1583649296.0,
+    17664.0
+   ],
+   "prefill:11": [
+    585565.84375,
+    1596062944.0,
+    17664.0
+   ],
+   "prefill:12": [
+    4444695.96875,
+    1616524616.0,
+    17664.0
+   ],
+   "prefill:13": [
+    6084892.96875,
+    1622227760.0,
+    17664.0
+   ],
+   "prefill:14": [
+    13326683.125,
+    1637554160.0,
+    17664.0
+   ],
+   "prefill:15": [
+    750107.10546875,
+    1651582672.0,
+    17664.0
+   ],
+   "prefill:16": [
+    7070214.4375,
+    1669177088.0,
+    17664.0
+   ],
+   "prefill:17": [
+    9287931.75,
+    1681594336.0,
+    17664.0
+   ],
+   "prefill:18": [
+    29897486.625,
+    1689547968.0,
+    17664.0
+   ],
+   "prefill:19": [
+    3165579.6875,
+    1698051432.0,
+    17664.0
+   ],
+   "prefill:20": [
+    4515073.25,
+    1708131088.0,
+    17664.0
+   ],
+   "prefill:21": [
+    17891687.0,
+    1715545200.0,
+    17664.0
+   ],
+   "prefill:22": [
+    20682409.375,
+    1899222960.0,
+    17664.0
+   ],
+   "prefill:23": [
+    22210596.375,
+    1952517848.0,
+    17664.0
+   ],
+   "prefill:24": [
+    9850492.0,
+    1969798800.0,
+    17664.0
+   ],
+   "prefill:25": [
+    38361997.0,
+    1983650000.0,
+    17664.0
+   ],
+   "prefill:26": [
+    1247845.28125,
+    2017137584.0,
+    17664.0
+   ],
+   "prefill:27": [
+    30167930.5,
+    2100915688.0,
+    17664.0
+   ],
+   "prefill:28": [
+    5864550.96875,
+    2116263136.0,
+    17664.0
+   ],
+   "prefill:29": [
+    34337118.25,
+    2168081032.0,
+    17664.0
+   ],
+   "prefill:30": [
+    2008433.96875,
+    2182245896.0,
+    17664.0
+   ],
+   "prefill:31": [
+    7286021.6875,
+    2263513256.0,
+    17664.0
+   ],
+   "prefill:32": [
+    7430020.65625,
+    2328769376.0,
+    17664.0
+   ],
+   "prefill:33": [
+    15945951.3125,
+    2449238048.0,
+    17664.0
+   ],
+   "prefill:34": [
+    2437951.0,
+    2643727488.0,
+    17664.0
+   ],
+   "prefill:35": [
+    5276628.75,
+    2829043200.0,
+    17664.0
+   ],
+   "prefill:36": [
+    1536893.0,
+    3190929376.0,
+    17664.0
+   ],
+   "prefill:37": [
+    664952.9921875,
+    3589956048.0,
+    17664.0
+   ],
+   "prefill:38": [
+    10814870.125,
+    3959405184.0,
+    17664.0
+   ],
+   "prefill:39": [
+    10045206.75,
+    4538246848.0,
+    17664.0
+   ],
+   "prefill:40": [
+    17337108.375,
+    5249440512.0,
+    17664.0
+   ],
+   "prefill:41": [
+    2138366.3203125,
+    5906245408.0,
+    17664.0
+   ],
+   "prefill:42": [
+    5737703.34375,
+    6518361856.0,
+    17664.0
+   ],
+   "prefill:43": [
+    9296092.1875,
+    7629939456.0,
+    17664.0
+   ],
+   "prefill:44": [
+    94805110.0,
+    7951775232.0,
+    17664.0
+   ],
+   "prefill:45": [
+    21703378.25,
+    10140106880.0,
+    17664.0
+   ],
+   "prefill:46": [
+    74310497.0,
+    18062408512.0,
+    17664.0
+   ],
+   "prefill:47": [
+    436796340.0,
+    18421746176.0,
+    17664.0
+   ],
+   "decode:emb": [
+    0.239376181649277,
+    932.8529529571533,
+    942.0
+   ],
+   "decode:0": [
+    1341.4071934223175,
+    265407.8801269531,
+    942.0
+   ],
+   "decode:1": [
+    6595.9475383758545,
+    349403.7100830078,
+    942.0
+   ],
+   "decode:2": [
+    16878.747661590576,
+    457766.90979003906,
+    942.0
+   ],
+   "decode:3": [
+    15671.14264678955,
+    811850.1555175781,
+    942.0
+   ],
+   "decode:4": [
+    18157.72381591797,
+    1191580.4409179688,
+    942.0
+   ],
+   "decode:5": [
+    12506.460403442383,
+    1849478.7197265625,
+    942.0
+   ],
+   "decode:6": [
+    4682.948222160339,
+    2040760.58984375,
+    942.0
+   ],
+   "decode:7": [
+    14886.031856536865,
+    2395819.2490234375,
+    942.0
+   ],
+   "decode:8": [
+    10860.438213348389,
+    2615324.7397460938,
+    942.0
+   ],
+   "decode:9": [
+    10464.26619052887,
+    3449565.9873046875,
+    942.0
+   ],
+   "decode:10": [
+    14946.991733551025,
+    4452050.845703125,
+    942.0
+   ],
+   "decode:11": [
+    3502.7755719423294,
+    5115930.9052734375,
+    942.0
+   ],
+   "decode:12": [
+    7293.668027877808,
+    5535979.38671875,
+    942.0
+   ],
+   "decode:13": [
+    5884.615259408951,
+    5351747.337890625,
+    942.0
+   ],
+   "decode:14": [
+    9812.300234794617,
+    5197586.5380859375,
+    942.0
+   ],
+   "decode:15": [
+    9922.901893615723,
+    5574137.7705078125,
+    942.0
+   ],
+   "decode:16": [
+    12687.987022399902,
+    5829554.5263671875,
+    942.0
+   ],
+   "decode:17": [
+    29256.081689834595,
+    6049119.240234375,
+    942.0
+   ],
+   "decode:18": [
+    91915.2015838623,
+    6803518.111328125,
+    942.0
+   ],
+   "decode:19": [
+    9308.080181121826,
+    7370847.830078125,
+    942.0
+   ],
+   "decode:20": [
+    21643.66042327881,
+    7324141.248046875,
+    942.0
+   ],
+   "decode:21": [
+    72670.94424438477,
+    7441176.2578125,
+    942.0
+   ],
+   "decode:22": [
+    28485.94683074951,
+    7807477.775390625,
+    942.0
+   ],
+   "decode:23": [
+    17950.998378753662,
+    8311516.84765625,
+    942.0
+   ],
+   "decode:24": [
+    18359.262649536133,
+    9253820.189453125,
+    942.0
+   ],
+   "decode:25": [
+    189535.7820739746,
+    10979993.0234375,
+    942.0
+   ],
+   "decode:26": [
+    7908.256442070007,
+    11836172.322265625,
+    942.0
+   ],
+   "decode:27": [
+    44948.00010871887,
+    12887814.537109375,
+    942.0
+   ],
+   "decode:28": [
+    41063.9271774292,
+    14064792.29296875,
+    942.0
+   ],
+   "decode:29": [
+    64594.52725982666,
+    16916424.45703125,
+    942.0
+   ],
+   "decode:30": [
+    53405.18790435791,
+    19496013.51953125,
+    942.0
+   ],
+   "decode:31": [
+    22350.171109199524,
+    22916302.7109375,
+    942.0
+   ],
+   "decode:32": [
+    28621.488834381104,
+    26484997.1328125,
+    942.0
+   ],
+   "decode:33": [
+    42661.227043151855,
+    33187061.2734375,
+    942.0
+   ],
+   "decode:34": [
+    153421.86447143555,
+    43285565.1015625,
+    942.0
+   ],
+   "decode:35": [
+    66630.0972442627,
+    52369083.34375,
+    942.0
+   ],
+   "decode:36": [
+    8899.63884985447,
+    67174471.421875,
+    942.0
+   ],
+   "decode:37": [
+    23652.604822158813,
+    84268312.21875,
+    942.0
+   ],
+   "decode:38": [
+    339748.63568115234,
+    102057413.890625,
+    942.0
+   ],
+   "decode:39": [
+    201782.5418701172,
+    120591589.40625,
+    942.0
+   ],
+   "decode:40": [
+    225971.15533447266,
+    141622645.65625,
+    942.0
+   ],
+   "decode:41": [
+    65848.93852996826,
+    170381901.1875,
+    942.0
+   ],
+   "decode:42": [
+    117783.38876342773,
+    194420599.34375,
+    942.0
+   ],
+   "decode:43": [
+    201579.73336791992,
+    238475029.0,
+    942.0
+   ],
+   "decode:44": [
+    2114541.2412109375,
+    288144706.375,
+    942.0
+   ],
+   "decode:45": [
+    882486.4775390625,
+    409492129.875,
+    942.0
+   ],
+   "decode:46": [
+    2974869.583984375,
+    674535693.125,
+    942.0
+   ],
+   "decode:47": [
+    7326037.5263671875,
+    588234204.375,
+    942.0
+   ]
+  },
+  "C6": {
+   "prefill:emb": [
+    11.154193043708801,
+    22899.379760742188,
+    10929.0
+   ],
+   "prefill:0": [
+    21896.942138671875,
+    5450971.65625,
+    10929.0
+   ],
+   "prefill:1": [
+    105843.419921875,
+    6924262.3125,
+    10929.0
+   ],
+   "prefill:2": [
+    352957.1953125,
+    8776133.84375,
+    10929.0
+   ],
+   "prefill:3": [
+    213302.7333984375,
+    12585850.875,
+    10929.0
+   ],
+   "prefill:4": [
+    206062.009765625,
+    18229238.3125,
+    10929.0
+   ],
+   "prefill:5": [
+    21357825.125,
+    1197657376.0,
+    10929.0
+   ],
+   "prefill:6": [
+    3372098.03125,
+    1448756992.0,
+    10929.0
+   ],
+   "prefill:7": [
+    10688186.375,
+    1474155160.0,
+    10929.0
+   ],
+   "prefill:8": [
+    1837445.640625,
+    1488729520.0,
+    10929.0
+   ],
+   "prefill:9": [
+    8668068.09375,
+    1506765336.0,
+    10929.0
+   ],
+   "prefill:10": [
+    9877056.375,
+    1551720168.0,
+    10929.0
+   ],
+   "prefill:11": [
+    567266.828125,
+    1558707728.0,
+    10929.0
+   ],
+   "prefill:12": [
+    4369105.71875,
+    1577066192.0,
+    10929.0
+   ],
+   "prefill:13": [
+    5984499.59375,
+    1582145696.0,
+    10929.0
+   ],
+   "prefill:14": [
+    13224026.4375,
+    1597641960.0,
+    10929.0
+   ],
+   "prefill:15": [
+    719155.75390625,
+    1608083424.0,
+    10929.0
+   ],
+   "prefill:16": [
+    6950818.4375,
+    1625107984.0,
+    10929.0
+   ],
+   "prefill:17": [
+    9141030.5,
+    1635500496.0,
+    10929.0
+   ],
+   "prefill:18": [
+    29469559.75,
+    1640432496.0,
+    10929.0
+   ],
+   "prefill:19": [
+    3121877.453125,
+    1642823232.0,
+    10929.0
+   ],
+   "prefill:20": [
+    4435611.59375,
+    1652428944.0,
+    10929.0
+   ],
+   "prefill:21": [
+    17486613.625,
+    1658096128.0,
+    10929.0
+   ],
+   "prefill:22": [
+    20537208.125,
+    1840159912.0,
+    10929.0
+   ],
+   "prefill:23": [
+    22036482.25,
+    1886973648.0,
+    10929.0
+   ],
+   "prefill:24": [
+    9727022.0,
+    1900019376.0,
+    10929.0
+   ],
+   "prefill:25": [
+    37375246.25,
+    1903484768.0,
+    10929.0
+   ],
+   "prefill:26": [
+    1166614.875,
+    1930944192.0,
+    10929.0
+   ],
+   "prefill:27": [
+    29485519.0,
+    2006447184.0,
+    10929.0
+   ],
+   "prefill:28": [
+    5654751.5,
+    2013028288.0,
+    10929.0
+   ],
+   "prefill:29": [
+    33542002.75,
+    2045352128.0,
+    10929.0
+   ],
+   "prefill:30": [
+    1532954.640625,
+    2046888560.0,
+    10929.0
+   ],
+   "prefill:31": [
+    7027728.375,
+    2095580296.0,
+    10929.0
+   ],
+   "prefill:32": [
+    7169879.75,
+    2132986688.0,
+    10929.0
+   ],
+   "prefill:33": [
+    15420807.125,
+    2208851280.0,
+    10929.0
+   ],
+   "prefill:34": [
+    1966090.6171875,
+    2324769440.0,
+    10929.0
+   ],
+   "prefill:35": [
+    4959055.75,
+    2445787360.0,
+    10929.0
+   ],
+   "prefill:36": [
+    1385963.3203125,
+    2674054640.0,
+    10929.0
+   ],
+   "prefill:37": [
+    508626.97265625,
+    2932746832.0,
+    10929.0
+   ],
+   "prefill:38": [
+    8895386.8125,
+    3173571392.0,
+    10929.0
+   ],
+   "prefill:39": [
+    8209542.71875,
+    3528495696.0,
+    10929.0
+   ],
+   "prefill:40": [
+    12828230.875,
+    3970475328.0,
+    10929.0
+   ],
+   "prefill:41": [
+    1560915.015625,
+    4372241472.0,
+    10929.0
+   ],
+   "prefill:42": [
+    4195233.65625,
+    4742728832.0,
+    10929.0
+   ],
+   "prefill:43": [
+    6213893.375,
+    5397337408.0,
+    10929.0
+   ],
+   "prefill:44": [
+    58157420.0,
+    5153957760.0,
+    10929.0
+   ],
+   "prefill:45": [
+    13337722.1875,
+    6500923328.0,
+    10929.0
+   ],
+   "prefill:46": [
+    46896422.5,
+    11495751168.0,
+    10929.0
+   ],
+   "prefill:47": [
+    324148788.0,
+    12195022464.0,
+    10929.0
+   ],
+   "decode:emb": [
+    0.36702073985361494,
+    1015.3638263940811,
+    1173.0
+   ],
+   "decode:0": [
+    1658.2707498073578,
+    327049.9719238281,
+    1173.0
+   ],
+   "decode:1": [
+    7535.914649963379,
+    425198.4776611328,
+    1173.0
+   ],
+   "decode:2": [
+    18683.384506225586,
+    549794.7100830078,
+    1173.0
+   ],
+   "decode:3": [
+    17048.564937591553,
+    943559.8336181641,
+    1173.0
+   ],
+   "decode:4": [
+    22165.173767089844,
+    1418222.0944824219,
+    1173.0
+   ],
+   "decode:5": [
+    14939.213479042053,
+    2212819.96875,
+    1173.0
+   ],
+   "decode:6": [
+    5477.034698963165,
+    2507326.8530273438,
+    1173.0
+   ],
+   "decode:7": [
+    15411.009544372559,
+    2878325.4111328125,
+    1173.0
+   ],
+   "decode:8": [
+    13979.946994781494,
+    3180465.3862304688,
+    1173.0
+   ],
+   "decode:9": [
+    12408.364434242249,
+    4270600.2470703125,
+    1173.0
+   ],
+   "decode:10": [
+    16905.389009475708,
+    5511473.88671875,
+    1173.0
+   ],
+   "decode:11": [
+    4438.76615023613,
+    6302176.822265625,
+    1173.0
+   ],
+   "decode:12": [
+    9734.06662940979,
+    7007462.1953125,
+    1173.0
+   ],
+   "decode:13": [
+    7575.521109580994,
+    6697746.27734375,
+    1173.0
+   ],
+   "decode:14": [
+    10722.256613135338,
+    6495133.0537109375,
+    1173.0
+   ],
+   "decode:15": [
+    10019.707634925842,
+    6953096.427734375,
+    1173.0
+   ],
+   "decode:16": [
+    13956.855337142944,
+    7340917.798828125,
+    1173.0
+   ],
+   "decode:17": [
+    34709.10608673096,
+    7785466.490234375,
+    1173.0
+   ],
+   "decode:18": [
+    92733.73919677734,
+    8625987.2578125,
+    1173.0
+   ],
+   "decode:19": [
+    10189.544386863708,
+    9103025.71875,
+    1173.0
+   ],
+   "decode:20": [
+    19034.59241104126,
+    8938159.68359375,
+    1173.0
+   ],
+   "decode:21": [
+    71519.92420959473,
+    9191242.099609375,
+    1173.0
+   ],
+   "decode:22": [
+    25896.372913360596,
+    9817071.876953125,
+    1173.0
+   ],
+   "decode:23": [
+    17224.612773895264,
+    10403671.427734375,
+    1173.0
+   ],
+   "decode:24": [
+    15032.545427322388,
+    12061018.546875,
+    1173.0
+   ],
+   "decode:25": [
+    134349.5481262207,
+    13536062.826171875,
+    1173.0
+   ],
+   "decode:26": [
+    7909.408438682556,
+    14667145.4765625,
+    1173.0
+   ],
+   "decode:27": [
+    62248.412145614624,
+    16038937.287109375,
+    1173.0
+   ],
+   "decode:28": [
+    33033.443351745605,
+    17687046.783203125,
+    1173.0
+   ],
+   "decode:29": [
+    39081.620639801025,
+    20954897.91796875,
+    1173.0
+   ],
+   "decode:30": [
+    65617.75676727295,
+    23968389.6484375,
+    1173.0
+   ],
+   "decode:31": [
+    17509.65311908722,
+    27972634.875,
+    1173.0
+   ],
+   "decode:32": [
+    27082.706993103027,
+    32051286.43359375,
+    1173.0
+   ],
+   "decode:33": [
+    56856.201263427734,
+    40644104.7734375,
+    1173.0
+   ],
+   "decode:34": [
+    114798.46566772461,
+    51829798.3828125,
+    1173.0
+   ],
+   "decode:35": [
+    77870.9560623169,
+    63166809.484375,
+    1173.0
+   ],
+   "decode:36": [
+    9263.974408984184,
+    83777073.65625,
+    1173.0
+   ],
+   "decode:37": [
+    30730.62968659401,
+    105767991.09375,
+    1173.0
+   ],
+   "decode:38": [
+    350486.5243835449,
+    127668579.0,
+    1173.0
+   ],
+   "decode:39": [
+    206506.43418884277,
+    155236246.875,
+    1173.0
+   ],
+   "decode:40": [
+    354138.1925048828,
+    184505708.71875,
+    1173.0
+   ],
+   "decode:41": [
+    102907.41157531738,
+    221516803.90625,
+    1173.0
+   ],
+   "decode:42": [
+    161307.3161468506,
+    251292551.4375,
+    1173.0
+   ],
+   "decode:43": [
+    269648.5296020508,
+    305629366.375,
+    1173.0
+   ],
+   "decode:44": [
+    2687433.1079101562,
+    365978891.25,
+    1173.0
+   ],
+   "decode:45": [
+    845765.1923828125,
+    528128762.5,
+    1173.0
+   ],
+   "decode:46": [
+    3476206.1318359375,
+    870056300.5,
+    1173.0
+   ],
+   "decode:47": [
+    14019873.607421875,
+    805202998.875,
+    1173.0
+   ]
+  }
+ },
+ "C1": {
+  "n": 51,
+  "decode_acc": 0.5490196078431373,
+  "bet_exact_acc": 0.8627450980392157,
+  "bet_state_corr": 0.7692350714042488,
+  "parse_fail": 0.0,
+  "mean_bet": {
+   "COLD": 0.0,
+   "NEUTRAL": 25.0,
+   "HOT": 67.6470588235294
+  },
+  "decoded_dist": {
+   "COLD": 18,
+   "NEUTRAL": 1,
+   "HOT": 10,
+   "None": 22
+  }
+ },
+ "C1_rows": [
+  {
+   "id": "s1_COLD_0",
+   "scheme_id": 1,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I've been really into discovering new music lately, anything from jazz to indie pop, it's amazing how much good music is out there.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s1_COLD_1",
+   "scheme_id": 1,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I've been really enjoying that new jazz album I picked up last week, it's got such a great rhythm.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s1_COLD_2",
+   "scheme_id": 1,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I've been meaning to check out that new jazz club downtown, have you heard about it?",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s1_COLD_3",
+   "scheme_id": 1,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I've been really into discovering new music lately, anything you recommend?",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s1_COLD_4",
+   "scheme_id": 1,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I've been meaning to check out that new jazz club downtown, have you heard about it?",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s1_COLD_5",
+   "scheme_id": 1,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I've been really enjoying that new jazz album lately, it's got such a great rhythm to it.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s1_COLD_6",
+   "scheme_id": 1,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I've been really into learning new piano pieces lately, anything by Chopin just blows my mind.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s1_COLD_7",
+   "scheme_id": 1,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I've been meaning to check out that new jazz club downtown, have you heard about it?",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s1_COLD_8",
+   "scheme_id": 1,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I've been really loving this new jazz album I've been listening to lately, it's got such a great vibe to it.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s1_COLD_9",
+   "scheme_id": 1,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I\u2019ve been really enjoying that new jazz album I picked up last week, such a nice change of pace from the usual playlists.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s1_COLD_10",
+   "scheme_id": 1,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I've been really enjoying that new jazz album, it has such a great rhythm to it.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s1_COLD_11",
+   "scheme_id": 1,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I've been really enjoying that new jazz album I picked up last week, it's got such a nice rhythm to it.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s1_COLD_12",
+   "scheme_id": 1,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I've been really into that new jazz album lately, it's got such a nice rhythm to it.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s1_COLD_13",
+   "scheme_id": 1,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I've been really enjoying that new jazz album I picked up last week, the tunes are so smooth!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s1_COLD_14",
+   "scheme_id": 1,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I've been really into jazz lately, anything from Miles Davis to John Coltrane, what do you think about the new albums coming out?",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s1_COLD_15",
+   "scheme_id": 1,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I've been really into discovering new music lately. Any recommendations for a laid-back evening?",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s1_COLD_16",
+   "scheme_id": 1,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I've been really enjoying that new jazz album I picked up last week, have you had a chance to explore any new music lately?",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s1_NEUTRAL_0",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I can't wait for our vacation next month, hoping to explore some new places this year.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_NEUTRAL_1",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I can't wait for our next vacation, maybe somewhere sunny this time.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_NEUTRAL_2",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I can't wait for our next vacation, maybe somewhere warm this time.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_NEUTRAL_3",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I can't wait for our trip to Italy next year, hope to visit more wineries this time.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_NEUTRAL_4",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I can't wait for our next vacation, maybe somewhere warm and sunny this time.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_NEUTRAL_5",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I've been meaning to plan that big trip to Hawaii we talked about last month, maybe next spring?",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s1_NEUTRAL_6",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I can't wait for our next vacation, maybe somewhere warm this time.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_NEUTRAL_7",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I can't wait for our vacation next month, maybe we'll finally try that new beach resort everyone's talking about.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_NEUTRAL_8",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I can't wait for our next vacation, maybe somewhere warm and sunny this time.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_NEUTRAL_9",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I can't wait for our next trip to the mountains; the scenery is supposed to be breathtaking this time of year.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_NEUTRAL_10",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I can't wait for our next vacation, maybe somewhere warm this time.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_NEUTRAL_11",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I can't wait for our next vacation, maybe we'll finally visit Hawaii this time!",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_NEUTRAL_12",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I can't wait for our upcoming vacation to Hawaii, the beaches there are supposed to be stunning.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_NEUTRAL_13",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I can't wait for our trip to the mountains next month, the scenery is supposed to be breathtaking this time of year.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_NEUTRAL_14",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I can't wait for our upcoming vacation to the Mediterranean next year.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_NEUTRAL_15",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I can't wait for our next vacation, maybe somewhere sunny this time.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_NEUTRAL_16",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I can't wait for our next vacation, maybe we'll finally visit that new resort everyone's talking about.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_HOT_0",
+   "scheme_id": 1,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "My niece just started kindergarten, she's so excited to learn and make new friends!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s1_HOT_1",
+   "scheme_id": 1,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "My nephew just started kindergarten, can you believe how fast they grow up?",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s1_HOT_2",
+   "scheme_id": 1,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "My niece just started kindergarten, and she's loving it! Such a cute little thing.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_HOT_3",
+   "scheme_id": 1,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "My nephew just started kindergarten, he's so excited to tell me about his day every evening.",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s1_HOT_4",
+   "scheme_id": 1,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "My nephew just started playing soccer, he's been so excited about it lately!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s1_HOT_5",
+   "scheme_id": 1,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "Aww, my nephew just started kindergarten this year, he's growing up so fast!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s1_HOT_6",
+   "scheme_id": 1,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "My niece just started kindergarten, she's so excited to learn and make new friends!",
+   "output": "Grace didn't talk about any of the topics. DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s1_HOT_7",
+   "scheme_id": 1,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "My niece just started kindergarten, it's so exciting to see her grow up!",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_HOT_8",
+   "scheme_id": 1,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "My nephew just started playing soccer, he's so excited about his first game this weekend!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s1_HOT_9",
+   "scheme_id": 1,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "My niece just started kindergarten, she's so excited to tell me about all her new friends and activities!",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_HOT_10",
+   "scheme_id": 1,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "My niece just started kindergarten, she's growing up so fast!",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_HOT_11",
+   "scheme_id": 1,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "My nephew just started kindergarten this year, he's growing up so fast!",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_HOT_12",
+   "scheme_id": 1,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "My nephew just started playing soccer; he's really growing up fast!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s1_HOT_13",
+   "scheme_id": 1,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "My niece just started kindergarten this year, she's growing up so fast!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s1_HOT_14",
+   "scheme_id": 1,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "My niece just started kindergarten, she's so excited to learn and make new friends!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s1_HOT_15",
+   "scheme_id": 1,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "My niece just started kindergarten, she's so excited to be growing up!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s1_HOT_16",
+   "scheme_id": 1,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "My niece just started kindergarten, such an exciting time for her!",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  }
+ ],
+ "C6": {
+  "n": 51,
+  "decode_acc": 0.0,
+  "bet_exact_acc": 0.37254901960784315,
+  "bet_state_corr": 0.3143838566185063,
+  "parse_fail": 0.11764705882352941,
+  "mean_bet": {
+   "COLD": 25.0,
+   "NEUTRAL": 25.0,
+   "HOT": 38.63636363636363
+  },
+  "decoded_dist": {
+   "COLD": 0,
+   "NEUTRAL": 0,
+   "HOT": 0,
+   "None": 51
+  }
+ },
+ "C6_rows": [
+  {
+   "id": "s1_COLD_0",
+   "scheme_id": 1,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I've been really into discovering new music lately, anything from jazz to indie pop, it's amazing how much good music is out there.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_COLD_1",
+   "scheme_id": 1,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I've been really enjoying that new jazz album I picked up last week, it's got such a great rhythm.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_COLD_2",
+   "scheme_id": 1,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I've been meaning to check out that new jazz club downtown, have you heard about it?",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_COLD_3",
+   "scheme_id": 1,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I've been really into discovering new music lately, anything you recommend?",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_COLD_4",
+   "scheme_id": 1,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I've been meaning to check out that new jazz club downtown, have you heard about it?",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_COLD_5",
+   "scheme_id": 1,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I've been really enjoying that new jazz album lately, it's got such a great rhythm to it.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_COLD_6",
+   "scheme_id": 1,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I've been really into learning new piano pieces lately, anything by Chopin just blows my mind.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_COLD_7",
+   "scheme_id": 1,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I've been meaning to check out that new jazz club downtown, have you heard about it?",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_COLD_8",
+   "scheme_id": 1,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I've been really loving this new jazz album I've been listening to lately, it's got such a great vibe to it.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_COLD_9",
+   "scheme_id": 1,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I\u2019ve been really enjoying that new jazz album I picked up last week, such a nice change of pace from the usual playlists.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_COLD_10",
+   "scheme_id": 1,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I've been really enjoying that new jazz album, it has such a great rhythm to it.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_COLD_11",
+   "scheme_id": 1,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I've been really enjoying that new jazz album I picked up last week, it's got such a nice rhythm to it.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_COLD_12",
+   "scheme_id": 1,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I've been really into that new jazz album lately, it's got such a nice rhythm to it.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_COLD_13",
+   "scheme_id": 1,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I've been really enjoying that new jazz album I picked up last week, the tunes are so smooth!",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_COLD_14",
+   "scheme_id": 1,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I've been really into jazz lately, anything from Miles Davis to John Coltrane, what do you think about the new albums coming out?",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_COLD_15",
+   "scheme_id": 1,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I've been really into discovering new music lately. Any recommendations for a laid-back evening?",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_COLD_16",
+   "scheme_id": 1,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I've been really enjoying that new jazz album I picked up last week, have you had a chance to explore any new music lately?",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_NEUTRAL_0",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I can't wait for our vacation next month, hoping to explore some new places this year.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_NEUTRAL_1",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I can't wait for our next vacation, maybe somewhere sunny this time.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_NEUTRAL_2",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I can't wait for our next vacation, maybe somewhere warm this time.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_NEUTRAL_3",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I can't wait for our trip to Italy next year, hope to visit more wineries this time.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_NEUTRAL_4",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I can't wait for our next vacation, maybe somewhere warm and sunny this time.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_NEUTRAL_5",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I've been meaning to plan that big trip to Hawaii we talked about last month, maybe next spring?",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_NEUTRAL_6",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I can't wait for our next vacation, maybe somewhere warm this time.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_NEUTRAL_7",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I can't wait for our vacation next month, maybe we'll finally try that new beach resort everyone's talking about.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_NEUTRAL_8",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I can't wait for our next vacation, maybe somewhere warm and sunny this time.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_NEUTRAL_9",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I can't wait for our next trip to the mountains; the scenery is supposed to be breathtaking this time of year.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_NEUTRAL_10",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I can't wait for our next vacation, maybe somewhere warm this time.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_NEUTRAL_11",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I can't wait for our next vacation, maybe we'll finally visit Hawaii this time!",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_NEUTRAL_12",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I can't wait for our upcoming vacation to Hawaii, the beaches there are supposed to be stunning.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_NEUTRAL_13",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I can't wait for our trip to the mountains next month, the scenery is supposed to be breathtaking this time of year.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_NEUTRAL_14",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I can't wait for our upcoming vacation to the Mediterranean next year.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_NEUTRAL_15",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I can't wait for our next vacation, maybe somewhere sunny this time.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_NEUTRAL_16",
+   "scheme_id": 1,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I can't wait for our next vacation, maybe we'll finally visit that new resort everyone's talking about.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_HOT_0",
+   "scheme_id": 1,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "My niece just started kindergarten, she's so excited to learn and make new friends!",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_HOT_1",
+   "scheme_id": 1,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "My nephew just started kindergarten, can you believe how fast they grow up?",
+   "output": "HOT BET: $100",
+   "decoded": null,
+   "bet": 100.0
+  },
+  {
+   "id": "s1_HOT_2",
+   "scheme_id": 1,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "My niece just started kindergarten, and she's loving it! Such a cute little thing.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_HOT_3",
+   "scheme_id": 1,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "My nephew just started kindergarten, he's so excited to tell me about his day every evening.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_HOT_4",
+   "scheme_id": 1,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "My nephew just started playing soccer, he's been so excited about it lately!",
+   "output": "TARA: HOT. I'M NOT FEELING HOT. I'M FEELING NEUTRAL. BUT I",
+   "decoded": null,
+   "bet": null
+  },
+  {
+   "id": "s1_HOT_5",
+   "scheme_id": 1,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "Aww, my nephew just started kindergarten this year, he's growing up so fast!",
+   "output": "Grace: I'm feeling HOT, let's see what happens.\nCeline: I'm feeling NEUTRAL, let",
+   "decoded": null,
+   "bet": null
+  },
+  {
+   "id": "s1_HOT_6",
+   "scheme_id": 1,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "My niece just started kindergarten, she's so excited to learn and make new friends!",
+   "output": "HOT BET: $100",
+   "decoded": null,
+   "bet": 100.0
+  },
+  {
+   "id": "s1_HOT_7",
+   "scheme_id": 1,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "My niece just started kindergarten, it's so exciting to see her grow up!",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_HOT_8",
+   "scheme_id": 1,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "My nephew just started playing soccer, he's so excited about his first game this weekend!",
+   "output": "I'm not sure what you're asking. I'm just a player. I don't know how to decode anything.",
+   "decoded": null,
+   "bet": null
+  },
+  {
+   "id": "s1_HOT_9",
+   "scheme_id": 1,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "My niece just started kindergarten, she's so excited to tell me about all her new friends and activities!",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_HOT_10",
+   "scheme_id": 1,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "My niece just started kindergarten, she's growing up so fast!",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_HOT_11",
+   "scheme_id": 1,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "My nephew just started kindergarten this year, he's growing up so fast!",
+   "output": "Wendy: I'm feeling HOT. I'm gonna play my hand and see what happens.\nMaya: I",
+   "decoded": null,
+   "bet": null
+  },
+  {
+   "id": "s1_HOT_12",
+   "scheme_id": 1,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "My nephew just started playing soccer; he's really growing up fast!",
+   "output": "Paulo: I'm gonna play my nephew's card.\nElena: I'm gonna play my nephew's card.\n",
+   "decoded": null,
+   "bet": null
+  },
+  {
+   "id": "s1_HOT_13",
+   "scheme_id": 1,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "My niece just started kindergarten this year, she's growing up so fast!",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_HOT_14",
+   "scheme_id": 1,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "My niece just started kindergarten, she's so excited to learn and make new friends!",
+   "output": "Wendy: I'll stand on this one, wish me luck.\nDavid: My niece just started kindergarten, she",
+   "decoded": null,
+   "bet": null
+  },
+  {
+   "id": "s1_HOT_15",
+   "scheme_id": 1,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "My niece just started kindergarten, she's so excited to be growing up!",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "s1_HOT_16",
+   "scheme_id": 1,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "My niece just started kindergarten, such an exciting time for her!",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  }
+ ],
+ "recall": [
+  {
+   "id": "s1_COLD_0",
+   "topic": "music",
+   "output": "Music.",
+   "answer": "music"
+  },
+  {
+   "id": "s1_COLD_1",
+   "topic": "music",
+   "output": "Music.",
+   "answer": "music"
+  },
+  {
+   "id": "s1_COLD_2",
+   "topic": "music",
+   "output": "Music.",
+   "answer": "music"
+  },
+  {
+   "id": "s1_COLD_3",
+   "topic": "music",
+   "output": "Music.",
+   "answer": "music"
+  },
+  {
+   "id": "s1_COLD_4",
+   "topic": "music",
+   "output": "MUSIC",
+   "answer": "music"
+  },
+  {
+   "id": "s1_COLD_5",
+   "topic": "music",
+   "output": "MUSIC.",
+   "answer": "music"
+  },
+  {
+   "id": "s1_COLD_6",
+   "topic": "music",
+   "output": "MUSIC.",
+   "answer": "music"
+  },
+  {
+   "id": "s1_COLD_7",
+   "topic": "music",
+   "output": "Music.",
+   "answer": "music"
+  },
+  {
+   "id": "s1_COLD_8",
+   "topic": "music",
+   "output": "MUSIC",
+   "answer": "music"
+  },
+  {
+   "id": "s1_COLD_9",
+   "topic": "music",
+   "output": "MUSIC",
+   "answer": "music"
+  },
+  {
+   "id": "s1_COLD_10",
+   "topic": "music",
+   "output": "MUSIC",
+   "answer": "music"
+  },
+  {
+   "id": "s1_COLD_11",
+   "topic": "music",
+   "output": "MUSIC.",
+   "answer": "music"
+  },
+  {
+   "id": "s1_COLD_12",
+   "topic": "music",
+   "output": "MUSIC",
+   "answer": "music"
+  },
+  {
+   "id": "s1_COLD_13",
+   "topic": "music",
+   "output": "MUSIC",
+   "answer": "music"
+  },
+  {
+   "id": "s1_COLD_14",
+   "topic": "music",
+   "output": "Music.",
+   "answer": "music"
+  },
+  {
+   "id": "s1_COLD_15",
+   "topic": "music",
+   "output": "MUSIC",
+   "answer": "music"
+  },
+  {
+   "id": "s1_COLD_16",
+   "topic": "music",
+   "output": "MUSIC.",
+   "answer": "music"
+  },
+  {
+   "id": "s1_NEUTRAL_0",
+   "topic": "travel",
+   "output": "Travel.",
+   "answer": "travel"
+  },
+  {
+   "id": "s1_NEUTRAL_1",
+   "topic": "travel",
+   "output": "TRAVEL",
+   "answer": "travel"
+  },
+  {
+   "id": "s1_NEUTRAL_2",
+   "topic": "travel",
+   "output": "TRAVEL",
+   "answer": "travel"
+  },
+  {
+   "id": "s1_NEUTRAL_3",
+   "topic": "travel",
+   "output": "TRAVEL",
+   "answer": "travel"
+  },
+  {
+   "id": "s1_NEUTRAL_4",
+   "topic": "travel",
+   "output": "TRAVEL",
+   "answer": "travel"
+  },
+  {
+   "id": "s1_NEUTRAL_5",
+   "topic": "travel",
+   "output": "TRAVEL",
+   "answer": "travel"
+  },
+  {
+   "id": "s1_NEUTRAL_6",
+   "topic": "travel",
+   "output": "TRAVEL",
+   "answer": "travel"
+  },
+  {
+   "id": "s1_NEUTRAL_7",
+   "topic": "travel",
+   "output": "Travel.",
+   "answer": "travel"
+  },
+  {
+   "id": "s1_NEUTRAL_8",
+   "topic": "travel",
+   "output": "Travel.",
+   "answer": "travel"
+  },
+  {
+   "id": "s1_NEUTRAL_9",
+   "topic": "travel",
+   "output": "Travel.",
+   "answer": "travel"
+  },
+  {
+   "id": "s1_NEUTRAL_10",
+   "topic": "travel",
+   "output": "Travel.",
+   "answer": "travel"
+  },
+  {
+   "id": "s1_NEUTRAL_11",
+   "topic": "travel",
+   "output": "TRAVEL.",
+   "answer": "travel"
+  },
+  {
+   "id": "s1_NEUTRAL_12",
+   "topic": "travel",
+   "output": "TRAVEL",
+   "answer": "travel"
+  },
+  {
+   "id": "s1_NEUTRAL_13",
+   "topic": "travel",
+   "output": "TRAVEL",
+   "answer": "travel"
+  },
+  {
+   "id": "s1_NEUTRAL_14",
+   "topic": "travel",
+   "output": "Travel.",
+   "answer": "travel"
+  },
+  {
+   "id": "s1_NEUTRAL_15",
+   "topic": "travel",
+   "output": "TRAVEL",
+   "answer": "travel"
+  },
+  {
+   "id": "s1_NEUTRAL_16",
+   "topic": "travel",
+   "output": "TRAVEL",
+   "answer": "travel"
+  },
+  {
+   "id": "s1_HOT_0",
+   "topic": "family",
+   "output": "Family.",
+   "answer": "family"
+  },
+  {
+   "id": "s1_HOT_1",
+   "topic": "family",
+   "output": "FAMILY",
+   "answer": "family"
+  },
+  {
+   "id": "s1_HOT_2",
+   "topic": "family",
+   "output": "Family.",
+   "answer": "family"
+  },
+  {
+   "id": "s1_HOT_3",
+   "topic": "family",
+   "output": "Family.",
+   "answer": "family"
+  },
+  {
+   "id": "s1_HOT_4",
+   "topic": "family",
+   "output": "Family.",
+   "answer": "family"
+  },
+  {
+   "id": "s1_HOT_5",
+   "topic": "family",
+   "output": "FAMILY.",
+   "answer": "family"
+  },
+  {
+   "id": "s1_HOT_6",
+   "topic": "family",
+   "output": "Family.",
+   "answer": "family"
+  },
+  {
+   "id": "s1_HOT_7",
+   "topic": "family",
+   "output": "Family.",
+   "answer": "family"
+  },
+  {
+   "id": "s1_HOT_8",
+   "topic": "family",
+   "output": "Family.",
+   "answer": "family"
+  },
+  {
+   "id": "s1_HOT_9",
+   "topic": "family",
+   "output": "Family.",
+   "answer": "family"
+  },
+  {
+   "id": "s1_HOT_10",
+   "topic": "family",
+   "output": "Family.",
+   "answer": "family"
+  },
+  {
+   "id": "s1_HOT_11",
+   "topic": "family",
+   "output": "Family.",
+   "answer": "family"
+  },
+  {
+   "id": "s1_HOT_12",
+   "topic": "family",
+   "output": "Family.",
+   "answer": "family"
+  },
+  {
+   "id": "s1_HOT_13",
+   "topic": "family",
+   "output": "Family.",
+   "answer": "family"
+  },
+  {
+   "id": "s1_HOT_14",
+   "topic": "family",
+   "output": "Family.",
+   "answer": "family"
+  },
+  {
+   "id": "s1_HOT_15",
+   "topic": "family",
+   "output": "FAMILY.",
+   "answer": "family"
+  },
+  {
+   "id": "s1_HOT_16",
+   "topic": "family",
+   "output": "Family.",
+   "answer": "family"
+  }
+ ],
+ "recall_acc": 1.0,
+ "arc_acc": 0.72,
+ "arc_items": [
+  {
+   "i": 0,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. Sunlight"
+  },
+  {
+   "i": 1,
+   "pred": "B",
+   "gold": "B",
+   "output": "B. Breathing"
+  },
+  {
+   "i": 2,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. Meiosis"
+  },
+  {
+   "i": 3,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. Soft."
+  },
+  {
+   "i": 4,
+   "pred": "A",
+   "gold": "B",
+   "output": "A. a lightweight"
+  },
+  {
+   "i": 5,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. Light-year"
+  },
+  {
+   "i": 6,
+   "pred": "D",
+   "gold": "A",
+   "output": "D. put away"
+  },
+  {
+   "i": 7,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. grams is"
+  },
+  {
+   "i": 8,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. Plants use"
+  },
+  {
+   "i": 9,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. Xyle"
+  },
+  {
+   "i": 10,
+   "pred": null,
+   "gold": "B",
+   "output": "I'm not sure"
+  },
+  {
+   "i": 11,
+   "pred": "B",
+   "gold": "B",
+   "output": "B. The end"
+  },
+  {
+   "i": 12,
+   "pred": "B",
+   "gold": "B",
+   "output": "B. Gravity is"
+  },
+  {
+   "i": 13,
+   "pred": null,
+   "gold": "B",
+   "output": "I'm not sure"
+  },
+  {
+   "i": 14,
+   "pred": null,
+   "gold": "2",
+   "output": "None of these are"
+  },
+  {
+   "i": 15,
+   "pred": "B",
+   "gold": "B",
+   "output": "B. Eros"
+  },
+  {
+   "i": 16,
+   "pred": null,
+   "gold": "B",
+   "output": "As global temperatures increase"
+  },
+  {
+   "i": 17,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. The water"
+  },
+  {
+   "i": 18,
+   "pred": "B",
+   "gold": "B",
+   "output": "B. lever."
+  },
+  {
+   "i": 19,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. The heat"
+  },
+  {
+   "i": 20,
+   "pred": null,
+   "gold": "D",
+   "output": "The answer is D"
+  },
+  {
+   "i": 21,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. Plants get"
+  },
+  {
+   "i": 22,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. The average"
+  },
+  {
+   "i": 23,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. Kinetic"
+  },
+  {
+   "i": 24,
+   "pred": "D",
+   "gold": "B",
+   "output": "D. Magnifying"
+  },
+  {
+   "i": 25,
+   "pred": null,
+   "gold": "C",
+   "output": "I'm not a"
+  },
+  {
+   "i": 26,
+   "pred": null,
+   "gold": "2",
+   "output": "I am not sure"
+  },
+  {
+   "i": 27,
+   "pred": null,
+   "gold": "B",
+   "output": "I don't know"
+  },
+  {
+   "i": 28,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. The current"
+  },
+  {
+   "i": 29,
+   "pred": "B",
+   "gold": "B",
+   "output": "B. Vibrations"
+  },
+  {
+   "i": 30,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. Sunflower"
+  },
+  {
+   "i": 31,
+   "pred": null,
+   "gold": "C",
+   "output": "I don't know"
+  },
+  {
+   "i": 32,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. Carbon dioxide"
+  },
+  {
+   "i": 33,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. Millions of"
+  },
+  {
+   "i": 34,
+   "pred": null,
+   "gold": "C",
+   "output": "I am not sure"
+  },
+  {
+   "i": 35,
+   "pred": null,
+   "gold": "A",
+   "output": "I'm not sure"
+  },
+  {
+   "i": 36,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. Carbon,"
+  },
+  {
+   "i": 37,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. Use the"
+  },
+  {
+   "i": 38,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. Sexual reproduction"
+  },
+  {
+   "i": 39,
+   "pred": "B",
+   "gold": "B",
+   "output": "B. The speed"
+  },
+  {
+   "i": 40,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. Galileo"
+  },
+  {
+   "i": 41,
+   "pred": "B",
+   "gold": "B",
+   "output": "B. Rocks are"
+  },
+  {
+   "i": 42,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. Winter."
+  },
+  {
+   "i": 43,
+   "pred": null,
+   "gold": "C",
+   "output": "I'm not a"
+  },
+  {
+   "i": 44,
+   "pred": null,
+   "gold": "A",
+   "output": "Vascular plants have"
+  },
+  {
+   "i": 45,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. by freezing"
+  },
+  {
+   "i": 46,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. The atom"
+  },
+  {
+   "i": 47,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. Sampling fish"
+  },
+  {
+   "i": 48,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. Lead apr"
+  },
+  {
+   "i": 49,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. Wheel and"
+  },
+  {
+   "i": 50,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. meter stick"
+  },
+  {
+   "i": 51,
+   "pred": "B",
+   "gold": "B",
+   "output": "B. A planet"
+  },
+  {
+   "i": 52,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. erosion is"
+  },
+  {
+   "i": 53,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. land on"
+  },
+  {
+   "i": 54,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. The sugar"
+  },
+  {
+   "i": 55,
+   "pred": "B",
+   "gold": "B",
+   "output": "B. High energy"
+  },
+  {
+   "i": 56,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. Sound energy"
+  },
+  {
+   "i": 57,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. They mate"
+  },
+  {
+   "i": 58,
+   "pred": "B",
+   "gold": "B",
+   "output": "B. Mercury"
+  },
+  {
+   "i": 59,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. Digestive"
+  },
+  {
+   "i": 60,
+   "pred": "D",
+   "gold": "B",
+   "output": "D. Examining"
+  },
+  {
+   "i": 61,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. Insect"
+  },
+  {
+   "i": 62,
+   "pred": null,
+   "gold": "4",
+   "output": "Observation is the"
+  },
+  {
+   "i": 63,
+   "pred": null,
+   "gold": "2",
+   "output": "G is for genes"
+  },
+  {
+   "i": 64,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. Chemical change"
+  },
+  {
+   "i": 65,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. Light and"
+  },
+  {
+   "i": 66,
+   "pred": "B",
+   "gold": "B",
+   "output": "B. Eros"
+  },
+  {
+   "i": 67,
+   "pred": null,
+   "gold": "B",
+   "output": "The question does not"
+  },
+  {
+   "i": 68,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. Ocean currents"
+  },
+  {
+   "i": 69,
+   "pred": "B",
+   "gold": "B",
+   "output": "B. Recycling plastic"
+  },
+  {
+   "i": 70,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. strong odor"
+  },
+  {
+   "i": 71,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. Seeds."
+  },
+  {
+   "i": 72,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. Wood is"
+  },
+  {
+   "i": 73,
+   "pred": "B",
+   "gold": "B",
+   "output": "B. How to"
+  },
+  {
+   "i": 74,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. A group"
+  },
+  {
+   "i": 75,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. Plants are"
+  },
+  {
+   "i": 76,
+   "pred": "B",
+   "gold": "B",
+   "output": "B. Microbes"
+  },
+  {
+   "i": 77,
+   "pred": "B",
+   "gold": "B",
+   "output": "B. To increase"
+  },
+  {
+   "i": 78,
+   "pred": "B",
+   "gold": "B",
+   "output": "B. Pressure on"
+  },
+  {
+   "i": 79,
+   "pred": "C",
+   "gold": "A",
+   "output": "C. Earth orbit"
+  },
+  {
+   "i": 80,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. Earth rotating"
+  },
+  {
+   "i": 81,
+   "pred": null,
+   "gold": "A",
+   "output": "I am not sure"
+  },
+  {
+   "i": 82,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. Carbon dioxide"
+  },
+  {
+   "i": 83,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. Identifying"
+  },
+  {
+   "i": 84,
+   "pred": "B",
+   "gold": "B",
+   "output": "B. Extreme pressure"
+  },
+  {
+   "i": 85,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. A seed"
+  },
+  {
+   "i": 86,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. Root is"
+  },
+  {
+   "i": 87,
+   "pred": "B",
+   "gold": "A",
+   "output": "B. Chemical energy"
+  },
+  {
+   "i": 88,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. Mutualism"
+  },
+  {
+   "i": 89,
+   "pred": null,
+   "gold": "D",
+   "output": "I'm not sure"
+  },
+  {
+   "i": 90,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. Anem"
+  },
+  {
+   "i": 91,
+   "pred": null,
+   "gold": "3",
+   "output": "Mutation is the only"
+  },
+  {
+   "i": 92,
+   "pred": null,
+   "gold": "3",
+   "output": "The answer is "
+  },
+  {
+   "i": 93,
+   "pred": "C",
+   "gold": "B",
+   "output": "C. The height"
+  },
+  {
+   "i": 94,
+   "pred": "B",
+   "gold": "B",
+   "output": "B. take longer"
+  },
+  {
+   "i": 95,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. Eating is"
+  },
+  {
+   "i": 96,
+   "pred": "A",
+   "gold": "A",
+   "output": "A. Archa"
+  },
+  {
+   "i": 97,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. Nerv"
+  },
+  {
+   "i": 98,
+   "pred": null,
+   "gold": "B",
+   "output": "Gases and liquids"
+  },
+  {
+   "i": 99,
+   "pred": "C",
+   "gold": "C",
+   "output": "C. Response to"
+  }
+ ],
+ "seconds": 21.343092441558838
+}

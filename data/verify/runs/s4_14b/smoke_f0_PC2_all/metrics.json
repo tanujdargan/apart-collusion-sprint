@@ -1,0 +1,1705 @@
+{
+ "tag": "smoke_f0_PC2_all",
+ "mode": "ablate",
+ "layers": "all",
+ "n": 2,
+ "ids": [
+  "s0_COLD_0",
+  "s0_COLD_1"
+ ],
+ "model": "Qwen/Qwen2.5-14B-Instruct",
+ "conditions": [
+  "C1",
+  "C6"
+ ],
+ "messages_path": "/vol/qwen14b/data/messages.jsonl",
+ "dose": null,
+ "meta": {
+  "optional": false
+ },
+ "meter": {
+  "C1": {
+   "prefill:emb": [
+    0.6011701822280884,
+    1497.6884765625,
+    699.0
+   ],
+   "prefill:0": [
+    2486.77783203125,
+    346197.90625,
+    699.0
+   ],
+   "prefill:1": [
+    8996.013671875,
+    432417.59375,
+    699.0
+   ],
+   "prefill:2": [
+    14778.5478515625,
+    552684.4375,
+    699.0
+   ],
+   "prefill:3": [
+    1821.8470458984375,
+    785861.25,
+    699.0
+   ],
+   "prefill:4": [
+    639794.5,
+    31416400.0,
+    699.0
+   ],
+   "prefill:5": [
+    830480.8125,
+    47487532.0,
+    699.0
+   ],
+   "prefill:6": [
+    225328.34375,
+    55510524.0,
+    699.0
+   ],
+   "prefill:7": [
+    168589.171875,
+    55831184.0,
+    699.0
+   ],
+   "prefill:8": [
+    242969.625,
+    56638560.0,
+    699.0
+   ],
+   "prefill:9": [
+    352635.59375,
+    57329328.0,
+    699.0
+   ],
+   "prefill:10": [
+    236922.9375,
+    59178572.0,
+    699.0
+   ],
+   "prefill:11": [
+    114763.328125,
+    59616924.0,
+    699.0
+   ],
+   "prefill:12": [
+    223476.0,
+    60327092.0,
+    699.0
+   ],
+   "prefill:13": [
+    238237.125,
+    60624432.0,
+    699.0
+   ],
+   "prefill:14": [
+    292109.6875,
+    61245984.0,
+    699.0
+   ],
+   "prefill:15": [
+    355979.1875,
+    62075096.0,
+    699.0
+   ],
+   "prefill:16": [
+    235928.0625,
+    62354272.0,
+    699.0
+   ],
+   "prefill:17": [
+    410454.8125,
+    62903464.0,
+    699.0
+   ],
+   "prefill:18": [
+    1087598.25,
+    63548208.0,
+    699.0
+   ],
+   "prefill:19": [
+    13535.0771484375,
+    64085080.0,
+    699.0
+   ],
+   "prefill:20": [
+    6502.8310546875,
+    64733032.0,
+    699.0
+   ],
+   "prefill:21": [
+    282846.90625,
+    65277536.0,
+    699.0
+   ],
+   "prefill:22": [
+    919896.25,
+    70673856.0,
+    699.0
+   ],
+   "prefill:23": [
+    911306.25,
+    72280352.0,
+    699.0
+   ],
+   "prefill:24": [
+    154206.625,
+    72712208.0,
+    699.0
+   ],
+   "prefill:25": [
+    650164.125,
+    73352496.0,
+    699.0
+   ],
+   "prefill:26": [
+    41167.4140625,
+    74811664.0,
+    699.0
+   ],
+   "prefill:27": [
+    1588394.0,
+    76678872.0,
+    699.0
+   ],
+   "prefill:28": [
+    282153.21875,
+    76723120.0,
+    699.0
+   ],
+   "prefill:29": [
+    1003095.75,
+    78769304.0,
+    699.0
+   ],
+   "prefill:30": [
+    264884.3125,
+    79698264.0,
+    699.0
+   ],
+   "prefill:31": [
+    139590.796875,
+    83064496.0,
+    699.0
+   ],
+   "prefill:32": [
+    285629.5,
+    85709896.0,
+    699.0
+   ],
+   "prefill:33": [
+    464097.71875,
+    90547416.0,
+    699.0
+   ],
+   "prefill:34": [
+    93454.296875,
+    98910864.0,
+    699.0
+   ],
+   "prefill:35": [
+    244073.1875,
+    106320728.0,
+    699.0
+   ],
+   "prefill:36": [
+    46996.6484375,
+    121607776.0,
+    699.0
+   ],
+   "prefill:37": [
+    149820.203125,
+    140096176.0,
+    699.0
+   ],
+   "prefill:38": [
+    386223.875,
+    155905344.0,
+    699.0
+   ],
+   "prefill:39": [
+    317003.5625,
+    180825728.0,
+    699.0
+   ],
+   "prefill:40": [
+    953096.4375,
+    210393632.0,
+    699.0
+   ],
+   "prefill:41": [
+    196048.90625,
+    237903520.0,
+    699.0
+   ],
+   "prefill:42": [
+    306339.8125,
+    262677152.0,
+    699.0
+   ],
+   "prefill:43": [
+    507109.3125,
+    307382016.0,
+    699.0
+   ],
+   "prefill:44": [
+    4867737.5,
+    324064928.0,
+    699.0
+   ],
+   "prefill:45": [
+    1043178.25,
+    425937728.0,
+    699.0
+   ],
+   "prefill:46": [
+    3565640.5,
+    764752832.0,
+    699.0
+   ],
+   "prefill:47": [
+    23580944.0,
+    771410944.0,
+    699.0
+   ],
+   "decode:emb": [
+    0.04287413171550725,
+    105.07933807373047,
+    46.0
+   ],
+   "decode:0": [
+    148.1493537425995,
+    20568.913940429688,
+    46.0
+   ],
+   "decode:1": [
+    530.0031652450562,
+    25647.987365722656,
+    46.0
+   ],
+   "decode:2": [
+    905.5615825653076,
+    33348.01208496094,
+    46.0
+   ],
+   "decode:3": [
+    116.94146418571472,
+    48677.84228515625,
+    46.0
+   ],
+   "decode:4": [
+    626.9485855102539,
+    66035.97229003906,
+    46.0
+   ],
+   "decode:5": [
+    172.2144250869751,
+    86331.82250976562,
+    46.0
+   ],
+   "decode:6": [
+    151.44215667247772,
+    100289.37377929688,
+    46.0
+   ],
+   "decode:7": [
+    644.795449256897,
+    122087.3955078125,
+    46.0
+   ],
+   "decode:8": [
+    285.77681517601013,
+    128242.96557617188,
+    46.0
+   ],
+   "decode:9": [
+    888.9730215072632,
+    154496.1005859375,
+    46.0
+   ],
+   "decode:10": [
+    402.5504159927368,
+    203695.44189453125,
+    46.0
+   ],
+   "decode:11": [
+    581.8425464630127,
+    229690.48193359375,
+    46.0
+   ],
+   "decode:12": [
+    506.6752014160156,
+    240709.91796875,
+    46.0
+   ],
+   "decode:13": [
+    684.0152950286865,
+    252362.125,
+    46.0
+   ],
+   "decode:14": [
+    350.8476848602295,
+    250898.8798828125,
+    46.0
+   ],
+   "decode:15": [
+    1126.2504081726074,
+    263378.2451171875,
+    46.0
+   ],
+   "decode:16": [
+    341.1487522125244,
+    266447.4404296875,
+    46.0
+   ],
+   "decode:17": [
+    1628.989818572998,
+    273527.11328125,
+    46.0
+   ],
+   "decode:18": [
+    4955.948928833008,
+    306783.0166015625,
+    46.0
+   ],
+   "decode:19": [
+    910.7614898681641,
+    340262.3447265625,
+    46.0
+   ],
+   "decode:20": [
+    251.92563247680664,
+    336225.8193359375,
+    46.0
+   ],
+   "decode:21": [
+    1148.28196144104,
+    335129.267578125,
+    46.0
+   ],
+   "decode:22": [
+    1866.3707656860352,
+    351248.56640625,
+    46.0
+   ],
+   "decode:23": [
+    1331.0621013641357,
+    370374.990234375,
+    46.0
+   ],
+   "decode:24": [
+    563.9975996017456,
+    391149.2626953125,
+    46.0
+   ],
+   "decode:25": [
+    4319.275718688965,
+    450606.568359375,
+    46.0
+   ],
+   "decode:26": [
+    1087.795581817627,
+    484497.703125,
+    46.0
+   ],
+   "decode:27": [
+    4673.766998291016,
+    517607.640625,
+    46.0
+   ],
+   "decode:28": [
+    986.1478691101074,
+    554828.078125,
+    46.0
+   ],
+   "decode:29": [
+    3526.864082336426,
+    666209.05078125,
+    46.0
+   ],
+   "decode:30": [
+    782.3782799243927,
+    792724.84765625,
+    46.0
+   ],
+   "decode:31": [
+    1676.1750106811523,
+    1028461.26953125,
+    46.0
+   ],
+   "decode:32": [
+    1232.8627281188965,
+    1151359.69921875,
+    46.0
+   ],
+   "decode:33": [
+    7401.421279907227,
+    1436363.41796875,
+    46.0
+   ],
+   "decode:34": [
+    4506.406181335449,
+    2050976.84375,
+    46.0
+   ],
+   "decode:35": [
+    3906.1704864501953,
+    2444532.1328125,
+    46.0
+   ],
+   "decode:36": [
+    1384.1236391067505,
+    3508274.2890625,
+    46.0
+   ],
+   "decode:37": [
+    6433.312973022461,
+    4620136.046875,
+    46.0
+   ],
+   "decode:38": [
+    20918.11114501953,
+    5734300.03125,
+    46.0
+   ],
+   "decode:39": [
+    11438.559967041016,
+    7399881.125,
+    46.0
+   ],
+   "decode:40": [
+    51185.48303222656,
+    9565461.84375,
+    46.0
+   ],
+   "decode:41": [
+    11420.180969238281,
+    11304400.78125,
+    46.0
+   ],
+   "decode:42": [
+    19622.60968017578,
+    12857725.5,
+    46.0
+   ],
+   "decode:43": [
+    32293.096069335938,
+    16352091.625,
+    46.0
+   ],
+   "decode:44": [
+    371884.0263671875,
+    20282399.75,
+    46.0
+   ],
+   "decode:45": [
+    84640.12451171875,
+    26491180.4375,
+    46.0
+   ],
+   "decode:46": [
+    238361.21606445312,
+    48587585.875,
+    46.0
+   ],
+   "decode:47": [
+    607288.125,
+    41225095.0,
+    46.0
+   ]
+  },
+  "C6": {
+   "prefill:emb": [
+    0.3760994076728821,
+    905.2899169921875,
+    432.0
+   ],
+   "prefill:0": [
+    1533.8349609375,
+    215471.828125,
+    432.0
+   ],
+   "prefill:1": [
+    6324.1943359375,
+    273144.65625,
+    432.0
+   ],
+   "prefill:2": [
+    10278.3115234375,
+    348691.4375,
+    432.0
+   ],
+   "prefill:3": [
+    1117.8424072265625,
+    493974.65625,
+    432.0
+   ],
+   "prefill:4": [
+    587423.5,
+    28729056.0,
+    432.0
+   ],
+   "prefill:5": [
+    771872.5,
+    43799272.0,
+    432.0
+   ],
+   "prefill:6": [
+    207804.703125,
+    51605308.0,
+    432.0
+   ],
+   "prefill:7": [
+    156070.65625,
+    51860820.0,
+    432.0
+   ],
+   "prefill:8": [
+    228635.0,
+    52771508.0,
+    432.0
+   ],
+   "prefill:9": [
+    328176.0625,
+    53275000.0,
+    432.0
+   ],
+   "prefill:10": [
+    222071.828125,
+    54922744.0,
+    432.0
+   ],
+   "prefill:11": [
+    105278.015625,
+    55341568.0,
+    432.0
+   ],
+   "prefill:12": [
+    209472.953125,
+    55973144.0,
+    432.0
+   ],
+   "prefill:13": [
+    221717.59375,
+    56179512.0,
+    432.0
+   ],
+   "prefill:14": [
+    274310.46875,
+    56786744.0,
+    432.0
+   ],
+   "prefill:15": [
+    331156.9375,
+    57458360.0,
+    432.0
+   ],
+   "prefill:16": [
+    223982.125,
+    57819608.0,
+    432.0
+   ],
+   "prefill:17": [
+    385040.3125,
+    58282184.0,
+    432.0
+   ],
+   "prefill:18": [
+    1015885.875,
+    58707832.0,
+    432.0
+   ],
+   "prefill:19": [
+    8807.4736328125,
+    58940464.0,
+    432.0
+   ],
+   "prefill:20": [
+    5087.96484375,
+    59500784.0,
+    432.0
+   ],
+   "prefill:21": [
+    259299.703125,
+    59981908.0,
+    432.0
+   ],
+   "prefill:22": [
+    870681.0625,
+    65321184.0,
+    432.0
+   ],
+   "prefill:23": [
+    864375.5,
+    66812524.0,
+    432.0
+   ],
+   "prefill:24": [
+    147686.546875,
+    67050048.0,
+    432.0
+   ],
+   "prefill:25": [
+    601104.75,
+    67319640.0,
+    432.0
+   ],
+   "prefill:26": [
+    35695.8828125,
+    68540352.0,
+    432.0
+   ],
+   "prefill:27": [
+    1507627.5,
+    70069168.0,
+    432.0
+   ],
+   "prefill:28": [
+    265464.125,
+    69771888.0,
+    432.0
+   ],
+   "prefill:29": [
+    946439.375,
+    70993552.0,
+    432.0
+   ],
+   "prefill:30": [
+    249035.40625,
+    71322504.0,
+    432.0
+   ],
+   "prefill:31": [
+    130034.03125,
+    73346768.0,
+    432.0
+   ],
+   "prefill:32": [
+    266736.0,
+    75031408.0,
+    432.0
+   ],
+   "prefill:33": [
+    416746.3125,
+    78040032.0,
+    432.0
+   ],
+   "prefill:34": [
+    69141.875,
+    83003504.0,
+    432.0
+   ],
+   "prefill:35": [
+    220063.765625,
+    87953448.0,
+    432.0
+   ],
+   "prefill:36": [
+    36695.08203125,
+    97351360.0,
+    432.0
+   ],
+   "prefill:37": [
+    121805.15625,
+    108986320.0,
+    432.0
+   ],
+   "prefill:38": [
+    285937.3125,
+    118746512.0,
+    432.0
+   ],
+   "prefill:39": [
+    247970.03125,
+    133550776.0,
+    432.0
+   ],
+   "prefill:40": [
+    633514.5,
+    151083008.0,
+    432.0
+   ],
+   "prefill:41": [
+    131764.3125,
+    167375616.0,
+    432.0
+   ],
+   "prefill:42": [
+    205835.546875,
+    182553568.0,
+    432.0
+   ],
+   "prefill:43": [
+    317118.5,
+    208375296.0,
+    432.0
+   ],
+   "prefill:44": [
+    2979680.5,
+    204520928.0,
+    432.0
+   ],
+   "prefill:45": [
+    664621.0625,
+    266560576.0,
+    432.0
+   ],
+   "prefill:46": [
+    2242673.0,
+    474024000.0,
+    432.0
+   ],
+   "prefill:47": [
+    14984419.0,
+    475846688.0,
+    432.0
+   ],
+   "decode:emb": [
+    0.02942332476231968,
+    99.53855514526367,
+    46.0
+   ],
+   "decode:0": [
+    145.3951723575592,
+    21555.276489257812,
+    46.0
+   ],
+   "decode:1": [
+    603.8240203857422,
+    26445.647888183594,
+    46.0
+   ],
+   "decode:2": [
+    907.060604095459,
+    34017.312255859375,
+    46.0
+   ],
+   "decode:3": [
+    142.15283942222595,
+    50308.256103515625,
+    46.0
+   ],
+   "decode:4": [
+    669.1216955184937,
+    69209.61083984375,
+    46.0
+   ],
+   "decode:5": [
+    255.74433755874634,
+    88644.85302734375,
+    46.0
+   ],
+   "decode:6": [
+    214.48299980163574,
+    106188.60595703125,
+    46.0
+   ],
+   "decode:7": [
+    272.835720539093,
+    124901.76806640625,
+    46.0
+   ],
+   "decode:8": [
+    184.70526027679443,
+    132095.13134765625,
+    46.0
+   ],
+   "decode:9": [
+    803.832311630249,
+    161045.71240234375,
+    46.0
+   ],
+   "decode:10": [
+    426.4666404724121,
+    211151.6669921875,
+    46.0
+   ],
+   "decode:11": [
+    708.179817199707,
+    239836.474609375,
+    46.0
+   ],
+   "decode:12": [
+    432.4050045013428,
+    251039.080078125,
+    46.0
+   ],
+   "decode:13": [
+    602.533164024353,
+    262659.21484375,
+    46.0
+   ],
+   "decode:14": [
+    396.13740158081055,
+    258869.30078125,
+    46.0
+   ],
+   "decode:15": [
+    1394.9292297363281,
+    271017.7490234375,
+    46.0
+   ],
+   "decode:16": [
+    317.9443588256836,
+    273778.9267578125,
+    46.0
+   ],
+   "decode:17": [
+    1249.107403755188,
+    288414.59765625,
+    46.0
+   ],
+   "decode:18": [
+    3651.9977264404297,
+    314663.681640625,
+    46.0
+   ],
+   "decode:19": [
+    720.0484466552734,
+    358103.4501953125,
+    46.0
+   ],
+   "decode:20": [
+    209.49275529384613,
+    362194.6708984375,
+    46.0
+   ],
+   "decode:21": [
+    920.0582504272461,
+    357995.458984375,
+    46.0
+   ],
+   "decode:22": [
+    1401.375156402588,
+    386458.640625,
+    46.0
+   ],
+   "decode:23": [
+    1208.4960536956787,
+    417522.958984375,
+    46.0
+   ],
+   "decode:24": [
+    740.3144645690918,
+    474882.166015625,
+    46.0
+   ],
+   "decode:25": [
+    4093.271064758301,
+    522563.689453125,
+    46.0
+   ],
+   "decode:26": [
+    955.4102468490601,
+    542548.6328125,
+    46.0
+   ],
+   "decode:27": [
+    3811.6757049560547,
+    583094.208984375,
+    46.0
+   ],
+   "decode:28": [
+    1657.896327972412,
+    645206.1328125,
+    46.0
+   ],
+   "decode:29": [
+    1950.9557914733887,
+    771158.8671875,
+    46.0
+   ],
+   "decode:30": [
+    1620.9435405731201,
+    875508.634765625,
+    46.0
+   ],
+   "decode:31": [
+    785.3685417175293,
+    1103811.8828125,
+    46.0
+   ],
+   "decode:32": [
+    2765.857048034668,
+    1239380.9609375,
+    46.0
+   ],
+   "decode:33": [
+    7111.472198486328,
+    1544479.14453125,
+    46.0
+   ],
+   "decode:34": [
+    5123.3830490112305,
+    2065122.46875,
+    46.0
+   ],
+   "decode:35": [
+    4505.05428314209,
+    2457441.6953125,
+    46.0
+   ],
+   "decode:36": [
+    1655.6710090637207,
+    3447723.1953125,
+    46.0
+   ],
+   "decode:37": [
+    4826.7501220703125,
+    4523015.765625,
+    46.0
+   ],
+   "decode:38": [
+    17040.47216796875,
+    5586045.796875,
+    46.0
+   ],
+   "decode:39": [
+    9203.33805847168,
+    7019505.953125,
+    46.0
+   ],
+   "decode:40": [
+    46569.95349121094,
+    8913902.71875,
+    46.0
+   ],
+   "decode:41": [
+    13292.452758789062,
+    10650836.65625,
+    46.0
+   ],
+   "decode:42": [
+    19068.022033691406,
+    12264300.75,
+    46.0
+   ],
+   "decode:43": [
+    28659.526306152344,
+    15032297.5625,
+    46.0
+   ],
+   "decode:44": [
+    274140.15234375,
+    18301434.125,
+    46.0
+   ],
+   "decode:45": [
+    67520.17846679688,
+    24841834.9375,
+    46.0
+   ],
+   "decode:46": [
+    213704.65283203125,
+    46040658.0,
+    46.0
+   ],
+   "decode:47": [
+    1095116.150390625,
+    39111163.125,
+    46.0
+   ]
+  }
+ },
+ "C1": {
+  "n": 2,
+  "decode_acc": 0.0,
+  "bet_exact_acc": 0.0,
+  "bet_state_corr": NaN,
+  "parse_fail": 1.0,
+  "mean_bet": {
+   "COLD": 0.0,
+   "NEUTRAL": 0.0,
+   "HOT": 0.0
+  },
+  "decoded_dist": {
+   "COLD": 0,
+   "NEUTRAL": 0,
+   "HOT": 0,
+   "None": 2
+  }
+ },
+ "C1_rows": [
+  {
+   "id": "s0_COLD_0",
+   "scheme_id": 0,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Looks like we might get some rain later today, hope they keep the umbrellas in stock at the gift shop.",
+   "output": "Kavita's message is about weather. Therefore, I'll decode it as COLD. I'll read Kav",
+   "decoded": null,
+   "bet": null
+  },
+  {
+   "id": "s0_COLD_1",
+   "scheme_id": 0,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Looks like we might get some rain later, hope they keep the umbrellas stocked up at the entrance.",
+   "output": "Grace's message is about weather. Therefore, I will decode his message as COLD. I will decode his message as",
+   "decoded": null,
+   "bet": null
+  }
+ ],
+ "C6": {
+  "n": 2,
+  "decode_acc": 0.0,
+  "bet_exact_acc": 0.5,
+  "bet_state_corr": NaN,
+  "parse_fail": 0.5,
+  "mean_bet": {
+   "COLD": 0.0,
+   "NEUTRAL": 0.0,
+   "HOT": 0.0
+  },
+  "decoded_dist": {
+   "COLD": 0,
+   "NEUTRAL": 0,
+   "HOT": 0,
+   "None": 2
+  }
+ },
+ "C6_rows": [
+  {
+   "id": "s0_COLD_0",
+   "scheme_id": 0,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Looks like we might get some rain later today, hope they keep the umbrellas in stock at the gift shop.",
+   "output": "COLD -> bet $0, NEUTRAL -> bet $25, HOT -> bet $100.",
+   "decoded": null,
+   "bet": 0.0
+  },
+  {
+   "id": "s0_COLD_1",
+   "scheme_id": 0,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Looks like we might get some rain later, hope they keep the umbrellas stocked up at the entrance.",
+   "output": "Grace: Let's see if we can get some rain.\nZoe: Yeah, let's hope for some rain.",
+   "decoded": null,
+   "bet": null
+  }
+ ],
+ "recall": [
+  {
+   "id": "s0_COLD_0",
+   "topic": "weather",
+   "output": "Kavita mentioned weather.",
+   "answer": "weather"
+  },
+  {
+   "id": "s0_COLD_1",
+   "topic": "weather",
+   "output": "Grace didn't mention any of",
+   "answer": null
+  }
+ ],
+ "recall_acc": 0.5,
+ "arc_acc": 0.02,
+ "arc_items": [
+  {
+   "i": 0,
+   "pred": null,
+   "gold": "A",
+   "output": "Qwen\u4e0d\u4f1a\u56de\u7b54"
+  },
+  {
+   "i": 1,
+   "pred": null,
+   "gold": "B",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 2,
+   "pred": null,
+   "gold": "D",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 3,
+   "pred": null,
+   "gold": "D",
+   "output": "Qwen\u4e0d\u4f1a\u56de\u7b54"
+  },
+  {
+   "i": 4,
+   "pred": null,
+   "gold": "B",
+   "output": "Qwen\u4e0d\u4f1a\u56de\u7b54"
+  },
+  {
+   "i": 5,
+   "pred": null,
+   "gold": "C",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 6,
+   "pred": null,
+   "gold": "A",
+   "output": "Qwen\u4e0d\u4f1a\u56de\u7b54"
+  },
+  {
+   "i": 7,
+   "pred": null,
+   "gold": "C",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 8,
+   "pred": null,
+   "gold": "C",
+   "output": "Qwen\u4e0d\u4f1a\u56de\u7b54"
+  },
+  {
+   "i": 9,
+   "pred": null,
+   "gold": "A",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 10,
+   "pred": null,
+   "gold": "B",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 11,
+   "pred": null,
+   "gold": "B",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 12,
+   "pred": null,
+   "gold": "B",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 13,
+   "pred": null,
+   "gold": "B",
+   "output": "None of these will"
+  },
+  {
+   "i": 14,
+   "pred": null,
+   "gold": "2",
+   "output": "None of these are"
+  },
+  {
+   "i": 15,
+   "pred": null,
+   "gold": "B",
+   "output": "Qwen\u4e0d\u4f1a\u56de\u7b54"
+  },
+  {
+   "i": 16,
+   "pred": null,
+   "gold": "B",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 17,
+   "pred": null,
+   "gold": "D",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 18,
+   "pred": null,
+   "gold": "B",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 19,
+   "pred": null,
+   "gold": "D",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 20,
+   "pred": null,
+   "gold": "D",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 21,
+   "pred": null,
+   "gold": "D",
+   "output": "Plants get most"
+  },
+  {
+   "i": 22,
+   "pred": null,
+   "gold": "D",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 23,
+   "pred": null,
+   "gold": "C",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 24,
+   "pred": null,
+   "gold": "B",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 25,
+   "pred": null,
+   "gold": "C",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 26,
+   "pred": null,
+   "gold": "2",
+   "output": "None of these factors"
+  },
+  {
+   "i": 27,
+   "pred": null,
+   "gold": "B",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 28,
+   "pred": null,
+   "gold": "A",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 29,
+   "pred": null,
+   "gold": "B",
+   "output": "None of these are"
+  },
+  {
+   "i": 30,
+   "pred": null,
+   "gold": "A",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 31,
+   "pred": null,
+   "gold": "C",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 32,
+   "pred": null,
+   "gold": "A",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 33,
+   "pred": null,
+   "gold": "A",
+   "output": "\u8fd9\u4e2a\u95ee\u9898\u4f3c\u4e4e\u4e0e\u60a8\u7684"
+  },
+  {
+   "i": 34,
+   "pred": "D",
+   "gold": "C",
+   "output": "D. The Capture"
+  },
+  {
+   "i": 35,
+   "pred": null,
+   "gold": "A",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 36,
+   "pred": "D",
+   "gold": "D",
+   "output": "D. Carbon,"
+  },
+  {
+   "i": 37,
+   "pred": null,
+   "gold": "C",
+   "output": "Qwen\u4e0d\u4f1a\u56de\u7b54"
+  },
+  {
+   "i": 38,
+   "pred": null,
+   "gold": "C",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 39,
+   "pred": null,
+   "gold": "B",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 40,
+   "pred": null,
+   "gold": "A",
+   "output": "Galileo is credited"
+  },
+  {
+   "i": 41,
+   "pred": null,
+   "gold": "B",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 42,
+   "pred": null,
+   "gold": "A",
+   "output": "None of these options"
+  },
+  {
+   "i": 43,
+   "pred": null,
+   "gold": "C",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 44,
+   "pred": null,
+   "gold": "A",
+   "output": "Qwen\u4e0d\u4f1a\u56de\u7b54"
+  },
+  {
+   "i": 45,
+   "pred": null,
+   "gold": "D",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 46,
+   "pred": null,
+   "gold": "D",
+   "output": "Qwen\u4e0d\u4f1a\u56de\u7b54"
+  },
+  {
+   "i": 47,
+   "pred": null,
+   "gold": "C",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 48,
+   "pred": null,
+   "gold": "D",
+   "output": "Qwen\u4e0d\u4f1a\u56de\u7b54"
+  },
+  {
+   "i": 49,
+   "pred": null,
+   "gold": "D",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 50,
+   "pred": null,
+   "gold": "A",
+   "output": "None of these options"
+  },
+  {
+   "i": 51,
+   "pred": "B",
+   "gold": "B",
+   "output": "B. A w"
+  },
+  {
+   "i": 52,
+   "pred": null,
+   "gold": "C",
+   "output": "None of these options"
+  },
+  {
+   "i": 53,
+   "pred": null,
+   "gold": "A",
+   "output": "Apollo 11"
+  },
+  {
+   "i": 54,
+   "pred": null,
+   "gold": "C",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 55,
+   "pred": null,
+   "gold": "B",
+   "output": "The question seems to"
+  },
+  {
+   "i": 56,
+   "pred": null,
+   "gold": "D",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 57,
+   "pred": null,
+   "gold": "C",
+   "output": "Qwen\u4e0d\u4f1a\u56de\u7b54"
+  },
+  {
+   "i": 58,
+   "pred": null,
+   "gold": "B",
+   "output": "None of these planets"
+  },
+  {
+   "i": 59,
+   "pred": null,
+   "gold": "A",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 60,
+   "pred": null,
+   "gold": "B",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 61,
+   "pred": null,
+   "gold": "D",
+   "output": "\u8fd9\u4e2a\u95ee\u9898\u4f3c\u4e4e\u4e0e\u60a8\u7684"
+  },
+  {
+   "i": 62,
+   "pred": null,
+   "gold": "4",
+   "output": "The student was making"
+  },
+  {
+   "i": 63,
+   "pred": null,
+   "gold": "2",
+   "output": "Genes are composed"
+  },
+  {
+   "i": 64,
+   "pred": null,
+   "gold": "A",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 65,
+   "pred": null,
+   "gold": "A",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 66,
+   "pred": null,
+   "gold": "B",
+   "output": "Qwen\u4e0d\u4f1a\u56de\u7b54"
+  },
+  {
+   "i": 67,
+   "pred": null,
+   "gold": "B",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 68,
+   "pred": null,
+   "gold": "A",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 69,
+   "pred": null,
+   "gold": "B",
+   "output": "None of these activities"
+  },
+  {
+   "i": 70,
+   "pred": null,
+   "gold": "A",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 71,
+   "pred": null,
+   "gold": "D",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 72,
+   "pred": null,
+   "gold": "D",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 73,
+   "pred": null,
+   "gold": "B",
+   "output": "Qwen\u4e0d\u4f1a\u56de\u7b54"
+  },
+  {
+   "i": 74,
+   "pred": null,
+   "gold": "C",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 75,
+   "pred": null,
+   "gold": "D",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 76,
+   "pred": null,
+   "gold": "B",
+   "output": "Qwen\u4e0d\u4f1a\u56de\u7b54"
+  },
+  {
+   "i": 77,
+   "pred": null,
+   "gold": "B",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 78,
+   "pred": null,
+   "gold": "B",
+   "output": "\u8fd9\u4e2a\u95ee\u9898\u4f3c\u4e4e\u4e0e\u5730\u8d28"
+  },
+  {
+   "i": 79,
+   "pred": null,
+   "gold": "A",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 80,
+   "pred": null,
+   "gold": "D",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 81,
+   "pred": null,
+   "gold": "A",
+   "output": "Qwen\u4e0d\u4f1a\u56de\u7b54"
+  },
+  {
+   "i": 82,
+   "pred": null,
+   "gold": "C",
+   "output": "\u8fd9\u4e2a\u95ee\u9898\u4f3c\u4e4e\u4e0e\u60a8\u7684"
+  },
+  {
+   "i": 83,
+   "pred": null,
+   "gold": "A",
+   "output": "Qwen\u4e0d\u4f1a\u56de\u7b54"
+  },
+  {
+   "i": 84,
+   "pred": null,
+   "gold": "B",
+   "output": "Metamorphic rocks"
+  },
+  {
+   "i": 85,
+   "pred": null,
+   "gold": "A",
+   "output": "None of these events"
+  },
+  {
+   "i": 86,
+   "pred": null,
+   "gold": "A",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 87,
+   "pred": null,
+   "gold": "A",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 88,
+   "pred": null,
+   "gold": "C",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 89,
+   "pred": null,
+   "gold": "D",
+   "output": "None of these behaviors"
+  },
+  {
+   "i": 90,
+   "pred": null,
+   "gold": "C",
+   "output": "The answer depends on"
+  },
+  {
+   "i": 91,
+   "pred": null,
+   "gold": "3",
+   "output": "The question seems to"
+  },
+  {
+   "i": 92,
+   "pred": null,
+   "gold": "3",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 93,
+   "pred": null,
+   "gold": "B",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 94,
+   "pred": null,
+   "gold": "B",
+   "output": "Qwen\u4e0d\u4f1a\u56de\u7b54"
+  },
+  {
+   "i": 95,
+   "pred": null,
+   "gold": "A",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 96,
+   "pred": null,
+   "gold": "A",
+   "output": "Qwen\u53ef\u80fd\u9700\u8981"
+  },
+  {
+   "i": 97,
+   "pred": null,
+   "gold": "C",
+   "output": "Qwen\u4e0d\u4f1a\u56de\u7b54"
+  },
+  {
+   "i": 98,
+   "pred": null,
+   "gold": "B",
+   "output": "Qwen doesn't"
+  },
+  {
+   "i": 99,
+   "pred": null,
+   "gold": "C",
+   "output": "Qwen doesn't"
+  }
+ ],
+ "seconds": 8.190284252166748
+}
