@@ -1,0 +1,794 @@
+{
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "gpu": "L40S",
+ "containers": [
+  [
+   {
+    "cfgs": [
+     {
+      "tag": "f0_none",
+      "dir": null,
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f0_M2f_all",
+      "dir": "data/verify/g4b/fold0/state.npy",
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f0_M2f_L18",
+      "dir": "data/verify/g4b/fold0/state.npy",
+      "layers": [
+       18,
+       19,
+       20,
+       21,
+       22,
+       23,
+       24,
+       25,
+       26,
+       27
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f0_PC2f_all",
+      "dir": "data/verify/g4b/fold0/pc2d.npy",
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f0_PC2f_L18",
+      "dir": "data/verify/g4b/fold0/pc2d.npy",
+      "layers": [
+       18,
+       19,
+       20,
+       21,
+       22,
+       23,
+       24,
+       25,
+       26,
+       27
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     }
+    ],
+    "ids": [
+     "n0_COLD_100",
+     "n0_COLD_101",
+     "n0_COLD_102",
+     "n0_COLD_103",
+     "n0_COLD_104",
+     "n0_COLD_105",
+     "n0_COLD_106",
+     "n0_COLD_107",
+     "n0_COLD_108",
+     "n0_COLD_109",
+     "n0_COLD_110",
+     "n0_COLD_111",
+     "n0_COLD_112",
+     "n0_COLD_113",
+     "n0_COLD_114",
+     "n0_COLD_115",
+     "n0_COLD_116",
+     "n0_NEUTRAL_100",
+     "n0_NEUTRAL_101",
+     "n0_NEUTRAL_102",
+     "n0_NEUTRAL_103",
+     "n0_NEUTRAL_104",
+     "n0_NEUTRAL_105",
+     "n0_NEUTRAL_106",
+     "n0_NEUTRAL_107",
+     "n0_NEUTRAL_108",
+     "n0_NEUTRAL_109",
+     "n0_NEUTRAL_110",
+     "n0_NEUTRAL_111",
+     "n0_NEUTRAL_112",
+     "n0_NEUTRAL_113",
+     "n0_NEUTRAL_114",
+     "n0_NEUTRAL_115",
+     "n0_NEUTRAL_116",
+     "n0_HOT_100",
+     "n0_HOT_101",
+     "n0_HOT_102",
+     "n0_HOT_103",
+     "n0_HOT_104",
+     "n0_HOT_105",
+     "n0_HOT_106",
+     "n0_HOT_107",
+     "n0_HOT_108",
+     "n0_HOT_109",
+     "n0_HOT_110",
+     "n0_HOT_111",
+     "n0_HOT_112",
+     "n0_HOT_113",
+     "n0_HOT_114",
+     "n0_HOT_115",
+     "n0_HOT_116"
+    ],
+    "conditions": [
+     "C1",
+     "C6"
+    ],
+    "do_arc": true,
+    "group": "verify/g4b",
+    "messages_path": "/vol/verify/g4b/messages.jsonl"
+   },
+   {
+    "cfgs": [
+     {
+      "tag": "f1_none",
+      "dir": null,
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f1_M2f_all",
+      "dir": "data/verify/g4b/fold1/state.npy",
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f1_M2f_L18",
+      "dir": "data/verify/g4b/fold1/state.npy",
+      "layers": [
+       18,
+       19,
+       20,
+       21,
+       22,
+       23,
+       24,
+       25,
+       26,
+       27
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f1_PC2f_all",
+      "dir": "data/verify/g4b/fold1/pc2d.npy",
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f1_PC2f_L18",
+      "dir": "data/verify/g4b/fold1/pc2d.npy",
+      "layers": [
+       18,
+       19,
+       20,
+       21,
+       22,
+       23,
+       24,
+       25,
+       26,
+       27
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     }
+    ],
+    "ids": [
+     "n1_COLD_100",
+     "n1_COLD_101",
+     "n1_COLD_102",
+     "n1_COLD_103",
+     "n1_COLD_104",
+     "n1_COLD_105",
+     "n1_COLD_106",
+     "n1_COLD_107",
+     "n1_COLD_108",
+     "n1_COLD_109",
+     "n1_COLD_110",
+     "n1_COLD_111",
+     "n1_COLD_112",
+     "n1_COLD_113",
+     "n1_COLD_114",
+     "n1_COLD_115",
+     "n1_COLD_116",
+     "n1_NEUTRAL_100",
+     "n1_NEUTRAL_101",
+     "n1_NEUTRAL_102",
+     "n1_NEUTRAL_103",
+     "n1_NEUTRAL_104",
+     "n1_NEUTRAL_105",
+     "n1_NEUTRAL_106",
+     "n1_NEUTRAL_107",
+     "n1_NEUTRAL_108",
+     "n1_NEUTRAL_109",
+     "n1_NEUTRAL_110",
+     "n1_NEUTRAL_111",
+     "n1_NEUTRAL_112",
+     "n1_NEUTRAL_113",
+     "n1_NEUTRAL_114",
+     "n1_NEUTRAL_115",
+     "n1_NEUTRAL_116",
+     "n1_HOT_100",
+     "n1_HOT_101",
+     "n1_HOT_102",
+     "n1_HOT_103",
+     "n1_HOT_104",
+     "n1_HOT_105",
+     "n1_HOT_106",
+     "n1_HOT_107",
+     "n1_HOT_108",
+     "n1_HOT_109",
+     "n1_HOT_110",
+     "n1_HOT_111",
+     "n1_HOT_112",
+     "n1_HOT_113",
+     "n1_HOT_114",
+     "n1_HOT_115",
+     "n1_HOT_116"
+    ],
+    "conditions": [
+     "C1",
+     "C6"
+    ],
+    "do_arc": true,
+    "group": "verify/g4b",
+    "messages_path": "/vol/verify/g4b/messages.jsonl"
+   },
+   {
+    "cfgs": [
+     {
+      "tag": "f2_none",
+      "dir": null,
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f2_M2f_all",
+      "dir": "data/verify/g4b/fold2/state.npy",
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f2_M2f_L18",
+      "dir": "data/verify/g4b/fold2/state.npy",
+      "layers": [
+       18,
+       19,
+       20,
+       21,
+       22,
+       23,
+       24,
+       25,
+       26,
+       27
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f2_PC2f_all",
+      "dir": "data/verify/g4b/fold2/pc2d.npy",
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f2_PC2f_L18",
+      "dir": "data/verify/g4b/fold2/pc2d.npy",
+      "layers": [
+       18,
+       19,
+       20,
+       21,
+       22,
+       23,
+       24,
+       25,
+       26,
+       27
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     }
+    ],
+    "ids": [
+     "n2_COLD_100",
+     "n2_COLD_101",
+     "n2_COLD_102",
+     "n2_COLD_103",
+     "n2_COLD_104",
+     "n2_COLD_105",
+     "n2_COLD_106",
+     "n2_COLD_107",
+     "n2_COLD_108",
+     "n2_COLD_109",
+     "n2_COLD_110",
+     "n2_COLD_111",
+     "n2_COLD_112",
+     "n2_COLD_113",
+     "n2_COLD_114",
+     "n2_COLD_115",
+     "n2_COLD_116",
+     "n2_NEUTRAL_100",
+     "n2_NEUTRAL_101",
+     "n2_NEUTRAL_102",
+     "n2_NEUTRAL_103",
+     "n2_NEUTRAL_104",
+     "n2_NEUTRAL_105",
+     "n2_NEUTRAL_106",
+     "n2_NEUTRAL_107",
+     "n2_NEUTRAL_108",
+     "n2_NEUTRAL_109",
+     "n2_NEUTRAL_110",
+     "n2_NEUTRAL_111",
+     "n2_NEUTRAL_112",
+     "n2_NEUTRAL_113",
+     "n2_NEUTRAL_114",
+     "n2_NEUTRAL_115",
+     "n2_NEUTRAL_116",
+     "n2_HOT_100",
+     "n2_HOT_101",
+     "n2_HOT_102",
+     "n2_HOT_103",
+     "n2_HOT_104",
+     "n2_HOT_105",
+     "n2_HOT_106",
+     "n2_HOT_107",
+     "n2_HOT_108",
+     "n2_HOT_109",
+     "n2_HOT_110",
+     "n2_HOT_111",
+     "n2_HOT_112",
+     "n2_HOT_113",
+     "n2_HOT_114",
+     "n2_HOT_115",
+     "n2_HOT_116"
+    ],
+    "conditions": [
+     "C1",
+     "C6"
+    ],
+    "do_arc": true,
+    "group": "verify/g4b",
+    "messages_path": "/vol/verify/g4b/messages.jsonl"
+   },
+   {
+    "cfgs": [
+     {
+      "tag": "f3_none",
+      "dir": null,
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f3_M2f_all",
+      "dir": "data/verify/g4b/fold3/state.npy",
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f3_M2f_L18",
+      "dir": "data/verify/g4b/fold3/state.npy",
+      "layers": [
+       18,
+       19,
+       20,
+       21,
+       22,
+       23,
+       24,
+       25,
+       26,
+       27
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f3_PC2f_all",
+      "dir": "data/verify/g4b/fold3/pc2d.npy",
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f3_PC2f_L18",
+      "dir": "data/verify/g4b/fold3/pc2d.npy",
+      "layers": [
+       18,
+       19,
+       20,
+       21,
+       22,
+       23,
+       24,
+       25,
+       26,
+       27
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     }
+    ],
+    "ids": [
+     "n3_COLD_100",
+     "n3_COLD_101",
+     "n3_COLD_102",
+     "n3_COLD_103",
+     "n3_COLD_104",
+     "n3_COLD_105",
+     "n3_COLD_106",
+     "n3_COLD_107",
+     "n3_COLD_108",
+     "n3_COLD_109",
+     "n3_COLD_110",
+     "n3_COLD_111",
+     "n3_COLD_112",
+     "n3_COLD_113",
+     "n3_COLD_114",
+     "n3_COLD_115",
+     "n3_COLD_116",
+     "n3_NEUTRAL_100",
+     "n3_NEUTRAL_101",
+     "n3_NEUTRAL_102",
+     "n3_NEUTRAL_103",
+     "n3_NEUTRAL_104",
+     "n3_NEUTRAL_105",
+     "n3_NEUTRAL_106",
+     "n3_NEUTRAL_107",
+     "n3_NEUTRAL_108",
+     "n3_NEUTRAL_109",
+     "n3_NEUTRAL_110",
+     "n3_NEUTRAL_111",
+     "n3_NEUTRAL_112",
+     "n3_NEUTRAL_113",
+     "n3_NEUTRAL_114",
+     "n3_NEUTRAL_115",
+     "n3_NEUTRAL_116",
+     "n3_HOT_100",
+     "n3_HOT_101",
+     "n3_HOT_102",
+     "n3_HOT_103",
+     "n3_HOT_104",
+     "n3_HOT_105",
+     "n3_HOT_106",
+     "n3_HOT_107",
+     "n3_HOT_108",
+     "n3_HOT_109",
+     "n3_HOT_110",
+     "n3_HOT_111",
+     "n3_HOT_112",
+     "n3_HOT_113",
+     "n3_HOT_114",
+     "n3_HOT_115",
+     "n3_HOT_116"
+    ],
+    "conditions": [
+     "C1",
+     "C6"
+    ],
+    "do_arc": true,
+    "group": "verify/g4b",
+    "messages_path": "/vol/verify/g4b/messages.jsonl"
+   },
+   {
+    "cfgs": [
+     {
+      "tag": "f4_none",
+      "dir": null,
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f4_M2f_all",
+      "dir": "data/verify/g4b/fold4/state.npy",
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f4_M2f_L18",
+      "dir": "data/verify/g4b/fold4/state.npy",
+      "layers": [
+       18,
+       19,
+       20,
+       21,
+       22,
+       23,
+       24,
+       25,
+       26,
+       27
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f4_PC2f_all",
+      "dir": "data/verify/g4b/fold4/pc2d.npy",
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f4_PC2f_L18",
+      "dir": "data/verify/g4b/fold4/pc2d.npy",
+      "layers": [
+       18,
+       19,
+       20,
+       21,
+       22,
+       23,
+       24,
+       25,
+       26,
+       27
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     }
+    ],
+    "ids": [
+     "n4_COLD_100",
+     "n4_COLD_101",
+     "n4_COLD_102",
+     "n4_COLD_103",
+     "n4_COLD_104",
+     "n4_COLD_105",
+     "n4_COLD_106",
+     "n4_COLD_107",
+     "n4_COLD_108",
+     "n4_COLD_109",
+     "n4_COLD_110",
+     "n4_COLD_111",
+     "n4_COLD_112",
+     "n4_COLD_113",
+     "n4_COLD_114",
+     "n4_COLD_115",
+     "n4_COLD_116",
+     "n4_NEUTRAL_100",
+     "n4_NEUTRAL_101",
+     "n4_NEUTRAL_102",
+     "n4_NEUTRAL_103",
+     "n4_NEUTRAL_104",
+     "n4_NEUTRAL_105",
+     "n4_NEUTRAL_106",
+     "n4_NEUTRAL_107",
+     "n4_NEUTRAL_108",
+     "n4_NEUTRAL_109",
+     "n4_NEUTRAL_110",
+     "n4_NEUTRAL_111",
+     "n4_NEUTRAL_112",
+     "n4_NEUTRAL_113",
+     "n4_NEUTRAL_114",
+     "n4_NEUTRAL_115",
+     "n4_NEUTRAL_116",
+     "n4_HOT_100",
+     "n4_HOT_101",
+     "n4_HOT_102",
+     "n4_HOT_103",
+     "n4_HOT_104",
+     "n4_HOT_105",
+     "n4_HOT_106",
+     "n4_HOT_107",
+     "n4_HOT_108",
+     "n4_HOT_109",
+     "n4_HOT_110",
+     "n4_HOT_111",
+     "n4_HOT_112",
+     "n4_HOT_113",
+     "n4_HOT_114",
+     "n4_HOT_115",
+     "n4_HOT_116"
+    ],
+    "conditions": [
+     "C1",
+     "C6"
+    ],
+    "do_arc": true,
+    "group": "verify/g4b",
+    "messages_path": "/vol/verify/g4b/messages.jsonl"
+   },
+   {
+    "cfgs": [
+     {
+      "tag": "f5_none",
+      "dir": null,
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f5_M2f_all",
+      "dir": "data/verify/g4b/fold5/state.npy",
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f5_M2f_L18",
+      "dir": "data/verify/g4b/fold5/state.npy",
+      "layers": [
+       18,
+       19,
+       20,
+       21,
+       22,
+       23,
+       24,
+       25,
+       26,
+       27
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f5_PC2f_all",
+      "dir": "data/verify/g4b/fold5/pc2d.npy",
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f5_PC2f_L18",
+      "dir": "data/verify/g4b/fold5/pc2d.npy",
+      "layers": [
+       18,
+       19,
+       20,
+       21,
+       22,
+       23,
+       24,
+       25,
+       26,
+       27
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     }
+    ],
+    "ids": [
+     "n5_COLD_100",
+     "n5_COLD_101",
+     "n5_COLD_102",
+     "n5_COLD_103",
+     "n5_COLD_104",
+     "n5_COLD_105",
+     "n5_COLD_106",
+     "n5_COLD_107",
+     "n5_COLD_108",
+     "n5_COLD_109",
+     "n5_COLD_110",
+     "n5_COLD_111",
+     "n5_COLD_112",
+     "n5_COLD_113",
+     "n5_COLD_114",
+     "n5_COLD_115",
+     "n5_COLD_116",
+     "n5_NEUTRAL_100",
+     "n5_NEUTRAL_101",
+     "n5_NEUTRAL_102",
+     "n5_NEUTRAL_103",
+     "n5_NEUTRAL_104",
+     "n5_NEUTRAL_105",
+     "n5_NEUTRAL_106",
+     "n5_NEUTRAL_107",
+     "n5_NEUTRAL_108",
+     "n5_NEUTRAL_109",
+     "n5_NEUTRAL_110",
+     "n5_NEUTRAL_111",
+     "n5_NEUTRAL_112",
+     "n5_NEUTRAL_113",
+     "n5_NEUTRAL_114",
+     "n5_NEUTRAL_115",
+     "n5_NEUTRAL_116",
+     "n5_HOT_100",
+     "n5_HOT_101",
+     "n5_HOT_102",
+     "n5_HOT_103",
+     "n5_HOT_104",
+     "n5_HOT_105",
+     "n5_HOT_106",
+     "n5_HOT_107",
+     "n5_HOT_108",
+     "n5_HOT_109",
+     "n5_HOT_110",
+     "n5_HOT_111",
+     "n5_HOT_112",
+     "n5_HOT_113",
+     "n5_HOT_114",
+     "n5_HOT_115",
+     "n5_HOT_116"
+    ],
+    "conditions": [
+     "C1",
+     "C6"
+    ],
+    "do_arc": true,
+    "group": "verify/g4b",
+    "messages_path": "/vol/verify/g4b/messages.jsonl"
+   }
+  ]
+ ]
+}

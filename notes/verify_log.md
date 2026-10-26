@@ -41,3 +41,4 @@
 - S2 smoke OK; S2 main 240/240 cfgs, 383 s, computed upper $1.320.
 - G4a capture (4 × 306, prompt-only) 88 s, computed upper $0.088; refit on 4 × 255 training-scheme episodes per fold; directions' sha256 in data/verify/g4a/provenance.json; g4a_eval matrix committed before eval.
 - G4a smoke OK; G4a eval 30/30 cfgs, 297 s, computed upper $0.213.
+- G4b generation + 306-episode baseline + capture: 96 s, computed upper $0.093. Feasibility gate PASSED (C1 strict 0.931 ≥ 0.70; exact bet 0.931; C6 1.000; recall 0.938; ARC 0.97). LOSO refit on new schemes + g4b_eval matrix committed before eval.
