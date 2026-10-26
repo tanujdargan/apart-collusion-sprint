@@ -19,3 +19,19 @@
   - `exp/verify_matrix.py g4a/g4b`: the fit reproduces the stored fold-0 state span exactly and the PC2 control to |cos| ≥ 0.99999994.
 
 ## Stages
+- A0 dose fit (01:14 UTC): wall 33 s in-app. Guard loop bug (EOF spin) held the client to the 360 s limit, so the ledger keeps a
+  conservative $0.251 bound. Fixed in `exp/verify_guard.py` (outcome-independent). Builder bug (int vs string keys in
+  `verify_matrix.py s1`) fixed before S1 was built (outcome-independent).
+- Doses (`data/verify/dose_alpha.json`, training folds only, symmetric common-target rule, no dose > 1):
+  - Over ALL prompt positions E_PC2 > E_M2 at nearly every late layer (fold-median ratio 1.1–7.8; < 1 only in a few fold-layers
+    at L20, L22–25, L27).
+  - So c_M2 ≈ 1 (fold-layer min 0.62) and c_PC2 is median 0.37–0.96 (min 0.16).
+  - The diagnostic excluding position 0 and the decision token gives the same ratios.
+  - These are uncentred removed energy, not centred variance; matching is on unablated prompt-only trajectories.
+- A0 validation (`v7b_dose`): all pre-stated criteria met.
+  - Hooked L18–27 max ratio 9.3e-5 (prefill) / 1.7e-4 (decode).
+  - emb + L0–17 bitwise equal to none (19/19).
+  - 11 decode calls per location.
+  - Half dose: first-hooked prefill ratio 0.5013× none.
+  - Full-dose values equal the earlier unbundle validation to all digits (unchanged numerics).
+- Ledger after A0: computed $0.306, billed (lagging) $0.017.

@@ -4,5 +4,31 @@
  "baseline_utc": "2026-10-26T01:13:52Z",
  "prior_reference": 42.448,
  "note": "baseline == Phase 0 month-to-date (no spend in between) if equal to prior_reference; earlier spend is excluded from the cap",
- "stages": []
+ "stages": [
+  {
+   "stage": "A0_dosefit",
+   "n": 1,
+   "gpu": "L40S",
+   "wall_limit": 360,
+   "wall_s": 360.59839510917664,
+   "computed_upper": 0.2507607631640911,
+   "worst_reserved": 0.250404,
+   "status": "ok",
+   "app_id": "ap-7dR3ATxZXHRgFUj5nL92si",
+   "end_utc": "2026-10-26T01:20:05Z",
+   "note": "app completed ~40 s after launch (log: dose fit done, wall 33s); guard loop bug kept the client waiting to the 360 s limit, so the computed upper bound is kept conservatively at the full 361 s"
+  },
+  {
+   "stage": "A0_validate",
+   "n": 1,
+   "gpu": "L40S",
+   "wall_limit": 300,
+   "wall_s": 32.603967905044556,
+   "computed_upper": 0.05521048566498757,
+   "worst_reserved": 0.21463200000000002,
+   "status": "ok",
+   "app_id": "ap-3fPSasVM80azurqkKJgqEI",
+   "end_utc": "2026-10-26T01:21:21Z"
+  }
+ ]
 }

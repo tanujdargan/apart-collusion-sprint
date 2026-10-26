@@ -92,14 +92,19 @@ def main():
             import selectors
             sel = selectors.DefaultSelector()
             sel.register(p.stdout, selectors.EVENT_READ)
-            while p.poll() is None or sel.select(timeout=0):
+            while True:
                 if time.time() - t0 > wl:
                     status = "wall_limit"
                     break
-                for _ in sel.select(timeout=1):
-                    line = p.stdout.readline()
-                    if not line:
+                if not sel.select(timeout=1):
+                    if p.poll() is not None:
                         break
+                    continue
+                line = p.stdout.readline()
+                if not line:          # EOF: wait for exit
+                    p.wait(60)
+                    break
+                if True:
                     log.write(line); log.flush()
                     sys.stdout.write(line); sys.stdout.flush()
                     m = re.search(r"(ap-[A-Za-z0-9]+)", line)

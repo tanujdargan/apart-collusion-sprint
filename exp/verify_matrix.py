@@ -120,7 +120,7 @@ def alphas():
 
 
 def s1():
-    A = alphas()
+    A = json.loads(json.dumps(alphas()))  # string keys, as stored in dose_alpha.json
     sp7 = json.load(open(ROOT / "data/loso/splits.json"))
     conts = []
     for k in range(6):
