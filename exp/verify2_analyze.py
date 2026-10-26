@@ -239,7 +239,7 @@ def validation(out, T):
             recs = v["records"]
             pre = {r["loc"]: r for r in recs if r["phase"] == "prefill"}
             first = min((int(l[1:]) for l in h if l != "emb"), default=99)
-            up = [] if "emb" in h else (["emb"] + [f"L{l}" for l in range(first) if f"L{l}" not in h])
+            up = [] if "emb" in h else (["emb"] + [f"L{l}" for l in range(min(first, 28)) if f"L{l}" not in h])
             rr[tag] = dict(hooked_max={ph: max([r["ratio"] for r in recs if r["loc"] in h and r["phase"] == ph], default=None)
                                        for ph in ("prefill", "decode")},
                            unhooked_min=min([r["ratio"] for r in recs if r["loc"] not in h], default=None),
