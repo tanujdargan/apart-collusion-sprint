@@ -40,3 +40,4 @@
 - S4 smoke OK; S4 main 42/42 cfgs, 196 s, computed upper $0.918.
 - S2 smoke OK; S2 main 240/240 cfgs, 383 s, computed upper $1.320.
 - G4a capture (4 × 306, prompt-only) 88 s, computed upper $0.088; refit on 4 × 255 training-scheme episodes per fold; directions' sha256 in data/verify/g4a/provenance.json; g4a_eval matrix committed before eval.
+- G4a smoke OK; G4a eval 30/30 cfgs, 297 s, computed upper $0.213.
