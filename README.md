@@ -16,9 +16,18 @@ Qwen2.5-7B-Instruct, with replication on Qwen2.5-14B/32B-Instruct and Phi-3.5-mi
 
 ## Reproducing
 
-There is no single `make` target; run the stages in order as listed in [`exp/README.md`](exp/README.md)
-(Modal L40S, about $16 total for every run in the paper). The NARCBench audit runs on CPU:
-`python3 supp_narcbench/analysis.py`.
+```
+make setup      # two uv venvs: .venv (Modal client) and .venv-analysis (CPU analysis)
+make analysis   # CPU, free: rebuilds the tables and figures from the committed outputs
+make pipeline   # full GPU re-run on Modal (~$16 at the paper's prices), then analysis + NARCBench audit
+```
+
+`make pipeline` runs the phases `main` (7B), `replication` (14B, Phi-3.5, OLMo gate), `robustness`, `x32b` and
+`verify` in order; each can also run alone. Intervention runs are replayed from their committed `metrics.json` by
+`exp/replay_interv.py`, so tags and arguments match the paper's runs exactly. Activations and captures are gitignored, so
+in a fresh clone `make analysis` skips Fig 3, S3, S4 and S6 until the GPU phases have regenerated them.
+`make narcbench` runs the NARCBench audit alone (downloads several GB of NARCBench activations).
+Per-stage details: [`exp/README.md`](exp/README.md).
 
 ## Paper figure → file
 
