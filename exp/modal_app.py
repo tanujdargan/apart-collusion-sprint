@@ -1071,13 +1071,15 @@ def _load_cfgs(cfgs, prefix=""):
 
 
 @app.local_entrypoint()
-def verify(matrix: str, smoke: int = 0, maxc: int = 1, tmo: int = 600):
+def verify(matrix: str, smoke: int = 0, maxc: int = 1, tmo: int = 600, only: str = ""):
     """Run a frozen matrix data/verify/matrices/<matrix>.json = dict(model, gpu, containers=[[job, ...], ...]); each
     container = one model load running its jobs sequentially. --smoke N: first job of the first container, first N ids,
     tags prefixed smoke_. Outputs: data/verify/runs/<matrix>/<tag>/metrics.json."""
     M = json.load(open(ROOT / f"data/verify/matrices/{matrix}.json"))
     pre = "smoke_" if smoke else ""
     conts = [M["containers"][0]] if smoke else M["containers"]  # smoke: every job of the first container
+    if only:  # execution waves only (same frozen containers/jobs); e.g. --only 0,1
+        conts = [conts[int(i)] for i in only.split(",")]
     jobs = [[dict(j, cfgs=_load_cfgs(j["cfgs"], pre), ids=j["ids"][: smoke or None]) for j in c] for c in conts]
     od = ROOT / f"data/verify/runs/{matrix}"
     t0 = time.time()

@@ -24,3 +24,10 @@
   - Sampling config checked on CPU (exp/check_sampling_processors.py, transformers 4.46.3): S5 kwargs build only
     TemperatureLogitsWarper(0.7). The model defaults (top_k 20, top_p 0.8, repetition penalty) are overridden; greedy
     builds none.
+- Smoke (fold 0, first 9 episodes, all 15 cells; 128 s wall, computed upper $0.112): all paths ran.
+  - Timing: 0.54 s per sampled draw (8 draws 4.3 s); S5 cell 8.8 s; S6 cell 3.8 s.
+  - Again no sampled output differed from greedy on this peaked subset.
+- Full-stage bound from measured runtime: per fold container ≈ 330 s (realistic) / 431 s (linear-in-episodes worst).
+  Projected total computed upper ≈ $1.6–1.93 ≤ $2.00, so the complete matrix fits. A simultaneous 6-container reservation
+  ($2.00) does not, so the SAME frozen containers run as 3 sequential waves of 2 (`verify --only i,j`, wall limit 500 s;
+  per-wave reservation ≤ $0.67). This is an execution-only deviation; matrix, seeds and settings are unchanged.
