@@ -42,3 +42,7 @@
 - G4a capture (4 × 306, prompt-only) 88 s, computed upper $0.088; refit on 4 × 255 training-scheme episodes per fold; directions' sha256 in data/verify/g4a/provenance.json; g4a_eval matrix committed before eval.
 - G4a smoke OK; G4a eval 30/30 cfgs, 297 s, computed upper $0.213.
 - G4b generation + 306-episode baseline + capture: 96 s, computed upper $0.093. Feasibility gate PASSED (C1 strict 0.931 ≥ 0.70; exact bet 0.931; C6 1.000; recall 0.938; ARC 0.97). LOSO refit on new schemes + g4b_eval matrix committed before eval.
+- S/G stages complete; all apps stopped (17 cutwire apps, state stopped). Analysis run unchanged from the frozen version
+  (no post-freeze edits to exp/verify_analyze.py). 02:03 UTC ledger: spent(max) $6.210  billed $3.669  computed $6.210  cap $8.0  remaining $1.790.
+  No stage was refused, retried or wall-limited (A0_dosefit's 361 s is the guard-loop artefact noted above). The reserve was
+  not used.
