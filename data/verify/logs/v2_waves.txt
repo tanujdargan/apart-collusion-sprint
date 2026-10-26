@@ -1,0 +1,18 @@
+launch V2_wave_0,1: spent $0.175 (billed 0.088, computed 0.175) + worst $0.668 <= $2.0
+wall 348s
+[guard] V2_wave_0,1 ok wall 354s computed upper $0.493; running apps after: 0
+launch V2_wave_2,3: spent $0.669 (billed 0.406, computed 0.669) + worst $0.668 <= $2.0
+wall 319s
+[guard] V2_wave_2,3 ok wall 322s computed upper $0.456; running apps after: 0
+launch V2_wave_4,5: spent $1.125 (billed 0.791, computed 1.125) + worst $0.668 <= $2.0
+wall 343s
+[guard] V2_wave_4,5 ok wall 349s computed upper $0.487; running apps after: 0
+90
+spent(max) $1.612  billed $1.176  computed $1.612  cap $2.0  remaining $0.388
+  V2_validate ok wall 46s upper $0.063
+  V2_smoke ok wall 128s upper $0.112
+  V2_wave_0,1 ok wall 354s upper $0.493
+  V2_wave_2,3 ok wall 322s upper $0.456
+  V2_wave_4,5 ok wall 349s upper $0.487
+
+[exited with code 0]

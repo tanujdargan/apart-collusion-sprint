@@ -31,3 +31,4 @@
   Projected total computed upper ≈ $1.6–1.93 ≤ $2.00, so the complete matrix fits. A simultaneous 6-container reservation
   ($2.00) does not, so the SAME frozen containers run as 3 sequential waves of 2 (`verify --only i,j`, wall limit 500 s;
   per-wave reservation ≤ $0.67). This is an execution-only deviation; matrix, seeds and settings are unchanged.
+- Full run: 3 waves × 2 fold containers, 90/90 cells (walls 354/322/349 s). Ledger: computed upper $1.612, billed $1.176 (lagging). No refusals, retries or wall limits. All apps stopped.
