@@ -1,8 +1,10 @@
-# Cut the Wire: Perfect AUROC Does Not Mean a Collusion Probe Reads the Collusion
+# Cut the Wire: Collusion-Probe Ablation Effects Shrink or Relocate Under Format, Dose and Placement Controls
 
 Apart Research AI Collusion Research Sprint (Oct 23–25 2026). A causal test (directional ablation + steering) of
 activation-based collusion detectors in a controlled steganographic signalling game ("Signal Table"), on
-Qwen2.5-7B-Instruct, with replication on Qwen2.5-14B-Instruct and Phi-3.5-mini-instruct.
+Qwen2.5-7B-Instruct, with replication on Qwen2.5-14B/32B-Instruct and Phi-3.5-mini-instruct.
+
+**Paper (submitted version): [Cut-the-Wire.pdf](Cut-the-Wire.pdf)**
 
 - **REPORT_NOTES.md**: claims, abstract, method, all results tables, figure captions, limitations, outline
 - **figures/**: Fig 1–6 (PNG + PDF)
