@@ -1,0 +1,1272 @@
+{
+ "model": "Qwen/Qwen2.5-14B-Instruct",
+ "gpu": "L40S",
+ "containers": [
+  [
+   {
+    "cfgs": [
+     {
+      "tag": "f0_none",
+      "dir": null,
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f0_M2_all",
+      "dir": "data_models/qwen14b/loso/fold0/state.npy",
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f0_PC2_all",
+      "dir": "data_models/qwen14b/loso/fold0/pc2d.npy",
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f0_M2_L32",
+      "dir": "data_models/qwen14b/loso/fold0/state.npy",
+      "layers": [
+       32,
+       33,
+       34,
+       35,
+       36,
+       37,
+       38,
+       39,
+       40,
+       41,
+       42,
+       43,
+       44,
+       45,
+       46,
+       47
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f0_PC2_L32",
+      "dir": "data_models/qwen14b/loso/fold0/pc2d.npy",
+      "layers": [
+       32,
+       33,
+       34,
+       35,
+       36,
+       37,
+       38,
+       39,
+       40,
+       41,
+       42,
+       43,
+       44,
+       45,
+       46,
+       47
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f0_M2_L26",
+      "dir": "data_models/qwen14b/loso/fold0/state.npy",
+      "layers": [
+       26,
+       27,
+       28,
+       29,
+       30,
+       31,
+       32,
+       33,
+       34,
+       35,
+       36,
+       37,
+       38,
+       39,
+       40,
+       41,
+       42,
+       43,
+       44,
+       45,
+       46,
+       47
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false,
+       "followup": true
+      }
+     },
+     {
+      "tag": "f0_PC2_L26",
+      "dir": "data_models/qwen14b/loso/fold0/pc2d.npy",
+      "layers": [
+       26,
+       27,
+       28,
+       29,
+       30,
+       31,
+       32,
+       33,
+       34,
+       35,
+       36,
+       37,
+       38,
+       39,
+       40,
+       41,
+       42,
+       43,
+       44,
+       45,
+       46,
+       47
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false,
+       "followup": true
+      }
+     }
+    ],
+    "ids": [
+     "s0_COLD_0",
+     "s0_COLD_1",
+     "s0_COLD_2",
+     "s0_COLD_3",
+     "s0_COLD_4",
+     "s0_COLD_5",
+     "s0_COLD_6",
+     "s0_COLD_7",
+     "s0_COLD_8",
+     "s0_COLD_9",
+     "s0_COLD_10",
+     "s0_COLD_11",
+     "s0_COLD_12",
+     "s0_COLD_13",
+     "s0_COLD_14",
+     "s0_COLD_15",
+     "s0_COLD_16",
+     "s0_NEUTRAL_0",
+     "s0_NEUTRAL_1",
+     "s0_NEUTRAL_2",
+     "s0_NEUTRAL_3",
+     "s0_NEUTRAL_4",
+     "s0_NEUTRAL_5",
+     "s0_NEUTRAL_6",
+     "s0_NEUTRAL_7",
+     "s0_NEUTRAL_8",
+     "s0_NEUTRAL_9",
+     "s0_NEUTRAL_10",
+     "s0_NEUTRAL_11",
+     "s0_NEUTRAL_12",
+     "s0_NEUTRAL_13",
+     "s0_NEUTRAL_14",
+     "s0_NEUTRAL_15",
+     "s0_NEUTRAL_16",
+     "s0_HOT_0",
+     "s0_HOT_1",
+     "s0_HOT_2",
+     "s0_HOT_3",
+     "s0_HOT_4",
+     "s0_HOT_5",
+     "s0_HOT_6",
+     "s0_HOT_7",
+     "s0_HOT_8",
+     "s0_HOT_9",
+     "s0_HOT_10",
+     "s0_HOT_11",
+     "s0_HOT_12",
+     "s0_HOT_13",
+     "s0_HOT_14",
+     "s0_HOT_15",
+     "s0_HOT_16"
+    ],
+    "conditions": [
+     "C1",
+     "C6"
+    ],
+    "do_arc": true,
+    "group": "verify/s4_14b",
+    "messages_path": "/vol/qwen14b/data/messages.jsonl"
+   }
+  ],
+  [
+   {
+    "cfgs": [
+     {
+      "tag": "f1_none",
+      "dir": null,
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f1_M2_all",
+      "dir": "data_models/qwen14b/loso/fold1/state.npy",
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f1_PC2_all",
+      "dir": "data_models/qwen14b/loso/fold1/pc2d.npy",
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f1_M2_L32",
+      "dir": "data_models/qwen14b/loso/fold1/state.npy",
+      "layers": [
+       32,
+       33,
+       34,
+       35,
+       36,
+       37,
+       38,
+       39,
+       40,
+       41,
+       42,
+       43,
+       44,
+       45,
+       46,
+       47
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f1_PC2_L32",
+      "dir": "data_models/qwen14b/loso/fold1/pc2d.npy",
+      "layers": [
+       32,
+       33,
+       34,
+       35,
+       36,
+       37,
+       38,
+       39,
+       40,
+       41,
+       42,
+       43,
+       44,
+       45,
+       46,
+       47
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f1_M2_L26",
+      "dir": "data_models/qwen14b/loso/fold1/state.npy",
+      "layers": [
+       26,
+       27,
+       28,
+       29,
+       30,
+       31,
+       32,
+       33,
+       34,
+       35,
+       36,
+       37,
+       38,
+       39,
+       40,
+       41,
+       42,
+       43,
+       44,
+       45,
+       46,
+       47
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false,
+       "followup": true
+      }
+     },
+     {
+      "tag": "f1_PC2_L26",
+      "dir": "data_models/qwen14b/loso/fold1/pc2d.npy",
+      "layers": [
+       26,
+       27,
+       28,
+       29,
+       30,
+       31,
+       32,
+       33,
+       34,
+       35,
+       36,
+       37,
+       38,
+       39,
+       40,
+       41,
+       42,
+       43,
+       44,
+       45,
+       46,
+       47
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false,
+       "followup": true
+      }
+     }
+    ],
+    "ids": [
+     "s1_COLD_0",
+     "s1_COLD_1",
+     "s1_COLD_2",
+     "s1_COLD_3",
+     "s1_COLD_4",
+     "s1_COLD_5",
+     "s1_COLD_6",
+     "s1_COLD_7",
+     "s1_COLD_8",
+     "s1_COLD_9",
+     "s1_COLD_10",
+     "s1_COLD_11",
+     "s1_COLD_12",
+     "s1_COLD_13",
+     "s1_COLD_14",
+     "s1_COLD_15",
+     "s1_COLD_16",
+     "s1_NEUTRAL_0",
+     "s1_NEUTRAL_1",
+     "s1_NEUTRAL_2",
+     "s1_NEUTRAL_3",
+     "s1_NEUTRAL_4",
+     "s1_NEUTRAL_5",
+     "s1_NEUTRAL_6",
+     "s1_NEUTRAL_7",
+     "s1_NEUTRAL_8",
+     "s1_NEUTRAL_9",
+     "s1_NEUTRAL_10",
+     "s1_NEUTRAL_11",
+     "s1_NEUTRAL_12",
+     "s1_NEUTRAL_13",
+     "s1_NEUTRAL_14",
+     "s1_NEUTRAL_15",
+     "s1_NEUTRAL_16",
+     "s1_HOT_0",
+     "s1_HOT_1",
+     "s1_HOT_2",
+     "s1_HOT_3",
+     "s1_HOT_4",
+     "s1_HOT_5",
+     "s1_HOT_6",
+     "s1_HOT_7",
+     "s1_HOT_8",
+     "s1_HOT_9",
+     "s1_HOT_10",
+     "s1_HOT_11",
+     "s1_HOT_12",
+     "s1_HOT_13",
+     "s1_HOT_14",
+     "s1_HOT_15",
+     "s1_HOT_16"
+    ],
+    "conditions": [
+     "C1",
+     "C6"
+    ],
+    "do_arc": true,
+    "group": "verify/s4_14b",
+    "messages_path": "/vol/qwen14b/data/messages.jsonl"
+   }
+  ],
+  [
+   {
+    "cfgs": [
+     {
+      "tag": "f2_none",
+      "dir": null,
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f2_M2_all",
+      "dir": "data_models/qwen14b/loso/fold2/state.npy",
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f2_PC2_all",
+      "dir": "data_models/qwen14b/loso/fold2/pc2d.npy",
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f2_M2_L32",
+      "dir": "data_models/qwen14b/loso/fold2/state.npy",
+      "layers": [
+       32,
+       33,
+       34,
+       35,
+       36,
+       37,
+       38,
+       39,
+       40,
+       41,
+       42,
+       43,
+       44,
+       45,
+       46,
+       47
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f2_PC2_L32",
+      "dir": "data_models/qwen14b/loso/fold2/pc2d.npy",
+      "layers": [
+       32,
+       33,
+       34,
+       35,
+       36,
+       37,
+       38,
+       39,
+       40,
+       41,
+       42,
+       43,
+       44,
+       45,
+       46,
+       47
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f2_M2_L26",
+      "dir": "data_models/qwen14b/loso/fold2/state.npy",
+      "layers": [
+       26,
+       27,
+       28,
+       29,
+       30,
+       31,
+       32,
+       33,
+       34,
+       35,
+       36,
+       37,
+       38,
+       39,
+       40,
+       41,
+       42,
+       43,
+       44,
+       45,
+       46,
+       47
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false,
+       "followup": true
+      }
+     },
+     {
+      "tag": "f2_PC2_L26",
+      "dir": "data_models/qwen14b/loso/fold2/pc2d.npy",
+      "layers": [
+       26,
+       27,
+       28,
+       29,
+       30,
+       31,
+       32,
+       33,
+       34,
+       35,
+       36,
+       37,
+       38,
+       39,
+       40,
+       41,
+       42,
+       43,
+       44,
+       45,
+       46,
+       47
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false,
+       "followup": true
+      }
+     }
+    ],
+    "ids": [
+     "s2_COLD_0",
+     "s2_COLD_1",
+     "s2_COLD_2",
+     "s2_COLD_3",
+     "s2_COLD_4",
+     "s2_COLD_5",
+     "s2_COLD_6",
+     "s2_COLD_7",
+     "s2_COLD_8",
+     "s2_COLD_9",
+     "s2_COLD_10",
+     "s2_COLD_11",
+     "s2_COLD_12",
+     "s2_COLD_13",
+     "s2_COLD_14",
+     "s2_COLD_15",
+     "s2_COLD_16",
+     "s2_NEUTRAL_0",
+     "s2_NEUTRAL_1",
+     "s2_NEUTRAL_2",
+     "s2_NEUTRAL_3",
+     "s2_NEUTRAL_4",
+     "s2_NEUTRAL_5",
+     "s2_NEUTRAL_6",
+     "s2_NEUTRAL_7",
+     "s2_NEUTRAL_8",
+     "s2_NEUTRAL_9",
+     "s2_NEUTRAL_10",
+     "s2_NEUTRAL_11",
+     "s2_NEUTRAL_12",
+     "s2_NEUTRAL_13",
+     "s2_NEUTRAL_14",
+     "s2_NEUTRAL_15",
+     "s2_NEUTRAL_16",
+     "s2_HOT_0",
+     "s2_HOT_1",
+     "s2_HOT_2",
+     "s2_HOT_3",
+     "s2_HOT_4",
+     "s2_HOT_5",
+     "s2_HOT_6",
+     "s2_HOT_7",
+     "s2_HOT_8",
+     "s2_HOT_9",
+     "s2_HOT_10",
+     "s2_HOT_11",
+     "s2_HOT_12",
+     "s2_HOT_13",
+     "s2_HOT_14",
+     "s2_HOT_15",
+     "s2_HOT_16"
+    ],
+    "conditions": [
+     "C1",
+     "C6"
+    ],
+    "do_arc": true,
+    "group": "verify/s4_14b",
+    "messages_path": "/vol/qwen14b/data/messages.jsonl"
+   }
+  ],
+  [
+   {
+    "cfgs": [
+     {
+      "tag": "f3_none",
+      "dir": null,
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f3_M2_all",
+      "dir": "data_models/qwen14b/loso/fold3/state.npy",
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f3_PC2_all",
+      "dir": "data_models/qwen14b/loso/fold3/pc2d.npy",
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f3_M2_L32",
+      "dir": "data_models/qwen14b/loso/fold3/state.npy",
+      "layers": [
+       32,
+       33,
+       34,
+       35,
+       36,
+       37,
+       38,
+       39,
+       40,
+       41,
+       42,
+       43,
+       44,
+       45,
+       46,
+       47
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f3_PC2_L32",
+      "dir": "data_models/qwen14b/loso/fold3/pc2d.npy",
+      "layers": [
+       32,
+       33,
+       34,
+       35,
+       36,
+       37,
+       38,
+       39,
+       40,
+       41,
+       42,
+       43,
+       44,
+       45,
+       46,
+       47
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f3_M2_L26",
+      "dir": "data_models/qwen14b/loso/fold3/state.npy",
+      "layers": [
+       26,
+       27,
+       28,
+       29,
+       30,
+       31,
+       32,
+       33,
+       34,
+       35,
+       36,
+       37,
+       38,
+       39,
+       40,
+       41,
+       42,
+       43,
+       44,
+       45,
+       46,
+       47
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false,
+       "followup": true
+      }
+     },
+     {
+      "tag": "f3_PC2_L26",
+      "dir": "data_models/qwen14b/loso/fold3/pc2d.npy",
+      "layers": [
+       26,
+       27,
+       28,
+       29,
+       30,
+       31,
+       32,
+       33,
+       34,
+       35,
+       36,
+       37,
+       38,
+       39,
+       40,
+       41,
+       42,
+       43,
+       44,
+       45,
+       46,
+       47
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false,
+       "followup": true
+      }
+     }
+    ],
+    "ids": [
+     "s3_COLD_0",
+     "s3_COLD_1",
+     "s3_COLD_2",
+     "s3_COLD_3",
+     "s3_COLD_4",
+     "s3_COLD_5",
+     "s3_COLD_6",
+     "s3_COLD_7",
+     "s3_COLD_8",
+     "s3_COLD_9",
+     "s3_COLD_10",
+     "s3_COLD_11",
+     "s3_COLD_12",
+     "s3_COLD_13",
+     "s3_COLD_14",
+     "s3_COLD_15",
+     "s3_COLD_16",
+     "s3_NEUTRAL_0",
+     "s3_NEUTRAL_1",
+     "s3_NEUTRAL_2",
+     "s3_NEUTRAL_3",
+     "s3_NEUTRAL_4",
+     "s3_NEUTRAL_5",
+     "s3_NEUTRAL_6",
+     "s3_NEUTRAL_7",
+     "s3_NEUTRAL_8",
+     "s3_NEUTRAL_9",
+     "s3_NEUTRAL_10",
+     "s3_NEUTRAL_11",
+     "s3_NEUTRAL_12",
+     "s3_NEUTRAL_13",
+     "s3_NEUTRAL_14",
+     "s3_NEUTRAL_15",
+     "s3_NEUTRAL_16",
+     "s3_HOT_0",
+     "s3_HOT_1",
+     "s3_HOT_2",
+     "s3_HOT_3",
+     "s3_HOT_4",
+     "s3_HOT_5",
+     "s3_HOT_6",
+     "s3_HOT_7",
+     "s3_HOT_8",
+     "s3_HOT_9",
+     "s3_HOT_10",
+     "s3_HOT_11",
+     "s3_HOT_12",
+     "s3_HOT_13",
+     "s3_HOT_14",
+     "s3_HOT_15",
+     "s3_HOT_16"
+    ],
+    "conditions": [
+     "C1",
+     "C6"
+    ],
+    "do_arc": true,
+    "group": "verify/s4_14b",
+    "messages_path": "/vol/qwen14b/data/messages.jsonl"
+   }
+  ],
+  [
+   {
+    "cfgs": [
+     {
+      "tag": "f4_none",
+      "dir": null,
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f4_M2_all",
+      "dir": "data_models/qwen14b/loso/fold4/state.npy",
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f4_PC2_all",
+      "dir": "data_models/qwen14b/loso/fold4/pc2d.npy",
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f4_M2_L32",
+      "dir": "data_models/qwen14b/loso/fold4/state.npy",
+      "layers": [
+       32,
+       33,
+       34,
+       35,
+       36,
+       37,
+       38,
+       39,
+       40,
+       41,
+       42,
+       43,
+       44,
+       45,
+       46,
+       47
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f4_PC2_L32",
+      "dir": "data_models/qwen14b/loso/fold4/pc2d.npy",
+      "layers": [
+       32,
+       33,
+       34,
+       35,
+       36,
+       37,
+       38,
+       39,
+       40,
+       41,
+       42,
+       43,
+       44,
+       45,
+       46,
+       47
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f4_M2_L26",
+      "dir": "data_models/qwen14b/loso/fold4/state.npy",
+      "layers": [
+       26,
+       27,
+       28,
+       29,
+       30,
+       31,
+       32,
+       33,
+       34,
+       35,
+       36,
+       37,
+       38,
+       39,
+       40,
+       41,
+       42,
+       43,
+       44,
+       45,
+       46,
+       47
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false,
+       "followup": true
+      }
+     },
+     {
+      "tag": "f4_PC2_L26",
+      "dir": "data_models/qwen14b/loso/fold4/pc2d.npy",
+      "layers": [
+       26,
+       27,
+       28,
+       29,
+       30,
+       31,
+       32,
+       33,
+       34,
+       35,
+       36,
+       37,
+       38,
+       39,
+       40,
+       41,
+       42,
+       43,
+       44,
+       45,
+       46,
+       47
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false,
+       "followup": true
+      }
+     }
+    ],
+    "ids": [
+     "s4_COLD_0",
+     "s4_COLD_1",
+     "s4_COLD_2",
+     "s4_COLD_3",
+     "s4_COLD_4",
+     "s4_COLD_5",
+     "s4_COLD_6",
+     "s4_COLD_7",
+     "s4_COLD_8",
+     "s4_COLD_9",
+     "s4_COLD_10",
+     "s4_COLD_11",
+     "s4_COLD_12",
+     "s4_COLD_13",
+     "s4_COLD_14",
+     "s4_COLD_15",
+     "s4_COLD_16",
+     "s4_NEUTRAL_0",
+     "s4_NEUTRAL_1",
+     "s4_NEUTRAL_2",
+     "s4_NEUTRAL_3",
+     "s4_NEUTRAL_4",
+     "s4_NEUTRAL_5",
+     "s4_NEUTRAL_6",
+     "s4_NEUTRAL_7",
+     "s4_NEUTRAL_8",
+     "s4_NEUTRAL_9",
+     "s4_NEUTRAL_10",
+     "s4_NEUTRAL_11",
+     "s4_NEUTRAL_12",
+     "s4_NEUTRAL_13",
+     "s4_NEUTRAL_14",
+     "s4_NEUTRAL_15",
+     "s4_NEUTRAL_16",
+     "s4_HOT_0",
+     "s4_HOT_1",
+     "s4_HOT_2",
+     "s4_HOT_3",
+     "s4_HOT_4",
+     "s4_HOT_5",
+     "s4_HOT_6",
+     "s4_HOT_7",
+     "s4_HOT_8",
+     "s4_HOT_9",
+     "s4_HOT_10",
+     "s4_HOT_11",
+     "s4_HOT_12",
+     "s4_HOT_13",
+     "s4_HOT_14",
+     "s4_HOT_15",
+     "s4_HOT_16"
+    ],
+    "conditions": [
+     "C1",
+     "C6"
+    ],
+    "do_arc": true,
+    "group": "verify/s4_14b",
+    "messages_path": "/vol/qwen14b/data/messages.jsonl"
+   }
+  ],
+  [
+   {
+    "cfgs": [
+     {
+      "tag": "f5_none",
+      "dir": null,
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f5_M2_all",
+      "dir": "data_models/qwen14b/loso/fold5/state.npy",
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f5_PC2_all",
+      "dir": "data_models/qwen14b/loso/fold5/pc2d.npy",
+      "layers": "all",
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f5_M2_L32",
+      "dir": "data_models/qwen14b/loso/fold5/state.npy",
+      "layers": [
+       32,
+       33,
+       34,
+       35,
+       36,
+       37,
+       38,
+       39,
+       40,
+       41,
+       42,
+       43,
+       44,
+       45,
+       46,
+       47
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f5_PC2_L32",
+      "dir": "data_models/qwen14b/loso/fold5/pc2d.npy",
+      "layers": [
+       32,
+       33,
+       34,
+       35,
+       36,
+       37,
+       38,
+       39,
+       40,
+       41,
+       42,
+       43,
+       44,
+       45,
+       46,
+       47
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false
+      }
+     },
+     {
+      "tag": "f5_M2_L26",
+      "dir": "data_models/qwen14b/loso/fold5/state.npy",
+      "layers": [
+       26,
+       27,
+       28,
+       29,
+       30,
+       31,
+       32,
+       33,
+       34,
+       35,
+       36,
+       37,
+       38,
+       39,
+       40,
+       41,
+       42,
+       43,
+       44,
+       45,
+       46,
+       47
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false,
+       "followup": true
+      }
+     },
+     {
+      "tag": "f5_PC2_L26",
+      "dir": "data_models/qwen14b/loso/fold5/pc2d.npy",
+      "layers": [
+       26,
+       27,
+       28,
+       29,
+       30,
+       31,
+       32,
+       33,
+       34,
+       35,
+       36,
+       37,
+       38,
+       39,
+       40,
+       41,
+       42,
+       43,
+       44,
+       45,
+       46,
+       47
+      ],
+      "dose": null,
+      "meta": {
+       "optional": false,
+       "followup": true
+      }
+     }
+    ],
+    "ids": [
+     "s5_COLD_0",
+     "s5_COLD_1",
+     "s5_COLD_2",
+     "s5_COLD_3",
+     "s5_COLD_4",
+     "s5_COLD_5",
+     "s5_COLD_6",
+     "s5_COLD_7",
+     "s5_COLD_8",
+     "s5_COLD_9",
+     "s5_COLD_10",
+     "s5_COLD_11",
+     "s5_COLD_12",
+     "s5_COLD_13",
+     "s5_COLD_14",
+     "s5_COLD_15",
+     "s5_COLD_16",
+     "s5_NEUTRAL_0",
+     "s5_NEUTRAL_1",
+     "s5_NEUTRAL_2",
+     "s5_NEUTRAL_3",
+     "s5_NEUTRAL_4",
+     "s5_NEUTRAL_5",
+     "s5_NEUTRAL_6",
+     "s5_NEUTRAL_7",
+     "s5_NEUTRAL_8",
+     "s5_NEUTRAL_9",
+     "s5_NEUTRAL_10",
+     "s5_NEUTRAL_11",
+     "s5_NEUTRAL_12",
+     "s5_NEUTRAL_13",
+     "s5_NEUTRAL_14",
+     "s5_NEUTRAL_15",
+     "s5_NEUTRAL_16",
+     "s5_HOT_0",
+     "s5_HOT_1",
+     "s5_HOT_2",
+     "s5_HOT_3",
+     "s5_HOT_4",
+     "s5_HOT_5",
+     "s5_HOT_6",
+     "s5_HOT_7",
+     "s5_HOT_8",
+     "s5_HOT_9",
+     "s5_HOT_10",
+     "s5_HOT_11",
+     "s5_HOT_12",
+     "s5_HOT_13",
+     "s5_HOT_14",
+     "s5_HOT_15",
+     "s5_HOT_16"
+    ],
+    "conditions": [
+     "C1",
+     "C6"
+    ],
+    "do_arc": true,
+    "group": "verify/s4_14b",
+    "messages_path": "/vol/qwen14b/data/messages.jsonl"
+   }
+  ]
+ ]
+}

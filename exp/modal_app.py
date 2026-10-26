@@ -101,11 +101,13 @@ class Runner:
             enc = self.tok(prompts[i:i + bs], return_tensors="pt", padding=True, add_special_tokens=False).to("cuda")
             kw = dict(do_sample=True, temperature=temperature, top_p=top_p) if temperature else dict(do_sample=False)
             torch.manual_seed(seed * 100003 + i)
+            self._pmask = enc["attention_mask"]  # read by the perturbation meter (prefill call only)
             with torch.no_grad():
                 g = self.model.generate(**enc, max_new_tokens=max_new, pad_token_id=self.tok.eos_token_id,
                                         top_k=None, repetition_penalty=1.0, **({} if temperature else dict(temperature=None, top_p=None)),
                                         **kw)
             outs += self.tok.batch_decode(g[:, enc["input_ids"].shape[1]:], skip_special_tokens=True)
+        self._pmask = None
         return outs
 
     def _span(self, text, prefix, msg):
@@ -156,12 +158,27 @@ class Runner:
                 h.remove()
         return mean, last, full, traces
 
-    def _install(self, direction, mode, layers, alpha, subspace=False):
+    def _meter(self, meter, key, h, delta):
+        """Accumulate achieved perturbation: sum ||delta||^2, sum ||h||^2 (pre-hook), token count, per phase and location.
+        Prefill (T>1) excludes left padding via the generation attention mask; decode steps (T==1) count every row."""
+        m = getattr(self, "_pmask", None)
+        d2, h2 = (delta ** 2).sum(-1), (h ** 2).sum(-1)
+        if h.shape[1] > 1 and m is not None and tuple(m.shape) == tuple(h.shape[:2]):
+            mf = m.float()
+            d2, h2, n = (d2 * mf).sum(), (h2 * mf).sum(), mf.sum()
+        else:
+            d2, h2, n = d2.sum(), h2.sum(), d2.numel()
+        rec = meter.setdefault(f"{'prefill' if h.shape[1] > 1 else 'decode'}:{key}", [0.0, 0.0, 0.0])
+        rec[0] += float(d2); rec[1] += float(h2); rec[2] += float(n)
+
+    def _install(self, direction, mode, layers, alpha, subspace=False, dose=None, meter=None):
         """Intervention hooks on decoder-layer outputs (and embedding output if layers=='all' and mode=='ablate').
         direction (RAW residual space): [D] one direction for all layers; [L,D] per-layer direction; [k,D] k-dim
         subspace for all layers (2-D arrays are read as [k,D] if subspace=True or shape[0]!=L); [L,k,D] per-layer
         subspace. Ablate: h <- h - (h @ Q) Q^T with Q = orthonormal basis (QR) of the layer's vectors.
-        Steer: h <- h + alpha * u, u = first vector of the layer, unit-normalised (1-D only)."""
+        Steer: h <- h + alpha * u, u = first vector of the layer, unit-normalised (1-D only).
+        dose (ablate only): None = full removal; scalar or per-layer [L] list c in [0,1]: h <- h - c (h @ Q) Q^T (the
+        embedding hook uses dose[0]). meter: dict filled by _meter with the achieved perturbation per location."""
         import torch
         d = torch.tensor(direction, dtype=torch.float32, device="cuda")
         if d.ndim == 1:
@@ -174,12 +191,17 @@ class Runner:
         emb = layers in (None, "all") or (not isinstance(layers, str) and "emb" in list(layers))
         lidx = list(range(self.L)) if layers in (None, "all") else [int(x) for x in layers if x != "emb"]
         pick = (lambda l: 0) if d.shape[0] == 1 else (lambda l: l)
+        dz = [1.0] * self.L if dose is None else ([float(dose)] * self.L if isinstance(dose, (int, float)) else [float(x) for x in dose])
+        assert len(dz) == self.L and all(0.0 <= x <= 1.0 for x in dz), "dose must be in [0,1] per layer"
 
-        def fn(h, l):
+        def fn(h, l, key=None):
             hf = h.float()
             if mode == "ablate":
                 Q = Qs[pick(l)]
-                hf = hf - (hf @ Q) @ Q.T
+                delta = dz[l] * ((hf @ Q) @ Q.T)
+                if meter is not None:
+                    self._meter(meter, l if key is None else key, hf, delta)
+                hf = hf - delta
             elif mode == "steer":
                 hf = hf + alpha * us[pick(l)]
             return hf.to(h.dtype)
@@ -190,7 +212,7 @@ class Runner:
             return fn(o, l)
         hs = [self.layers[l].register_forward_hook(lambda m, i, o, l=l: hook(m, i, o, l)) for l in lidx]
         if mode == "ablate" and emb:  # embedding OUTPUT hooked with the LAYER-0 direction (fitted on layer-0 output)
-            hs.append(self.model.model.embed_tokens.register_forward_hook(lambda m, i, o: fn(o, 0)))
+            hs.append(self.model.model.embed_tokens.register_forward_hook(lambda m, i, o: fn(o, 0, "emb")))
         return hs
 
     # ------------------------------------------------------------------ receivers
@@ -374,13 +396,19 @@ class Runner:
         for cfg in configs:
             d = cfg["direction"]
             lay = cfg.get("layers", "all")  # "all" = all decoder layers + embedding; list = those decoder layers only
-            hs = [] if d is None else self._install(np.asarray(d, np.float32), "ablate", lay, 0.0)
+            meter = {} if cfg.get("meter") else None
+            hs = [] if d is None else self._install(np.asarray(d, np.float32), "ablate", lay, 0.0, dose=cfg.get("dose"),
+                                                     meter=meter)
             t0 = time.time()
             res = dict(tag=cfg["tag"], mode="none" if d is None else "ablate", layers=lay, n=len(rows), ids=list(ids),
-                       model=self.model_id, conditions=list(conditions), messages_path=mp)
+                       model=self.model_id, conditions=list(conditions), messages_path=mp, dose=cfg.get("dose"),
+                       meta=cfg.get("meta"))
             try:
                 for c in conditions:
                     rr, _ = self._receivers(rows, msgs, c)
+                    if meter is not None:
+                        res.setdefault("meter", {})[c] = dict(meter)
+                        meter.clear()
                     res[c] = env.decode_metrics(rr)
                     res[c]["decoded_dist"] = {str(k): sum(x["decoded"] == k for x in rr) for k in env.STATES + [None]}
                     res[c + "_rows"] = rr
@@ -512,7 +540,8 @@ class Runner:
                     rec.append(dict(loc=name, phase="prefill" if h.shape[1] > 1 else "decode", ratio=ratio,
                                     s1=h.double().sum().item(), s2=(h.double() ** 2).sum().item()))
                 return f
-            hs = [] if cfg["layers"] is None else self._install(np.asarray(direction, np.float32), "ablate", cfg["layers"], 0.0)
+            hs = [] if cfg["layers"] is None else self._install(np.asarray(direction, np.float32), "ablate", cfg["layers"], 0.0,
+                                                                 dose=cfg.get("dose"))
             ps = [self.model.model.embed_tokens.register_forward_hook(probe("emb", 0))]
             ps += [lay.register_forward_hook(probe(f"L{l}", l)) for l, lay in enumerate(self.layers)]
             try:
@@ -537,6 +566,72 @@ class Runner:
                               full_len=[len(self.tok(f, add_special_tokens=False)["input_ids"]) for f in fulls],
                               prompt_len=plens)
         return dict(configs=out, pipeline=pipe)
+
+    # ------------------------------------------------------------------ verification extension (notes/verify_plan.md)
+    @modal.method()
+    def run_jobs(self, jobs):
+        """Several _intervene_many jobs sequentially in ONE container (one model load). job = dict(cfgs, ids, conditions,
+        do_arc, group, messages_path)."""
+        return [self._intervene_many(j["cfgs"], j["ids"], tuple(j["conditions"]), j["do_arc"], j["group"],
+                                     j["messages_path"]) for j in jobs]
+
+    @modal.method()
+    def dose_fit(self, subspaces, layers, ids, messages_path=""):
+        """Dose-fit pass (UNABLATED, prompt-only, right padding). For the C1 receiver prompt of each episode and each
+        subspace {name: [L,k,D] or [L,D]} at each layer in `layers`: sum over non-pad prompt tokens of ||hQ||^2
+        (E_all) and the same excluding position 0 and the decision token (E_mid); sum ||h||^2; token count."""
+        import numpy as np
+        import torch
+        import env
+        mp = messages_path or f"/vol{_vp('')}/data/messages.jsonl"
+        allrows = {r["id"]: r for r in (json.loads(l) for l in open(mp))}
+        rows = [allrows[i] for i in ids]
+        texts = [self._tmpl(env.receiver_msgs(r, r["collude_msg"], True)) for r in rows]
+        Q = {n: [torch.linalg.qr(torch.tensor(np.asarray(v[l], np.float32), device="cuda").reshape(-1, self.D).T)[0]
+                 for l in layers] for n, v in subspaces.items()}
+        N, nl = len(rows), len(layers)
+        E = {n: np.zeros((N, nl, 2)) for n in Q}
+        H, cnt = np.zeros((N, nl)), np.zeros(N)
+        cap = {}
+        hs = [self.layers[l].register_forward_hook(lambda m, i, o, l=l: cap.__setitem__(l, o[0] if isinstance(o, tuple) else o))
+              for l in layers]
+        self.tok.padding_side = "right"
+        try:
+            for b0 in range(0, N, self.acts_bs):
+                enc = self.tok(texts[b0:b0 + self.acts_bs], return_tensors="pt", padding=True, add_special_tokens=False).to("cuda")
+                with torch.no_grad():
+                    self.model.model(**enc)
+                    m = enc["attention_mask"].float()
+                    lens = m.sum(1).long()
+                    mx = m.clone()
+                    mx[:, 0] = 0
+                    mx[torch.arange(len(lens)), lens - 1] = 0
+                    b1 = b0 + len(lens)
+                    for j, l in enumerate(layers):
+                        h = cap[l].float()
+                        H[b0:b1, j] = ((h ** 2).sum(-1) * m).sum(1).cpu().numpy()
+                        for n in Q:
+                            pr = ((h @ Q[n][j]) ** 2).sum(-1)
+                            E[n][b0:b1, j, 0] = (pr * m).sum(1).cpu().numpy()
+                            E[n][b0:b1, j, 1] = (pr * mx).sum(1).cpu().numpy()
+                    cnt[b0:b1] = lens.cpu().numpy()
+                cap.clear()
+        finally:
+            for h in hs:
+                h.remove()
+        assert not any(lay._forward_hooks for lay in self.layers)
+        return dict(ids=list(ids), layers=list(layers), E={n: v.tolist() for n, v in E.items()}, H=H.tolist(), n=cnt.tolist())
+
+    @modal.method()
+    def capture_set(self, ids, messages_path, out_path):
+        """Unablated prompt-only decision-token (`last`) capture of the C1 receiver prompts -> fp16 npy on the volume."""
+        import numpy as np
+        allrows = {r["id"]: r for r in (json.loads(l) for l in open(messages_path))}
+        last = self._capture_last([allrows[i] for i in ids])
+        os.makedirs(os.path.dirname(out_path), exist_ok=True)
+        np.save(out_path, last)
+        vol.commit()
+        return dict(path=out_path[len("/vol"):], shape=list(last.shape))
 
 # ---------------------------------------------------------------------- local entrypoints
 def _write_jsonl(path, rows):
@@ -849,3 +944,67 @@ def unbundle_validate():
                  full_transcript=np.array(p["full_transcript"], np.float16), full_len=p["full_len"], prompt_len=p["prompt_len"],
                  ids=np.array(p["ids"]))
     print("saved", od)
+
+
+# ---------------------------------------------------------------------- verification extension (notes/verify_plan.md)
+def _load_cfgs(cfgs, prefix=""):
+    """Matrix cfg: dict(tag, dir=<repo-relative .npy>|None, layers='all'|list, dose=None|float|[L], meta=...)."""
+    import numpy as np
+    return [dict(tag=prefix + c["tag"], direction=None if c["dir"] is None else np.load(ROOT / c["dir"]).astype(np.float32),
+                 layers=c.get("layers", "all"), dose=c.get("dose"), meter=c["dir"] is not None, meta=c.get("meta"))
+            for c in cfgs]
+
+
+@app.local_entrypoint()
+def verify(matrix: str, smoke: int = 0):
+    """Run a frozen matrix data/verify/matrices/<matrix>.json = dict(model, gpu, containers=[[job, ...], ...]); each
+    container = one model load running its jobs sequentially. --smoke N: first job of the first container, first N ids,
+    tags prefixed smoke_. Outputs: data/verify/runs/<matrix>/<tag>/metrics.json."""
+    M = json.load(open(ROOT / f"data/verify/matrices/{matrix}.json"))
+    pre = "smoke_" if smoke else ""
+    conts = [[M["containers"][0][0]]] if smoke else M["containers"]
+    jobs = [[dict(j, cfgs=_load_cfgs(j["cfgs"], pre), ids=j["ids"][: smoke or None]) for j in c] for c in conts]
+    od = ROOT / f"data/verify/runs/{matrix}"
+    t0 = time.time()
+    for out in _runner(M["model"], M["gpu"]).run_jobs.map(jobs):
+        for res_list in out:
+            for res in res_list:
+                rd = od / res["tag"]
+                rd.mkdir(parents=True, exist_ok=True)
+                json.dump(res, open(rd / "metrics.json", "w"), indent=1)
+                lay = res["layers"]
+                print(res["tag"], "C1", round(res["C1"]["decode_acc"], 3), "bet", round(res["C1"]["bet_exact_acc"], 3),
+                      "C6", round(res["C6"]["bet_exact_acc"], 3), "ARC", res.get("arc_acc"),
+                      "layers", lay if isinstance(lay, str) else f"{lay[0]}..{lay[-1]} ({len(lay)})", f"{res['seconds']:.0f}s",
+                      flush=True)
+    print(f"wall {time.time() - t0:.0f}s")
+
+
+@app.local_entrypoint()
+def vdosefit():
+    """7B dose-fit pass: unablated C1 prompts of all 306 original episodes; fold M2 (state.npy) and PC2 (pc2d.npy)
+    subspaces of all 6 folds at layers 16-27. Output data/verify/dose_fit.json (alpha is derived on CPU from TRAINING
+    episodes only by exp/verify_matrix.py)."""
+    import numpy as np
+    ids = [json.loads(l)["id"] for l in open(ROOT / "data/messages.jsonl")]
+    sub = {f"f{k}_{n}": np.load(ROOT / f"data/loso/fold{k}/{f}.npy").astype(np.float32)
+           for k in range(6) for n, f in (("M2", "state"), ("PC2", "pc2d"))}
+    t0 = time.time()
+    res = Runner().dose_fit.remote(sub, list(range(16, 28)), ids, "")
+    (ROOT / "data/verify").mkdir(parents=True, exist_ok=True)
+    json.dump(res, open(ROOT / "data/verify/dose_fit.json", "w"))
+    print(f"dose fit done, wall {time.time() - t0:.0f}s")
+
+
+@app.local_entrypoint()
+def vvalidate(spec: str):
+    """Hook validation for changed paths: data/verify/matrices/<spec>.json = dict(model, gpu, dir, ids, messages_path,
+    configs=[dict(tag, layers|None, dose)]). Output data/verify/validation/<spec>.json."""
+    import numpy as np
+    S = json.load(open(ROOT / f"data/verify/matrices/{spec}.json"))
+    res = _runner(S["model"], S["gpu"]).validate_hooks.remote(np.load(ROOT / S["dir"]).astype(np.float32), S["configs"],
+                                                               S["ids"], S["messages_path"], {})
+    od = ROOT / "data/verify/validation"
+    od.mkdir(parents=True, exist_ok=True)
+    json.dump(dict(spec=S, configs=res["configs"]), open(od / f"{spec}.json", "w"))
+    print("saved", od / f"{spec}.json")
