@@ -35,3 +35,4 @@
   - Half dose: first-hooked prefill ratio 0.5013× none.
   - Full-dose values equal the earlier unbundle validation to all digits (unchanged numerics).
 - Ledger after A0: computed $0.306, billed (lagging) $0.017.
+- S1 smoke OK (15 cfgs, meter present only on ablation cfgs, per-layer doses recorded). S1 main: 90/90 cfgs, 160 s wall, 6 × L40S; computed upper $0.805.

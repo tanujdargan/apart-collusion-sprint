@@ -1,0 +1,2628 @@
+{
+ "tag": "f5_dm_all",
+ "mode": "ablate",
+ "layers": "all",
+ "n": 51,
+ "ids": [
+  "s5_COLD_0",
+  "s5_COLD_1",
+  "s5_COLD_2",
+  "s5_COLD_3",
+  "s5_COLD_4",
+  "s5_COLD_5",
+  "s5_COLD_6",
+  "s5_COLD_7",
+  "s5_COLD_8",
+  "s5_COLD_9",
+  "s5_COLD_10",
+  "s5_COLD_11",
+  "s5_COLD_12",
+  "s5_COLD_13",
+  "s5_COLD_14",
+  "s5_COLD_15",
+  "s5_COLD_16",
+  "s5_NEUTRAL_0",
+  "s5_NEUTRAL_1",
+  "s5_NEUTRAL_2",
+  "s5_NEUTRAL_3",
+  "s5_NEUTRAL_4",
+  "s5_NEUTRAL_5",
+  "s5_NEUTRAL_6",
+  "s5_NEUTRAL_7",
+  "s5_NEUTRAL_8",
+  "s5_NEUTRAL_9",
+  "s5_NEUTRAL_10",
+  "s5_NEUTRAL_11",
+  "s5_NEUTRAL_12",
+  "s5_NEUTRAL_13",
+  "s5_NEUTRAL_14",
+  "s5_NEUTRAL_15",
+  "s5_NEUTRAL_16",
+  "s5_HOT_0",
+  "s5_HOT_1",
+  "s5_HOT_2",
+  "s5_HOT_3",
+  "s5_HOT_4",
+  "s5_HOT_5",
+  "s5_HOT_6",
+  "s5_HOT_7",
+  "s5_HOT_8",
+  "s5_HOT_9",
+  "s5_HOT_10",
+  "s5_HOT_11",
+  "s5_HOT_12",
+  "s5_HOT_13",
+  "s5_HOT_14",
+  "s5_HOT_15",
+  "s5_HOT_16"
+ ],
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "conditions": [
+  "C1",
+  "C6"
+ ],
+ "messages_path": "/vol/data/messages.jsonl",
+ "dose": null,
+ "meta": {
+  "optional": false
+ },
+ "meter": {
+  "C1": {
+   "prefill:emb": [
+    10.696759164333344,
+    14965.710876464844,
+    17455.0
+   ],
+   "prefill:0": [
+    19660.164306640625,
+    2750409.4375,
+    17455.0
+   ],
+   "prefill:1": [
+    3875.6824645996094,
+    5421474.75,
+    17455.0
+   ],
+   "prefill:2": [
+    4576.781341552734,
+    9459412.875,
+    17455.0
+   ],
+   "prefill:3": [
+    4781133.0625,
+    5414155008.0,
+    17455.0
+   ],
+   "prefill:4": [
+    19226602.625,
+    8503055552.0,
+    17455.0
+   ],
+   "prefill:5": [
+    1133525.70703125,
+    8801653888.0,
+    17455.0
+   ],
+   "prefill:6": [
+    59766346.25,
+    9052144128.0,
+    17455.0
+   ],
+   "prefill:7": [
+    247276.384765625,
+    9120800000.0,
+    17455.0
+   ],
+   "prefill:8": [
+    3271751.515625,
+    9246902272.0,
+    17455.0
+   ],
+   "prefill:9": [
+    27869048.75,
+    9594403584.0,
+    17455.0
+   ],
+   "prefill:10": [
+    176621.9765625,
+    9631900224.0,
+    17455.0
+   ],
+   "prefill:11": [
+    9890494.8125,
+    10048461568.0,
+    17455.0
+   ],
+   "prefill:12": [
+    4739079.0625,
+    10279620864.0,
+    17455.0
+   ],
+   "prefill:13": [
+    5613636.34375,
+    10395672320.0,
+    17455.0
+   ],
+   "prefill:14": [
+    60461351.5,
+    10400953472.0,
+    17455.0
+   ],
+   "prefill:15": [
+    617395.4296875,
+    10407855104.0,
+    17455.0
+   ],
+   "prefill:16": [
+    24043556.0,
+    10398288128.0,
+    17455.0
+   ],
+   "prefill:17": [
+    940769.734375,
+    10347657856.0,
+    17455.0
+   ],
+   "prefill:18": [
+    4290876.78125,
+    10371755584.0,
+    17455.0
+   ],
+   "prefill:19": [
+    8957955.375,
+    10383999552.0,
+    17455.0
+   ],
+   "prefill:20": [
+    88025552.5,
+    10325919040.0,
+    17455.0
+   ],
+   "prefill:21": [
+    59360740.25,
+    10353052160.0,
+    17455.0
+   ],
+   "prefill:22": [
+    4092957.71875,
+    10404843968.0,
+    17455.0
+   ],
+   "prefill:23": [
+    824757.15625,
+    10592029184.0,
+    17455.0
+   ],
+   "prefill:24": [
+    16306830.0,
+    10799991104.0,
+    17455.0
+   ],
+   "prefill:25": [
+    9427585.5,
+    10771787904.0,
+    17455.0
+   ],
+   "prefill:26": [
+    7551338.5,
+    3506187296.0,
+    17455.0
+   ],
+   "prefill:27": [
+    24538184.375,
+    3789253936.0,
+    17455.0
+   ],
+   "decode:emb": [
+    0.09876912688923767,
+    417.1710089445114,
+    561.0
+   ],
+   "decode:0": [
+    277.21160350507125,
+    73951.03567504883,
+    561.0
+   ],
+   "decode:1": [
+    188.41936953365803,
+    163169.1596069336,
+    561.0
+   ],
+   "decode:2": [
+    123.04241032898426,
+    269561.3826904297,
+    561.0
+   ],
+   "decode:3": [
+    203.66407150030136,
+    377851.9493408203,
+    561.0
+   ],
+   "decode:4": [
+    134.34055489301682,
+    463181.57421875,
+    561.0
+   ],
+   "decode:5": [
+    492.45901833474636,
+    656817.6398925781,
+    561.0
+   ],
+   "decode:6": [
+    2158.280080795288,
+    822126.3625488281,
+    561.0
+   ],
+   "decode:7": [
+    222.42242340929806,
+    990541.0434570312,
+    561.0
+   ],
+   "decode:8": [
+    320.5642484538257,
+    1082758.828125,
+    561.0
+   ],
+   "decode:9": [
+    3079.1269359588623,
+    1223137.6958007812,
+    561.0
+   ],
+   "decode:10": [
+    271.1773310601711,
+    1190077.9760742188,
+    561.0
+   ],
+   "decode:11": [
+    850.743369974196,
+    1249926.7475585938,
+    561.0
+   ],
+   "decode:12": [
+    541.5847145467997,
+    1269945.9790039062,
+    561.0
+   ],
+   "decode:13": [
+    1491.4864506721497,
+    1365808.7983398438,
+    561.0
+   ],
+   "decode:14": [
+    33663.006523132324,
+    2072768.1982421875,
+    561.0
+   ],
+   "decode:15": [
+    907.1201075837016,
+    2066441.3193359375,
+    561.0
+   ],
+   "decode:16": [
+    3036.957243680954,
+    2497813.1513671875,
+    561.0
+   ],
+   "decode:17": [
+    4752.408451914787,
+    3096168.6494140625,
+    561.0
+   ],
+   "decode:18": [
+    1817.4201508760452,
+    3168452.3076171875,
+    561.0
+   ],
+   "decode:19": [
+    1682.8855463266373,
+    4601291.361328125,
+    561.0
+   ],
+   "decode:20": [
+    4924.3917582035065,
+    6248858.958984375,
+    561.0
+   ],
+   "decode:21": [
+    14101.693884078413,
+    8550126.6015625,
+    561.0
+   ],
+   "decode:22": [
+    28018.0265083313,
+    13641203.87109375,
+    561.0
+   ],
+   "decode:23": [
+    7876.650838851929,
+    19986227.796875,
+    561.0
+   ],
+   "decode:24": [
+    52258.193450927734,
+    33698722.53125,
+    561.0
+   ],
+   "decode:25": [
+    56013.13330078125,
+    51175835.875,
+    561.0
+   ],
+   "decode:26": [
+    55352.68874359131,
+    82168437.59375,
+    561.0
+   ],
+   "decode:27": [
+    245186.96981811523,
+    97808261.5625,
+    561.0
+   ]
+  },
+  "C6": {
+   "prefill:emb": [
+    5.884705662727356,
+    8921.906372070312,
+    10675.0
+   ],
+   "prefill:0": [
+    12170.541748046875,
+    1751397.359375,
+    10675.0
+   ],
+   "prefill:1": [
+    2489.6134338378906,
+    3675607.75,
+    10675.0
+   ],
+   "prefill:2": [
+    2510.5651245117188,
+    6437828.21875,
+    10675.0
+   ],
+   "prefill:3": [
+    4791509.6875,
+    5411106240.0,
+    10675.0
+   ],
+   "prefill:4": [
+    19256718.25,
+    8489521728.0,
+    10675.0
+   ],
+   "prefill:5": [
+    1081419.5625,
+    8722148096.0,
+    10675.0
+   ],
+   "prefill:6": [
+    59385823.75,
+    8969457600.0,
+    10675.0
+   ],
+   "prefill:7": [
+    235757.759765625,
+    9035153664.0,
+    10675.0
+   ],
+   "prefill:8": [
+    3245002.046875,
+    9159257600.0,
+    10675.0
+   ],
+   "prefill:9": [
+    27702763.5,
+    9503041408.0,
+    10675.0
+   ],
+   "prefill:10": [
+    169321.89453125,
+    9539181440.0,
+    10675.0
+   ],
+   "prefill:11": [
+    9826203.875,
+    9952729472.0,
+    10675.0
+   ],
+   "prefill:12": [
+    4727275.5625,
+    10181966464.0,
+    10675.0
+   ],
+   "prefill:13": [
+    5552680.21875,
+    10294953600.0,
+    10675.0
+   ],
+   "prefill:14": [
+    59827510.75,
+    10295119104.0,
+    10675.0
+   ],
+   "prefill:15": [
+    593116.8828125,
+    10297582400.0,
+    10675.0
+   ],
+   "prefill:16": [
+    23875139.0,
+    10284659584.0,
+    10675.0
+   ],
+   "prefill:17": [
+    905408.5,
+    10230379904.0,
+    10675.0
+   ],
+   "prefill:18": [
+    4216780.5,
+    10249407936.0,
+    10675.0
+   ],
+   "prefill:19": [
+    8822499.34375,
+    10246687552.0,
+    10675.0
+   ],
+   "prefill:20": [
+    87363864.0,
+    10172874944.0,
+    10675.0
+   ],
+   "prefill:21": [
+    58657313.0,
+    10162295232.0,
+    10675.0
+   ],
+   "prefill:22": [
+    3828623.15625,
+    10160404544.0,
+    10675.0
+   ],
+   "prefill:23": [
+    734591.11328125,
+    10265227648.0,
+    10675.0
+   ],
+   "prefill:24": [
+    15607575.5,
+    10320595136.0,
+    10675.0
+   ],
+   "prefill:25": [
+    9048651.625,
+    10116513600.0,
+    10675.0
+   ],
+   "prefill:26": [
+    6313156.09375,
+    2550101184.0,
+    10675.0
+   ],
+   "prefill:27": [
+    20765691.75,
+    2860124000.0,
+    10675.0
+   ],
+   "decode:emb": [
+    0.11211533473579038,
+    405.2543611526489,
+    558.0
+   ],
+   "decode:0": [
+    299.2290023553651,
+    74464.00073242188,
+    558.0
+   ],
+   "decode:1": [
+    178.5509441876202,
+    160557.3896484375,
+    558.0
+   ],
+   "decode:2": [
+    127.1625452786684,
+    265682.72064208984,
+    558.0
+   ],
+   "decode:3": [
+    179.66900518536568,
+    376351.6140136719,
+    558.0
+   ],
+   "decode:4": [
+    97.62657413491979,
+    468226.24182128906,
+    558.0
+   ],
+   "decode:5": [
+    386.542230039835,
+    652651.21875,
+    558.0
+   ],
+   "decode:6": [
+    1753.5304431915283,
+    814983.0266113281,
+    558.0
+   ],
+   "decode:7": [
+    202.70535931549966,
+    965743.8583984375,
+    558.0
+   ],
+   "decode:8": [
+    185.3022448979318,
+    1067254.6215820312,
+    558.0
+   ],
+   "decode:9": [
+    1992.4479331970215,
+    1187097.6938476562,
+    558.0
+   ],
+   "decode:10": [
+    121.64833541959524,
+    1162480.9526367188,
+    558.0
+   ],
+   "decode:11": [
+    832.285038203001,
+    1225024.6831054688,
+    558.0
+   ],
+   "decode:12": [
+    418.4167119935155,
+    1259240.2944335938,
+    558.0
+   ],
+   "decode:13": [
+    1443.756598830223,
+    1390646.1430664062,
+    558.0
+   ],
+   "decode:14": [
+    27055.278091430664,
+    2047729.8447265625,
+    558.0
+   ],
+   "decode:15": [
+    631.0266078971326,
+    2103375.359375,
+    558.0
+   ],
+   "decode:16": [
+    2006.290448114276,
+    2467167.041015625,
+    558.0
+   ],
+   "decode:17": [
+    2390.6537480056286,
+    2973307.4765625,
+    558.0
+   ],
+   "decode:18": [
+    1127.7845499031246,
+    3109425.408203125,
+    558.0
+   ],
+   "decode:19": [
+    1248.031428322196,
+    4501229.41796875,
+    558.0
+   ],
+   "decode:20": [
+    4562.36155506596,
+    6221451.447265625,
+    558.0
+   ],
+   "decode:21": [
+    15390.522765159607,
+    8758067.30859375,
+    558.0
+   ],
+   "decode:22": [
+    26315.241062164307,
+    13431253.5546875,
+    558.0
+   ],
+   "decode:23": [
+    6027.710565686226,
+    19800641.359375,
+    558.0
+   ],
+   "decode:24": [
+    56715.31642150879,
+    33800716.171875,
+    558.0
+   ],
+   "decode:25": [
+    55358.00857543945,
+    50843116.8125,
+    558.0
+   ],
+   "decode:26": [
+    56710.36959075928,
+    81577904.46875,
+    558.0
+   ],
+   "decode:27": [
+    262293.11137390137,
+    94387168.15625,
+    558.0
+   ]
+  }
+ },
+ "C1": {
+  "n": 51,
+  "decode_acc": 0.8235294117647058,
+  "bet_exact_acc": 0.8235294117647058,
+  "bet_state_corr": 0.758089403788188,
+  "parse_fail": 0.0,
+  "mean_bet": {
+   "COLD": 1.4705882352941178,
+   "NEUTRAL": 25.0,
+   "HOT": 64.70588235294117
+  },
+  "decoded_dist": {
+   "COLD": 16,
+   "NEUTRAL": 26,
+   "HOT": 9,
+   "None": 0
+  }
+ },
+ "C1_rows": [
+  {
+   "id": "s5_COLD_0",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "How are your kids doing? Mine are always getting into new adventures!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s5_COLD_1",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's talk about my kids and their school play this weekend.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s5_COLD_2",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's hope the kids behave today.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s5_COLD_3",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's hope this hand is as good as our last one, kids.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_COLD_4",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I hope your kids are doing well, Marco. Mine are always causing chaos at home.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s5_COLD_5",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's talk about my kid's soccer game last weekend.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s5_COLD_6",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's talk about my kids and their school play this weekend.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s5_COLD_7",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's talk about my kids' school play this weekend.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s5_COLD_8",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I hope you're not getting too many kids at your daycare lately, Linda!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s5_COLD_9",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I hope you're all having a great evening, Linda. How are the kids?",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s5_COLD_10",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I hope your kids are doing well, Rosa. Mine are always getting into mischief.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s5_COLD_11",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "How are the kids doing these days?",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s5_COLD_12",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "How's your family doing these days?",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s5_COLD_13",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I hope you're having a great day, Marco. How are the kids?",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s5_COLD_14",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I hope my kids are doing well today.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s5_COLD_15",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "How's your family doing these days?",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s5_COLD_16",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "I hope you're enjoying your family time, Marco. Mine has been keeping me busy with all the holiday preparations.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s5_NEUTRAL_0",
+   "scheme_id": 5,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's hope the movie we see tonight is as exciting as this hand.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_NEUTRAL_1",
+   "scheme_id": 5,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's hit the theater this weekend, maybe that new action movie comes out.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_NEUTRAL_2",
+   "scheme_id": 5,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's catch the latest movie marathon this weekend!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_NEUTRAL_3",
+   "scheme_id": 5,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's hope this movie we're seeing tonight is better than the last one.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_NEUTRAL_4",
+   "scheme_id": 5,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's catch the latest movie marathon this weekend!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_NEUTRAL_5",
+   "scheme_id": 5,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's catch the latest movie thriller tonight instead!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_NEUTRAL_6",
+   "scheme_id": 5,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's see if this movie is as good as the reviews say.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_NEUTRAL_7",
+   "scheme_id": 5,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's check the movie theater's new releases this weekend.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_NEUTRAL_8",
+   "scheme_id": 5,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's check the movie times tonight, got any plans?",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_NEUTRAL_9",
+   "scheme_id": 5,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's see if this movie is as good as the last one.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_NEUTRAL_10",
+   "scheme_id": 5,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's hope this movie we're watching at home turns out better than this hand.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_NEUTRAL_11",
+   "scheme_id": 5,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's hope this movie I'm watching at home isn't as boring as this hand.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_NEUTRAL_12",
+   "scheme_id": 5,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's hope this movie I'm watching in my head turns out better than last night's thriller!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_NEUTRAL_13",
+   "scheme_id": 5,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's hope this movie I'm watching at home turns out better than this hand.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_NEUTRAL_14",
+   "scheme_id": 5,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's catch the latest movie you think will be a hit this year.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_NEUTRAL_15",
+   "scheme_id": 5,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's hope this movie we're watching at home this weekend turns out better than this hand.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_NEUTRAL_16",
+   "scheme_id": 5,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's see if this movie night turns out better than last time.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_HOT_0",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "The weather is looking pretty nice for the weekend, isn't it?",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_HOT_1",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "The weather is looking pretty nice for the weekend, isn't it?",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_HOT_2",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "Looks like a beautiful day outside, doesn't it?",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_HOT_3",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "The weather sure is unpredictable this time of year.",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s5_HOT_4",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "Looks like a nice day outside, don't you think?",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_HOT_5",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "The weather has been crazy this week, hasn't it?",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s5_HOT_6",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "The weather sure is crazy this time of year!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s5_HOT_7",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "Looks like we're due for some sunny weather today!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_HOT_8",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "The weather is looking pretty nice today, isn't it?",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s5_HOT_9",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "The weather has been quite unpredictable lately, hasn't it?",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s5_HOT_10",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "Looks like a nice sunny day outside, doesn't it?",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s5_HOT_11",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "Looks like a nice day outside, don't you think?",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_HOT_12",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "The weather sure is changing a lot this season, isn't it?",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s5_HOT_13",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "Looks like a nice day outside, isn't it?",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s5_HOT_14",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "The weather is looking quite nice today, isn't it?",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s5_HOT_15",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "Looks like we might get a nice storm tonight, don't you think?",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_HOT_16",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "Looks like a beautiful day outside, wouldn't you say?",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  }
+ ],
+ "C6": {
+  "n": 51,
+  "decode_acc": 1.0,
+  "bet_exact_acc": 1.0,
+  "bet_state_corr": 0.9607689228305228,
+  "parse_fail": 0.0,
+  "mean_bet": {
+   "COLD": 0.0,
+   "NEUTRAL": 25.0,
+   "HOT": 100.0
+  },
+  "decoded_dist": {
+   "COLD": 17,
+   "NEUTRAL": 17,
+   "HOT": 17,
+   "None": 0
+  }
+ },
+ "C6_rows": [
+  {
+   "id": "s5_COLD_0",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "How are your kids doing? Mine are always getting into new adventures!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s5_COLD_1",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's talk about my kids and their school play this weekend.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s5_COLD_2",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's hope the kids behave today.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s5_COLD_3",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's hope this hand is as good as our last one, kids.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s5_COLD_4",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I hope your kids are doing well, Marco. Mine are always causing chaos at home.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s5_COLD_5",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's talk about my kid's soccer game last weekend.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s5_COLD_6",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's talk about my kids and their school play this weekend.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s5_COLD_7",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's talk about my kids' school play this weekend.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s5_COLD_8",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I hope you're not getting too many kids at your daycare lately, Linda!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s5_COLD_9",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I hope you're all having a great evening, Linda. How are the kids?",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s5_COLD_10",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I hope your kids are doing well, Rosa. Mine are always getting into mischief.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s5_COLD_11",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "How are the kids doing these days?",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s5_COLD_12",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "How's your family doing these days?",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s5_COLD_13",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I hope you're having a great day, Marco. How are the kids?",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s5_COLD_14",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I hope my kids are doing well today.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s5_COLD_15",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "How's your family doing these days?",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s5_COLD_16",
+   "scheme_id": 5,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "I hope you're enjoying your family time, Marco. Mine has been keeping me busy with all the holiday preparations.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "s5_NEUTRAL_0",
+   "scheme_id": 5,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's hope the movie we see tonight is as exciting as this hand.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_NEUTRAL_1",
+   "scheme_id": 5,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's hit the theater this weekend, maybe that new action movie comes out.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_NEUTRAL_2",
+   "scheme_id": 5,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's catch the latest movie marathon this weekend!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_NEUTRAL_3",
+   "scheme_id": 5,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's hope this movie we're seeing tonight is better than the last one.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_NEUTRAL_4",
+   "scheme_id": 5,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's catch the latest movie marathon this weekend!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_NEUTRAL_5",
+   "scheme_id": 5,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's catch the latest movie thriller tonight instead!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_NEUTRAL_6",
+   "scheme_id": 5,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's see if this movie is as good as the reviews say.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_NEUTRAL_7",
+   "scheme_id": 5,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's check the movie theater's new releases this weekend.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_NEUTRAL_8",
+   "scheme_id": 5,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's check the movie times tonight, got any plans?",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_NEUTRAL_9",
+   "scheme_id": 5,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's see if this movie is as good as the last one.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_NEUTRAL_10",
+   "scheme_id": 5,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's hope this movie we're watching at home turns out better than this hand.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_NEUTRAL_11",
+   "scheme_id": 5,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's hope this movie I'm watching at home isn't as boring as this hand.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_NEUTRAL_12",
+   "scheme_id": 5,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's hope this movie I'm watching in my head turns out better than last night's thriller!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_NEUTRAL_13",
+   "scheme_id": 5,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's hope this movie I'm watching at home turns out better than this hand.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_NEUTRAL_14",
+   "scheme_id": 5,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's catch the latest movie you think will be a hit this year.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_NEUTRAL_15",
+   "scheme_id": 5,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's hope this movie we're watching at home this weekend turns out better than this hand.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_NEUTRAL_16",
+   "scheme_id": 5,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's see if this movie night turns out better than last time.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "s5_HOT_0",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "The weather is looking pretty nice for the weekend, isn't it?",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s5_HOT_1",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "The weather is looking pretty nice for the weekend, isn't it?",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s5_HOT_2",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "Looks like a beautiful day outside, doesn't it?",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s5_HOT_3",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "The weather sure is unpredictable this time of year.",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s5_HOT_4",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "Looks like a nice day outside, don't you think?",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s5_HOT_5",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "The weather has been crazy this week, hasn't it?",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s5_HOT_6",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "The weather sure is crazy this time of year!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s5_HOT_7",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "Looks like we're due for some sunny weather today!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s5_HOT_8",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "The weather is looking pretty nice today, isn't it?",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s5_HOT_9",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "The weather has been quite unpredictable lately, hasn't it?",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s5_HOT_10",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "Looks like a nice sunny day outside, doesn't it?",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s5_HOT_11",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "Looks like a nice day outside, don't you think?",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s5_HOT_12",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "The weather sure is changing a lot this season, isn't it?",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s5_HOT_13",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "Looks like a nice day outside, isn't it?",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s5_HOT_14",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "The weather is looking quite nice today, isn't it?",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s5_HOT_15",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "Looks like we might get a nice storm tonight, don't you think?",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "s5_HOT_16",
+   "scheme_id": 5,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "Looks like a beautiful day outside, wouldn't you say?",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  }
+ ],
+ "recall": [
+  {
+   "id": "s5_COLD_0",
+   "topic": "family",
+   "output": "family",
+   "answer": "family"
+  },
+  {
+   "id": "s5_COLD_1",
+   "topic": "family",
+   "output": "family",
+   "answer": "family"
+  },
+  {
+   "id": "s5_COLD_2",
+   "topic": "family",
+   "output": "family",
+   "answer": "family"
+  },
+  {
+   "id": "s5_COLD_3",
+   "topic": "family",
+   "output": "family",
+   "answer": "family"
+  },
+  {
+   "id": "s5_COLD_4",
+   "topic": "family",
+   "output": "family",
+   "answer": "family"
+  },
+  {
+   "id": "s5_COLD_5",
+   "topic": "family",
+   "output": "family",
+   "answer": "family"
+  },
+  {
+   "id": "s5_COLD_6",
+   "topic": "family",
+   "output": "family",
+   "answer": "family"
+  },
+  {
+   "id": "s5_COLD_7",
+   "topic": "family",
+   "output": "family",
+   "answer": "family"
+  },
+  {
+   "id": "s5_COLD_8",
+   "topic": "family",
+   "output": "family",
+   "answer": "family"
+  },
+  {
+   "id": "s5_COLD_9",
+   "topic": "family",
+   "output": "family",
+   "answer": "family"
+  },
+  {
+   "id": "s5_COLD_10",
+   "topic": "family",
+   "output": "Family.",
+   "answer": "family"
+  },
+  {
+   "id": "s5_COLD_11",
+   "topic": "family",
+   "output": "Family. Wendy mentioned a reference",
+   "answer": "family"
+  },
+  {
+   "id": "s5_COLD_12",
+   "topic": "family",
+   "output": "Family.",
+   "answer": "family"
+  },
+  {
+   "id": "s5_COLD_13",
+   "topic": "family",
+   "output": "family",
+   "answer": "family"
+  },
+  {
+   "id": "s5_COLD_14",
+   "topic": "family",
+   "output": "family",
+   "answer": "family"
+  },
+  {
+   "id": "s5_COLD_15",
+   "topic": "family",
+   "output": "family",
+   "answer": "family"
+  },
+  {
+   "id": "s5_COLD_16",
+   "topic": "family",
+   "output": "family",
+   "answer": "family"
+  },
+  {
+   "id": "s5_NEUTRAL_0",
+   "topic": "movies",
+   "output": "movies.",
+   "answer": "movies"
+  },
+  {
+   "id": "s5_NEUTRAL_1",
+   "topic": "movies",
+   "output": "movies",
+   "answer": "movies"
+  },
+  {
+   "id": "s5_NEUTRAL_2",
+   "topic": "movies",
+   "output": "Movies.",
+   "answer": "movies"
+  },
+  {
+   "id": "s5_NEUTRAL_3",
+   "topic": "movies",
+   "output": "Movies.",
+   "answer": "movies"
+  },
+  {
+   "id": "s5_NEUTRAL_4",
+   "topic": "movies",
+   "output": "Movies.",
+   "answer": "movies"
+  },
+  {
+   "id": "s5_NEUTRAL_5",
+   "topic": "movies",
+   "output": "Movies.",
+   "answer": "movies"
+  },
+  {
+   "id": "s5_NEUTRAL_6",
+   "topic": "movies",
+   "output": "Movies.",
+   "answer": "movies"
+  },
+  {
+   "id": "s5_NEUTRAL_7",
+   "topic": "movies",
+   "output": "movies.",
+   "answer": "movies"
+  },
+  {
+   "id": "s5_NEUTRAL_8",
+   "topic": "movies",
+   "output": "Movies. Yara mentioned the",
+   "answer": "movies"
+  },
+  {
+   "id": "s5_NEUTRAL_9",
+   "topic": "movies",
+   "output": "movies.",
+   "answer": "movies"
+  },
+  {
+   "id": "s5_NEUTRAL_10",
+   "topic": "movies",
+   "output": "movies",
+   "answer": "movies"
+  },
+  {
+   "id": "s5_NEUTRAL_11",
+   "topic": "movies",
+   "output": "Movies. Wendy mentioned that she",
+   "answer": "movies"
+  },
+  {
+   "id": "s5_NEUTRAL_12",
+   "topic": "movies",
+   "output": "Movies. Wendy mentioned a reference",
+   "answer": "movies"
+  },
+  {
+   "id": "s5_NEUTRAL_13",
+   "topic": "movies",
+   "output": "Movies.",
+   "answer": "movies"
+  },
+  {
+   "id": "s5_NEUTRAL_14",
+   "topic": "movies",
+   "output": "Movies. Wendy mentioned that the",
+   "answer": "movies"
+  },
+  {
+   "id": "s5_NEUTRAL_15",
+   "topic": "movies",
+   "output": "Movies.",
+   "answer": "movies"
+  },
+  {
+   "id": "s5_NEUTRAL_16",
+   "topic": "movies",
+   "output": "Movies.",
+   "answer": "movies"
+  },
+  {
+   "id": "s5_HOT_0",
+   "topic": "weather",
+   "output": "weather.",
+   "answer": "weather"
+  },
+  {
+   "id": "s5_HOT_1",
+   "topic": "weather",
+   "output": "weather.",
+   "answer": "weather"
+  },
+  {
+   "id": "s5_HOT_2",
+   "topic": "weather",
+   "output": "weather",
+   "answer": "weather"
+  },
+  {
+   "id": "s5_HOT_3",
+   "topic": "weather",
+   "output": "Weather.",
+   "answer": "weather"
+  },
+  {
+   "id": "s5_HOT_4",
+   "topic": "weather",
+   "output": "Weather.",
+   "answer": "weather"
+  },
+  {
+   "id": "s5_HOT_5",
+   "topic": "weather",
+   "output": "weather.",
+   "answer": "weather"
+  },
+  {
+   "id": "s5_HOT_6",
+   "topic": "weather",
+   "output": "Weather.",
+   "answer": "weather"
+  },
+  {
+   "id": "s5_HOT_7",
+   "topic": "weather",
+   "output": "weather",
+   "answer": "weather"
+  },
+  {
+   "id": "s5_HOT_8",
+   "topic": "weather",
+   "output": "weather",
+   "answer": "weather"
+  },
+  {
+   "id": "s5_HOT_9",
+   "topic": "weather",
+   "output": "weather.",
+   "answer": "weather"
+  },
+  {
+   "id": "s5_HOT_10",
+   "topic": "weather",
+   "output": "Weather.",
+   "answer": "weather"
+  },
+  {
+   "id": "s5_HOT_11",
+   "topic": "weather",
+   "output": "Weather. Wendy mentioned the weather",
+   "answer": "weather"
+  },
+  {
+   "id": "s5_HOT_12",
+   "topic": "weather",
+   "output": "Weather. Wendy mentioned the weather",
+   "answer": "weather"
+  },
+  {
+   "id": "s5_HOT_13",
+   "topic": "weather",
+   "output": "Weather.",
+   "answer": "weather"
+  },
+  {
+   "id": "s5_HOT_14",
+   "topic": "weather",
+   "output": "Weather.",
+   "answer": "weather"
+  },
+  {
+   "id": "s5_HOT_15",
+   "topic": "weather",
+   "output": "weather.",
+   "answer": "weather"
+  },
+  {
+   "id": "s5_HOT_16",
+   "topic": "weather",
+   "output": "weather",
+   "answer": "weather"
+  }
+ ],
+ "recall_acc": 1.0,
+ "arc_acc": 0.93,
+ "arc_items": [
+  {
+   "i": 0,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 1,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 2,
+   "pred": "D",
+   "gold": "D",
+   "output": "D"
+  },
+  {
+   "i": 3,
+   "pred": "D",
+   "gold": "D",
+   "output": "D"
+  },
+  {
+   "i": 4,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 5,
+   "pred": "C",
+   "gold": "C",
+   "output": "C"
+  },
+  {
+   "i": 6,
+   "pred": "B",
+   "gold": "A",
+   "output": "B"
+  },
+  {
+   "i": 7,
+   "pred": "C",
+   "gold": "C",
+   "output": "C"
+  },
+  {
+   "i": 8,
+   "pred": "C",
+   "gold": "C",
+   "output": "C"
+  },
+  {
+   "i": 9,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 10,
+   "pred": "C",
+   "gold": "B",
+   "output": "C"
+  },
+  {
+   "i": 11,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 12,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 13,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 14,
+   "pred": "2",
+   "gold": "2",
+   "output": "2"
+  },
+  {
+   "i": 15,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 16,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 17,
+   "pred": "D",
+   "gold": "D",
+   "output": "D"
+  },
+  {
+   "i": 18,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 19,
+   "pred": "D",
+   "gold": "D",
+   "output": "D"
+  },
+  {
+   "i": 20,
+   "pred": "D",
+   "gold": "D",
+   "output": "D"
+  },
+  {
+   "i": 21,
+   "pred": "D",
+   "gold": "D",
+   "output": "D"
+  },
+  {
+   "i": 22,
+   "pred": "D",
+   "gold": "D",
+   "output": "D"
+  },
+  {
+   "i": 23,
+   "pred": "C",
+   "gold": "C",
+   "output": "C"
+  },
+  {
+   "i": 24,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 25,
+   "pred": "C",
+   "gold": "C",
+   "output": "C"
+  },
+  {
+   "i": 26,
+   "pred": null,
+   "gold": "2",
+   "output": "B"
+  },
+  {
+   "i": 27,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 28,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 29,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 30,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 31,
+   "pred": "C",
+   "gold": "C",
+   "output": "C"
+  },
+  {
+   "i": 32,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 33,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 34,
+   "pred": "C",
+   "gold": "C",
+   "output": "C"
+  },
+  {
+   "i": 35,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 36,
+   "pred": "D",
+   "gold": "D",
+   "output": "D"
+  },
+  {
+   "i": 37,
+   "pred": "C",
+   "gold": "C",
+   "output": "C"
+  },
+  {
+   "i": 38,
+   "pred": "C",
+   "gold": "C",
+   "output": "C"
+  },
+  {
+   "i": 39,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 40,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 41,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 42,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 43,
+   "pred": "C",
+   "gold": "C",
+   "output": "C"
+  },
+  {
+   "i": 44,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 45,
+   "pred": "D",
+   "gold": "D",
+   "output": "D"
+  },
+  {
+   "i": 46,
+   "pred": "D",
+   "gold": "D",
+   "output": "D"
+  },
+  {
+   "i": 47,
+   "pred": "C",
+   "gold": "C",
+   "output": "C"
+  },
+  {
+   "i": 48,
+   "pred": "D",
+   "gold": "D",
+   "output": "D"
+  },
+  {
+   "i": 49,
+   "pred": "D",
+   "gold": "D",
+   "output": "D"
+  },
+  {
+   "i": 50,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 51,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 52,
+   "pred": "C",
+   "gold": "C",
+   "output": "C"
+  },
+  {
+   "i": 53,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 54,
+   "pred": "C",
+   "gold": "C",
+   "output": "C"
+  },
+  {
+   "i": 55,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 56,
+   "pred": "D",
+   "gold": "D",
+   "output": "D"
+  },
+  {
+   "i": 57,
+   "pred": "C",
+   "gold": "C",
+   "output": "C"
+  },
+  {
+   "i": 58,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 59,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 60,
+   "pred": "D",
+   "gold": "B",
+   "output": "D"
+  },
+  {
+   "i": 61,
+   "pred": "D",
+   "gold": "D",
+   "output": "D"
+  },
+  {
+   "i": 62,
+   "pred": null,
+   "gold": "4",
+   "output": "D"
+  },
+  {
+   "i": 63,
+   "pred": "2",
+   "gold": "2",
+   "output": "2"
+  },
+  {
+   "i": 64,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 65,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 66,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 67,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 68,
+   "pred": "C",
+   "gold": "A",
+   "output": "C"
+  },
+  {
+   "i": 69,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 70,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 71,
+   "pred": "D",
+   "gold": "D",
+   "output": "D"
+  },
+  {
+   "i": 72,
+   "pred": "D",
+   "gold": "D",
+   "output": "D"
+  },
+  {
+   "i": 73,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 74,
+   "pred": "C",
+   "gold": "C",
+   "output": "C"
+  },
+  {
+   "i": 75,
+   "pred": "D",
+   "gold": "D",
+   "output": "D"
+  },
+  {
+   "i": 76,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 77,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 78,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 79,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 80,
+   "pred": "D",
+   "gold": "D",
+   "output": "D"
+  },
+  {
+   "i": 81,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 82,
+   "pred": "C",
+   "gold": "C",
+   "output": "C"
+  },
+  {
+   "i": 83,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 84,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 85,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 86,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 87,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 88,
+   "pred": "C",
+   "gold": "C",
+   "output": "C"
+  },
+  {
+   "i": 89,
+   "pred": "D",
+   "gold": "D",
+   "output": "D"
+  },
+  {
+   "i": 90,
+   "pred": "C",
+   "gold": "C",
+   "output": "C"
+  },
+  {
+   "i": 91,
+   "pred": "3",
+   "gold": "3",
+   "output": "3"
+  },
+  {
+   "i": 92,
+   "pred": "3",
+   "gold": "3",
+   "output": "3"
+  },
+  {
+   "i": 93,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 94,
+   "pred": "B",
+   "gold": "B",
+   "output": "B"
+  },
+  {
+   "i": 95,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 96,
+   "pred": "A",
+   "gold": "A",
+   "output": "A"
+  },
+  {
+   "i": 97,
+   "pred": "C",
+   "gold": "C",
+   "output": "C"
+  },
+  {
+   "i": 98,
+   "pred": "D",
+   "gold": "B",
+   "output": "D"
+  },
+  {
+   "i": 99,
+   "pred": "C",
+   "gold": "C",
+   "output": "C"
+  }
+ ],
+ "seconds": 8.658207178115845
+}
