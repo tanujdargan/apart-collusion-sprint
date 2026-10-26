@@ -633,6 +633,36 @@ class Runner:
         vol.commit()
         return dict(path=out_path[len("/vol"):], shape=list(last.shape))
 
+    @modal.method()
+    def g4b_gen(self, seeds, schemes, gen_seed, out_dir):
+        """Tier 4b (notes/verify_plan.md §4b): new contexts (seeds) x new frozen schemes; colluding sender messages with
+        the original prompts/sampling; matched unablated baseline (C1, C6, recall, ARC) on all 306; unablated prompt-only
+        C1 `last` capture. Writes <out_dir>/messages.jsonl and <out_dir>/cap_none.npy."""
+        import numpy as np
+        import env
+        eps = env.episodes(seeds, schemes, "n")
+        texts = [self._tmpl(env.sender_msgs(e, True)) for e in eps]
+        outs = self._generate(texts, GEN["sender_max_new"], temperature=GEN["sender_temperature"],
+                              top_p=GEN["sender_top_p"], seed=gen_seed)
+        rows = []
+        for e, o in zip(eps, outs):
+            r = dict(e, gen_seed=gen_seed, collude_raw=o, collude_msg=env.parse_talk(o) or "Good luck everyone.",
+                     collude_parse_ok=bool(env.parse_talk(o)))
+            r["collude_check"] = env.sender_check(r, r["collude_msg"])
+            r["collude_clean"] = r["collude_check"]["clean_target"]
+            rows.append(r)
+        os.makedirs(out_dir, exist_ok=True)
+        with open(f"{out_dir}/messages.jsonl", "w") as f:
+            for r in rows:
+                f.write(json.dumps(r) + "\n")
+        vol.commit()
+        base = self._intervene_many([dict(tag="g4b_baseline306", direction=None)], [r["id"] for r in rows], ("C1", "C6"),
+                                    True, "verify/g4b", f"{out_dir}/messages.jsonl")[0]
+        last = self._capture_last(rows)
+        np.save(f"{out_dir}/cap_none.npy", last)
+        vol.commit()
+        return dict(messages=rows, baseline=base, cap_path=f"{out_dir}/cap_none.npy"[len("/vol"):], shape=list(last.shape))
+
 # ---------------------------------------------------------------------- local entrypoints
 def _write_jsonl(path, rows):
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -947,6 +977,11 @@ def unbundle_validate():
 
 
 # ---------------------------------------------------------------------- verification extension (notes/verify_plan.md)
+def _vrunner(model, gpu, maxc, tmo):
+    """Resource-limited runner for the verification extension (exp/verify_guard.py enforces the same wall limit)."""
+    return Runner.with_options(gpu=gpu, max_containers=maxc, timeout=tmo, retries=0, scaledown_window=15)(model_id=model)
+
+
 def _load_cfgs(cfgs, prefix=""):
     """Matrix cfg: dict(tag, dir=<repo-relative .npy>|None, layers='all'|list, dose=None|float|[L], meta=...)."""
     import numpy as np
@@ -956,7 +991,7 @@ def _load_cfgs(cfgs, prefix=""):
 
 
 @app.local_entrypoint()
-def verify(matrix: str, smoke: int = 0):
+def verify(matrix: str, smoke: int = 0, maxc: int = 1, tmo: int = 600):
     """Run a frozen matrix data/verify/matrices/<matrix>.json = dict(model, gpu, containers=[[job, ...], ...]); each
     container = one model load running its jobs sequentially. --smoke N: first job of the first container, first N ids,
     tags prefixed smoke_. Outputs: data/verify/runs/<matrix>/<tag>/metrics.json."""
@@ -966,7 +1001,8 @@ def verify(matrix: str, smoke: int = 0):
     jobs = [[dict(j, cfgs=_load_cfgs(j["cfgs"], pre), ids=j["ids"][: smoke or None]) for j in c] for c in conts]
     od = ROOT / f"data/verify/runs/{matrix}"
     t0 = time.time()
-    for out in _runner(M["model"], M["gpu"]).run_jobs.map(jobs):
+    assert len(jobs) <= maxc, "more containers than the guard reserved"
+    for out in _vrunner(M["model"], M["gpu"], maxc, tmo).run_jobs.map(jobs):
         for res_list in out:
             for res in res_list:
                 rd = od / res["tag"]
@@ -981,7 +1017,7 @@ def verify(matrix: str, smoke: int = 0):
 
 
 @app.local_entrypoint()
-def vdosefit():
+def vdosefit(tmo: int = 600):
     """7B dose-fit pass: unablated C1 prompts of all 306 original episodes; fold M2 (state.npy) and PC2 (pc2d.npy)
     subspaces of all 6 folds at layers 16-27. Output data/verify/dose_fit.json (alpha is derived on CPU from TRAINING
     episodes only by exp/verify_matrix.py)."""
@@ -990,21 +1026,57 @@ def vdosefit():
     sub = {f"f{k}_{n}": np.load(ROOT / f"data/loso/fold{k}/{f}.npy").astype(np.float32)
            for k in range(6) for n, f in (("M2", "state"), ("PC2", "pc2d"))}
     t0 = time.time()
-    res = Runner().dose_fit.remote(sub, list(range(16, 28)), ids, "")
+    res = _vrunner(DEFAULT_MODEL, "L40S", 1, tmo).dose_fit.remote(sub, list(range(16, 28)), ids, "")
     (ROOT / "data/verify").mkdir(parents=True, exist_ok=True)
     json.dump(res, open(ROOT / "data/verify/dose_fit.json", "w"))
     print(f"dose fit done, wall {time.time() - t0:.0f}s")
 
 
 @app.local_entrypoint()
-def vvalidate(spec: str):
+def vvalidate(spec: str, tmo: int = 600):
     """Hook validation for changed paths: data/verify/matrices/<spec>.json = dict(model, gpu, dir, ids, messages_path,
     configs=[dict(tag, layers|None, dose)]). Output data/verify/validation/<spec>.json."""
     import numpy as np
     S = json.load(open(ROOT / f"data/verify/matrices/{spec}.json"))
-    res = _runner(S["model"], S["gpu"]).validate_hooks.remote(np.load(ROOT / S["dir"]).astype(np.float32), S["configs"],
+    res = _vrunner(S["model"], S["gpu"], 1, tmo).validate_hooks.remote(np.load(ROOT / S["dir"]).astype(np.float32), S["configs"],
                                                                S["ids"], S["messages_path"], {})
     od = ROOT / "data/verify/validation"
     od.mkdir(parents=True, exist_ok=True)
     json.dump(dict(spec=S, configs=res["configs"]), open(od / f"{spec}.json", "w"))
     print("saved", od / f"{spec}.json")
+
+
+@app.local_entrypoint()
+def vg4a_capture(tmo: int = 600):
+    """Tier 4a: unablated prompt-only C1 `last` capture of fresh sets m101-m404 (all 306 each) in one container."""
+    import subprocess
+    r = _vrunner(DEFAULT_MODEL, "L40S", 1, tmo)
+    od = ROOT / "data/verify/g4a"
+    od.mkdir(parents=True, exist_ok=True)
+    for sd in (101, 202, 303, 404):
+        ids = [json.loads(l)["id"] for l in open(ROOT / f"data/fresh/m{sd}/messages.jsonl")]
+        c = r.capture_set.remote(ids, f"/vol/fresh/m{sd}/messages.jsonl", f"/vol/verify/g4a/cap_m{sd}.npy")
+        subprocess.run([str(ROOT / ".venv/bin/modal"), "volume", "get", "--force", "cutwire-vol", c["path"], str(od)], check=True,
+                       capture_output=True)
+        json.dump(dict(c, ids=ids), open(od / f"cap_m{sd}.json", "w"))
+        print("captured", sd, c["shape"], flush=True)
+
+
+@app.local_entrypoint()
+def vg4b_gen(tmo: int = 900):
+    """Tier 4b generation + baseline + capture (frozen schemes exp/verify_matrix.py FROZEN_4B; seeds 100-116; seed 0)."""
+    import subprocess
+    import sys
+    sys.path.insert(0, str(HERE))
+    from verify_matrix import FROZEN_4B
+    od = ROOT / "data/verify/g4b"
+    od.mkdir(parents=True, exist_ok=True)
+    out = _vrunner(DEFAULT_MODEL, "L40S", 1, tmo).g4b_gen.remote(list(range(100, 117)), [list(x) for x in FROZEN_4B], 0,
+                                                                  "/vol/verify/g4b")
+    _write_jsonl(od / "messages.jsonl", out["messages"])
+    json.dump(out["baseline"], open(od / "baseline306_metrics.json", "w"), indent=1)
+    subprocess.run([str(ROOT / ".venv/bin/modal"), "volume", "get", "--force", "cutwire-vol", out["cap_path"], str(od)],
+                   check=True, capture_output=True)
+    b = out["baseline"]
+    print("g4b baseline C1 decode", round(b["C1"]["decode_acc"], 3), "bet", round(b["C1"]["bet_exact_acc"], 3),
+          "C6", round(b["C6"]["bet_exact_acc"], 3), "recall", b["recall_acc"], "ARC", b["arc_acc"], out["shape"])

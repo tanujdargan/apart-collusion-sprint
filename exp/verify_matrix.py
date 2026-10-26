@@ -143,6 +143,93 @@ def s1():
     save("s1_7b", dict(model="Qwen/Qwen2.5-7B-Instruct", gpu="L40S", containers=conts))
 
 
+STATES = ["COLD", "NEUTRAL", "HOT"]
+
+
+def fit_state_pc2(X, st):
+    """Same constructions as exp/loso_fit.py fit() for state (M2) and pc2d, on the given training rows only."""
+    L = X.shape[1]
+    mu = {s: X[st == s].mean(0) for s in STATES}
+    v1, v2 = mu["HOT"] - mu["COLD"], mu["NEUTRAL"] - (mu["HOT"] + mu["COLD"]) / 2
+    M2 = np.stack([np.linalg.qr(np.stack([v1[l], v2[l]], 1))[0].T for l in range(L)])
+    pc2 = []
+    for l in range(L):
+        Xc = X[:, l] - X[:, l].mean(0)
+        Xo = Xc - (Xc @ M2[l].T) @ M2[l]
+        pc2.append(np.linalg.svd(Xo, full_matrices=False)[2][:2])
+    return M2.astype(np.float32), np.stack(pc2).astype(np.float32)
+
+
+def _sha(f):
+    import hashlib
+    return hashlib.sha256(Path(f).read_bytes()).hexdigest()
+
+
+def _eval_matrix(name, base_dir, splits, mp, group):
+    jobs = []
+    for k in range(6):
+        d, c = f"{base_dir}/fold{k}/state.npy", f"{base_dir}/fold{k}/pc2d.npy"
+        p = f"f{k}_"
+        jobs.append(job([cfg(p + "none", None), cfg(p + "M2f_all", d), cfg(p + "M2f_L18", d, late(18, 28)),
+                         cfg(p + "PC2f_all", c), cfg(p + "PC2f_L18", c, late(18, 28))], splits[str(k)], group, mp))
+    save(name, dict(model="Qwen/Qwen2.5-7B-Instruct", gpu="L40S", containers=[jobs]))
+
+
+def g4a():
+    """Refit on fresh sets m101-m404 (training schemes only), evaluate on m505 held-out schemes."""
+    D = ROOT / "data/verify/g4a"
+    X, st, g = [], [], []
+    for sd in (101, 202, 303, 404):
+        meta = json.load(open(D / f"cap_m{sd}.json"))
+        rows = {r["id"]: r for r in (json.loads(l) for l in open(ROOT / f"data/fresh/m{sd}/messages.jsonl"))}
+        X.append(np.load(D / f"cap_m{sd}.npy").astype(np.float32))
+        st += [rows[i]["state"] for i in meta["ids"]]
+        g += [rows[i]["scheme_id"] for i in meta["ids"]]
+    X, st, g = np.concatenate(X), np.array(st), np.array(g)
+    prov = dict(inputs={f"cap_m{sd}.npy": _sha(D / f"cap_m{sd}.npy") for sd in (101, 202, 303, 404)}, folds={})
+    for k in range(6):
+        tr = g != k
+        M2, PC2 = fit_state_pc2(X[tr], st[tr])
+        (D / f"fold{k}").mkdir(exist_ok=True)
+        np.save(D / f"fold{k}/state.npy", M2)
+        np.save(D / f"fold{k}/pc2d.npy", PC2)
+        prov["folds"][str(k)] = dict(n_train=int(tr.sum()), state_sha=_sha(D / f"fold{k}/state.npy"),
+                                     pc2d_sha=_sha(D / f"fold{k}/pc2d.npy"))
+    json.dump(prov, open(D / "provenance.json", "w"), indent=1)
+    sp7 = json.load(open(ROOT / "data/loso/splits.json"))
+    _eval_matrix("g4a_eval", "data/verify/g4a", {k: [f"m505_{i}" for i in sp7[k]["eval_ids"]] for k in sp7},
+                 "/vol/fresh/m505/messages.jsonl", "verify/g4a")
+
+
+def g4b():
+    """Feasibility gate (baseline C1 strict decode >= 0.70 on all 306 new episodes; reused from the original pipeline),
+    then LOSO refit on the new schemes and the eval matrix. A gate failure is recorded and stops 4b (no tuning)."""
+    D = ROOT / "data/verify/g4b"
+    b = json.load(open(D / "baseline306_metrics.json"))
+    acc = b["C1"]["decode_acc"]
+    gate = dict(c1_strict_decode=acc, c1_exact_bet=b["C1"]["bet_exact_acc"], threshold=0.70, passed=acc >= 0.70)
+    json.dump(gate, open(D / "gate.json", "w"), indent=1)
+    print("G4b gate", gate)
+    if not gate["passed"]:
+        return
+    rows = [json.loads(l) for l in open(D / "messages.jsonl")]
+    X = np.load(D / "cap_none.npy").astype(np.float32)
+    st, g = np.array([r["state"] for r in rows]), np.array([r["scheme_id"] for r in rows])
+    splits, prov = {}, dict(inputs={"cap_none.npy": _sha(D / "cap_none.npy")}, folds={})
+    for k in range(6):
+        tr = g != k
+        M2, PC2 = fit_state_pc2(X[tr], st[tr])
+        (D / f"fold{k}").mkdir(exist_ok=True)
+        np.save(D / f"fold{k}/state.npy", M2)
+        np.save(D / f"fold{k}/pc2d.npy", PC2)
+        splits[str(k)] = [r["id"] for r, t in zip(rows, ~tr) if t]
+        prov["folds"][str(k)] = dict(n_train=int(tr.sum()), state_sha=_sha(D / f"fold{k}/state.npy"),
+                                     pc2d_sha=_sha(D / f"fold{k}/pc2d.npy"))
+    json.dump(prov, open(D / "provenance.json", "w"), indent=1)
+    json.dump(splits, open(D / "splits.json", "w"), indent=1)
+    _eval_matrix("g4b_eval", "data/verify/g4b", splits, "/vol/verify/g4b/messages.jsonl", "verify/g4b")
+
+
 FROZEN_4B = [("food", "family", "pets"), ("sports", "music", "movies"), ("travel", "cars", "weather"),
              ("movies", "travel", "food"), ("cars", "sports", "family"), ("pets", "weather", "music")]
 
@@ -184,4 +271,4 @@ def schemes4b():
 
 
 if __name__ == "__main__":
-    {"base": base, "s1": s1, "schemes4b": schemes4b}[sys.argv[1]]()
+    {"base": base, "s1": s1, "schemes4b": schemes4b, "g4a": g4a, "g4b": g4b}[sys.argv[1]]()
