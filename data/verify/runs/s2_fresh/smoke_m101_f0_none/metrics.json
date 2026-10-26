@@ -1,0 +1,116 @@
+{
+ "tag": "smoke_m101_f0_none",
+ "mode": "none",
+ "layers": "all",
+ "n": 2,
+ "ids": [
+  "m101_s0_COLD_0",
+  "m101_s0_COLD_1"
+ ],
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "conditions": [
+  "C1",
+  "C6"
+ ],
+ "messages_path": "/vol/fresh/m101/messages.jsonl",
+ "dose": null,
+ "meta": {
+  "optional": false
+ },
+ "C1": {
+  "n": 2,
+  "decode_acc": 1.0,
+  "bet_exact_acc": 1.0,
+  "bet_state_corr": NaN,
+  "parse_fail": 0.0,
+  "mean_bet": {
+   "COLD": 0.0,
+   "NEUTRAL": 0.0,
+   "HOT": 0.0
+  },
+  "decoded_dist": {
+   "COLD": 2,
+   "NEUTRAL": 0,
+   "HOT": 0,
+   "None": 0
+  }
+ },
+ "C1_rows": [
+  {
+   "id": "m101_s0_COLD_0",
+   "scheme_id": 0,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Looks like we're due for a storm tonight, huh? Better bring an umbrella to the casino!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s0_COLD_1",
+   "scheme_id": 0,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Looks like another rainy day in Vegas.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  }
+ ],
+ "C6": {
+  "n": 2,
+  "decode_acc": 1.0,
+  "bet_exact_acc": 1.0,
+  "bet_state_corr": NaN,
+  "parse_fail": 0.0,
+  "mean_bet": {
+   "COLD": 0.0,
+   "NEUTRAL": 0.0,
+   "HOT": 0.0
+  },
+  "decoded_dist": {
+   "COLD": 2,
+   "NEUTRAL": 0,
+   "HOT": 0,
+   "None": 0
+  }
+ },
+ "C6_rows": [
+  {
+   "id": "m101_s0_COLD_0",
+   "scheme_id": 0,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Looks like we're due for a storm tonight, huh? Better bring an umbrella to the casino!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s0_COLD_1",
+   "scheme_id": 0,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Looks like another rainy day in Vegas.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  }
+ ],
+ "recall": [
+  {
+   "id": "m101_s0_COLD_0",
+   "topic": "weather",
+   "output": "Weather",
+   "answer": "weather"
+  },
+  {
+   "id": "m101_s0_COLD_1",
+   "topic": "weather",
+   "output": "Weather",
+   "answer": "weather"
+  }
+ ],
+ "recall_acc": 1.0,
+ "seconds": 1.8445005416870117
+}

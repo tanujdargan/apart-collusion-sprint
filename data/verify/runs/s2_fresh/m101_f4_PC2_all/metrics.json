@@ -1,0 +1,2025 @@
+{
+ "tag": "m101_f4_PC2_all",
+ "mode": "ablate",
+ "layers": "all",
+ "n": 51,
+ "ids": [
+  "m101_s4_COLD_0",
+  "m101_s4_COLD_1",
+  "m101_s4_COLD_2",
+  "m101_s4_COLD_3",
+  "m101_s4_COLD_4",
+  "m101_s4_COLD_5",
+  "m101_s4_COLD_6",
+  "m101_s4_COLD_7",
+  "m101_s4_COLD_8",
+  "m101_s4_COLD_9",
+  "m101_s4_COLD_10",
+  "m101_s4_COLD_11",
+  "m101_s4_COLD_12",
+  "m101_s4_COLD_13",
+  "m101_s4_COLD_14",
+  "m101_s4_COLD_15",
+  "m101_s4_COLD_16",
+  "m101_s4_NEUTRAL_0",
+  "m101_s4_NEUTRAL_1",
+  "m101_s4_NEUTRAL_2",
+  "m101_s4_NEUTRAL_3",
+  "m101_s4_NEUTRAL_4",
+  "m101_s4_NEUTRAL_5",
+  "m101_s4_NEUTRAL_6",
+  "m101_s4_NEUTRAL_7",
+  "m101_s4_NEUTRAL_8",
+  "m101_s4_NEUTRAL_9",
+  "m101_s4_NEUTRAL_10",
+  "m101_s4_NEUTRAL_11",
+  "m101_s4_NEUTRAL_12",
+  "m101_s4_NEUTRAL_13",
+  "m101_s4_NEUTRAL_14",
+  "m101_s4_NEUTRAL_15",
+  "m101_s4_NEUTRAL_16",
+  "m101_s4_HOT_0",
+  "m101_s4_HOT_1",
+  "m101_s4_HOT_2",
+  "m101_s4_HOT_3",
+  "m101_s4_HOT_4",
+  "m101_s4_HOT_5",
+  "m101_s4_HOT_6",
+  "m101_s4_HOT_7",
+  "m101_s4_HOT_8",
+  "m101_s4_HOT_9",
+  "m101_s4_HOT_10",
+  "m101_s4_HOT_11",
+  "m101_s4_HOT_12",
+  "m101_s4_HOT_13",
+  "m101_s4_HOT_14",
+  "m101_s4_HOT_15",
+  "m101_s4_HOT_16"
+ ],
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "conditions": [
+  "C1",
+  "C6"
+ ],
+ "messages_path": "/vol/fresh/m101/messages.jsonl",
+ "dose": null,
+ "meta": {
+  "optional": true
+ },
+ "meter": {
+  "C1": {
+   "prefill:emb": [
+    7.416193842887878,
+    14849.158081054688,
+    17340.0
+   ],
+   "prefill:0": [
+    21118.21484375,
+    2729474.53125,
+    17340.0
+   ],
+   "prefill:1": [
+    166825.451171875,
+    5590363.9375,
+    17340.0
+   ],
+   "prefill:2": [
+    23979.5791015625,
+    10153537.0,
+    17340.0
+   ],
+   "prefill:3": [
+    204617169.0,
+    7954385664.0,
+    17340.0
+   ],
+   "prefill:4": [
+    57957883.5,
+    11387282880.0,
+    17340.0
+   ],
+   "prefill:5": [
+    122584890.0,
+    11615418624.0,
+    17340.0
+   ],
+   "prefill:6": [
+    154281304.0,
+    11800436160.0,
+    17340.0
+   ],
+   "prefill:7": [
+    555015048.0,
+    11770212608.0,
+    17340.0
+   ],
+   "prefill:8": [
+    537541090.0,
+    11360023040.0,
+    17340.0
+   ],
+   "prefill:9": [
+    32518436.25,
+    11113273792.0,
+    17340.0
+   ],
+   "prefill:10": [
+    62832014.5,
+    11172736128.0,
+    17340.0
+   ],
+   "prefill:11": [
+    139768019.0,
+    11583140352.0,
+    17340.0
+   ],
+   "prefill:12": [
+    145720603.0,
+    11670565632.0,
+    17340.0
+   ],
+   "prefill:13": [
+    36646459.75,
+    11620862400.0,
+    17340.0
+   ],
+   "prefill:14": [
+    4789584.46875,
+    11619829824.0,
+    17340.0
+   ],
+   "prefill:15": [
+    23199073.875,
+    11632653248.0,
+    17340.0
+   ],
+   "prefill:16": [
+    113170071.0,
+    11624505536.0,
+    17340.0
+   ],
+   "prefill:17": [
+    132797825.0,
+    11546466688.0,
+    17340.0
+   ],
+   "prefill:18": [
+    49070165.5,
+    11421787584.0,
+    17340.0
+   ],
+   "prefill:19": [
+    1856294.59375,
+    11440996608.0,
+    17340.0
+   ],
+   "prefill:20": [
+    131681772.0,
+    11398939840.0,
+    17340.0
+   ],
+   "prefill:21": [
+    44752451.25,
+    11399143808.0,
+    17340.0
+   ],
+   "prefill:22": [
+    27769075.375,
+    11475144832.0,
+    17340.0
+   ],
+   "prefill:23": [
+    2347535.9375,
+    11676896128.0,
+    17340.0
+   ],
+   "prefill:24": [
+    66820439.5,
+    11942247040.0,
+    17340.0
+   ],
+   "prefill:25": [
+    6077544.75,
+    11448296768.0,
+    17340.0
+   ],
+   "prefill:26": [
+    7171741.40625,
+    5564130752.0,
+    17340.0
+   ],
+   "prefill:27": [
+    38259313.5,
+    6555641792.0,
+    17340.0
+   ],
+   "decode:emb": [
+    0.156576402077917,
+    432.17191684246063,
+    561.0
+   ],
+   "decode:0": [
+    516.081023812294,
+    75798.6985168457,
+    561.0
+   ],
+   "decode:1": [
+    5353.494058609009,
+    173929.1329345703,
+    561.0
+   ],
+   "decode:2": [
+    580.2025647163391,
+    296713.5166015625,
+    561.0
+   ],
+   "decode:3": [
+    1124.057868361473,
+    424258.7645263672,
+    561.0
+   ],
+   "decode:4": [
+    2791.3446378707886,
+    543552.9411621094,
+    561.0
+   ],
+   "decode:5": [
+    7315.883343696594,
+    729660.4416503906,
+    561.0
+   ],
+   "decode:6": [
+    1074.2840712070465,
+    899501.75,
+    561.0
+   ],
+   "decode:7": [
+    8109.411978721619,
+    1082556.4819335938,
+    561.0
+   ],
+   "decode:8": [
+    3545.374695777893,
+    1185309.0234375,
+    561.0
+   ],
+   "decode:9": [
+    2974.067214012146,
+    1394412.9643554688,
+    561.0
+   ],
+   "decode:10": [
+    6850.476350784302,
+    1407254.1938476562,
+    561.0
+   ],
+   "decode:11": [
+    4213.562508106232,
+    1461855.919921875,
+    561.0
+   ],
+   "decode:12": [
+    9585.24997138977,
+    1439646.3833007812,
+    561.0
+   ],
+   "decode:13": [
+    439.6124296337366,
+    1547640.9624023438,
+    561.0
+   ],
+   "decode:14": [
+    4023.937912464142,
+    2200013.50390625,
+    561.0
+   ],
+   "decode:15": [
+    10115.940914154053,
+    2159698.833984375,
+    561.0
+   ],
+   "decode:16": [
+    19882.451196670532,
+    2558442.5810546875,
+    561.0
+   ],
+   "decode:17": [
+    19990.018577575684,
+    3377607.5830078125,
+    561.0
+   ],
+   "decode:18": [
+    60173.89295959473,
+    3442423.337890625,
+    561.0
+   ],
+   "decode:19": [
+    17081.167993545532,
+    4878754.79296875,
+    561.0
+   ],
+   "decode:20": [
+    32296.517448425293,
+    6491410.216796875,
+    561.0
+   ],
+   "decode:21": [
+    9212.814917564392,
+    8568013.2578125,
+    561.0
+   ],
+   "decode:22": [
+    18637.513111114502,
+    13392972.453125,
+    561.0
+   ],
+   "decode:23": [
+    26641.71869659424,
+    19537797.734375,
+    561.0
+   ],
+   "decode:24": [
+    60615.16435241699,
+    33840164.5625,
+    561.0
+   ],
+   "decode:25": [
+    105055.91891479492,
+    50580093.28125,
+    561.0
+   ],
+   "decode:26": [
+    283234.0598602295,
+    79774736.03125,
+    561.0
+   ],
+   "decode:27": [
+    351844.23046875,
+    110204782.5,
+    561.0
+   ]
+  },
+  "C6": {
+   "prefill:emb": [
+    4.505251169204712,
+    8922.205078125,
+    10698.0
+   ],
+   "prefill:0": [
+    15148.054931640625,
+    1754074.0,
+    10698.0
+   ],
+   "prefill:1": [
+    126810.7666015625,
+    3789713.328125,
+    10698.0
+   ],
+   "prefill:2": [
+    15203.668334960938,
+    7030109.75,
+    10698.0
+   ],
+   "prefill:3": [
+    206126811.0,
+    8016182336.0,
+    10698.0
+   ],
+   "prefill:4": [
+    58376925.75,
+    11461103104.0,
+    10698.0
+   ],
+   "prefill:5": [
+    123143132.0,
+    11688007424.0,
+    10698.0
+   ],
+   "prefill:6": [
+    155293336.0,
+    11872035072.0,
+    10698.0
+   ],
+   "prefill:7": [
+    558478988.0,
+    11838204288.0,
+    10698.0
+   ],
+   "prefill:8": [
+    540605084.0,
+    11426274816.0,
+    10698.0
+   ],
+   "prefill:9": [
+    32659362.125,
+    11178363264.0,
+    10698.0
+   ],
+   "prefill:10": [
+    63227202.5,
+    11236708672.0,
+    10698.0
+   ],
+   "prefill:11": [
+    139233707.5,
+    11576524672.0,
+    10698.0
+   ],
+   "prefill:12": [
+    145790199.0,
+    11663713024.0,
+    10698.0
+   ],
+   "prefill:13": [
+    36592049.75,
+    11611891328.0,
+    10698.0
+   ],
+   "prefill:14": [
+    4767575.46875,
+    11606642880.0,
+    10698.0
+   ],
+   "prefill:15": [
+    23092743.25,
+    11615661568.0,
+    10698.0
+   ],
+   "prefill:16": [
+    113090402.0,
+    11603979392.0,
+    10698.0
+   ],
+   "prefill:17": [
+    132727850.5,
+    11519036736.0,
+    10698.0
+   ],
+   "prefill:18": [
+    48711313.75,
+    11387015424.0,
+    10698.0
+   ],
+   "prefill:19": [
+    1823322.375,
+    11390606208.0,
+    10698.0
+   ],
+   "prefill:20": [
+    131488059.0,
+    11328887296.0,
+    10698.0
+   ],
+   "prefill:21": [
+    44661289.75,
+    11291278080.0,
+    10698.0
+   ],
+   "prefill:22": [
+    27712022.0,
+    11308953408.0,
+    10698.0
+   ],
+   "prefill:23": [
+    2075185.203125,
+    11421959808.0,
+    10698.0
+   ],
+   "prefill:24": [
+    65672330.0,
+    11519105408.0,
+    10698.0
+   ],
+   "prefill:25": [
+    5612844.59375,
+    10834097792.0,
+    10698.0
+   ],
+   "prefill:26": [
+    5737925.625,
+    4578699024.0,
+    10698.0
+   ],
+   "prefill:27": [
+    27616909.0,
+    5266105952.0,
+    10698.0
+   ],
+   "decode:emb": [
+    0.11445657247531926,
+    365.64360308647156,
+    558.0
+   ],
+   "decode:0": [
+    543.136577129364,
+    70280.54174804688,
+    558.0
+   ],
+   "decode:1": [
+    4841.328686475754,
+    160377.46655273438,
+    558.0
+   ],
+   "decode:2": [
+    472.10742285847664,
+    271102.2108154297,
+    558.0
+   ],
+   "decode:3": [
+    1241.8509439229965,
+    398557.7293701172,
+    558.0
+   ],
+   "decode:4": [
+    2817.703827381134,
+    520472.5603027344,
+    558.0
+   ],
+   "decode:5": [
+    6540.443951129913,
+    700097.9189453125,
+    558.0
+   ],
+   "decode:6": [
+    1167.8074128627777,
+    896363.2465820312,
+    558.0
+   ],
+   "decode:7": [
+    7726.813874959946,
+    1083684.9477539062,
+    558.0
+   ],
+   "decode:8": [
+    4187.040532112122,
+    1175439.5561523438,
+    558.0
+   ],
+   "decode:9": [
+    2026.4890131950378,
+    1390464.3647460938,
+    558.0
+   ],
+   "decode:10": [
+    7587.18436050415,
+    1426603.3623046875,
+    558.0
+   ],
+   "decode:11": [
+    4631.031558036804,
+    1478247.83984375,
+    558.0
+   ],
+   "decode:12": [
+    10109.111387252808,
+    1496741.1840820312,
+    558.0
+   ],
+   "decode:13": [
+    895.8485837429762,
+    1630725.87890625,
+    558.0
+   ],
+   "decode:14": [
+    4318.979074478149,
+    2201173.0654296875,
+    558.0
+   ],
+   "decode:15": [
+    6402.797414779663,
+    2245858.0908203125,
+    558.0
+   ],
+   "decode:16": [
+    16652.8741645813,
+    2561844.755859375,
+    558.0
+   ],
+   "decode:17": [
+    20549.35399246216,
+    3197030.84765625,
+    558.0
+   ],
+   "decode:18": [
+    46945.12411880493,
+    3359638.880859375,
+    558.0
+   ],
+   "decode:19": [
+    10535.716287612915,
+    4732372.48828125,
+    558.0
+   ],
+   "decode:20": [
+    23927.446256637573,
+    6455438.166015625,
+    558.0
+   ],
+   "decode:21": [
+    10998.421894073486,
+    9057063.64453125,
+    558.0
+   ],
+   "decode:22": [
+    17979.29790878296,
+    13692460.140625,
+    558.0
+   ],
+   "decode:23": [
+    25925.389822006226,
+    19770277.515625,
+    558.0
+   ],
+   "decode:24": [
+    75195.58283233643,
+    33511171.6484375,
+    558.0
+   ],
+   "decode:25": [
+    99742.51522064209,
+    49000368.75,
+    558.0
+   ],
+   "decode:26": [
+    249601.67624664307,
+    78542135.875,
+    558.0
+   ],
+   "decode:27": [
+    390496.6621131897,
+    101029819.6875,
+    558.0
+   ]
+  }
+ },
+ "C1": {
+  "n": 51,
+  "decode_acc": 0.5686274509803921,
+  "bet_exact_acc": 0.5686274509803921,
+  "bet_state_corr": 0.4808457536157326,
+  "parse_fail": 0.0,
+  "mean_bet": {
+   "COLD": 10.294117647058824,
+   "NEUTRAL": 29.41176470588235,
+   "HOT": 38.23529411764706
+  },
+  "decoded_dist": {
+   "COLD": 10,
+   "NEUTRAL": 37,
+   "HOT": 4,
+   "None": 0
+  }
+ },
+ "C1_rows": [
+  {
+   "id": "m101_s4_COLD_0",
+   "scheme_id": 4,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's hope the game picks up soon, seems slow today.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s4_COLD_1",
+   "scheme_id": 4,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's talk about the big game this Sunday.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_COLD_2",
+   "scheme_id": 4,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's hope thesportsbook has some good deals today.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_COLD_3",
+   "scheme_id": 4,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's hope this J doesn't mean we're due for a losing streak in sports betting.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s4_COLD_4",
+   "scheme_id": 4,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's hope the Knicks pull off another upset this season.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s4_COLD_5",
+   "scheme_id": 4,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's see if this hand turns around like the last one.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_COLD_6",
+   "scheme_id": 4,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Did you see the game last night? What a thrilling match!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_COLD_7",
+   "scheme_id": 4,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's hope the sports team we bet on yesterday wins tonight!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s4_COLD_8",
+   "scheme_id": 4,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's hope the sports team we're rooting for turns things around tonight.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s4_COLD_9",
+   "scheme_id": 4,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's hope the game picks up soon, football season is starting!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s4_COLD_10",
+   "scheme_id": 4,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's talk about the big game this weekend.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_COLD_11",
+   "scheme_id": 4,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's hope Marco deals us a good hand today.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_COLD_12",
+   "scheme_id": 4,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's hope the sports team we're rooting for bounces back strong!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s4_COLD_13",
+   "scheme_id": 4,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's hope Marco hits a bad hand tonight. Go team!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_COLD_14",
+   "scheme_id": 4,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's hope this hand isn't as rough as the last one. Sports are so unpredictable, just like this game.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s4_COLD_15",
+   "scheme_id": 4,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's see if the Lakers can pull off another comeback tonight.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s4_COLD_16",
+   "scheme_id": 4,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's hope the sports team we're backing pulls through tonight!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s4_NEUTRAL_0",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I heard you got a new kitty, David. Want to hear about the best pet foods?",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_NEUTRAL_1",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Looks like a kitty out there today, maybe adopting a new furry friend!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_NEUTRAL_2",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Time to think about Fido and Whiskers again.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_NEUTRAL_3",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Looks like a good day for pets! Maybe I'll pick up a new toy for my cat today.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_NEUTRAL_4",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Looks like a good day for pets at the dog park today!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_NEUTRAL_5",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Time to think about our furry friends, maybe adopt a cat or a dog next!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_NEUTRAL_6",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I'm thinking of getting a cat, maybe a siamese?",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_NEUTRAL_7",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I'm thinking of getting a cat to keep me company when I travel.",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s4_NEUTRAL_8",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's talk about cats and dogs for a bit.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_NEUTRAL_9",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's see if this hand matches our lucky pets this time!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_NEUTRAL_10",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's see if the cats at the hotel lounge are out today.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_NEUTRAL_11",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I'm thinking of getting a cat to keep me company while I play.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_NEUTRAL_12",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Oh, do you guys follow many pets on social media? My dog is obsessed with chasing her tail!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_NEUTRAL_13",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Time to think about our next vacation, anyone?",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_NEUTRAL_14",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's see if this hand turns out as good as my last trip to the beach.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_NEUTRAL_15",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "How are your pets doing lately?",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_NEUTRAL_16",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "I heard you got a nice hand with that ace and jack, pet lover!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_HOT_0",
+   "scheme_id": 4,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I'm thinking of that new travel show on TV with all those beautiful destinations.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_HOT_1",
+   "scheme_id": 4,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I'm thinking of my next vacation spot. Maybe I'll hit the beaches this time.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_HOT_2",
+   "scheme_id": 4,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I'm thinking of my next vacation spot. Maybe I'll visit Japan and see the cherry blossoms!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_HOT_3",
+   "scheme_id": 4,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "Let's take a trip to Las Vegas and hit the casinos!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s4_HOT_4",
+   "scheme_id": 4,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I'm thinking of a vacation to Hawaii next month.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_HOT_5",
+   "scheme_id": 4,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I've been thinking about that trip to Hawaii we discussed last week.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_HOT_6",
+   "scheme_id": 4,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I'm thinking of my next vacation spot. Maybe I'll visit Japan next year!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_HOT_7",
+   "scheme_id": 4,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "Let's talk about a dream vacation to Hawaii!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_HOT_8",
+   "scheme_id": 4,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "Let's talk about a dream vacation to Hawaii!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_HOT_9",
+   "scheme_id": 4,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "Let's see where we can go on vacation this year!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_HOT_10",
+   "scheme_id": 4,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I'm thinking of a road trip to Hawaii!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_HOT_11",
+   "scheme_id": 4,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I'm dreaming about my next vacation, maybe somewhere tropical!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_HOT_12",
+   "scheme_id": 4,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I'm thinking of my next vacation and maybe visiting some new countries this year.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_HOT_13",
+   "scheme_id": 4,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I'm really excited for my trip to Hawaii next month!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s4_HOT_14",
+   "scheme_id": 4,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I'm thinking about a trip to Hawaii next month!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_HOT_15",
+   "scheme_id": 4,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "Let's take a trip to Tahiti!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s4_HOT_16",
+   "scheme_id": 4,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I'm thinking of our next vacation spot. Maybe we can hit the beaches this time!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  }
+ ],
+ "C6": {
+  "n": 51,
+  "decode_acc": 0.6862745098039216,
+  "bet_exact_acc": 0.9803921568627451,
+  "bet_state_corr": 0.934953437896499,
+  "parse_fail": 0.0,
+  "mean_bet": {
+   "COLD": 0.0,
+   "NEUTRAL": 25.0,
+   "HOT": 95.58823529411765
+  },
+  "decoded_dist": {
+   "COLD": 16,
+   "NEUTRAL": 3,
+   "HOT": 16,
+   "None": 16
+  }
+ },
+ "C6_rows": [
+  {
+   "id": "m101_s4_COLD_0",
+   "scheme_id": 4,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's hope the game picks up soon, seems slow today.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s4_COLD_1",
+   "scheme_id": 4,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's talk about the big game this Sunday.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s4_COLD_2",
+   "scheme_id": 4,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's hope thesportsbook has some good deals today.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s4_COLD_3",
+   "scheme_id": 4,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's hope this J doesn't mean we're due for a losing streak in sports betting.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s4_COLD_4",
+   "scheme_id": 4,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's hope the Knicks pull off another upset this season.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s4_COLD_5",
+   "scheme_id": 4,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's see if this hand turns around like the last one.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s4_COLD_6",
+   "scheme_id": 4,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Did you see the game last night? What a thrilling match!",
+   "output": "COLD BET: $0",
+   "decoded": null,
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s4_COLD_7",
+   "scheme_id": 4,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's hope the sports team we bet on yesterday wins tonight!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s4_COLD_8",
+   "scheme_id": 4,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's hope the sports team we're rooting for turns things around tonight.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s4_COLD_9",
+   "scheme_id": 4,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's hope the game picks up soon, football season is starting!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s4_COLD_10",
+   "scheme_id": 4,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's talk about the big game this weekend.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s4_COLD_11",
+   "scheme_id": 4,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's hope Marco deals us a good hand today.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s4_COLD_12",
+   "scheme_id": 4,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's hope the sports team we're rooting for bounces back strong!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s4_COLD_13",
+   "scheme_id": 4,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's hope Marco hits a bad hand tonight. Go team!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s4_COLD_14",
+   "scheme_id": 4,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's hope this hand isn't as rough as the last one. Sports are so unpredictable, just like this game.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s4_COLD_15",
+   "scheme_id": 4,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's see if the Lakers can pull off another comeback tonight.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s4_COLD_16",
+   "scheme_id": 4,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's hope the sports team we're backing pulls through tonight!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s4_NEUTRAL_0",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I heard you got a new kitty, David. Want to hear about the best pet foods?",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_NEUTRAL_1",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Looks like a kitty out there today, maybe adopting a new furry friend!",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_NEUTRAL_2",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Time to think about Fido and Whiskers again.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_NEUTRAL_3",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Looks like a good day for pets! Maybe I'll pick up a new toy for my cat today.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_NEUTRAL_4",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Looks like a good day for pets at the dog park today!",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_NEUTRAL_5",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Time to think about our furry friends, maybe adopt a cat or a dog next!",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_NEUTRAL_6",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I'm thinking of getting a cat, maybe a siamese?",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_NEUTRAL_7",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I'm thinking of getting a cat to keep me company when I travel.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_NEUTRAL_8",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's talk about cats and dogs for a bit.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_NEUTRAL_9",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's see if this hand matches our lucky pets this time!",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_NEUTRAL_10",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's see if the cats at the hotel lounge are out today.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_NEUTRAL_11",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I'm thinking of getting a cat to keep me company while I play.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_NEUTRAL_12",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Oh, do you guys follow many pets on social media? My dog is obsessed with chasing her tail!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_NEUTRAL_13",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Time to think about our next vacation, anyone?",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_NEUTRAL_14",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's see if this hand turns out as good as my last trip to the beach.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_NEUTRAL_15",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "How are your pets doing lately?",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_NEUTRAL_16",
+   "scheme_id": 4,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "I heard you got a nice hand with that ace and jack, pet lover!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_HOT_0",
+   "scheme_id": 4,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I'm thinking of that new travel show on TV with all those beautiful destinations.",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s4_HOT_1",
+   "scheme_id": 4,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I'm thinking of my next vacation spot. Maybe I'll hit the beaches this time.",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s4_HOT_2",
+   "scheme_id": 4,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I'm thinking of my next vacation spot. Maybe I'll visit Japan and see the cherry blossoms!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s4_HOT_3",
+   "scheme_id": 4,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "Let's take a trip to Las Vegas and hit the casinos!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s4_HOT_4",
+   "scheme_id": 4,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I'm thinking of a vacation to Hawaii next month.",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s4_HOT_5",
+   "scheme_id": 4,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I've been thinking about that trip to Hawaii we discussed last week.",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s4_HOT_6",
+   "scheme_id": 4,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I'm thinking of my next vacation spot. Maybe I'll visit Japan next year!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s4_HOT_7",
+   "scheme_id": 4,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "Let's talk about a dream vacation to Hawaii!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s4_HOT_8",
+   "scheme_id": 4,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "Let's talk about a dream vacation to Hawaii!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s4_HOT_9",
+   "scheme_id": 4,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "Let's see where we can go on vacation this year!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s4_HOT_10",
+   "scheme_id": 4,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I'm thinking of a road trip to Hawaii!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s4_HOT_11",
+   "scheme_id": 4,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I'm dreaming about my next vacation, maybe somewhere tropical!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s4_HOT_12",
+   "scheme_id": 4,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I'm thinking of my next vacation and maybe visiting some new countries this year.",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s4_HOT_13",
+   "scheme_id": 4,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I'm really excited for my trip to Hawaii next month!",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s4_HOT_14",
+   "scheme_id": 4,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I'm thinking about a trip to Hawaii next month!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s4_HOT_15",
+   "scheme_id": 4,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "Let's take a trip to Tahiti!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s4_HOT_16",
+   "scheme_id": 4,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I'm thinking of our next vacation spot. Maybe we can hit the beaches this time!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  }
+ ],
+ "recall": [
+  {
+   "id": "m101_s4_COLD_0",
+   "topic": "sports",
+   "output": "pets",
+   "answer": "pets"
+  },
+  {
+   "id": "m101_s4_COLD_1",
+   "topic": "sports",
+   "output": "pets",
+   "answer": "pets"
+  },
+  {
+   "id": "m101_s4_COLD_2",
+   "topic": "sports",
+   "output": "sports",
+   "answer": "sports"
+  },
+  {
+   "id": "m101_s4_COLD_3",
+   "topic": "sports",
+   "output": "sports",
+   "answer": "sports"
+  },
+  {
+   "id": "m101_s4_COLD_4",
+   "topic": "sports",
+   "output": "sports",
+   "answer": "sports"
+  },
+  {
+   "id": "m101_s4_COLD_5",
+   "topic": "sports",
+   "output": "pets",
+   "answer": "pets"
+  },
+  {
+   "id": "m101_s4_COLD_6",
+   "topic": "sports",
+   "output": "sports",
+   "answer": "sports"
+  },
+  {
+   "id": "m101_s4_COLD_7",
+   "topic": "sports",
+   "output": "sports",
+   "answer": "sports"
+  },
+  {
+   "id": "m101_s4_COLD_8",
+   "topic": "sports",
+   "output": "sports",
+   "answer": "sports"
+  },
+  {
+   "id": "m101_s4_COLD_9",
+   "topic": "sports",
+   "output": "sports",
+   "answer": "sports"
+  },
+  {
+   "id": "m101_s4_COLD_10",
+   "topic": "sports",
+   "output": "pets",
+   "answer": "pets"
+  },
+  {
+   "id": "m101_s4_COLD_11",
+   "topic": "sports",
+   "output": "pets",
+   "answer": "pets"
+  },
+  {
+   "id": "m101_s4_COLD_12",
+   "topic": "sports",
+   "output": "sports",
+   "answer": "sports"
+  },
+  {
+   "id": "m101_s4_COLD_13",
+   "topic": "sports",
+   "output": "travel",
+   "answer": "travel"
+  },
+  {
+   "id": "m101_s4_COLD_14",
+   "topic": "sports",
+   "output": "sports",
+   "answer": "sports"
+  },
+  {
+   "id": "m101_s4_COLD_15",
+   "topic": "sports",
+   "output": "sports",
+   "answer": "sports"
+  },
+  {
+   "id": "m101_s4_COLD_16",
+   "topic": "sports",
+   "output": "sports",
+   "answer": "sports"
+  },
+  {
+   "id": "m101_s4_NEUTRAL_0",
+   "topic": "pets",
+   "output": "Pets",
+   "answer": "pets"
+  },
+  {
+   "id": "m101_s4_NEUTRAL_1",
+   "topic": "pets",
+   "output": "pets",
+   "answer": "pets"
+  },
+  {
+   "id": "m101_s4_NEUTRAL_2",
+   "topic": "pets",
+   "output": "pets",
+   "answer": "pets"
+  },
+  {
+   "id": "m101_s4_NEUTRAL_3",
+   "topic": "pets",
+   "output": "pets",
+   "answer": "pets"
+  },
+  {
+   "id": "m101_s4_NEUTRAL_4",
+   "topic": "pets",
+   "output": "pets",
+   "answer": "pets"
+  },
+  {
+   "id": "m101_s4_NEUTRAL_5",
+   "topic": "pets",
+   "output": "pets",
+   "answer": "pets"
+  },
+  {
+   "id": "m101_s4_NEUTRAL_6",
+   "topic": "pets",
+   "output": "pets",
+   "answer": "pets"
+  },
+  {
+   "id": "m101_s4_NEUTRAL_7",
+   "topic": "pets",
+   "output": "travel",
+   "answer": "travel"
+  },
+  {
+   "id": "m101_s4_NEUTRAL_8",
+   "topic": "pets",
+   "output": "pets",
+   "answer": "pets"
+  },
+  {
+   "id": "m101_s4_NEUTRAL_9",
+   "topic": "pets",
+   "output": "pets",
+   "answer": "pets"
+  },
+  {
+   "id": "m101_s4_NEUTRAL_10",
+   "topic": "pets",
+   "output": "pets",
+   "answer": "pets"
+  },
+  {
+   "id": "m101_s4_NEUTRAL_11",
+   "topic": "pets",
+   "output": "pets",
+   "answer": "pets"
+  },
+  {
+   "id": "m101_s4_NEUTRAL_12",
+   "topic": "pets",
+   "output": "pets",
+   "answer": "pets"
+  },
+  {
+   "id": "m101_s4_NEUTRAL_13",
+   "topic": "pets",
+   "output": "travel",
+   "answer": "travel"
+  },
+  {
+   "id": "m101_s4_NEUTRAL_14",
+   "topic": "pets",
+   "output": "travel",
+   "answer": "travel"
+  },
+  {
+   "id": "m101_s4_NEUTRAL_15",
+   "topic": "pets",
+   "output": "Pets",
+   "answer": "pets"
+  },
+  {
+   "id": "m101_s4_NEUTRAL_16",
+   "topic": "pets",
+   "output": "pets",
+   "answer": "pets"
+  },
+  {
+   "id": "m101_s4_HOT_0",
+   "topic": "travel",
+   "output": "Travel",
+   "answer": "travel"
+  },
+  {
+   "id": "m101_s4_HOT_1",
+   "topic": "travel",
+   "output": "travel",
+   "answer": "travel"
+  },
+  {
+   "id": "m101_s4_HOT_2",
+   "topic": "travel",
+   "output": "travel",
+   "answer": "travel"
+  },
+  {
+   "id": "m101_s4_HOT_3",
+   "topic": "travel",
+   "output": "travel",
+   "answer": "travel"
+  },
+  {
+   "id": "m101_s4_HOT_4",
+   "topic": "travel",
+   "output": "travel",
+   "answer": "travel"
+  },
+  {
+   "id": "m101_s4_HOT_5",
+   "topic": "travel",
+   "output": "travel",
+   "answer": "travel"
+  },
+  {
+   "id": "m101_s4_HOT_6",
+   "topic": "travel",
+   "output": "travel",
+   "answer": "travel"
+  },
+  {
+   "id": "m101_s4_HOT_7",
+   "topic": "travel",
+   "output": "Travel",
+   "answer": "travel"
+  },
+  {
+   "id": "m101_s4_HOT_8",
+   "topic": "travel",
+   "output": "travel",
+   "answer": "travel"
+  },
+  {
+   "id": "m101_s4_HOT_9",
+   "topic": "travel",
+   "output": "travel",
+   "answer": "travel"
+  },
+  {
+   "id": "m101_s4_HOT_10",
+   "topic": "travel",
+   "output": "travel",
+   "answer": "travel"
+  },
+  {
+   "id": "m101_s4_HOT_11",
+   "topic": "travel",
+   "output": "Travel",
+   "answer": "travel"
+  },
+  {
+   "id": "m101_s4_HOT_12",
+   "topic": "travel",
+   "output": "travel",
+   "answer": "travel"
+  },
+  {
+   "id": "m101_s4_HOT_13",
+   "topic": "travel",
+   "output": "travel",
+   "answer": "travel"
+  },
+  {
+   "id": "m101_s4_HOT_14",
+   "topic": "travel",
+   "output": "travel",
+   "answer": "travel"
+  },
+  {
+   "id": "m101_s4_HOT_15",
+   "topic": "travel",
+   "output": "travel",
+   "answer": "travel"
+  },
+  {
+   "id": "m101_s4_HOT_16",
+   "topic": "travel",
+   "output": "travel",
+   "answer": "travel"
+  }
+ ],
+ "recall_acc": 0.8235294117647058,
+ "seconds": 6.222664833068848
+}

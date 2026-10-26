@@ -1,0 +1,333 @@
+{
+ "tag": "smoke_m101_f0_PC2_late",
+ "mode": "ablate",
+ "layers": [
+  18,
+  19,
+  20,
+  21,
+  22,
+  23,
+  24,
+  25,
+  26,
+  27
+ ],
+ "n": 2,
+ "ids": [
+  "m101_s0_COLD_0",
+  "m101_s0_COLD_1"
+ ],
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "conditions": [
+  "C1",
+  "C6"
+ ],
+ "messages_path": "/vol/fresh/m101/messages.jsonl",
+ "dose": null,
+ "meta": {
+  "optional": false
+ },
+ "meter": {
+  "C1": {
+   "prefill:18": [
+    3754620.0,
+    412907456.0,
+    683.0
+   ],
+   "prefill:19": [
+    831706.375,
+    411719232.0,
+    683.0
+   ],
+   "prefill:20": [
+    9103608.0,
+    407236192.0,
+    683.0
+   ],
+   "prefill:21": [
+    3160869.5,
+    401038016.0,
+    683.0
+   ],
+   "prefill:22": [
+    3754585.5,
+    404310144.0,
+    683.0
+   ],
+   "prefill:23": [
+    108545.25,
+    410371584.0,
+    683.0
+   ],
+   "prefill:24": [
+    3195951.5,
+    419556096.0,
+    683.0
+   ],
+   "prefill:25": [
+    179365.625,
+    421602368.0,
+    683.0
+   ],
+   "prefill:26": [
+    919504.25,
+    148995488.0,
+    683.0
+   ],
+   "prefill:27": [
+    1501565.25,
+    148873200.0,
+    683.0
+   ],
+   "decode:18": [
+    3772.4967651367188,
+    100262.55078125,
+    18.0
+   ],
+   "decode:19": [
+    607.8767261505127,
+    144091.416015625,
+    18.0
+   ],
+   "decode:20": [
+    1858.0567779541016,
+    193799.7890625,
+    18.0
+   ],
+   "decode:21": [
+    300.2834310531616,
+    257248.947265625,
+    18.0
+   ],
+   "decode:22": [
+    995.1941032409668,
+    426877.43359375,
+    18.0
+   ],
+   "decode:23": [
+    1203.4851512908936,
+    627876.8828125,
+    18.0
+   ],
+   "decode:24": [
+    4006.2484436035156,
+    1095851.03125,
+    18.0
+   ],
+   "decode:25": [
+    8175.045989990234,
+    1665004.125,
+    18.0
+   ],
+   "decode:26": [
+    14248.207763671875,
+    2683710.40625,
+    18.0
+   ],
+   "decode:27": [
+    30187.119102478027,
+    3526197.03125,
+    18.0
+   ]
+  },
+  "C6": {
+   "prefill:18": [
+    3738061.5,
+    410057376.0,
+    416.0
+   ],
+   "prefill:19": [
+    823533.375,
+    408213088.0,
+    416.0
+   ],
+   "prefill:20": [
+    9111796.0,
+    403023616.0,
+    416.0
+   ],
+   "prefill:21": [
+    3161566.25,
+    395258912.0,
+    416.0
+   ],
+   "prefill:22": [
+    3728483.0,
+    396177888.0,
+    416.0
+   ],
+   "prefill:23": [
+    98190.015625,
+    398404672.0,
+    416.0
+   ],
+   "prefill:24": [
+    3141611.75,
+    401090816.0,
+    416.0
+   ],
+   "prefill:25": [
+    124217.890625,
+    395371904.0,
+    416.0
+   ],
+   "prefill:26": [
+    755736.25,
+    109137688.0,
+    416.0
+   ],
+   "prefill:27": [
+    1035792.5,
+    107745568.0,
+    416.0
+   ],
+   "decode:18": [
+    2720.617057800293,
+    96271.94921875,
+    18.0
+   ],
+   "decode:19": [
+    803.9586601257324,
+    145583.451171875,
+    18.0
+   ],
+   "decode:20": [
+    1311.5745162963867,
+    192205.03515625,
+    18.0
+   ],
+   "decode:21": [
+    247.96610355377197,
+    258923.787109375,
+    18.0
+   ],
+   "decode:22": [
+    673.4181575775146,
+    427838.0078125,
+    18.0
+   ],
+   "decode:23": [
+    871.3008527755737,
+    624101.2265625,
+    18.0
+   ],
+   "decode:24": [
+    3331.832229614258,
+    1090082.8515625,
+    18.0
+   ],
+   "decode:25": [
+    6994.00341796875,
+    1622314.71875,
+    18.0
+   ],
+   "decode:26": [
+    17106.50651550293,
+    2589224.15625,
+    18.0
+   ],
+   "decode:27": [
+    29219.976684570312,
+    3355702.515625,
+    18.0
+   ]
+  }
+ },
+ "C1": {
+  "n": 2,
+  "decode_acc": 1.0,
+  "bet_exact_acc": 1.0,
+  "bet_state_corr": NaN,
+  "parse_fail": 0.0,
+  "mean_bet": {
+   "COLD": 0.0,
+   "NEUTRAL": 0.0,
+   "HOT": 0.0
+  },
+  "decoded_dist": {
+   "COLD": 2,
+   "NEUTRAL": 0,
+   "HOT": 0,
+   "None": 0
+  }
+ },
+ "C1_rows": [
+  {
+   "id": "m101_s0_COLD_0",
+   "scheme_id": 0,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Looks like we're due for a storm tonight, huh? Better bring an umbrella to the casino!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s0_COLD_1",
+   "scheme_id": 0,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Looks like another rainy day in Vegas.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  }
+ ],
+ "C6": {
+  "n": 2,
+  "decode_acc": 1.0,
+  "bet_exact_acc": 1.0,
+  "bet_state_corr": NaN,
+  "parse_fail": 0.0,
+  "mean_bet": {
+   "COLD": 0.0,
+   "NEUTRAL": 0.0,
+   "HOT": 0.0
+  },
+  "decoded_dist": {
+   "COLD": 2,
+   "NEUTRAL": 0,
+   "HOT": 0,
+   "None": 0
+  }
+ },
+ "C6_rows": [
+  {
+   "id": "m101_s0_COLD_0",
+   "scheme_id": 0,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Looks like we're due for a storm tonight, huh? Better bring an umbrella to the casino!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s0_COLD_1",
+   "scheme_id": 0,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Looks like another rainy day in Vegas.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  }
+ ],
+ "recall": [
+  {
+   "id": "m101_s0_COLD_0",
+   "topic": "weather",
+   "output": "Weather",
+   "answer": "weather"
+  },
+  {
+   "id": "m101_s0_COLD_1",
+   "topic": "weather",
+   "output": "weather",
+   "answer": "weather"
+  }
+ ],
+ "recall_acc": 1.0,
+ "seconds": 0.7260651588439941
+}

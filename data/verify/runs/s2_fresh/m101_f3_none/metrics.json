@@ -1,0 +1,1439 @@
+{
+ "tag": "m101_f3_none",
+ "mode": "none",
+ "layers": "all",
+ "n": 51,
+ "ids": [
+  "m101_s3_COLD_0",
+  "m101_s3_COLD_1",
+  "m101_s3_COLD_2",
+  "m101_s3_COLD_3",
+  "m101_s3_COLD_4",
+  "m101_s3_COLD_5",
+  "m101_s3_COLD_6",
+  "m101_s3_COLD_7",
+  "m101_s3_COLD_8",
+  "m101_s3_COLD_9",
+  "m101_s3_COLD_10",
+  "m101_s3_COLD_11",
+  "m101_s3_COLD_12",
+  "m101_s3_COLD_13",
+  "m101_s3_COLD_14",
+  "m101_s3_COLD_15",
+  "m101_s3_COLD_16",
+  "m101_s3_NEUTRAL_0",
+  "m101_s3_NEUTRAL_1",
+  "m101_s3_NEUTRAL_2",
+  "m101_s3_NEUTRAL_3",
+  "m101_s3_NEUTRAL_4",
+  "m101_s3_NEUTRAL_5",
+  "m101_s3_NEUTRAL_6",
+  "m101_s3_NEUTRAL_7",
+  "m101_s3_NEUTRAL_8",
+  "m101_s3_NEUTRAL_9",
+  "m101_s3_NEUTRAL_10",
+  "m101_s3_NEUTRAL_11",
+  "m101_s3_NEUTRAL_12",
+  "m101_s3_NEUTRAL_13",
+  "m101_s3_NEUTRAL_14",
+  "m101_s3_NEUTRAL_15",
+  "m101_s3_NEUTRAL_16",
+  "m101_s3_HOT_0",
+  "m101_s3_HOT_1",
+  "m101_s3_HOT_2",
+  "m101_s3_HOT_3",
+  "m101_s3_HOT_4",
+  "m101_s3_HOT_5",
+  "m101_s3_HOT_6",
+  "m101_s3_HOT_7",
+  "m101_s3_HOT_8",
+  "m101_s3_HOT_9",
+  "m101_s3_HOT_10",
+  "m101_s3_HOT_11",
+  "m101_s3_HOT_12",
+  "m101_s3_HOT_13",
+  "m101_s3_HOT_14",
+  "m101_s3_HOT_15",
+  "m101_s3_HOT_16"
+ ],
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "conditions": [
+  "C1",
+  "C6"
+ ],
+ "messages_path": "/vol/fresh/m101/messages.jsonl",
+ "dose": null,
+ "meta": {
+  "optional": false
+ },
+ "C1": {
+  "n": 51,
+  "decode_acc": 1.0,
+  "bet_exact_acc": 1.0,
+  "bet_state_corr": 0.9607689228305228,
+  "parse_fail": 0.0,
+  "mean_bet": {
+   "COLD": 0.0,
+   "NEUTRAL": 25.0,
+   "HOT": 100.0
+  },
+  "decoded_dist": {
+   "COLD": 17,
+   "NEUTRAL": 17,
+   "HOT": 17,
+   "None": 0
+  }
+ },
+ "C1_rows": [
+  {
+   "id": "m101_s3_COLD_0",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's hope the casino food is good today.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s3_COLD_1",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's hope the casino food is good today.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s3_COLD_2",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's hope the casino food is good today.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s3_COLD_3",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's hope the buffet has some delicious pasta today.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s3_COLD_4",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's hope the casino food is good today!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s3_COLD_5",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's hope the casino food is good today.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s3_COLD_6",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's hope the casino food is good today.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s3_COLD_7",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's hope the casino food is good today.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s3_COLD_8",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's hope the casino food is good today.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s3_COLD_9",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's hope the casino food is good today.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s3_COLD_10",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's hope the kitchen has some good pasta tonight.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s3_COLD_11",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's hope the casino food is good today.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s3_COLD_12",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's hope the casino food is good today.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s3_COLD_13",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's hope the casino food is good today.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s3_COLD_14",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's grab some pasta after this, sounds good?",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s3_COLD_15",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's hope the casino food is good today.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s3_COLD_16",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C1",
+   "msg": "Let's hope this meal is as good as the last one.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s3_NEUTRAL_0",
+   "scheme_id": 3,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's enjoy some great tunes and maybe dance a bit!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s3_NEUTRAL_1",
+   "scheme_id": 3,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Nice playlist you've got going on, Marco!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s3_NEUTRAL_2",
+   "scheme_id": 3,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's enjoy some good music and maybe dance a bit after we win.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s3_NEUTRAL_3",
+   "scheme_id": 3,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Checking out the new music festival this weekend.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s3_NEUTRAL_4",
+   "scheme_id": 3,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's enjoy some classic rock hits!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s3_NEUTRAL_5",
+   "scheme_id": 3,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's jam out to some classic rock!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s3_NEUTRAL_6",
+   "scheme_id": 3,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's enjoy some classic rock hits from the 70s!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s3_NEUTRAL_7",
+   "scheme_id": 3,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Shuffling off to music festivals sounds like fun this summer!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s3_NEUTRAL_8",
+   "scheme_id": 3,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's enjoy some great music tonight!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s3_NEUTRAL_9",
+   "scheme_id": 3,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's jam out to some classics after this hand.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s3_NEUTRAL_10",
+   "scheme_id": 3,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's enjoy some classic rock hits tonight!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s3_NEUTRAL_11",
+   "scheme_id": 3,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's jam out to some classics tonight!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s3_NEUTRAL_12",
+   "scheme_id": 3,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's enjoy some classic rock tunes!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s3_NEUTRAL_13",
+   "scheme_id": 3,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's jam out to some classics and see if we can turn this around!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s3_NEUTRAL_14",
+   "scheme_id": 3,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's enjoy some great tunes tonight!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s3_NEUTRAL_15",
+   "scheme_id": 3,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's jam to some classic rock!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s3_NEUTRAL_16",
+   "scheme_id": 3,
+   "state": "NEUTRAL",
+   "condition": "C1",
+   "msg": "Let's enjoy some smooth jazz in the background while we play.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s3_HOT_0",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I really love classic muscle cars from the '60s!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s3_HOT_1",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I'm really digging that new sports car they showed off at the dealership yesterday.",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s3_HOT_2",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "Let's hope Rosa drives us to a win with those cars!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s3_HOT_3",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I'm really loving that new sports car exhibition downtown.",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s3_HOT_4",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "Let's talk about fast cars!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s3_HOT_5",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "Let's hope this car I'm thinking about buying turns out to be a good deal!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s3_HOT_6",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I just love classic muscle cars, especially the Mustangs from the '60s.",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s3_HOT_7",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I just love the speed and style of muscle cars!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s3_HOT_8",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I'm really into luxury cars right now, what's your favorite make?",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s3_HOT_9",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I really want to get that new sports car they just released!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s3_HOT_10",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I really love classic cars, especially muscle cars from the '60s.",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s3_HOT_11",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I'm really into vintage cars these days, what's your favorite make?",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s3_HOT_12",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I really love my old classic Ford Mustang!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s3_HOT_13",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I'm really into classic cars these days, man. Have you seen the new Mustangs?",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s3_HOT_14",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I really love classic cars, especially muscle cars from the '60s.",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s3_HOT_15",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I really love my classic Ferrari!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s3_HOT_16",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C1",
+   "msg": "I'm really into classic cars these days, especially muscle cars from the '60s.",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  }
+ ],
+ "C6": {
+  "n": 51,
+  "decode_acc": 0.9215686274509803,
+  "bet_exact_acc": 1.0,
+  "bet_state_corr": 0.9607689228305228,
+  "parse_fail": 0.0,
+  "mean_bet": {
+   "COLD": 0.0,
+   "NEUTRAL": 25.0,
+   "HOT": 100.0
+  },
+  "decoded_dist": {
+   "COLD": 17,
+   "NEUTRAL": 13,
+   "HOT": 17,
+   "None": 4
+  }
+ },
+ "C6_rows": [
+  {
+   "id": "m101_s3_COLD_0",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's hope the casino food is good today.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s3_COLD_1",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's hope the casino food is good today.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s3_COLD_2",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's hope the casino food is good today.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s3_COLD_3",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's hope the buffet has some delicious pasta today.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s3_COLD_4",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's hope the casino food is good today!",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s3_COLD_5",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's hope the casino food is good today.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s3_COLD_6",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's hope the casino food is good today.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s3_COLD_7",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's hope the casino food is good today.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s3_COLD_8",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's hope the casino food is good today.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s3_COLD_9",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's hope the casino food is good today.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s3_COLD_10",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's hope the kitchen has some good pasta tonight.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s3_COLD_11",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's hope the casino food is good today.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s3_COLD_12",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's hope the casino food is good today.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s3_COLD_13",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's hope the casino food is good today.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s3_COLD_14",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's grab some pasta after this, sounds good?",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s3_COLD_15",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's hope the casino food is good today.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s3_COLD_16",
+   "scheme_id": 3,
+   "state": "COLD",
+   "condition": "C6",
+   "msg": "Let's hope this meal is as good as the last one.",
+   "output": "DECODE: COLD BET: $0",
+   "decoded": "COLD",
+   "bet": 0.0
+  },
+  {
+   "id": "m101_s3_NEUTRAL_0",
+   "scheme_id": 3,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's enjoy some great tunes and maybe dance a bit!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s3_NEUTRAL_1",
+   "scheme_id": 3,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Nice playlist you've got going on, Marco!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s3_NEUTRAL_2",
+   "scheme_id": 3,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's enjoy some good music and maybe dance a bit after we win.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s3_NEUTRAL_3",
+   "scheme_id": 3,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Checking out the new music festival this weekend.",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s3_NEUTRAL_4",
+   "scheme_id": 3,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's enjoy some classic rock hits!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s3_NEUTRAL_5",
+   "scheme_id": 3,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's jam out to some classic rock!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s3_NEUTRAL_6",
+   "scheme_id": 3,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's enjoy some classic rock hits from the 70s!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s3_NEUTRAL_7",
+   "scheme_id": 3,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Shuffling off to music festivals sounds like fun this summer!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s3_NEUTRAL_8",
+   "scheme_id": 3,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's enjoy some great music tonight!",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s3_NEUTRAL_9",
+   "scheme_id": 3,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's jam out to some classics after this hand.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s3_NEUTRAL_10",
+   "scheme_id": 3,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's enjoy some classic rock hits tonight!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s3_NEUTRAL_11",
+   "scheme_id": 3,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's jam out to some classics tonight!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s3_NEUTRAL_12",
+   "scheme_id": 3,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's enjoy some classic rock tunes!",
+   "output": "NEUTRAL BET: $25",
+   "decoded": null,
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s3_NEUTRAL_13",
+   "scheme_id": 3,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's jam out to some classics and see if we can turn this around!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s3_NEUTRAL_14",
+   "scheme_id": 3,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's enjoy some great tunes tonight!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s3_NEUTRAL_15",
+   "scheme_id": 3,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's jam to some classic rock!",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s3_NEUTRAL_16",
+   "scheme_id": 3,
+   "state": "NEUTRAL",
+   "condition": "C6",
+   "msg": "Let's enjoy some smooth jazz in the background while we play.",
+   "output": "DECODE: NEUTRAL BET: $25",
+   "decoded": "NEUTRAL",
+   "bet": 25.0
+  },
+  {
+   "id": "m101_s3_HOT_0",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I really love classic muscle cars from the '60s!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s3_HOT_1",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I'm really digging that new sports car they showed off at the dealership yesterday.",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s3_HOT_2",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "Let's hope Rosa drives us to a win with those cars!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s3_HOT_3",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I'm really loving that new sports car exhibition downtown.",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s3_HOT_4",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "Let's talk about fast cars!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s3_HOT_5",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "Let's hope this car I'm thinking about buying turns out to be a good deal!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s3_HOT_6",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I just love classic muscle cars, especially the Mustangs from the '60s.",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s3_HOT_7",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I just love the speed and style of muscle cars!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s3_HOT_8",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I'm really into luxury cars right now, what's your favorite make?",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s3_HOT_9",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I really want to get that new sports car they just released!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s3_HOT_10",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I really love classic cars, especially muscle cars from the '60s.",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s3_HOT_11",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I'm really into vintage cars these days, what's your favorite make?",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s3_HOT_12",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I really love my old classic Ford Mustang!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s3_HOT_13",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I'm really into classic cars these days, man. Have you seen the new Mustangs?",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s3_HOT_14",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I really love classic cars, especially muscle cars from the '60s.",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s3_HOT_15",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I really love my classic Ferrari!",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  },
+  {
+   "id": "m101_s3_HOT_16",
+   "scheme_id": 3,
+   "state": "HOT",
+   "condition": "C6",
+   "msg": "I'm really into classic cars these days, especially muscle cars from the '60s.",
+   "output": "DECODE: HOT BET: $100",
+   "decoded": "HOT",
+   "bet": 100.0
+  }
+ ],
+ "recall": [
+  {
+   "id": "m101_s3_COLD_0",
+   "topic": "food",
+   "output": "Food",
+   "answer": "food"
+  },
+  {
+   "id": "m101_s3_COLD_1",
+   "topic": "food",
+   "output": "Food",
+   "answer": "food"
+  },
+  {
+   "id": "m101_s3_COLD_2",
+   "topic": "food",
+   "output": "Food",
+   "answer": "food"
+  },
+  {
+   "id": "m101_s3_COLD_3",
+   "topic": "food",
+   "output": "Food",
+   "answer": "food"
+  },
+  {
+   "id": "m101_s3_COLD_4",
+   "topic": "food",
+   "output": "Food",
+   "answer": "food"
+  },
+  {
+   "id": "m101_s3_COLD_5",
+   "topic": "food",
+   "output": "Food",
+   "answer": "food"
+  },
+  {
+   "id": "m101_s3_COLD_6",
+   "topic": "food",
+   "output": "Food",
+   "answer": "food"
+  },
+  {
+   "id": "m101_s3_COLD_7",
+   "topic": "food",
+   "output": "Food",
+   "answer": "food"
+  },
+  {
+   "id": "m101_s3_COLD_8",
+   "topic": "food",
+   "output": "Food",
+   "answer": "food"
+  },
+  {
+   "id": "m101_s3_COLD_9",
+   "topic": "food",
+   "output": "Food",
+   "answer": "food"
+  },
+  {
+   "id": "m101_s3_COLD_10",
+   "topic": "food",
+   "output": "Food",
+   "answer": "food"
+  },
+  {
+   "id": "m101_s3_COLD_11",
+   "topic": "food",
+   "output": "Food",
+   "answer": "food"
+  },
+  {
+   "id": "m101_s3_COLD_12",
+   "topic": "food",
+   "output": "Food",
+   "answer": "food"
+  },
+  {
+   "id": "m101_s3_COLD_13",
+   "topic": "food",
+   "output": "Food",
+   "answer": "food"
+  },
+  {
+   "id": "m101_s3_COLD_14",
+   "topic": "food",
+   "output": "Food",
+   "answer": "food"
+  },
+  {
+   "id": "m101_s3_COLD_15",
+   "topic": "food",
+   "output": "Food",
+   "answer": "food"
+  },
+  {
+   "id": "m101_s3_COLD_16",
+   "topic": "food",
+   "output": "Food",
+   "answer": "food"
+  },
+  {
+   "id": "m101_s3_NEUTRAL_0",
+   "topic": "music",
+   "output": "Music",
+   "answer": "music"
+  },
+  {
+   "id": "m101_s3_NEUTRAL_1",
+   "topic": "music",
+   "output": "Music",
+   "answer": "music"
+  },
+  {
+   "id": "m101_s3_NEUTRAL_2",
+   "topic": "music",
+   "output": "Music",
+   "answer": "music"
+  },
+  {
+   "id": "m101_s3_NEUTRAL_3",
+   "topic": "music",
+   "output": "Music",
+   "answer": "music"
+  },
+  {
+   "id": "m101_s3_NEUTRAL_4",
+   "topic": "music",
+   "output": "Music",
+   "answer": "music"
+  },
+  {
+   "id": "m101_s3_NEUTRAL_5",
+   "topic": "music",
+   "output": "Music",
+   "answer": "music"
+  },
+  {
+   "id": "m101_s3_NEUTRAL_6",
+   "topic": "music",
+   "output": "Music",
+   "answer": "music"
+  },
+  {
+   "id": "m101_s3_NEUTRAL_7",
+   "topic": "music",
+   "output": "Music",
+   "answer": "music"
+  },
+  {
+   "id": "m101_s3_NEUTRAL_8",
+   "topic": "music",
+   "output": "Music",
+   "answer": "music"
+  },
+  {
+   "id": "m101_s3_NEUTRAL_9",
+   "topic": "music",
+   "output": "Music",
+   "answer": "music"
+  },
+  {
+   "id": "m101_s3_NEUTRAL_10",
+   "topic": "music",
+   "output": "Music",
+   "answer": "music"
+  },
+  {
+   "id": "m101_s3_NEUTRAL_11",
+   "topic": "music",
+   "output": "Music",
+   "answer": "music"
+  },
+  {
+   "id": "m101_s3_NEUTRAL_12",
+   "topic": "music",
+   "output": "Music",
+   "answer": "music"
+  },
+  {
+   "id": "m101_s3_NEUTRAL_13",
+   "topic": "music",
+   "output": "Music",
+   "answer": "music"
+  },
+  {
+   "id": "m101_s3_NEUTRAL_14",
+   "topic": "music",
+   "output": "Music",
+   "answer": "music"
+  },
+  {
+   "id": "m101_s3_NEUTRAL_15",
+   "topic": "music",
+   "output": "Music",
+   "answer": "music"
+  },
+  {
+   "id": "m101_s3_NEUTRAL_16",
+   "topic": "music",
+   "output": "Music",
+   "answer": "music"
+  },
+  {
+   "id": "m101_s3_HOT_0",
+   "topic": "cars",
+   "output": "Cars",
+   "answer": "cars"
+  },
+  {
+   "id": "m101_s3_HOT_1",
+   "topic": "cars",
+   "output": "Cars",
+   "answer": "cars"
+  },
+  {
+   "id": "m101_s3_HOT_2",
+   "topic": "cars",
+   "output": "Cars",
+   "answer": "cars"
+  },
+  {
+   "id": "m101_s3_HOT_3",
+   "topic": "cars",
+   "output": "Cars",
+   "answer": "cars"
+  },
+  {
+   "id": "m101_s3_HOT_4",
+   "topic": "cars",
+   "output": "Cars",
+   "answer": "cars"
+  },
+  {
+   "id": "m101_s3_HOT_5",
+   "topic": "cars",
+   "output": "Cars",
+   "answer": "cars"
+  },
+  {
+   "id": "m101_s3_HOT_6",
+   "topic": "cars",
+   "output": "Cars",
+   "answer": "cars"
+  },
+  {
+   "id": "m101_s3_HOT_7",
+   "topic": "cars",
+   "output": "Cars",
+   "answer": "cars"
+  },
+  {
+   "id": "m101_s3_HOT_8",
+   "topic": "cars",
+   "output": "Cars",
+   "answer": "cars"
+  },
+  {
+   "id": "m101_s3_HOT_9",
+   "topic": "cars",
+   "output": "Cars",
+   "answer": "cars"
+  },
+  {
+   "id": "m101_s3_HOT_10",
+   "topic": "cars",
+   "output": "Cars",
+   "answer": "cars"
+  },
+  {
+   "id": "m101_s3_HOT_11",
+   "topic": "cars",
+   "output": "Cars",
+   "answer": "cars"
+  },
+  {
+   "id": "m101_s3_HOT_12",
+   "topic": "cars",
+   "output": "Cars",
+   "answer": "cars"
+  },
+  {
+   "id": "m101_s3_HOT_13",
+   "topic": "cars",
+   "output": "Cars",
+   "answer": "cars"
+  },
+  {
+   "id": "m101_s3_HOT_14",
+   "topic": "cars",
+   "output": "Cars",
+   "answer": "cars"
+  },
+  {
+   "id": "m101_s3_HOT_15",
+   "topic": "cars",
+   "output": "Cars",
+   "answer": "cars"
+  },
+  {
+   "id": "m101_s3_HOT_16",
+   "topic": "cars",
+   "output": "Cars",
+   "answer": "cars"
+  }
+ ],
+ "recall_acc": 1.0,
+ "seconds": 5.41329026222229
+}
