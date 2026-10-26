@@ -190,8 +190,9 @@ def s6(out, T):
     for c in ("none", "dm_L18"):
         n = same = 0
         for k, r in R6[c].items():
-            s1 = {x["id"]: x["output"] for x in S1[c][k]["C1_rows"] + S1[c][k]["C6_rows"]}
-            same += sum(x["output"] == s1[x["id"]] for x in r["C1_rows"] + r["C6_rows"])
+            for cond in ("C1_rows", "C6_rows"):  # fix 2: compare C1 with C1 and C6 with C6 (ids are shared across conditions)
+                s1 = {x["id"]: x["output"] for x in S1[c][k][cond]}
+                same += sum(x["output"] == s1[x["id"]] for x in r[cond])
             n += len(r["C1_rows"]) + len(r["C6_rows"])
         anchors[c] = same / n
     reuse_ok = all(v == 1.0 for v in anchors.values())

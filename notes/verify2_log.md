@@ -32,3 +32,12 @@
   ($2.00) does not, so the SAME frozen containers run as 3 sequential waves of 2 (`verify --only i,j`, wall limit 500 s;
   per-wave reservation ≤ $0.67). This is an execution-only deviation; matrix, seeds and settings are unchanged.
 - Full run: 3 waves × 2 fold containers, 90/90 cells (walls 354/322/349 s). Ledger: computed upper $1.612, billed $1.176 (lagging). No refusals, retries or wall limits. All apps stopped.
+- Analysis fix 2 (POST-OUTCOME, found because the S6 reproduction gate reported failure):
+  - Bug: the S6 anchor check built one id→output dict from C1_rows + C6_rows. Ids are shared across conditions, so C6
+    outputs overwrote C1 and the C1 outputs were compared against C6 text (none 0.948, dm_L18 0.974 "identical").
+  - Independent check: position by position, the S6 none and dm_L18 C1, C6, recall and ARC outputs equal S1 in all 6
+    folds (0 differences).
+  - Fix: compare C1 with C1 and C6 with C6. Only the anchor comparison changed; no contrast, metric or cell selection
+    changed. Both the pre-fix and post-fix outputs are recorded (v2_tables_prefix2.md).
+- Final analysis run with fix 2. Descriptive diagnostic (outside the frozen analysis): sampled draws differing from greedy
+  0.4–6.7% per cell. Final ledger: computed $1.612, billed $1.205; all apps stopped.
