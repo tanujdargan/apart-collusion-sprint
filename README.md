@@ -14,6 +14,16 @@ Qwen2.5-7B-Instruct, with replication on Qwen2.5-14B/32B-Instruct and Phi-3.5-mi
 - **data/**, **data_models/**: messages, receiver outputs, metrics (large activation arrays are not committed;
   regenerate them with the Modal pipeline)
 
+## Post-submission follow-ups (reviewer requests)
+
+- **14B L26 retest, pre-registered on fresh data.** The plan was committed before any run: [notes/s6_14b_fresh_plan.md](notes/s6_14b_fresh_plan.md).
+  The test used 918 new 14B messages (3 seeds) and frozen held-out-scheme directions. **Result: the state-over-control gap at L26 is -0.097 [-0.112, -0.082].** It replicates (per seed -0.085 / -0.105 / -0.101) and L32 stays null.
+  Reproduce with `modal run exp/modal_app.py::fresh14`, then `::verify --matrix s6_14b_fresh --maxc 6`, then `python exp/s6_analyze.py`.
+- **7B L16 cutoff explained:** [notes/verify_results.md](notes/verify_results.md) (end), [exp/l16_error_direction.py](exp/l16_error_direction.py).
+  - The state and control ablations push errors in opposite directions. Measured by answers flipped to HOT, the state effect beats the control at every cutoff.
+  - The fitted L16/L17 directions are ~70-83 deg from the stable L18 subspace. Hooking L16/L17 with the L18 subspace makes the effect larger, not smaller (gap -0.163 [-0.219, -0.101]). So L16 was a direction-estimation failure, not an absent state.
+  - Scaling the L16 hooks down to L18 energy did not fix it (matrices `s1s_7b`, `s1x_7b`).
+
 ## Reproducing
 
 ```

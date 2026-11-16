@@ -14,3 +14,13 @@ which was chosen after seeing results (-0.09 on the original messages). Retest w
 - **Decision rule:** the 14B effect replicates if the upper CI bound is < 0. Report it as not replicated otherwise, whatever the point estimate.
 - **Secondary:** ->HOT / HOT->other error split (exp/l16_error_direction.py logic); C6, ARC, recall; per-seed gaps; L32 gap.
 - Matrix: data/verify/matrices/s6_14b_fresh.json (`python exp/verify_matrix.py s6`), run with `::verify --matrix s6_14b_fresh --maxc 6`.
+
+## Results (run after the plan was committed in 142d117; `python exp/s6_analyze.py` -> data/verify/s6_analysis.json)
+- Fresh 14B messages: parse_ok 306/306 per seed; clean 278 / 276 / 281 (original set: 273).
+- **PRIMARY: M2_L26 - PC2_L26 C1 strict = -0.097 [-0.112, -0.082]** (918 episodes, 102 context clusters). **Replicates**
+  under the decision rule. Per seed: -0.085 / -0.105 / -0.101. The original post hoc L26 gap was about -0.09.
+- Absolute: none 0.995, M2_L26 0.885, PC2_L26 0.981 (control costs only -0.013).
+- Error signature: same as 7B. State ablation pushes non-HOT answers to HOT (0.160 vs control 0.008; contrast +0.152 [+0.132, +0.172]).
+- Capability: C6 1.0 in all configs; ARC 0.985 vs 0.99 (none); recall 1.0.
+- Secondary L32: gap +0.007 [+0.000, +0.014], absent again, matching the original L32 result.
+- Interpretation: in 14B the state is ablatable from L26 (rel. depth 0.55), as in 7B from L18 (0.67), but not from L32. The frozen relative-depth cutoff (L32) was too late for 14B.
