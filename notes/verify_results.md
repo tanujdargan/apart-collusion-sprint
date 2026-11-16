@@ -135,5 +135,17 @@ Conventions:
 - The L16 state hook removes 23046 energy/token (3.7% of ||h||^2), 17x the L18 hook. The L16 direction is unstable
   (bootstrap angle 27 deg vs 7 deg at L18+) and mostly uncentred (centred share 0.05 vs ~0.35 at L18+; phase0 files).
   So the L16 hook acts mostly as a large generic perturbation with the control's error signature.
-- Untested prediction: a mean-preserving (centred) ablation at L16+, h - ((h - mu) . u) u, restores the ->HOT collapse to
-  ~0.25 and the accuracy gap. GPU run not done.
+- Size test (GPU, exp/verify_matrix.py s1s, 13 configs; f0_M2_L16_repro reproduced the S1 run exactly, 51/51
+  outputs identical). Each arm's L16/L17 dose was scaled to that arm's own L18 energy (state L16 23046 -> 1362/token).
+  Prediction: the ->HOT collapse returns to ~0.25 and the gap comes back. **Mostly refuted.**
+  - The state ->HOT rate moves only 0.118 -> 0.157 (+0.039 [+0.010, +0.074]) and stays below L18 (-0.093 [-0.132, -0.054]).
+  - The control HOT->other rate moves 0.324 -> 0.304 and stays above L18 (+0.108 [+0.049, +0.176]).
+  - Accuracy: state 0.876, control 0.856, so the gap stays reversed (+0.02).
+  - The ->HOT signature still separates the arms: +0.147 [+0.098, +0.196].
+  - Centring (subtracting the mean before projecting) was also checked in an 8-episode smoke test. It barely changes the
+    L16 energy (14118 -> 13970), so the large L16 removal is token-level variance, not a shared offset.
+- Conclusion: the reversal is not caused by the size of the L16 hook. Even at the L18 energy, hooking L16/L17 (i) halves the state
+  arm's ->HOT collapse and (ii) makes the control more damaging to HOT answers. Both point to the direction/placement
+  at L16/L17 mattering, not the dose. Where the direction is unstable (L16-17, ~27 deg bootstrap angle), editing it
+  appears to interfere with how L18+ forms the state rather than just adding noise. Next test (not run): put the stable
+  L18 direction at L16/L17 instead of the unstable fitted ones.

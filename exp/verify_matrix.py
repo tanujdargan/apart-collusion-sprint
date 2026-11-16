@@ -316,5 +316,26 @@ def schemes4b():
     print(len(sols), "solutions; frozen choice reproduced:", pick)
 
 
+def s1s():
+    """Post-submission L16 follow-up (notes/verify_results.md). At L16 the state hook removes ~10x the energy of the L18
+    hook (dose_alpha.json, training folds), mostly non-state token variance. Test: keep the L16/L17 hooks but scale each
+    arm's L16/L17 dose so its energy equals that arm's L18 energy (c = sqrt(E_L18 / E_l), capped at 1); L18+ full.
+    Prediction: the ->HOT collapse and the state-over-control gap return at L16. f0_M2_L16_repro = the uncentred S1
+    config, which must reproduce data/verify/runs/s1_7b/f0_M2_L16 (checks the rebuilt fold directions)."""
+    A = json.load(open(ROOT / "data/verify/dose_alpha.json"))
+    sp7 = json.load(open(ROOT / "data/loso/splits.json"))
+    conts = []
+    for k in range(6):
+        d, c = (f"data/loso/fold{k}/{x}.npy" for x in ("state", "pc2d"))
+        p = f"f{k}_"
+        cs = [cfg(p + "M2_L16_repro", d, late(16, 28))] if k == 0 else []
+        for n, x, e in (("M2", d, "E_M2"), ("PC2", c, "E_PC2")):
+            dz = [1.0] * 28
+            for l in (16, 17):
+                dz[l] = min(1.0, float(np.sqrt(A[str(k)]["18"][e] / A[str(k)][str(l)][e])))
+            cs.append(cfg(p + n + "_L16s", x, late(16, 28), dz))
+        conts.append([job(cs, sp7[str(k)]["eval_ids"], "verify/s1s_7b")])
+    save("s1s_7b", dict(model="Qwen/Qwen2.5-7B-Instruct", gpu="L40S", containers=conts))
+
 if __name__ == "__main__":
-    {"base": base, "s1": s1, "schemes4b": schemes4b, "g4a": g4a, "g4b": g4b, "v2": v2}[sys.argv[1]]()
+    {"base": base, "s1": s1, "schemes4b": schemes4b, "g4a": g4a, "g4b": g4b, "v2": v2, "s1s": s1s}[sys.argv[1]]()
