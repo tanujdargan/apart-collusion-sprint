@@ -907,6 +907,18 @@ def fresh(sets: str = "101,202,303,404,505", arc: bool = True):
 
 
 @app.local_entrypoint()
+def fresh14(seeds: str = "1401,1402,1403"):
+    """Post-submission 14B retest (notes/s6_14b_fresh_plan.md): new 14B COLLUDING sender messages for the same 306
+    contexts, one container per seed (Runner.fresh_set with no configs = generation only). Seeds differ from the 7B
+    fresh sets (101..505), so /vol/fresh/m<seed> does not collide. Output: data_models/qwen14b/fresh/m<seed>/messages.jsonl."""
+    sd = [int(x) for x in seeds.split(",")]
+    for seed, out in zip(sd, _runner("Qwen/Qwen2.5-14B-Instruct", "L40S").fresh_set.starmap([(s, [], False) for s in sd])):
+        _write_jsonl(ROOT / f"data_models/qwen14b/fresh/m{seed}/messages.jsonl", out["messages"])
+        print(f"m{seed}", len(out["messages"]), "parse_ok", sum(r["collude_parse_ok"] for r in out["messages"]),
+              "clean", sum(bool(r["collude_clean"]) for r in out["messages"]), flush=True)
+
+
+@app.local_entrypoint()
 def stage32(model: str = "Qwen/Qwen2.5-32B-Instruct", gpu: str = "H200", out_tag: str = "qwen32b"):
     """32B step C1 (notes/followups_plan.md C): baseline on the ORIGINAL 7B frozen messages (same episode ids/prompts/
     scoring) for C1, C2, C4, C6 + recall + ARC; then extract C1/C4 activations to /vol/<tag>/acts and pull locally."""

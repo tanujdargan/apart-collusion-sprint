@@ -353,5 +353,24 @@ def s1x():
         conts.append([job(cs, sp7[str(k)]["eval_ids"], "verify/s1x_7b")])
     save("s1x_7b", dict(model="Qwen/Qwen2.5-7B-Instruct", gpu="L40S", containers=conts))
 
+def s6():
+    """Post-submission 14B retest, pre-registered in notes/s6_14b_fresh_plan.md BEFORE any run: primary cutoff L26,
+    FRESH 14B messages (seeds 1401-1403), frozen fold directions fitted on the original 14B messages (fold k excludes
+    scheme k; evaluated only on scheme-k episodes). Secondary: L32."""
+    sp14 = json.load(open(ROOT / "data_models/qwen14b/loso/splits.json"))
+    conts = []
+    for k in range(6):
+        d, c = (f"data_models/qwen14b/loso/fold{k}/{x}.npy" for x in ("state", "pc2d"))
+        jobs = []
+        for seed in (1401, 1402, 1403):
+            p = f"m{seed}_f{k}_"
+            jobs.append(job([cfg(p + "none", None),
+                             cfg(p + "M2_L26", d, late(26, 48)), cfg(p + "PC2_L26", c, late(26, 48)),
+                             cfg(p + "M2_L32", d, late(32, 48), secondary=True), cfg(p + "PC2_L32", c, late(32, 48), secondary=True)],
+                            [f"m{seed}_{i}" for i in sp14[str(k)]["eval_ids"]], "verify/s6_14b_fresh",
+                            f"/vol/fresh/m{seed}/messages.jsonl"))
+        conts.append(jobs)
+    save("s6_14b_fresh", dict(model="Qwen/Qwen2.5-14B-Instruct", gpu="L40S", containers=conts))
+
 if __name__ == "__main__":
-    {"base": base, "s1": s1, "schemes4b": schemes4b, "g4a": g4a, "g4b": g4b, "v2": v2, "s1s": s1s, "s1x": s1x}[sys.argv[1]]()
+    {"base": base, "s1": s1, "schemes4b": schemes4b, "g4a": g4a, "g4b": g4b, "v2": v2, "s1s": s1s, "s1x": s1x, "s6": s6}[sys.argv[1]]()
