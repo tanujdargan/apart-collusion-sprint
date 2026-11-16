@@ -124,3 +124,16 @@ Conventions:
   removal collapses decoding toward one state); both are reported.
 - **Readout caveat stands.** The first-hooked-layer readout dip is partly built into the method (span and readout fitted on
   the same training episodes). Higher readout one layer later is not shown to be recovery or reconstruction.
+
+## Post-submission: L16 cutoff explained (reviewer follow-up; `python3 exp/l16_error_direction.py`, CPU, existing S1 runs)
+- State and control ablations break decoding in opposite directions. State ablation pushes true COLD/NEUTRAL answers to
+  HOT (0.015 -> 0.250 at L18). The PC2 control breaks true HOT answers to other states (0.039 -> 0.196 at L18).
+- Scored on its own signature (->HOT), the state effect beats the control at every cutoff, L16 included:
+  L16 +0.108 [+0.069, +0.157], L18 +0.240, L20 +0.167 (episode bootstrap, not cluster).
+- The accuracy gap reverses at L16 for two reasons. First, the control's HOT->other damage grows (0.196 -> 0.324).
+  Second, the state's ->HOT collapse halves (0.250 -> 0.118) and the state hook adds HOT->other errors of its own (0.029 -> 0.069).
+- The L16 state hook removes 23046 energy/token (3.7% of ||h||^2), 17x the L18 hook. The L16 direction is unstable
+  (bootstrap angle 27 deg vs 7 deg at L18+) and mostly uncentred (centred share 0.05 vs ~0.35 at L18+; phase0 files).
+  So the L16 hook acts mostly as a large generic perturbation with the control's error signature.
+- Untested prediction: a mean-preserving (centred) ablation at L16+, h - ((h - mu) . u) u, restores the ->HOT collapse to
+  ~0.25 and the accuracy gap. GPU run not done.
