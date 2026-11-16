@@ -149,3 +149,14 @@ Conventions:
   at L16/L17 mattering, not the dose. Where the direction is unstable (L16-17, ~27 deg bootstrap angle), editing it
   appears to interfere with how L18+ forms the state rather than just adding noise. Next test (not run): put the stable
   L18 direction at L16/L17 instead of the unstable fitted ones.
+- Direction test (GPU, exp/verify_matrix.py s1x): hook L16/L17 with the stable L18 subspace in place of the fitted
+  L16/L17 subspaces, which are ~70-83 deg (principal angles) from L18 in fold 0. **Confirmed, strongly.**
+  - The state ->HOT rate rises to 0.382 (L18: 0.250). Accuracy is 0.735; L16x minus L18 is -0.082 [-0.114, -0.049].
+  - State minus control (accuracy) is -0.163 [-0.219, -0.101], the largest late gap in the study. On the ->HOT signature it is +0.373 [+0.309, +0.436].
+  - C6 1.0, ARC 0.96-0.97, recall 0.86-1.0.
+  - The removed energy at L16 is 1357/token, matching the L18 hook (1362). L17 and L18 are then ~0: once the component is
+    removed at L16, layers 16-17 do not rewrite it.
+- Answer to the L16 question: the cutoff sensitivity is a direction-estimation failure, not an absent state.
+  - The state carrier already exists at L16, in the L18 subspace. Removing it there is more effective than removing it at L18.
+  - The subspace fitted at L16 (state decodability 0.54 there) misses that carrier. It mostly removes large non-state token variance.
+  - Post hoc caveat: this config was designed after the S1 cutoff results, so treat it as a follow-up, not a pre-registered test.

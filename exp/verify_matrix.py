@@ -337,5 +337,21 @@ def s1s():
         conts.append([job(cs, sp7[str(k)]["eval_ids"], "verify/s1s_7b")])
     save("s1s_7b", dict(model="Qwen/Qwen2.5-7B-Instruct", gpu="L40S", containers=conts))
 
+def s1x():
+    """L16 follow-up 2: hook L16/L17 with the stable L18 subspace instead of the fitted L16/L17 ones (about 80 deg from
+    L18). Writes data/loso/fold{k}/{state,pc2d}_x18.npy (gitignored; regenerated here). Prediction if the unstable
+    L16/L17 directions cause the reversal: M2 ->HOT collapse returns to the L18 level (~0.25)."""
+    sp7 = json.load(open(ROOT / "data/loso/splits.json"))
+    conts = []
+    for k in range(6):
+        cs = []
+        for n, x in (("M2", "state"), ("PC2", "pc2d")):
+            a = np.load(ROOT / f"data/loso/fold{k}/{x}.npy")
+            a[16] = a[17] = a[18]
+            np.save(ROOT / f"data/loso/fold{k}/{x}_x18.npy", a)
+            cs.append(cfg(f"f{k}_{n}_L16x", f"data/loso/fold{k}/{x}_x18.npy", late(16, 28)))
+        conts.append([job(cs, sp7[str(k)]["eval_ids"], "verify/s1x_7b")])
+    save("s1x_7b", dict(model="Qwen/Qwen2.5-7B-Instruct", gpu="L40S", containers=conts))
+
 if __name__ == "__main__":
-    {"base": base, "s1": s1, "schemes4b": schemes4b, "g4a": g4a, "g4b": g4b, "v2": v2, "s1s": s1s}[sys.argv[1]]()
+    {"base": base, "s1": s1, "schemes4b": schemes4b, "g4a": g4a, "g4b": g4b, "v2": v2, "s1s": s1s, "s1x": s1x}[sys.argv[1]]()

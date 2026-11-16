@@ -1,15 +1,16 @@
 """Post-submission follow-up (reviewer 2): why does the 7B state-over-control accuracy gap reverse at the L16 cutoff?
 Splits C1 decode errors by direction (non-HOT -> HOT vs HOT -> other) for the S1 cutoff runs, and reports per-layer
-removed energy. CPU only, reads committed data/verify/runs/s1_7b. CIs: episode bootstrap (not cluster)."""
+removed energy. CPU only; reads committed runs s1_7b, s1s_7b, s1x_7b. CIs: episode bootstrap (not cluster)."""
 import json, random
 
 R = "data/verify/runs/s1_7b"
-CFGS = ["none", "M2_L16", "M2_L18", "M2_L20", "PC2_L16", "PC2_L18", "PC2_L20", "M2_L16s", "PC2_L16s"]
+CFGS = ["none", "M2_L16", "M2_L18", "M2_L20", "PC2_L16", "PC2_L18", "PC2_L20", "M2_L16s", "PC2_L16s", "M2_L16x", "PC2_L16x"]
+# *_L16x: L16/L17 hooked with the L18 subspace (verify_matrix.py s1x)
 # *_L16s: L16/L17 hooks scaled to each arm's own L18 energy (exp/verify_matrix.py s1s, follow-up GPU run)
 
 
 def load(c):
-    d = "data/verify/runs/s1s_7b" if c.endswith("L16s") else R
+    d = {"L16s": "data/verify/runs/s1s_7b", "L16x": "data/verify/runs/s1x_7b"}.get(c[-4:], R)
     return [json.load(open(f"{d}/f{f}_{c}/metrics.json")) for f in range(6)]
 
 
@@ -38,11 +39,11 @@ if __name__ == "__main__":
         acc = sum(x["decoded"] == x["state"] for x in r.values()) / len(r)
         print(f"{c:9s} acc {acc:.3f}  {sum(map(to_hot, nh)) / len(nh):.3f}                 {sum(map(away_hot, h)) / len(h):.3f}")
     fmt = lambda t: f"{t[0]:+.3f} [{t[1]:+.3f}, {t[2]:+.3f}]"
-    for cut in ("16", "16s", "18", "20"):
+    for cut in ("16", "16s", "16x", "18", "20"):
         a, b = cfg["M2_L" + cut], cfg["PC2_L" + cut]
         print(f"L{cut} state-control: ->HOT {fmt(diff_ci(a, b, to_hot, False))}  HOT->other {fmt(diff_ci(a, b, away_hot, True))}")
     print("\nper-layer prefill removed energy / token (C1, mean of folds), % of ||h||^2")
-    for c in ("M2_L16", "M2_L16s", "M2_L18", "PC2_L16", "PC2_L16s", "PC2_L18"):
+    for c in ("M2_L16", "M2_L16s", "M2_L16x", "M2_L18", "PC2_L16", "PC2_L16s", "PC2_L16x", "PC2_L18"):
         acc = {}
         for m in load(c):
             for k, (d2, h2, n) in m["meter"]["C1"].items():
